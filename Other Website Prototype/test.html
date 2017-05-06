@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>sfg;skm</title>
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+		<link rel="stylesheet" href="core.css">
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<script>
+            $(function () {
+                $("[data-role=panel]").panel().enhanceWithin();
+            });
+
+		</script>
+	</head>
+	<body>
+	<div id="override">
+		<div data-role="page" id="page1">
+
+
+
+			<div data-role="header">
+				<div class="nav">
+					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
+					<h1>Fridge</h1>
+					<a href="#" class="sort-button ui-btn">Sort</a>
+				</div>
+
+			</div>
+			<div role="main" class="ui-content">
+
+				<div class="top-hr"></div>
+				<div class="item-list">
+					<a href="#item-popup" data-rel="popup" class="ui-btn"><img src="icons/produce.png">
+						<p class="item-name">Apple Apr-26</p>
+						<p class="item-expires">Expires in 3 days</p>
+						<div class="circle"></div>
+					</a>
+					<div data-role="popup" class="item-popup" data-overlay-theme="b" data-theme="b">
+						</p></div>
+
+				</div>
+			</div>
+
+			<div data-role="footer">
+			</div>
+		</div><!-- page1 -->
+
+		<div data-role="page" id="page2">
+
+			<div data-role="header">
+				<div class="nav">
+					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
+					<h1>Test</h1>
+					<a href="#" class="sort-button ui-btn">Sort</a>
+				</div>
+
+			</div>
+			<div role="main" class="ui-content">
+
+				<div class="top-hr"></div>
+				<div class="item-list">
+
+
+				</div>
+			</div>
+
+			<div data-role="footer">
+			</div>
+
+		</div><!-- page -->
+
+		<div data-role="panel" id="defaultpanel" data-theme="a" data-display="overlay" class="ui-panel ui-panel-position-left ui-body-inherit ui-panel-animate ui-panel-closed">
+			<p id="logo" >WhatsinmyFridge.com</p>
+			<a href="#page1" data-transition="slide" class="nav-btn ui-btn">Fridge</a>
+			<a href="#" class="nav-btn ui-btn">Shopping List</a>
+			<a href="#page2" data-transition="slide" class="nav-btn ui-btn">Settings</a>
+			<a href="#" class="nav-btn ui-btn">About Us</a>
+
+
+		</div>
+
+	</div>
+	</body>
+</html>
