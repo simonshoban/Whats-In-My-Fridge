@@ -4,7 +4,8 @@ body{
 h1 {
     margin: 0px;
     text-align:center;
-    padding-top: 8px;
+    padding-top: 12px;
+    font-size: 1.6em;
 }
 #defaultpanel{
     width:250px;
@@ -14,8 +15,8 @@ h1 {
 }
 .sort-button{
     position:absolute;
-    right:10px;
-    top:2px;
+    right:6px;
+    top:0px;
 }
 #override .nav-button {
     margin: 0;
@@ -58,7 +59,7 @@ h1 {
     text-align: center;
     font-size: large;
 }
-.circle{
+.small-circle{
     background-color:red;
     border-radius:50%;
     height:12px;
@@ -67,7 +68,16 @@ h1 {
     right: 6px;
     top: 6px;
 }
-#item-popup {
+.large-circle{
+    height:50px;
+    width:50px;
+    border-radius:50%;
+    position:absolute;
+    right: 6px;
+    bottom: 6px;
+}
+#item-popup, #item-popup2 {
+    background-color:white;
     width:90vw;
     height:85vh;
     position:fixed;
@@ -96,4 +106,39 @@ h1 {
 .ui-content {
     padding:    0px;
 
+}
+#measurement-label {
+    display:inline;
+    padding-right:10px;
+    padding-left:20px;
+}
+#email-link-container{
+    width:200px;
+    display:inline-block;
+
+}
+#email-link-label{
+    display:inline-block;
+    padding-right:30px;
+    padding-left:20px;
+
+}
+
+.custom-size-flipswitch.ui-flipswitch .ui-btn.ui-flipswitch-on {
+    text-indent: -4.9em;
+}
+.custom-size-flipswitch.ui-flipswitch .ui-flipswitch-off {
+    text-indent: 1.2em;
+}
+.custom-size-flipswitch.ui-flipswitch {
+    width: 7.875em;
+}
+.custom-size-flipswitch.ui-flipswitch.ui-flipswitch-active {
+    padding-left: 6em;
+    width: 1.875em;
+}
+@media (min-width: 28em) {
+        .ui-field-contain > label + .custom-size-flipswitch.ui-flipswitch {
+        width: 1.875em;
+        }
 }

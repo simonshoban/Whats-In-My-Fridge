@@ -17,17 +17,13 @@
 	</head>
 	<body>
 	<div id="override">
-		<div data-role="page" id="page1">
-
-
-
+		<div data-role="page" id="fridge">
 			<div data-role="header">
 				<div class="nav">
 					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
 					<h1>Fridge</h1>
 					<a href="#" class="sort-button ui-btn">Sort</a>
 				</div>
-
 			</div>
 			<div role="main" class="ui-content">
 
@@ -38,46 +34,88 @@
 						<p class="item-expires">Expires in 3 days</p>
 						<div class="circle"></div>
 					</a>
-					<div data-role="popup" class="item-popup" data-overlay-theme="b" data-theme="b">
-						</p></div>
-
+					<div data-role="popup" id="item-popup" data-overlay-theme="b" data-theme="b">
+					</div>
 				</div>
+				<a href="#" class="large-circle ui-alt-icon ui-nodisc-icon  ui-btn ui-icon-plus ui-btn-icon-notext">No text</a>
 			</div>
-
 			<div data-role="footer">
 			</div>
-		</div><!-- page1 -->
+		</div><!-- page fridge -->
 
-		<div data-role="page" id="page2">
-
+		<div data-role="page" id="list">
 			<div data-role="header">
 				<div class="nav">
 					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
-					<h1>Test</h1>
+					<h1>Shopping List</h1>
 					<a href="#" class="sort-button ui-btn">Sort</a>
 				</div>
-
 			</div>
 			<div role="main" class="ui-content">
 
 				<div class="top-hr"></div>
 				<div class="item-list">
-
-
+					<a href="#item-popup2" data-rel="popup" class="ui-btn"><img src="icons/produce.png">
+						<p class="item-name">Apple Apr-26</p>
+						<p class="item-expires">Expires in 3 days</p>
+						<div class="circle"></div>
+					</a>
+					<div data-role="popup" id="item-popup2" data-overlay-theme="b" data-theme="b">
+					</div>
 				</div>
+				<a href="#" class="large-circle ui-alt-icon ui-nodisc-icon  ui-btn ui-icon-plus ui-btn-icon-notext">No text</a>
 			</div>
-
 			<div data-role="footer">
 			</div>
+		</div><!-- page list -->
 
-		</div><!-- page -->
+		<div data-role="page" id="settings">
+			<div data-role="header">
+				<div class="nav">
+					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
+					<h1>Settings</h1>
+				</div>
+			</div>
+			<div role="main" class="ui-content">
+				<div class="top-hr"></div>
+				<form>
+					<label id="measurement-label" for="flip-metric-imperial">Measurement type:</label>
+					<input type="checkbox" data-role="flipswitch" name="measurement-type" id="flip-metric-imperial" data-on-text="Imperial" data-off-text="Metric" data-wrapper-class="custom-size-flipswitch">
+				</form>
+				<form>
+					<div data-role="">
+						<label id="email-link-label" for="email-link">Email:</label>
+						<div id="email-link-container">
+							<input id="email-link" name="email" type="text" value="">
+						</div>
+					</div>
+				</form>
+			</div>
+			<div data-role="footer">
+			</div>
+		</div><!-- page settings -->
+
+		<div data-role="page" id="about">
+			<div data-role="header">
+				<div class="nav">
+					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
+					<h1>About</h1>
+				</div>
+			</div>
+			<div role="main" class="ui-content">
+				<div class="top-hr"></div>
+
+			</div>
+			<div data-role="footer">
+			</div>
+		</div><!-- page about -->
 
 		<div data-role="panel" id="defaultpanel" data-theme="a" data-display="overlay" class="ui-panel ui-panel-position-left ui-body-inherit ui-panel-animate ui-panel-closed">
 			<p id="logo" >WhatsinmyFridge.com</p>
-			<a href="#page1" data-transition="slide" class="nav-btn ui-btn">Fridge</a>
-			<a href="#" class="nav-btn ui-btn">Shopping List</a>
-			<a href="#page2" data-transition="slide" class="nav-btn ui-btn">Settings</a>
-			<a href="#" class="nav-btn ui-btn">About Us</a>
+			<a href="#fridge" data-transition="slide" class="nav-btn ui-btn">Fridge</a>
+			<a href="#list" class="nav-btn ui-btn">Shopping List</a>
+			<a href="#settings" data-transition="slide" class="nav-btn ui-btn">Settings</a>
+			<a href="#about" class="nav-btn ui-btn">About</a>
 
 
 		</div>
