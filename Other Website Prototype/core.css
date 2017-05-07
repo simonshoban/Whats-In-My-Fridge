@@ -144,6 +144,49 @@ h1 {
 
 }
 
+/* About page css */
+.develop-img{
+    margin-left: 45%;
+}
+.develop-text{
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#dev-header{
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    background-color: lightslategrey;
+}
+#mission-header{
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    background-color: rosybrown;
+}
+#goal-header{
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    background-color: lightgreen;
+}
+/* About page css */
+
+/* Affiliated page css */
+.aff-header{
+    background-color: lightgreen;
+    padding-bottom: 5px;
+    padding-right: 30px;
+}
+.aff-icon{
+    float: left;
+}
+#aff-apps h3{
+    text-align: center;
+}
+#aff-apps p{
+    text-align: center;
+}
+/* Affiliated page css */
+
 .custom-size-flipswitch.ui-flipswitch .ui-btn.ui-flipswitch-on {
     text-indent: -4.9em;
 }
