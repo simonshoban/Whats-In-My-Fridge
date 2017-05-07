@@ -1,0 +1,144 @@
+body{
+    margin:0;
+}
+h1 {
+    margin: 0px;
+    text-align:center;
+    padding-top: 12px;
+    font-size: 1.6em;
+}
+#defaultpanel{
+    width:250px;
+}
+.nav{
+    height:58px;
+}
+.sort-button{
+    position:absolute;
+    right:6px;
+    top:0px;
+}
+#override .nav-button {
+    margin: 0;
+    position: absolute;
+    padding: 14px 14px 14px 14px;
+}
+.item-list a{
+    margin: 0;
+}
+.top-hr {
+    margin:0;
+    width:100%;
+    height:0.5px;
+    border-bottom:1px grey solid;
+    background-color:darkgrey;
+}
+.item-list img {
+    position:absolute;
+    left:4px;
+    top: 4px;
+}
+.item-list a {
+    height: 58px;
+    padding: 0px;
+    text-align:left;
+}
+.item-list .item-name{
+    padding-left: 62px;
+    font-size:large;
+}
+.item-list .item-expires{
+    position:absolute;
+    right:30px;
+    top:33px;
+    font-size:x-small;
+    color: grey;
+}
+#defaultpanel #logo {
+    font-weight: bold;
+    text-align: center;
+    font-size: large;
+}
+.small-circle{
+    background-color:red;
+    border-radius:50%;
+    height:12px;
+    width:12px;
+    position:absolute;
+    right: 6px;
+    top: 6px;
+}
+.large-circle{
+    height:50px;
+    width:50px;
+    border-radius:50%;
+    position:absolute;
+    right: 6px;
+    bottom: 6px;
+}
+#item-popup, #item-popup2 {
+    background-color:white;
+    width:90vw;
+    height:85vh;
+    position:fixed;
+    top:8vh;
+    left: 5vw;
+    overflow-y: auto;
+}
+.ui-panel-inner{
+    padding: 0;
+}
+.nav-btn{
+    margin:0;
+
+}
+.ui-icon-produce:after {
+    background-image: url("icons/produce.svg");
+    background-size: 18px 18px;
+}
+.ui-nosvg .ui-icon-produce:after{
+    background-image: url("icons/produce.png");
+    background-size: 18px 18px;
+}
+.ui-large-icon{
+    background-size:30px 30px;
+}
+.ui-content {
+    padding:    0px;
+
+}
+#measurement-label {
+    display:inline;
+    padding-right:10px;
+    padding-left:20px;
+}
+#email-link-container{
+    width:200px;
+    display:inline-block;
+
+}
+#email-link-label{
+    display:inline-block;
+    padding-right:30px;
+    padding-left:20px;
+
+}
+
+.custom-size-flipswitch.ui-flipswitch .ui-btn.ui-flipswitch-on {
+    text-indent: -4.9em;
+}
+.custom-size-flipswitch.ui-flipswitch .ui-flipswitch-off {
+    text-indent: 1.2em;
+}
+.custom-size-flipswitch.ui-flipswitch {
+    width: 7.875em;
+}
+.custom-size-flipswitch.ui-flipswitch.ui-flipswitch-active {
+    padding-left: 6em;
+    width: 1.875em;
+}
+@media (min-width: 28em) {
+        .ui-field-contain > label + .custom-size-flipswitch.ui-flipswitch {
+        width: 1.875em;
+        }
+}
