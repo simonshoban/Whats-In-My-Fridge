@@ -78,12 +78,32 @@ h1 {
 }
 #item-popup, #item-popup2 {
     background-color:white;
+	color:black;
     width:90vw;
     height:85vh;
     position:fixed;
     top:8vh;
     left: 5vw;
     overflow-y: auto;
+}
+.item-popup-name {
+	text-align:center;
+	font-size:2.2em;
+	color:green;
+}
+.item-popup-expires {
+	text-align:center;
+}
+#overview, #storage, #expired {
+	text-align:center;
+}
+.ui-table {
+	width:300px;
+	margin:auto;
+}
+.ui-table table {
+	width:100%;
+	margin:auto;
 }
 .ui-panel-inner{
     padding: 0;

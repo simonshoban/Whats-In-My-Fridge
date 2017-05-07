@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>sfg;skm</title>
+		<title>What's in My Fridge?</title>
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 		<link rel="stylesheet" href="core.css">
 		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -12,7 +12,6 @@
             $(function () {
                 $("[data-role=panel]").panel().enhanceWithin();
             });
-
 		</script>
 	</head>
 	<body>
@@ -26,15 +25,52 @@
 				</div>
 			</div>
 			<div role="main" class="ui-content">
-
 				<div class="top-hr"></div>
 				<div class="item-list">
-					<a href="#item-popup" data-rel="popup" class="ui-btn"><img src="icons/produce.png">
+					<a href="#item-popup" data-rel="popup" class="ui-btn list-item"><img src="icons/produce.png">
 						<p class="item-name">Apple Apr-26</p>
 						<p class="item-expires">Expires in 3 days</p>
 						<div class="circle"></div>
 					</a>
 					<div data-role="popup" id="item-popup" data-overlay-theme="b" data-theme="b">
+						<p class="item-popup-name">Apple Apr-26</p>
+						<p class="item-popup-expires">Expires on April 29th, 2017</p>
+						<div id="tabs" data-role="tabs">
+							<div data-role="navbar">
+								<ul>
+									<li><a href="#" data-ajax="false" id="overviewTab">Overview</a></li>
+									<li><a href="#storage" data-ajax="false" id="storageTab">Storage Tips</a></li>
+									<li><a href="#expired" data-ajax="false" id="expiredTab">Expired?</a></li>
+								</ul>
+							</div>
+							<div class="ui-body-d ui-content" id="overview">
+								<div class="ui-table">
+									<br/>
+									<table>
+										<tr>
+											<td>Purchase Date: </td>
+											<td>April 26, 2017</td>
+										</tr>
+										<tr>
+											<td>Quantity</td>
+											<td>1</td>
+										</tr> 
+										<tr>
+											<td>Value of items</td>
+											<td>$0.93</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<div class="ui-body-d ui-content" id="storage">
+								<br/>
+								best stored in stomach
+							</div>
+							<div class="ui-body-d ui-content" id="expired">
+								<br/>
+								if its red then its dead, if its brown scarf it down
+							</div>
+						</div>
 					</div>
 				</div>
 				<a href="#" class="large-circle ui-alt-icon ui-nodisc-icon  ui-btn ui-icon-plus ui-btn-icon-notext">No text</a>
@@ -61,6 +97,7 @@
 						<div class="circle"></div>
 					</a>
 					<div data-role="popup" id="item-popup2" data-overlay-theme="b" data-theme="b">
+					<!-- shopping list item popup goes here -->
 					</div>
 				</div>
 				<a href="#" class="large-circle ui-alt-icon ui-nodisc-icon  ui-btn ui-icon-plus ui-btn-icon-notext">No text</a>
@@ -121,5 +158,32 @@
 		</div>
 
 	</div>
+	<script>
+		
+		/***********Don't change**********/
+		
+		//Sets overview tab as default tab and highlights tab
+		$(".list-item").click(function(){
+			$("#overview").show();
+			$("#overviewTab").click();
+		});
+		
+		//Displays overview when clicked
+		$("#overviewTab").click(function() {
+			$("#overview").show();
+		});
+		
+		//Hides overview when storage tab is clicked
+		$("#storageTab").click(function() {
+			$("#overview").hide();
+		});
+		
+		//Hides overview when expired tab is clicked
+		$("#expiredTab").click(function() {
+			$("#overview").hide();
+		});
+		
+		/*********************************/
+	</script>
 	</body>
 </html>
