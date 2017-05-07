@@ -144,6 +144,31 @@ h1 {
 
 }
 
+/* About page css */
+.develop-img{
+    margin-left: 45%;
+}
+.develop-text{
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#dev-header{
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    background-color: lightslategrey;
+}
+#mission-header{
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    background-color: rosybrown;
+}
+#goal-header{
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    background-color: lightgreen;
+}
+
 .custom-size-flipswitch.ui-flipswitch .ui-btn.ui-flipswitch-on {
     text-indent: -4.9em;
 }
