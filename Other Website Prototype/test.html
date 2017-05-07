@@ -6,6 +6,19 @@
 		<title>sfg;skm</title>
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 		<link rel="stylesheet" href="core.css">
+		<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+		<script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyCem7c3julHajYjuPi5dpwBF7FisO5mVBA",
+                authDomain: "whatsinmyfridge-b1f71.firebaseapp.com",
+                databaseURL: "https://whatsinmyfridge-b1f71.firebaseio.com",
+                projectId: "whatsinmyfridge-b1f71",
+                storageBucket: "whatsinmyfridge-b1f71.appspot.com",
+                messagingSenderId: "981344901205"
+            };
+            firebase.initializeApp(config);
+		</script>
 		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 		<script>
@@ -13,10 +26,130 @@
                 $("[data-role=panel]").panel().enhanceWithin();
             });
 
+
 		</script>
+		<script>
+            var provider = new firebase.auth.GoogleAuthProvider();
+
+            firebase.auth().getRedirectResult().then(function(result) {
+                if (result.credential) {
+                    // This gives you a Google Access Token. You can use it to access the Google API.
+                    var token = result.credential.accessToken;
+                    // ...
+                }
+                // The signed-in user info.
+                var user = result.user;
+            }).catch(function(error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                // The email of the user's account used.
+                var email = error.email;
+                // The firebase.auth.AuthCredential type that was used.
+                var credential = error.credential;
+                // ...
+            });
+		</script>
+		<script>
+            $("#logout-btn").removeClass("hidden");
+            firebase.auth().onAuthStateChanged(
+                function(user) {
+					if (user) {
+						// User is signed in.
+						var displayName = user.displayName;
+						var email = user.email;
+						var emailVerified = user.emailVerified;
+						var photoURL = user.photoURL;
+						var isAnonymous = user.isAnonymous;
+						var uid = user.uid;
+						var providerData = user.providerData;
+						// ...
+						alert("logged in");
+						$("h1").append(displayName);
+                        $("#login-btn").hide;
+                        $("#logout-btn").show;
+
+					} else {
+                    // User is signed out.
+                    // ...
+						alert("not logged in");
+                        $("#logout-btn").hide;
+                        $("#login-btn").show;
+                	}
+				}
+			);
+
+
+		</script>
+
 	</head>
 	<body>
 	<div id="override">
+		<div data-role="page" id="login">
+			<div data-role="header">
+				<div class="nav">
+					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
+					<h1>Login</h1>
+				</div>
+			</div>
+			<div role="main" class="ui-content">
+				<div class="top-hr"></div>
+
+				<form id="login-form">
+					<label for="login-email">email:</label>
+					<input id="login-email" name="username" type="text" value="">
+					<label for="login-password">Password:</label>
+					<input id="login-password" name="password" type="password" value="">
+					<input type="submit" value="submit">
+					<script>
+                        $("#login-form").submit(
+                            function(){
+                                alert($("#login-email").val());
+                                firebase.auth().createUserWithEmailAndPassword($("#login-email").val(), $("#login-password").val()).catch(function(error){
+                                var errorCode = error.code;
+                                var errorMessage = error.message;
+                                location.reload(false)
+                            })})
+					</script>
+				</form>
+				<button onclick="$('#logout-btn').show;">test</button>
+				<a href="#signup">dont have an account</a>
+			</div>
+			<div data-role="footer">
+			</div>
+		</div><!-- page login -->
+
+		<div data-role="page" id="signup">
+			<div data-role="header">
+				<div class="nav">
+					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
+					<h1>Signup</h1>
+				</div>
+			</div>
+			<div role="main" class="ui-content">
+				<div class="top-hr"></div>
+
+				<form id="signin">
+					<label for="signup-email">email:</label>
+					<input id="signup-email" name="username" type="text" value="">
+					<label for="signup-password">Password:</label>
+					<input id="signup-password" name="password" type="password" value="">
+					<input type="submit" value="submit">
+					<script>
+						$("#signin").submit(
+						    function(){firebase.auth().createUserWithEmailAndPassword($("#signup-email").val(), $("#signup-password").val()).catch(function(error){
+						  	  var errorCode = error.code;
+						  	  var errorMessage = error.message;
+						  	  location.reload(false)
+						})})
+					</script>
+				</form>
+
+			</div>
+			<div data-role="footer">
+			</div>
+		</div><!-- page login -->
+
 		<div data-role="page" id="fridge">
 			<div data-role="header">
 				<div class="nav">
@@ -116,10 +249,27 @@
 			<a href="#list" class="nav-btn ui-btn">Shopping List</a>
 			<a href="#settings" data-transition="slide" class="nav-btn ui-btn">Settings</a>
 			<a href="#about" class="nav-btn ui-btn">About</a>
-
+			<a id="login-btn" href="#login" class="nav-btn ui-btn">Login</a>
+			<a href="#signup" class="nav-btn ui-btn">Sign Up</a>
+			<a id="logout-btn" href="#" class="nav-btn ui-btn">Logout</a>
 
 		</div>
 
 	</div>
+	<script>
+        $("#google-btn").click(function () {
+            firebase.auth().signInWithRedirect(provider);
+        });
+        $("#logout-btn").click(function () {
+            firebase.auth().signOut().then(function() {
+                // Sign-out successful.
+				location.reload(true);
+            }).catch(function(error) {
+                // An error happened.
+            });
+        });
+
+
+	</script>
 	</body>
 </html>
