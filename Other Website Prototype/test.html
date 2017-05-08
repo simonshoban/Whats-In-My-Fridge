@@ -61,16 +61,40 @@
 		<div data-role="page" id="loading">
 			<div data-role="header">
 				<div class="nav">
+<<<<<<< HEAD
 					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
 					<h1></h1>
+=======
+					<h1>Welcome!</h1>
+>>>>>>> Phat
 				</div>
 			</div>
 			<div role="main" class="ui-content">
 				<div class="top-hr"></div>
+<<<<<<< HEAD
 
 			</div>
 			<div data-role="footer">
 			</div>
+=======
+				<div id="logo"><img src="placeholder.gif"></div>
+				<button id="log-button"><a href="#signup">Sign-up</a></button>
+				<div class="signup-link">
+					<a id="google-btn">Sign in with Google</a>
+					<script>
+	                    $("#google-btn").click(function () {
+	                        firebase.auth().signInWithRedirect(provider);
+	                    });
+					</script>
+					<br>	
+				</div>
+				<div class="signup-link">			
+					<a href="#login">Already a member?</a>
+					<br>
+				</div>
+			</div>
+
+>>>>>>> Phat
 		</div><!-- page loading -->
 
 		<div data-role="page" id="login">
@@ -104,6 +128,7 @@
                             })})
 					</script>
 				</form>
+<<<<<<< HEAD
 				<br>
 				<button id="google-btn">Sign in with Google</button>
 				<script>
@@ -113,6 +138,20 @@
 				</script>
 				<br>
 				<a href="#signup">dont have an account?</a>
+=======
+				<div class="signup-link">
+					<a id="google-btn">Sign in with Google</a>
+					<script>
+	                    $("#google-btn").click(function () {
+	                        firebase.auth().signInWithRedirect(provider);
+	                    });
+					</script>
+					<br>	
+				</div>
+				<div class="signup-link">
+					<a href="#signup">dont have an account?</a>
+				</div>
+>>>>>>> Phat
 			</div>
 			<div data-role="footer">
 			</div>
@@ -129,10 +168,21 @@
 				<div class="top-hr"></div>
 
 				<form method="post" id="signin">
+<<<<<<< HEAD
 					<label for="signup-email">email:</label>
 					<input id="signup-email" name="username" type="text" value="">
 					<label for="signup-password">Password:</label>
 					<input id="signup-password" name="password" type="password" value="">
+=======
+					<label class="text-input-label" for="login-email">Email:</label>
+					<div class="text-input-container">
+						<input id="login-email" name="username" type="text" value="">
+					</div>
+					<label class="text-input-label" for="login-password">Password:</label>
+					<div class="text-input-container">
+						<input id="login-password" name="password" type="password" value="">
+					</div>
+>>>>>>> Phat
 					<input type="submit" value="submit">
 					<script>
 						$("#signin").submit(
@@ -144,6 +194,18 @@
 						})})
 					</script>
 				</form>
+<<<<<<< HEAD
+=======
+				<div class="signup-link">
+					<a id="google-btn">Sign in with Google</a>
+					<script>
+	                    $("#google-btn").click(function () {
+	                        firebase.auth().signInWithRedirect(provider);
+	                    });
+					</script>
+					<br>	
+				</div>
+>>>>>>> Phat
 
 			</div>
 			<div data-role="footer">
@@ -219,6 +281,7 @@
 					</a>
 					</div>
 				</div>
+<<<<<<< HEAD
 				<a href="#add-popup" data-rel="popup" class="large-circle ui-alt-icon ui-nodisc-icon  ui-btn ui-icon-plus ui-btn-icon-notext">No text</a>
 				<div data-role="popup" id="add-popup">
 					<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right close-button">Close</a>
@@ -286,6 +349,9 @@
 						<a href="#" class="ui-btn ui-shadow ui-btn-inline" id="add-button">Custom Item</a>
 					</div>
 				</div>
+=======
+				<a href="#" class="large-circle ui-alt-icon ui-nodisc-icon  ui-btn ui-icon-plus ui-btn-icon-notext">No text</a>
+>>>>>>> Phat
 			</div>
 			<div data-role="footer">
 			</div>
@@ -418,7 +484,11 @@
 				<div class="top-hr"></div>
 
 
+<<<<<<< HEAD
 				<img src="icons/dairy.png" class="aff-icon">
+=======
+				<img src="icons/dairy.png" class="aff-icon"">
+>>>>>>> Phat
 				<h1 class="aff-header">Race To Zero</h1>
 				<h3>Category: Game</h3>
 				<p>A game designed to inform players on the issue of avoidable food waste</p>
@@ -569,7 +639,11 @@
                         $("#fridge-btn").hide();
                         $("#settings-btn").hide();
                         $("#shopping-list-btn").hide();
+<<<<<<< HEAD
                         $.mobile.changePage("#login");
+=======
+                        $.mobile.changePage("#loading");
+>>>>>>> Phat
                         $("html").removeClass("loading")
 
                     })

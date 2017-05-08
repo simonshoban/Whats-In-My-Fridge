@@ -79,10 +79,13 @@ h1 {
     position:absolute;
     right: 6px;
     bottom: 6px;
+<<<<<<< HEAD
     background-color: lightgreen !important;
 }
 .sort-button{
     background-color: lightgreen !important;
+=======
+>>>>>>> Phat
 }
 #item-popup, #item-popup2 {
     background-color:white;
@@ -196,6 +199,7 @@ h1 {
 }
 /* Affiliated page css */
 
+<<<<<<< HEAD
 /* Add predefined item page css */
 .ui-icon-green{ /* unused yet, could be used to set close icon to green, couldnt get it to work*/
     background-image: url(icons/ui.png);
@@ -259,6 +263,8 @@ h1 {
 }
 /* Add predefined item page css */
 
+=======
+>>>>>>> Phat
 .custom-size-flipswitch.ui-flipswitch .ui-btn.ui-flipswitch-on {
     text-indent: -4.9em;
 }
@@ -306,4 +312,35 @@ html.loading body {
     /* Ensures that the transition only runs in one direction */
     -webkit-transition: opacity 0;
     transition: opacity 0;
+<<<<<<< HEAD
+=======
+}
+#logo img {
+    width: 90vw;
+    height: auto;
+    margin: 7vh 5vw 5vw;
+}
+#log-button {
+    min-width: 80px;
+    max-width: 100px;
+    background-color: green;
+    margin: 1em auto;
+
+}
+#log-button a {
+    text-decoration: none;
+    color: white;
+}
+.signup-link {
+    margin: 1em;
+    text-align: center;
+}
+#google-btn {
+    text-align: center;
+    color: orange;
+    padding: 2px;
+}
+#signin {
+    margin: 2em;
+>>>>>>> Phat
 }
