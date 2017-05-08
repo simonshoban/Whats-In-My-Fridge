@@ -75,6 +75,10 @@ h1 {
     position:absolute;
     right: 6px;
     bottom: 6px;
+    background-color: lightgreen !important;
+}
+.sort-button{
+    background-color: lightgreen !important;
 }
 #item-popup, #item-popup2 {
     background-color:white;
@@ -186,6 +190,69 @@ h1 {
     text-align: center;
 }
 /* Affiliated page css */
+
+/* Add predefined item page css */
+.ui-icon-green{ /* unused yet, could be used to set close icon to green, couldnt get it to work*/
+    background-image: url(icons/ui.png);
+}
+.ui-icon-delete{
+    background-color: lightgreen !important;
+}
+.add-icons{
+    margin-left:auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 5px;
+}
+.item-panel{
+    width: 23%;
+    display: inline-block;
+}
+.item-panel p{
+    text-align: center;
+}
+#button-div{
+    margin-right: 3%;
+}
+#add-button{
+    color: white;
+    background-color: lightgreen;
+}
+#add-header{
+    text-align:center;
+    font-size:2.2em;
+    color:green;
+}
+#add-popup{
+    width: 90vw;
+    height: 90vh;
+}
+#common-items{
+    width: 90%;
+    height: 30%;
+    background-color: lightgrey;
+    margin: auto;
+    overflow: scroll;
+    border-style: solid;
+    border-color: green;
+}
+#bought-items{
+    width: 90%;
+    height: 30%;
+    background-color: lightgrey;
+    margin: auto;
+    overflow: scroll;
+    border-style: solid;
+    border-color: green;
+}
+#add-popup p{
+    margin: 0;
+}
+#add-popup h3{
+    color: dimgrey;
+    text-align: center;
+}
+/* Add predefined item page css */
 
 .custom-size-flipswitch.ui-flipswitch .ui-btn.ui-flipswitch-on {
     text-indent: -4.9em;
