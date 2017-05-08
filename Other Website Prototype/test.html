@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="loading" lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -52,52 +52,27 @@
                 // ...
             });
 		</script>
-		<script>
-            $("#logout-btn").removeClass("hidden");
-            firebase.auth().onAuthStateChanged(
-                function(user) {
-					if (user) {
-						// User is signed in.
-						var displayName = user.displayName;
-						var email = user.email;
-						var emailVerified = user.emailVerified;
-						var photoURL = user.photoURL;
-						var isAnonymous = user.isAnonymous;
-						var uid = user.uid;
-						var providerData = user.providerData;
-						// ...
-						alert("logged in");
-						$(function(){
-                            $("#login-btn").hide();
-                            $("#signup-btn").hide();
-                            $("#logout-btn").show();
-                            $.mobile.navigate("#fridge");
-						})
 
-
-					} else {
-                    // User is signed out.
-                    // ...
-						alert("not logged in");
-						$(function () {
-                            $("#signup-btn").show();
-                            $("#logout-btn").hide();
-                            $("#login-btn").show();
-                            $("#fridge-btn").hide();
-                            $("#settings-btn").hide();
-                            $("#shopping-list-btn").hide();
-                            $.mobile.navigate("#login");
-                        })
-                	}
-				}
-			);
-
-
-		</script>
 
 	</head>
 	<body>
 	<div id="override">
+
+		<div data-role="page" id="loading">
+			<div data-role="header">
+				<div class="nav">
+					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
+					<h1></h1>
+				</div>
+			</div>
+			<div role="main" class="ui-content">
+				<div class="top-hr"></div>
+
+			</div>
+			<div data-role="footer">
+			</div>
+		</div><!-- page loading -->
+
 		<div data-role="page" id="login">
 			<div data-role="header">
 				<div class="nav">
@@ -196,11 +171,7 @@
 						<p class="item-popup-expires">Expires on April 29th, 2017</p>
 						<div id="tabs" data-role="tabs">
 							<div data-role="navbar">
-								<ul>
-									<li><a href="#" data-ajax="false" id="overviewTab">Overview</a></li>
-									<li><a href="#storage" data-ajax="false" id="storageTab">Storage Tips</a></li>
-									<li><a href="#expired" data-ajax="false" id="expiredTab">Expired?</a></li>
-								</ul>
+
 							</div>
 							<div class="ui-body-d ui-content" id="overview">
 								<div class="ui-table">
@@ -274,12 +245,9 @@
 					<div data-role="popup" id="item-popup2" data-overlay-theme="b" data-theme="b">
 						<p class="item-popup-name">Apple Apr-26</p>
 						<p class="item-popup-expires">Expires on April 29th, 2017 if bought today</p>
-						<div id="tabs" data-role="tabs">
+						<div id="tabs2" data-role="tabs">
 							<div data-role="navbar">
-								<ul>
-									<li><a href="#" data-ajax="false" id="storageTab2">Storage Tips</a></li>
-									<li><a href="#expired2" data-ajax="false" id="expiredTab2">Expired?</a></li>
-								</ul>
+
 							</div>
 							<div class="ui-body-d ui-content" id="storage2">
 								<br/>
@@ -491,6 +459,57 @@
                 // An error happened.
             });
         });
+
+	</script>
+	<script>
+        $("#logout-btn").removeClass("hidden");
+        firebase.auth().onAuthStateChanged(
+            function(user) {
+                if (user) {
+                    // User is signed in.
+                    var displayName = user.displayName;
+                    var email = user.email;
+                    var emailVerified = user.emailVerified;
+                    var photoURL = user.photoURL;
+                    var isAnonymous = user.isAnonymous;
+                    var uid = user.uid;
+                    var providerData = user.providerData;
+                    // ...
+                    //alert("logged in");
+
+
+                    $(function(){
+
+                        $("#login-btn").hide();
+                        $("#signup-btn").hide();
+                        $("#logout-btn").show();
+                        $("#fridge-btn").show();
+                        $("#settings-btn").show();
+                        $("#shopping-list-btn").show();
+                        $.mobile.navigate("#fridge");
+                        $("html").removeClass("loading")
+
+
+                    })
+
+                } else {
+                    // User is signed out.
+                    // ...
+                    //alert("not logged in");
+                    $(function () {
+                        $("#signup-btn").show();
+                        $("#logout-btn").hide();
+                        $("#login-btn").show();
+                        $("#fridge-btn").hide();
+                        $("#settings-btn").hide();
+                        $("#shopping-list-btn").hide();
+
+                    })
+                    $.mobile.changePage("#login");
+                }
+            }
+        );
+
 
 	</script>
 
