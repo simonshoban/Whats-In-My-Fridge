@@ -503,9 +503,11 @@
                         $("#fridge-btn").hide();
                         $("#settings-btn").hide();
                         $("#shopping-list-btn").hide();
+                        $.mobile.changePage("#login");
+                        $("html").removeClass("loading")
 
                     })
-                    $.mobile.changePage("#login");
+
                 }
             }
         );
