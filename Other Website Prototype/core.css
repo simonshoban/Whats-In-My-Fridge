@@ -94,7 +94,7 @@ h1 {
 .item-popup-expires {
 	text-align:center;
 }
-#overview, #storage, #expired {
+#overview, #storage, #storage2, #expired, #expired2 {
 	text-align:center;
 }
 .ui-table {
