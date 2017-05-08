@@ -68,7 +68,6 @@
 						var providerData = user.providerData;
 						// ...
 						alert("logged in");
-						$("h1").append(displayName);
 						$(function(){
                             $("#login-btn").hide();
                             $("#signup-btn").hide();
@@ -85,6 +84,9 @@
                             $("#signup-btn").show();
                             $("#logout-btn").hide();
                             $("#login-btn").show();
+                            $("#fridge-btn").hide();
+                            $("#settings-btn").hide();
+                            $("#shopping-list-btn").hide();
                             $.mobile.navigate("#login");
                         })
                 	}
@@ -106,13 +108,17 @@
 			</div>
 			<div role="main" class="ui-content">
 				<div class="top-hr"></div>
-
+				<br>
 				<form method="post" id="login-form">
-					<label for="login-email">email:</label>
-					<input id="login-email" name="username" type="text" value="">
-					<label for="login-password">Password:</label>
-					<input id="login-password" name="password" type="password" value="">
-					<input type="submit" value="submit">
+					<label class="text-input-label" for="login-email">Email:</label>
+					<div class="text-input-container">
+						<input id="login-email" name="username" type="text" value="">
+					</div>
+					<label class="text-input-label" for="login-password">Password:</label>
+					<div class="text-input-container">
+						<input id="login-password" name="password" type="password" value="">
+					</div>
+					<input type="submit" value="Login">
 					<script>
                         $("#login-form").submit(
                             function(){
@@ -124,8 +130,15 @@
                             })})
 					</script>
 				</form>
-				<button onclick=" $('#logout-btn').hide();">test</button>
-				<a href="#signup">dont have an account</a>
+				<br>
+				<button id="google-btn">Sign in with Google</button>
+				<script>
+                    $("#google-btn").click(function () {
+                        firebase.auth().signInWithRedirect(provider);
+                    });
+				</script>
+				<br>
+				<a href="#signup">dont have an account?</a>
 			</div>
 			<div data-role="footer">
 			</div>
@@ -161,7 +174,7 @@
 			</div>
 			<div data-role="footer">
 			</div>
-		</div><!-- page login -->
+		</div><!-- page signup -->
 
 		<div data-role="page" id="fridge">
 			<div data-role="header">
@@ -175,12 +188,28 @@
 
 				<div class="top-hr"></div>
 				<div class="item-list">
-					<a href="#item-popup" data-rel="popup" class="ui-btn"><img src="icons/produce.png">
+					<a href="#item-popup" data-rel="popup" class="list-item ui-btn"><img src="icons/produce.png">
 						<p class="item-name">Apple Apr-26</p>
 						<p class="item-expires">Expires in 3 days</p>
 						<div class="small-circle"></div>
 					</a>
 					<div data-role="popup" id="item-popup" data-overlay-theme="b" data-theme="b">
+					</div>
+					<div data-role="collapsible" data-inset="false">
+						<h3>Produce</h3>
+						<a href="#item-popup" data-rel="popup" class="list-item ui-btn"><img src="icons/produce.png">
+							<p class="item-name">Apple Apr-26</p>
+							<p class="item-expires">Expires in 3 days</p>
+							<div class="small-circle"></div>
+						</a><a href="#item-popup" data-rel="popup" class="list-item ui-btn"><img src="icons/produce.png">
+						<p class="item-name">Apple Apr-26</p>
+						<p class="item-expires">Expires in 3 days</p>
+						<div class="small-circle"></div>
+					</a><a href="#item-popup" data-rel="popup" class="list-item ui-btn"><img src="icons/produce.png">
+						<p class="item-name">Apple Apr-26</p>
+						<p class="item-expires">Expires in 3 days</p>
+						<div class="small-circle"></div>
+					</a>
 					</div>
 				</div>
 				<a href="#" class="large-circle ui-alt-icon ui-nodisc-icon  ui-btn ui-icon-plus ui-btn-icon-notext">No text</a>
@@ -230,8 +259,8 @@
 				</form>
 				<form>
 					<div data-role="">
-						<label id="email-link-label" for="email-link">Email:</label>
-						<div id="email-link-container">
+						<label class="text-input-label" for="email-link">Email:</label>
+						<div class="text-input-container">
 							<input id="email-link" name="email" type="text" value="">
 							<button onclick="">Link Email</button>
 						</div>
@@ -259,21 +288,19 @@
 
 		<div data-role="panel" id="defaultpanel" data-theme="a" data-display="overlay" class="ui-panel ui-panel-position-left ui-body-inherit ui-panel-animate ui-panel-closed">
 			<p id="logo" >WhatsinmyFridge.com</p>
-			<a href="#fridge" data-transition="slide" class="nav-btn ui-btn">Fridge</a>
-			<a href="#list" data-transition="slide" class="nav-btn ui-btn">Shopping List</a>
-			<a href="#settings" data-transition="slide" class="nav-btn ui-btn">Settings</a>
-			<a href="#about" data-transition="slide" class="nav-btn ui-btn">About</a>
+			<a id="fridge-btn" href="#fridge" data-transition="slide" class="nav-btn ui-btn">Fridge</a>
+			<a id="shopping-list-btn" href="#list" data-transition="slide" class="nav-btn ui-btn">Shopping List</a>
+			<a id="settings-btn" href="#settings" data-transition="slide" class="nav-btn ui-btn">Settings</a>
+			<a id="about-btn" href="#about" data-transition="slide" class="nav-btn ui-btn">About</a>
 			<a id="login-btn" data-transition="slide" href="#login" class="nav-btn ui-btn">Login</a>
-			<a id="signup-btn" data-transition="slide" href="#signup" class="nav-btn ui-btn">Sign Up</a>
+			<!--<a id="signup-btn" data-transition="slide" href="#signup" class="nav-btn ui-btn">Sign Up</a>-->
 			<a id="logout-btn" href="#" class="nav-btn ui-btn">Logout</a>
 
 		</div>
 
 	</div>
 	<script>
-        $("#google-btn").click(function () {
-            firebase.auth().signInWithRedirect(provider);
-        });
+
         $("#logout-btn").click(function () {
             firebase.auth().signOut().then(function() {
                 // Sign-out successful.
