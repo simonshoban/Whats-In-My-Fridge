@@ -98,9 +98,19 @@ h1 {
 	text-align:center;
 	font-size:2.2em;
 	color:green;
+    margin-bottom:.2em !important;
 }
 .item-popup-expires {
 	text-align:center;
+}
+#navbar, #navbar2 {
+    display:flex;
+}
+#navbar a {
+    width:33%;
+}
+#navbar2 a {
+    width:50%;
 }
 #overview, #storage, #storage2, #expired, #expired2 {
 	text-align:center;
@@ -113,12 +123,34 @@ h1 {
 	width:100%;
 	margin:auto;
 }
+.item-button-container {
+    /*does stuff in the future*/
+}
+.ate-button-div {
+    position:absolute;
+    left:10%;
+    bottom:5%;
+}
+#ate-button {
+    margin:10px auto;
+    color:white;
+    background-color:green;
+}
+.expired-button-div {
+    position:absolute;
+    right:10%;
+    bottom:5%;
+}
+#expired-button {
+    margin:10px auto;
+    color:white;
+    background-color:green;
+}
 .ui-panel-inner{
     padding: 0;
 }
 .nav-btn{
     margin:0;
-
 }
 .ui-icon-produce:after {
     background-image: url("icons/produce.svg");
@@ -217,7 +249,7 @@ h1 {
 #button-div{
     display:flex;
 }
-#add-button{
+#add-button, #add-button2{
     color: white;
     background-color: lightgreen;
     margin:10px auto;
@@ -232,7 +264,7 @@ h1 {
     right:0;
     top:0;
 }
-#add-popup{
+#add-popup, #custom-item-popup{
     width: 90vw;
     height: 90vh;
     //position:fixed;
@@ -277,6 +309,37 @@ h1 {
     text-align: center;
     margin-left:5px;
     margin-right:5px;
+}
+#custom-item-popup {
+    text-align:center;
+}
+#custom-item-popup hr {
+    width:90%;
+}
+#custom-item-popup h3 {
+    position:relative;
+    top:28px;
+    background-color:white;
+    display:inline-block;
+    padding: 0 15px;
+}
+.add-item-table {
+    max-width:400px;
+    margin:auto;
+}
+.add-item-table table {
+    width:90%;
+    margin:auto;
+    align-items:center;
+}
+.add-item-table table tr {
+    margin:auto;
+}
+.add-item-table table tr td:nth-child(2){
+    width:50%;
+}
+#custom-add-back {
+    left:0;
 }
 /* Add predefined item page css */
 
