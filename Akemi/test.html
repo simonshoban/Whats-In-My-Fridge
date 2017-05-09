@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>What's in My Fridge?</title>
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+		<link rel="stylesheet" href="core.css">
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<script>
+            $(function () {
+                $("[data-role=panel]").panel().enhanceWithin();
+            });
+		</script>
+	</head>
+	<body>
+	<div id="override">
+		<div data-role="page" id="fridge">
+			<div data-role="header">
+				<div class="nav">
+					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
+					<h1>Fridge</h1>
+					<a href="#" class="sort-button ui-btn">Sort</a>
+				</div>
+			</div>
+			<div role="main" class="ui-content">
+				<div class="top-hr"></div>
+				<div class="item-list">
+					<a href="#item-popup" data-rel="popup" class="ui-btn fridge-item"><img src="icons/produce.png">
+						<p class="item-name">Apple Apr-26</p>
+						<p class="item-expires">Expires in 3 days</p>
+						<div class="circle"></div>
+					</a>
+					<div data-role="popup" id="item-popup" data-overlay-theme="b" data-theme="b">
+						<p class="item-popup-name">Apple Apr-26</p>
+						<p class="item-popup-expires">Expires on April 29th, 2017</p>
+						<div id="tabs" data-role="tabs">
+							<div data-role="navbar">
+								<ul>
+									<li><a href="#" data-ajax="false" id="overviewTab">Overview</a></li>
+									<li><a href="#storage" data-ajax="false" id="storageTab">Storage Tips</a></li>
+									<li><a href="#expired" data-ajax="false" id="expiredTab">Expired?</a></li>
+								</ul>
+							</div>
+							<div class="ui-body-d ui-content" id="overview">
+								<div class="ui-table">
+									<br/>
+									<table>
+										<tr>
+											<td>Purchase Date: </td>
+											<td>April 26, 2017</td>
+										</tr>
+										<tr>
+											<td>Quantity</td>
+											<td>1</td>
+										</tr> 
+										<tr>
+											<td>Value of items</td>
+											<td>$0.93</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<div class="ui-body-d ui-content" id="storage">
+								<br/>
+								best stored in stomach
+							</div>
+							<div class="ui-body-d ui-content" id="expired">
+								<br/>
+								if its red then its dead, if its brown scarf it down
+							</div>
+						</div>
+					</div>
+				</div>
+				<a href="#" class="large-circle ui-alt-icon ui-nodisc-icon  ui-btn ui-icon-plus ui-btn-icon-notext">No text</a>
+			</div>
+			<div data-role="footer">
+			</div>
+		</div><!-- page fridge -->
+
+		<div data-role="page" id="list">
+			<div data-role="header">
+				<div class="nav">
+					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
+					<h1>Shopping List</h1>
+					<a href="#" class="sort-button ui-btn">Sort</a>
+				</div>
+			</div>
+			<div role="main" class="ui-content">
+
+				<div class="top-hr"></div>
+				<div class="item-list">
+					<a href="#item-popup2" data-rel="popup" class="ui-btn shopping-item"><img src="icons/produce.png">
+						<p class="item-name">Apple Apr-26</p>
+						<p class="item-expires">Expires in 3 days</p>
+						<div class="circle"></div>
+					</a>
+					<div data-role="popup" id="item-popup2" data-overlay-theme="b" data-theme="b">
+						<p class="item-popup-name">Apple Apr-26</p>
+						<p class="item-popup-expires">Expires on April 29th, 2017 if bought today</p>
+						<div id="tabs" data-role="tabs">
+							<div data-role="navbar">
+								<ul>
+									<li><a href="#" data-ajax="false" id="storageTab2">Storage Tips</a></li>
+									<li><a href="#expired2" data-ajax="false" id="expiredTab2">Expired?</a></li>
+								</ul>
+							</div>
+							<div class="ui-body-d ui-content" id="storage2">
+								<br/>
+								best stored in stomach
+							</div>
+							<div class="ui-body-d ui-content" id="expired2">
+								<br/>
+								if its red then its dead, if its brown scarf it down
+							</div>
+						</div>
+					</div>
+				</div>
+				<a href="#" class="large-circle ui-alt-icon ui-nodisc-icon  ui-btn ui-icon-plus ui-btn-icon-notext">No text</a>
+			</div>
+			<div data-role="footer">
+			</div>
+		</div><!-- page list -->
+
+		<div data-role="page" id="settings">
+			<div data-role="header">
+				<div class="nav">
+					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
+					<h1>Settings</h1>
+				</div>
+			</div>
+			<div role="main" class="ui-content">
+				<div class="top-hr"></div>
+				<form>
+					<label id="measurement-label" for="flip-metric-imperial">Measurement type:</label>
+					<input type="checkbox" data-role="flipswitch" name="measurement-type" id="flip-metric-imperial" data-on-text="Imperial" data-off-text="Metric" data-wrapper-class="custom-size-flipswitch">
+				</form>
+				<form>
+					<div data-role="">
+						<label id="email-link-label" for="email-link">Email:</label>
+						<div id="email-link-container">
+							<input id="email-link" name="email" type="text" value="">
+						</div>
+					</div>
+				</form>
+			</div>
+			<div data-role="footer">
+			</div>
+		</div><!-- page settings -->
+
+		<div data-role="page" id="about">
+			<div data-role="header">
+				<div class="nav">
+					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
+					<h1>About</h1>
+				</div>
+			</div>
+			<div role="main" class="ui-content">
+				<div class="top-hr"></div>
+				<h1 id="dev-header">The Developers</h1>
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<img src="icons/dairy.png" class="develop-img">
+						<h1>Phat Le</h1>
+						<p class="develop-text">Our fearless leader, co-ordinator, and dank memer, loves
+						league of legends and stuff.</p>
+						<img src="icons/meat.png" class="develop-img">
+						<h1>Simon Shoban</h1>
+						<p class="develop-text">Dankest pokemon master, gotta catchem all~1</p>
+						<img src="icons/misc.png" class="develop-img">
+						<h1>Akemi Haraguchi</h1>
+						<p class="develop-text">The sikkest grafix designer in existence desu</p>
+					</div>
+					<div class="ui-block-b">
+						<img src="icons/grain.png" class="develop-img">
+						<h1>Ben Zhang</h1>
+						<p class="develop-text">Master procrastinator, loves to fap and play yugeeohh a
+							nd stuff lmao hello lol xdasd asdasd</p>
+						<img src="icons/produce.png" class="develop-img">
+						<h1>Camron Roberts</h1>
+						<p class="develop-text">The D00d dat does it all</p>
+					</div>
+				</div>
+				<h1 id="mission-header">Mission Statement</h1>
+				<ul>
+					<li><h5>To improve the environment and stuf</h5></li>
+					<li><h5>And other stuf</h5></li>
+					<li><h5>U kno??</h5></li>
+					<li><h5>Saem</h5></li>
+				</ul>
+				<h1 id="goal-header">Goal</h1>
+				<h5 class="develop-text">Our goal is to promote food waste awareness through this app,
+				we want more people to conserve food through shopping planning and expiry date tracking.</h5>
+			</div>
+			<div data-role="footer">
+			</div>
+		</div><!-- page about -->
+
+		<div data-role="page" id="aff-apps">
+			<div data-role="header">
+				<div class="nav">
+					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
+					<h1>Affiliated Apps</h1>
+				</div>
+			</div>
+			<div role="main" class="ui-content">
+				<div class="top-hr"></div>
+
+
+				<img src="icons/dairy.png" class="aff-icon"">
+				<h1 class="aff-header">Race To Zero</h1>
+				<h3>Category: Game</h3>
+				<p>A game designed to inform players on the issue of avoidable food waste</p>
+				<p>Users play through game levels and answer questions about food waste using in-game mechanics</p>
+
+				<img src="icons/dairy.png" class="aff-icon">
+				<h1 class="aff-header">Take 2</h1>
+				<h3>Category: Web App</h3>
+				<p>A website where you take two ingredients, and the user gets suggested recipes</p>
+				<p>Users will be given recipes and directions on how to make the dishes</p>
+
+				<img src="icons/dairy.png" class="aff-icon">
+				<h1 class="aff-header">F2E</h1>
+				<h3>Category: Web App</h3>
+				<p>An app for users to share food with one another </p>
+				<p>Users can connect through facebook and post any spare food to share</p>
+
+				<img src="icons/dairy.png" class="aff-icon">
+				<h1 class="aff-header">Waste</h1>
+				<h3>Category: Web App</h3>
+				<p>An App to track food usage/wastage</p>
+				<p>Users input food from shopping list and track their usage/wastage</p>
+
+				<img src="icons/dairy.png" class="aff-icon">
+				<h1 class="aff-header">Pocket Pantry</h1>
+				<h3>Category: Web App</h3>
+				<p>A meal planner & grocery list</p>
+				<p>Easy meal planning & calculation of necessary ingredients to reduce wasteful expenditure</p>
+			</div>
+			<div data-role="footer">
+			</div>
+		</div><!-- Affliated Apps -->
+
+		<div data-role="panel" id="defaultpanel" data-theme="a" data-display="overlay" class="ui-panel ui-panel-position-left ui-body-inherit ui-panel-animate ui-panel-closed">
+			<p id="logo" >WhatsinmyFridge.com</p>
+			<a href="#fridge" data-transition="slide" class="nav-btn ui-btn">Fridge</a>
+			<a href="#list" class="nav-btn ui-btn">Shopping List</a>
+			<a href="#settings" data-transition="slide" class="nav-btn ui-btn">Settings</a>
+			<a href="#about" class="nav-btn ui-btn">About</a>
+			<a href="#aff-apps" class="nav-btn ui-btn">Affiliated Apps</a>
+
+
+		</div>
+
+	</div>
+	<script>
+		
+		/***********Don't change**********/
+		
+		
+		/**************Fridge*************/
+		
+		//Sets overview tab as default tab and highlights tab
+		$(".fridge-item").click(function(){
+			$("#overview").show();
+			$("#overviewTab").click();
+		});
+		
+		//Displays overview when clicked
+		$("#overviewTab").click(function() {
+			$("#overview").show();
+		});
+		
+		//Hides overview when storage tab is clicked
+		$("#storageTab").click(function() {
+			$("#overview").hide();
+		});
+		
+		//Hides overview when expired tab is clicked
+		$("#expiredTab").click(function() {
+			$("#overview").hide();
+		});
+		
+		/**********Shopping List**********/
+		
+		//Sets storage tab as default tab and highlights tab
+		$(".shopping-item").click(function(){
+			$("#storage2").show();
+			$("#storageTab2").click();
+		});
+		
+		//Shows storage when storage tab is clicked
+		$("#storageTab2").click(function() {
+			$("#storage2").show();
+		});
+		
+		//Hides storage when expired tab is clicked
+		$("#expiredTab2").click(function() {
+			$("#storage2").hide();
+		});	
+		
+		/*********************************/
+	</script>
+	</body>
+</html>
