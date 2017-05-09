@@ -264,22 +264,18 @@ h1 {
     color:green;
 }
 #override [data-rel="back"]{
-   // position:absolute;
     right:0;
     top:0;
 }
 #add-popup, #custom-item-popup{
     width: 90vw;
     height: 90vh;
-    //position:fixed;
-    //top:5vh;
-    //left:5vw;
+    position:fixed;
+    top:5vh;
+    left:5vw;
     overflow-y:auto;
-   // overflow-x: hidden;
 }
-.overflow-container{
-   // overflow-y: auto;
-}
+
 #common-items{
     width: 90%;
     height: 30%;
