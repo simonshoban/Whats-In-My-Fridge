@@ -182,20 +182,14 @@
 		<div data-role="page" id="fridge">
 			<div data-role="header">
 				<div class="nav">
-					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
+					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars ui-shadow">Default panel</a>
 					<h1>Fridge</h1>
-					<a href="#" class="sort-button ui-btn">Sort</a>
+					<a href="#" class="sort-button ui-btn ui-shadow">Sort</a>
 				</div>
 			</div>
 			<div role="main" class="ui-content">
 				<div class="top-hr"></div>
 				<div class="item-list">
-					<a href="#item-popup" data-rel="popup" class="ui-btn list-item fridge-item">
-						<img height="50" width="50" src="icons/produce.svg">
-						<p class="item-name">Apple Apr-26</p>
-						<p class="item-expires">Expires in 3 days</p>
-						<div class="small-circle"></div>
-					</a>
 					<div data-role="popup" id="item-popup" data-overlay-theme="b" data-theme="a">
 						<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right close-button">Close</a>
 						<p class="item-popup-name">Apple Apr-26</p>
@@ -244,7 +238,7 @@
                         </div>
 					</div>
 					<div data-role="collapsible" data-inset="true">
-						<h3>Produce</h3>
+						<h3 id="collapse-produce">Produce</h3>
 						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
 							<p class="item-name">Apple Apr-26</p>
 							<p class="item-expires">Expires in 3 days</p>
@@ -261,8 +255,85 @@
                             <div class="small-circle"></div>
 					    </a>
 					</div>
+
+					<div data-role="collapsible" data-inset="true">
+						<h3 id="collapse-meat">Produce</h3>
+						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+							<p class="item-name">Apple Apr-26</p>
+							<p class="item-expires">Expires in 3 days</p>
+							<div class="small-circle"></div>
+						</a>
+						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+							<p class="item-name">Apple Apr-26</p>
+							<p class="item-expires">Expires in 3 days</p>
+							<div class="small-circle"></div>
+						</a>
+						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+							<p class="item-name">Apple Apr-26</p>
+							<p class="item-expires">Expires in 3 days</p>
+							<div class="small-circle"></div>
+						</a>
+					</div>
+
+					<div data-role="collapsible" data-inset="true">
+						<h3 id="collapse-dairy">Produce</h3>
+						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+							<p class="item-name">Apple Apr-26</p>
+							<p class="item-expires">Expires in 3 days</p>
+							<div class="small-circle"></div>
+						</a>
+						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+							<p class="item-name">Apple Apr-26</p>
+							<p class="item-expires">Expires in 3 days</p>
+							<div class="small-circle"></div>
+						</a>
+						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+							<p class="item-name">Apple Apr-26</p>
+							<p class="item-expires">Expires in 3 days</p>
+							<div class="small-circle"></div>
+						</a>
+					</div>
+
+					<div data-role="collapsible" data-inset="true">
+						<h3 id="collapse-grain">Produce</h3>
+						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+							<p class="item-name">Apple Apr-26</p>
+							<p class="item-expires">Expires in 3 days</p>
+							<div class="small-circle"></div>
+						</a>
+						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+							<p class="item-name">Apple Apr-26</p>
+							<p class="item-expires">Expires in 3 days</p>
+							<div class="small-circle"></div>
+						</a>
+						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+							<p class="item-name">Apple Apr-26</p>
+							<p class="item-expires">Expires in 3 days</p>
+							<div class="small-circle"></div>
+						</a>
+					</div>
+
+					<div data-role="collapsible" data-inset="true">
+						<h3 id="collapse-misc">Produce</h3>
+						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+							<p class="item-name">Apple Apr-26</p>
+							<p class="item-expires">Expires in 3 days</p>
+							<div class="small-circle"></div>
+						</a>
+						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+							<p class="item-name">Apple Apr-26</p>
+							<p class="item-expires">Expires in 3 days</p>
+							<div class="small-circle"></div>
+						</a>
+						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+							<p class="item-name">Apple Apr-26</p>
+							<p class="item-expires">Expires in 3 days</p>
+							<div class="small-circle"></div>
+						</a>
+					</div>
+
 				</div>
-				<a href="#add-popup" data-rel="popup" class="large-circle ui-alt-icon ui-nodisc-icon  ui-btn ui-icon-plus ui-btn-icon-notext">No text</a>
+				<a href="#add-popup" data-rel="popup" class="large-circle ui-alt-icon ui-nodisc-icon  ui-btn ui-icon-plus ui-btn-icon-notext ui-shadow">No text</a>
 				<div data-role="popup" data-overlay-theme="b" id="add-popup">
                     <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
                     <p id="add-header">Add Item</p>
