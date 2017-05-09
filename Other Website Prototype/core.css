@@ -5,7 +5,7 @@ body{
     display:none;
 }
 h1 {
-    margin: 0px;
+    margin: 0;
     text-align:center;
     padding-top: 12px;
     font-size: 1.6em;
@@ -20,7 +20,7 @@ h1 {
 .sort-button{
     position:absolute;
     right:6px;
-    top:0px;
+    top:0;
 }
 #override .nav-button {
     margin: 0;
@@ -44,7 +44,7 @@ h1 {
 }
 .item-list .list-item {
     height: 58px;
-    padding: 0px;
+    padding: 0;
     text-align:left;
 }
 .item-list .item-name{
@@ -79,7 +79,7 @@ h1 {
     position:absolute;
     right: 6px;
     bottom: 6px;
-<<<<<<< HEAD
+/*<<<<<<< HEAD*/
     background-color: lightgreen !important;
 }
 .sort-button{
@@ -175,7 +175,7 @@ h1 {
     padding-right:10px;
     padding-left:20px;
 }
-#override .text-input-container{
+#override .tex  t-input-container{
     width:180px;
     display:inline-block;
 
@@ -231,7 +231,7 @@ h1 {
 }
 /* Affiliated page css */
 
-<<<<<<< HEAD
+/*<<<<<<< HEAD*/
 /* Add predefined item page css */
 .ui-icon-green{ /* unused yet, could be used to set close icon to green, couldnt get it to work*/
     background-image: url(icons/ui.png);
@@ -347,8 +347,10 @@ h1 {
 }
 /* Add predefined item page css */
 
+/*
 =======
 >>>>>>> Phat
+*/
 .custom-size-flipswitch.ui-flipswitch .ui-btn.ui-flipswitch-on {
     text-indent: -4.9em;
 }
@@ -382,8 +384,8 @@ html.loading {
     /* Replace loading.gif with the loading image of your choice */
     background: #333 ;
     /* Ensures that the transition only runs in one direction */
-    -webkit-transition: background-color 0;
-    transition: background-color 0;
+    -webkit-transition: background-color: 0;
+    transition: background-color: 0;
 }
 body {
     -webkit-transition: opacity 1s ease-in;
@@ -394,10 +396,12 @@ html.loading body {
     opacity: 0;
 
     /* Ensures that the transition only runs in one direction */
-    -webkit-transition: opacity 0;
-    transition: opacity 0;
+    -webkit-transition: opacity: 0;
+    transition: opacity: 0;
+    /*
 <<<<<<< HEAD
 =======
+*/
 }
 #logo img {
     width: 90vw;
