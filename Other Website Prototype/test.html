@@ -443,9 +443,25 @@
 						<p class="item-popup-expires">Expires on April 29th, 2017 if bought today</p>
 						<div id="tabs2" data-role="tabs">
 							<div id="navbar2" data-role="navbar">
+                                <a href="#" id="overviewTab2">Overview</a>
 								<a href="#" id="storageTab2">Storage</a>
 								<a href="#" id="expiredTab2">Expired?</a>
 							</div>
+                            <div class="ui-body-d ui-content" id="overview2">
+                                <div class="ui-table">
+                                    <br/>
+                                    <table>
+                                        <tr>
+                                            <td>Quantity</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Value of items</td>
+                                            <td>$0.93</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
 							<div class="ui-body-d ui-content" id="storage2">
 								<br/>
 								best stored in stomach
@@ -784,20 +800,29 @@
 
         /**********Shopping List**********/
 
-        //Sets storage tab as default tab and highlights tab
+        //Sets overview tab as default tab and highlights tab
         $(".shopping-item").click(function(){
-            $("#storage2").show();
-            $("#storageTab2").click();
+            $("#overview2").show();
+            $("#overviewTab2").click();
         });
 
-        //Shows storage when storage tab is clicked and hides
+        //Shows overview when overview tab is clicked and hides other sections
+        $("#overviewTab2").click(function() {
+            $("#overview2").show();
+            $("#storage2").hide();
+            $("#expired2").hide();
+        });
+
+        //Shows storage when storage tab is clicked and hides other sections
         $("#storageTab2").click(function() {
+            $("#overview2").hide();
             $("#storage2").show();
             $("#expired2").hide();
         });
 
-        //Hides storage when expired tab is clicked
+        //Shows expired? when expired tab is clicked and hides other sections
         $("#expiredTab2").click(function() {
+            $("#overview2").hide();
             $("#storage2").hide();
             $("#expired2").show();
         });
