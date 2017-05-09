@@ -171,8 +171,10 @@
 						<p class="item-popup-name">Apple Apr-26</p>
 						<p class="item-popup-expires">Expires on April 29th, 2017</p>
 						<div id="tabs" data-role="tabs">
-							<div data-role="navbar">
-
+							<div id="navbar" data-role="navbar">
+								<a href="#" id="overviewTab">Overview</a>
+								<a href="#" id="storageTab">Storage</a>
+								<a href="#" id="expiredTab">Expired?</a>
 							</div>
 							<div class="ui-body-d ui-content" id="overview">
 								<div class="ui-table">
@@ -202,107 +204,186 @@
 								if its red then its dead, if its brown scarf it down
 							</div>
 						</div>
+                        <div class="item-button-container">
+                            <div class="ate-button-div">
+                                <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="ate-button">I ate it</a>
+                            </div>
+                            <div class="expired-button-div">
+                                <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="expired-button">I threw it out</a>
+                            </div>
+                        </div>
 					</div>
 					<div data-role="collapsible" data-inset="true">
 						<h3>Produce</h3>
-						<a href="#item-popup" data-rel="popup" class="list-item ui-btn"><img src="icons/produce.png">
+						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img src="icons/produce.png">
 							<p class="item-name">Apple Apr-26</p>
 							<p class="item-expires">Expires in 3 days</p>
 							<div class="small-circle"></div>
-						</a><a href="#item-popup" data-rel="popup" class="list-item ui-btn"><img src="icons/produce.png">
-						<p class="item-name">Apple Apr-26</p>
-						<p class="item-expires">Expires in 3 days</p>
-						<div class="small-circle"></div>
-					</a><a href="#item-popup" data-rel="popup" class="list-item ui-btn"><img src="icons/produce.png">
-						<p class="item-name">Apple Apr-26</p>
-						<p class="item-expires">Expires in 3 days</p>
-						<div class="small-circle"></div>
-					</a>
+						</a>
+                        <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img src="icons/produce.png">
+                            <p class="item-name">Apple Apr-26</p>
+                            <p class="item-expires">Expires in 3 days</p>
+                            <div class="small-circle"></div>
+					    </a>
+                        <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img src="icons/produce.png">
+                            <p class="item-name">Apple Apr-26</p>
+                            <p class="item-expires">Expires in 3 days</p>
+                            <div class="small-circle"></div>
+					    </a>
 					</div>
 				</div>
 				<a href="#add-popup" data-rel="popup" class="large-circle ui-alt-icon ui-nodisc-icon  ui-btn ui-icon-plus ui-btn-icon-notext">No text</a>
 				<div data-role="popup" data-overlay-theme="b" id="add-popup">
-						<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-						<p id="add-header">Add Item</p>
-						<h3>Common Items</h3>
-						<div id="common-items">
-							<div class="item-panel">
-								<img src="icons/dairy.png" class="add-icons">
-								<p>Milk</p>
-							</div>
-							<div class="item-panel">
-								<img src="icons/dairy.png" class="add-icons">
-								<p>Milk</p>
-							</div>
-							<div class="item-panel">
-								<img src="icons/dairy.png" class="add-icons">
-								<p>Milk</p>
-							</div>
-							<div class="item-panel">
-								<img src="icons/dairy.png" class="add-icons">
-								<p>Milk</p>
-							</div>
-							<div class="item-panel">
-								<img src="icons/dairy.png" class="add-icons">
-								<p>Milk</p>
-							</div>
-							<div class="item-panel">
-								<img src="icons/dairy.png" class="add-icons">
-								<p>Milk</p>
-							</div>
-							<div class="item-panel">
-								<img src="icons/dairy.png" class="add-icons">
-								<p>Milk</p>
-							</div>
-							<div class="item-panel">
-								<img src="icons/dairy.png" class="add-icons">
-								<p>Milk</p>
-							</div>
+                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                    <p id="add-header">Add Item</p>
+                    <h3>Common Items</h3>
+                    <div id="common-items">
+                        <div class="item-panel">
+                            <img src="icons/dairy.png" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img src="icons/dairy.png" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img src="icons/dairy.png" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img src="icons/dairy.png" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img src="icons/dairy.png" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img src="icons/dairy.png" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img src="icons/dairy.png" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img src="icons/dairy.png" class="add-icons">
+                            <p>Milk</p>
+                        </div>
 
-						</div>
+                    </div>
 
-						<h3>Recently Purchased Items</h3>
-						<div id="bought-items">
+                    <h3>Recently Purchased Items</h3>
+                    <div id="bought-items">
 
-							<div class="item-panel">
-								<img src="icons/dairy.png" class="add-icons">
-								<p>Milk</p>
-							</div>
-							<div class="item-panel">
-								<img src="icons/dairy.png" class="add-icons">
-								<p>Milk</p>
-							</div>
-							<div class="item-panel">
-								<img src="icons/dairy.png" class="add-icons">
-								<p>Milk</p>
-							</div>
-							<div class="item-panel">
-								<img src="icons/dairy.png" class="add-icons">
-								<p>Milk</p>
-							</div>
-							<div class="item-panel">
-								<img src="icons/dairy.png" class="add-icons">
-								<p>Milk</p>
-							</div>
-							<div class="item-panel">
-								<img src="icons/dairy.png" class="add-icons">
-								<p>Milk</p>
-							</div>
-							<div class="item-panel">
-								<img src="icons/dairy.png" class="add-icons">
-								<p>Milk</p>
-							</div>
-							<div class="item-panel">
-								<img src="icons/dairy.png" class="add-icons">
-								<p>Milk</p>
-							</div>
+                        <div class="item-panel">
+                            <img src="icons/dairy.png" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img src="icons/dairy.png" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img src="icons/dairy.png" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img src="icons/dairy.png" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img src="icons/dairy.png" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img src="icons/dairy.png" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img src="icons/dairy.png" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img src="icons/dairy.png" class="add-icons">
+                            <p>Milk</p>
+                        </div>
 
-						</div>
+                    </div>
 
-						<div id="button-div" align="right">
-							<a href="#" class="ui-btn ui-shadow ui-btn-inline" id="add-button">Custom Item</a>
-						</div>
+                    <div id="button-div" align="right">
+                        <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="add-button">Custom Item</a>
+                    </div>
 				</div>
+                <div data-role="popup" data-overlay-theme="b" id="custom-item-popup">
+                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-btn-inherit ui-icon-back ui-btn-icon-notext ui-btn-left" id="custom-add-back">Back</a>
+                    <p class="item-popup-name">Add item</p>
+                    <h3>Required</h3>
+                    <hr>
+                    <br>
+                    <div class="add-item-table">
+                        <table>
+                            <tr>
+                                <td>
+                                    <label for="food-name">Name of food</label>
+                                </td>
+                                <td>
+                                    <input id="food-name" name="food-name" type="text"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="food-group">Food group</label>
+                                </td>
+                                <td>
+                                    <select id="food-group" name="food-group">
+                                        <option>----------</option>
+                                        <option>Produce</option>
+                                        <option>Dairy</option>
+                                        <option>Grains</option>
+                                        <option>Meats</option>
+                                        <option>Misc</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="expiry-date">Expiry Date</label>
+                                </td>
+                                <td>
+                                    <input id="expiry-date" name="expiry-date" type="date"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <h3>Optional</h3>
+                    <hr>
+                    <br>
+                    <div class="add-item-table">
+                        <table>
+                            <tr>
+                                <td>
+                                    <label for="item-quantity">Quantity</label>
+                                </td>
+                                <td>
+                                    <input id="item-quantity" name="item-quantity" type="text"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="item-price">Price ($)</label>
+                                </td>
+                                <td>
+                                    <input id="item-price" name="item-price" type="text"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div>
+                        <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="add-button2">Add Item</a>
+                    </div>
+                </div>
 			</div>
 			<div data-role="footer">
 			</div>
@@ -331,8 +412,9 @@
 						<p class="item-popup-name">Apple Apr-26</p>
 						<p class="item-popup-expires">Expires on April 29th, 2017 if bought today</p>
 						<div id="tabs2" data-role="tabs">
-							<div data-role="navbar">
-
+							<div id="navbar2" data-role="navbar">
+								<a href="#" id="storageTab2">Storage</a>
+								<a href="#" id="expiredTab2">Expired?</a>
 							</div>
 							<div class="ui-body-d ui-content" id="storage2">
 								<br/>
@@ -492,48 +574,71 @@
 		
 		
 		/**************Fridge*************/
-		
-		//Sets overview tab as default tab and highlights tab
-		$(".fridge-item").click(function(){
-			$("#overview").show();
-			$("#overviewTab").click();
-		});
-		
-		//Displays overview when clicked
 
-		$("#overviewTab").click(function() {
-			$("#overview").show();
-		});
-		
-		//Hides overview when storage tab is clicked
-		$("#storageTab").click(function() {
-			$("#overview").hide();
-		});
-		
-		//Hides overview when expired tab is clicked
-		$("#expiredTab").click(function() {
-			$("#overview").hide();
-		});
-		
-		/**********Shopping List**********/
-		
-		//Sets storage tab as default tab and highlights tab
-		$(".shopping-item").click(function(){
-			$("#storage2").show();
-			$("#storageTab2").click();
-		});
-		
-		//Shows storage when storage tab is clicked
-		$("#storageTab2").click(function() {
-			$("#storage2").show();
-		});
-		
-		//Hides storage when expired tab is clicked
-		$("#expiredTab2").click(function() {
-			$("#storage2").hide();
-		});	
-		
-		/*********************************/
+        //Sets overview tab as default tab and highlights tab
+        $(".fridge-item").click(function(){
+            $("#overview").show();
+            $("#overviewTab").click();
+        });
+
+        //Displays overview when clicked
+        $("#overviewTab").click(function() {
+            $("#overview").show();
+            $("#storage").hide();
+            $("#expired").hide();
+        });
+
+        //Hides overview when storage tab is clicked
+        $("#storageTab").click(function() {
+            $("#overview").hide();
+            $("#storage").show();
+            $("#expired").hide();
+        });
+
+        //Hides overview when expired tab is clicked
+        $("#expiredTab").click(function() {
+            $("#overview").hide();
+            $("#storage").hide();
+            $("#expired").show();
+        });
+
+        /**********Shopping List**********/
+
+        //Sets storage tab as default tab and highlights tab
+        $(".shopping-item").click(function(){
+            $("#storage2").show();
+            $("#storageTab2").click();
+        });
+
+        //Shows storage when storage tab is clicked and hides
+        $("#storageTab2").click(function() {
+            $("#storage2").show();
+            $("#expired2").hide();
+        });
+
+        //Hides storage when expired tab is clicked
+        $("#expiredTab2").click(function() {
+            $("#storage2").hide();
+            $("#expired2").show();
+        });
+
+        /*********Add custom item*********/
+
+        $("#add-button").click(function(){
+            setTimeout(function(){
+                $("#custom-item-popup").popup("open");
+            }, 100);
+        });
+
+        /********Custom item back*********/
+
+        $("#custom-add-back").click(function() {
+            setTimeout(function() {
+                $("#add-popup").popup("open");
+            }, 100);
+        });
+
+        /*********************************/
 	</script>
 	<script>
 
