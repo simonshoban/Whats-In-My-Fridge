@@ -140,13 +140,11 @@ a.sort-button.ui-btn{
 #navbar, #navbar2 {
     display:flex;
 }
-#navbar a {
+#navbar a, #navbar2 a {
     width:33%;
+    font-size: 0.89em;
 }
-#navbar2 a {
-    width:50%;
-}
-#overview, #storage, #storage2, #expired, #expired2 {
+#overview, #overview2, #storage, #storage2, #expired, #expired2 {
 	text-align:center;
 }
 .ui-table {
@@ -281,38 +279,33 @@ a.sort-button.ui-btn{
 .item-panel p{
     text-align: center;
 }
-#button-div{
+#button-div, #button-div2{
     display:flex;
 }
-#add-button, #add-button2{
+#add-button, #add-button2, #add-button3, #add-button4{
     color: white;
     background-color: lightgreen;
     margin:10px auto;
 }
-#add-header{
+#add-header, #add-header2{
     text-align:center;
     font-size:2.2em;
     color:green;
 }
 #override [data-rel="back"]{
-   // position:absolute;
     right:0;
     top:0;
     background-color: lightgreen;
 }
-#add-popup, #custom-item-popup{
+#add-popup, #add-popup2, #custom-item-popup, #custom-item-popup2{
     width: 90vw;
     height: 90vh;
-    //position:fixed;
-    //top:5vh;
-    //left:5vw;
+    position:fixed;
+    top:5vh;
+    left:5vw;
     overflow-y:auto;
-   // overflow-x: hidden;
 }
-.overflow-container{
-   // overflow-y: auto;
-}
-#common-items{
+#common-items, #common-items2 {
     width: 90%;
     height: 30%;
     background-color: lightgrey;
@@ -324,7 +317,7 @@ a.sort-button.ui-btn{
     flex-wrap:wrap;
     justify-content:space-around;
 }
-#bought-items{
+#bought-items, #bought-items2 {
     width: 90%;
     height: 30%;
     background-color: lightgrey;
@@ -337,22 +330,22 @@ a.sort-button.ui-btn{
     justify-content:space-around;
 }
 
-#add-popup p{
+#add-popup p, #add-popup2 p {
     margin: 0;
 }
-#add-popup h3{
+#add-popup h3, #add-popup2 h3 {
     color: dimgrey;
     text-align: center;
     margin-left:5px;
     margin-right:5px;
 }
-#custom-item-popup {
+#custom-item-popup, #custom-item-popup2 {
     text-align:center;
 }
-#custom-item-popup hr {
+#custom-item-popup hr, #custom-item-popup2 hr {
     width:90%;
 }
-#custom-item-popup h3 {
+#custom-item-popup h3, #custom-item-popup2 h3 {
     position:relative;
     top:28px;
     background-color:white;
@@ -374,15 +367,11 @@ a.sort-button.ui-btn{
 .add-item-table table tr td:nth-child(2){
     width:50%;
 }
-#custom-add-back {
+#custom-add-back, #custom-add-back2 {
     left:0;
 }
 /* Add predefined item page css */
 
-/*
-=======
->>>>>>> Phat
-*/
 .custom-size-flipswitch.ui-flipswitch .ui-btn.ui-flipswitch-on {
     text-indent: -4.9em;
 }
@@ -431,8 +420,6 @@ html.loading body {
     -webkit-transition: opacity: 0;
     transition: opacity: 0;
     /*
-<<<<<<< HEAD
-=======
 */
 }
 #logo img {
@@ -462,5 +449,4 @@ html.loading body {
 }
 #signin {
     margin: 2em;
->>>>>>> Phat
 }
