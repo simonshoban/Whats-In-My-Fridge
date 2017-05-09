@@ -250,15 +250,15 @@ h1 {
 .item-panel p{
     text-align: center;
 }
-#button-div{
+#button-div, #button-div2{
     display:flex;
 }
-#add-button, #add-button2{
+#add-button, #add-button2, #add-button3, #add-button4{
     color: white;
     background-color: lightgreen;
     margin:10px auto;
 }
-#add-header{
+#add-header, #add-header2{
     text-align:center;
     font-size:2.2em;
     color:green;
@@ -268,7 +268,7 @@ h1 {
     right:0;
     top:0;
 }
-#add-popup, #custom-item-popup{
+#add-popup, #add-popup2, #custom-item-popup, #custom-item-popup2{
     width: 90vw;
     height: 90vh;
     //position:fixed;
@@ -280,7 +280,7 @@ h1 {
 .overflow-container{
    // overflow-y: auto;
 }
-#common-items{
+#common-items, #common-items2 {
     width: 90%;
     height: 30%;
     background-color: lightgrey;
@@ -292,7 +292,7 @@ h1 {
     flex-wrap:wrap;
     justify-content:space-around;
 }
-#bought-items{
+#bought-items, #bought-items2 {
     width: 90%;
     height: 30%;
     background-color: lightgrey;
@@ -305,22 +305,22 @@ h1 {
     justify-content:space-around;
 }
 
-#add-popup p{
+#add-popup p, #add-popup2 p {
     margin: 0;
 }
-#add-popup h3{
+#add-popup h3, #add-popup2 h3 {
     color: dimgrey;
     text-align: center;
     margin-left:5px;
     margin-right:5px;
 }
-#custom-item-popup {
+#custom-item-popup, #custom-item-popup2 {
     text-align:center;
 }
-#custom-item-popup hr {
+#custom-item-popup hr, #custom-item-popup2 hr {
     width:90%;
 }
-#custom-item-popup h3 {
+#custom-item-popup h3, #custom-item-popup2 h3 {
     position:relative;
     top:28px;
     background-color:white;
@@ -342,15 +342,11 @@ h1 {
 .add-item-table table tr td:nth-child(2){
     width:50%;
 }
-#custom-add-back {
+#custom-add-back, #custom-add-back2 {
     left:0;
 }
 /* Add predefined item page css */
 
-/*
-=======
->>>>>>> Phat
-*/
 .custom-size-flipswitch.ui-flipswitch .ui-btn.ui-flipswitch-on {
     text-indent: -4.9em;
 }
