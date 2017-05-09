@@ -228,7 +228,7 @@ h1 {
     color:green;
 }
 #override [data-rel="back"]{
-    position:absolute;
+   // position:absolute;
     right:0;
     top:0;
 }
