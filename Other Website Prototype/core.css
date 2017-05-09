@@ -200,9 +200,7 @@ h1 {
 .ui-icon-green{ /* unused yet, could be used to set close icon to green, couldnt get it to work*/
     background-image: url(icons/ui.png);
 }
-.ui-icon-delete{
-    background-color: lightgreen !important;
-}
+
 .add-icons{
     margin-left:auto;
     margin-right: auto;
@@ -217,20 +215,34 @@ h1 {
     text-align: center;
 }
 #button-div{
-    margin-right: 3%;
+    display:flex;
 }
 #add-button{
     color: white;
     background-color: lightgreen;
+    margin:10px auto;
 }
 #add-header{
     text-align:center;
     font-size:2.2em;
     color:green;
 }
+#override [data-rel="back"]{
+    position:absolute;
+    right:0;
+    top:0;
+}
 #add-popup{
     width: 90vw;
     height: 90vh;
+    //position:fixed;
+    //top:5vh;
+    //left:5vw;
+    overflow-y:auto;
+   // overflow-x: hidden;
+}
+.overflow-container{
+   // overflow-y: auto;
 }
 #common-items{
     width: 90%;
@@ -256,12 +268,15 @@ h1 {
     flex-wrap:wrap;
     justify-content:space-around;
 }
+
 #add-popup p{
     margin: 0;
 }
 #add-popup h3{
     color: dimgrey;
     text-align: center;
+    margin-left:5px;
+    margin-right:5px;
 }
 /* Add predefined item page css */
 
