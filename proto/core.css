@@ -166,13 +166,13 @@ h1 {
 #goal-header{
     padding-bottom: 10px;
     margin-bottom: 20px;
-    background-color: #49948F;
+    background-color: lightgreen;
 }
 /* About page css */
 
 /* Affiliated page css */
 .aff-header{
-    background-color: #49948F;
+    background-color: lightgreen;
     padding-bottom: 5px;
     padding-right: 30px;
 }
@@ -205,4 +205,3 @@ h1 {
         width: 1.875em;
         }
 }
-/* Akemi's code all goes here */
