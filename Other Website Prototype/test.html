@@ -63,14 +63,28 @@
 				<div class="nav">
 					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
 					<h1></h1>
+					<h1>Welcome!</h1>
 				</div>
 			</div>
 			<div role="main" class="ui-content">
 				<div class="top-hr"></div>
+				<div id="logo"><img src="placeholder.gif"></div>
+				<button id="log-button"><a href="#signup">Sign-up</a></button>
+				<div class="signup-link">
+					<a id="google-btn">Sign in with Google</a>
+					<script>
+	                    $("#google-btn").click(function () {
+	                        firebase.auth().signInWithRedirect(provider);
+	                    });
+					</script>
+					<br>	
+				</div>
+				<div class="signup-link">			
+					<a href="#login">Already a member?</a>
+					<br>
+				</div>
+			</div>
 
-			</div>
-			<div data-role="footer">
-			</div>
 		</div><!-- page loading -->
 
 		<div data-role="page" id="login">
@@ -104,15 +118,18 @@
                             })})
 					</script>
 				</form>
-				<br>
-				<button id="google-btn">Sign in with Google</button>
-				<script>
-                    $("#google-btn").click(function () {
-                        firebase.auth().signInWithRedirect(provider);
-                    });
-				</script>
-				<br>
-				<a href="#signup">dont have an account?</a>
+				<div class="signup-link">
+					<a id="google-btn2">Sign in with Google</a>
+					<script>
+	                    $("#google-btn2").click(function () {
+	                        firebase.auth().signInWithRedirect(provider);
+	                    });
+					</script>
+					<br>	
+				</div>
+				<div class="signup-link">
+					<a href="#signup">dont have an account?</a>
+				</div>
 			</div>
 			<div data-role="footer">
 			</div>
@@ -129,10 +146,14 @@
 				<div class="top-hr"></div>
 
 				<form method="post" id="signin">
-					<label for="signup-email">email:</label>
-					<input id="signup-email" name="username" type="text" value="">
-					<label for="signup-password">Password:</label>
-					<input id="signup-password" name="password" type="password" value="">
+					<label class="text-input-label" for="login-email">Email:</label>
+					<div class="text-input-container">
+						<input id="login-email2" name="username" type="text" value="">
+					</div>
+					<label class="text-input-label" for="login-password">Password:</label>
+					<div class="text-input-container">
+						<input id="login-password2" name="password" type="password" value="">
+					</div>
 					<input type="submit" value="submit">
 					<script>
 						$("#signin").submit(
@@ -144,7 +165,15 @@
 						})})
 					</script>
 				</form>
-
+				<div class="signup-link">
+					<a id="google-btn3">Sign in with Google</a>
+					<script>
+	                    $("#google-btn3").click(function () {
+	                        firebase.auth().signInWithRedirect(provider);
+	                    });
+					</script>
+					<br>	
+				</div>
 			</div>
 			<div data-role="footer">
 			</div>
@@ -315,6 +344,7 @@
                         <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="add-button">Custom Item</a>
                     </div>
 				</div>
+<<<<<<< HEAD
                 <div data-role="popup" data-overlay-theme="b" id="custom-item-popup">
                     <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
                     <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-btn-inherit ui-icon-back ui-btn-icon-notext ui-btn-left" id="custom-add-back">Back</a>
@@ -384,6 +414,9 @@
                         <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="add-button2">Add Item</a>
                     </div>
                 </div>
+=======
+				<a href="#" class="large-circle ui-alt-icon ui-nodisc-icon  ui-btn ui-icon-plus ui-btn-icon-notext">No text</a>
+>>>>>>> 264fa2c1d8c1fc18c0749353689ccef82ace1d5e
 			</div>
 			<div data-role="footer">
 			</div>
@@ -519,7 +552,11 @@
 				<div class="top-hr"></div>
 
 
+
 				<img src="icons/dairy.png" class="aff-icon">
+
+				<img src="icons/dairy.png" class="aff-icon">
+
 				<h1 class="aff-header">Race To Zero</h1>
 				<h3>Category: Game</h3>
 				<p>A game designed to inform players on the issue of avoidable food waste</p>
@@ -554,7 +591,7 @@
 		</div><!-- Affliated Apps -->
 
 		<div data-role="panel" id="defaultpanel" data-theme="a" data-display="overlay" class="ui-panel ui-panel-position-left ui-body-inherit ui-panel-animate ui-panel-closed">
-			<p id="logo" >WhatsinmyFridge.com</p>
+			<p id="logo2" >WhatsinmyFridge.com</p>
 			<a id="fridge-btn" href="#fridge" data-transition="slide" class="nav-btn ui-btn">Fridge</a>
 			<a id="shopping-list-btn" href="#list" data-transition="slide" class="nav-btn ui-btn">Shopping List</a>
 			<a id="settings-btn" href="#settings" data-transition="slide" class="nav-btn ui-btn">Settings</a>
@@ -693,7 +730,9 @@
                         $("#fridge-btn").hide();
                         $("#settings-btn").hide();
                         $("#shopping-list-btn").hide();
-                        $.mobile.changePage("#login");
+
+                        $.mobile.changePage("#loading");
+
                         $("html").removeClass("loading")
 
                     })
