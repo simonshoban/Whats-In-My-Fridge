@@ -63,14 +63,28 @@
 				<div class="nav">
 					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
 					<h1></h1>
+					<h1>Welcome!</h1>
 				</div>
 			</div>
 			<div role="main" class="ui-content">
 				<div class="top-hr"></div>
+				<div id="logo"><img src="placeholder.gif"></div>
+				<button id="log-button"><a href="#signup">Sign-up</a></button>
+				<div class="signup-link">
+					<a id="google-btn">Sign in with Google</a>
+					<script>
+	                    $("#google-btn").click(function () {
+	                        firebase.auth().signInWithRedirect(provider);
+	                    });
+					</script>
+					<br>	
+				</div>
+				<div class="signup-link">			
+					<a href="#login">Already a member?</a>
+					<br>
+				</div>
+			</div>
 
-			</div>
-			<div data-role="footer">
-			</div>
 		</div><!-- page loading -->
 
 		<div data-role="page" id="login">
@@ -104,15 +118,18 @@
                             })})
 					</script>
 				</form>
-				<br>
-				<button id="google-btn">Sign in with Google</button>
-				<script>
-                    $("#google-btn").click(function () {
-                        firebase.auth().signInWithRedirect(provider);
-                    });
-				</script>
-				<br>
-				<a href="#signup">dont have an account?</a>
+				<div class="signup-link">
+					<a id="google-btn2">Sign in with Google</a>
+					<script>
+	                    $("#google-btn2").click(function () {
+	                        firebase.auth().signInWithRedirect(provider);
+	                    });
+					</script>
+					<br>	
+				</div>
+				<div class="signup-link">
+					<a href="#signup">dont have an account?</a>
+				</div>
 			</div>
 			<div data-role="footer">
 			</div>
@@ -129,10 +146,14 @@
 				<div class="top-hr"></div>
 
 				<form method="post" id="signin">
-					<label for="signup-email">email:</label>
-					<input id="signup-email" name="username" type="text" value="">
-					<label for="signup-password">Password:</label>
-					<input id="signup-password" name="password" type="password" value="">
+					<label class="text-input-label" for="login-email">Email:</label>
+					<div class="text-input-container">
+						<input id="login-email2" name="username" type="text" value="">
+					</div>
+					<label class="text-input-label" for="login-password">Password:</label>
+					<div class="text-input-container">
+						<input id="login-password2" name="password" type="password" value="">
+					</div>
 					<input type="submit" value="submit">
 					<script>
 						$("#signin").submit(
@@ -144,7 +165,15 @@
 						})})
 					</script>
 				</form>
-
+				<div class="signup-link">
+					<a id="google-btn3">Sign in with Google</a>
+					<script>
+	                    $("#google-btn3").click(function () {
+	                        firebase.auth().signInWithRedirect(provider);
+	                    });
+					</script>
+					<br>	
+				</div>
 			</div>
 			<div data-role="footer">
 			</div>
@@ -161,17 +190,21 @@
 			<div role="main" class="ui-content">
 				<div class="top-hr"></div>
 				<div class="item-list">
-					<a href="#item-popup" data-rel="popup" class="ui-btn list-item fridge-item"><img src="../../Desktop/Courses/COMP%202910/Zero%20Food%20Waste/COMP-2910-Project/Other%20Website%20Prototype/icons/produce.png">
+					<a href="#item-popup" data-rel="popup" class="ui-btn list-item fridge-item">
+						<img height="50" width="50" src="icons/produce.svg">
 						<p class="item-name">Apple Apr-26</p>
 						<p class="item-expires">Expires in 3 days</p>
 						<div class="small-circle"></div>
 					</a>
-					<div data-role="popup" id="item-popup" data-overlay-theme="b" data-theme="b">
+					<div data-role="popup" id="item-popup" data-overlay-theme="b" data-theme="a">
+						<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right close-button">Close</a>
 						<p class="item-popup-name">Apple Apr-26</p>
 						<p class="item-popup-expires">Expires on April 29th, 2017</p>
 						<div id="tabs" data-role="tabs">
-							<div data-role="navbar">
-
+							<div id="navbar" data-role="navbar">
+								<a href="#" id="overviewTab">Overview</a>
+								<a href="#" id="storageTab">Storage</a>
+								<a href="#" id="expiredTab">Expired?</a>
 							</div>
 							<div class="ui-body-d ui-content" id="overview">
 								<div class="ui-table">
@@ -201,91 +234,189 @@
 								if its red then its dead, if its brown scarf it down
 							</div>
 						</div>
+                        <div class="item-button-container">
+                            <div class="ate-button-div">
+                                <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="ate-button">I ate it</a>
+                            </div>
+                            <div class="expired-button-div">
+                                <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="expired-button">I threw it out</a>
+                            </div>
+                        </div>
 					</div>
-					<div data-role="collapsible" data-inset="false">
+					<div data-role="collapsible" data-inset="true">
 						<h3>Produce</h3>
-						<a href="#item-popup" data-rel="popup" class="list-item ui-btn"><img src="../../Desktop/Courses/COMP%202910/Zero%20Food%20Waste/COMP-2910-Project/Other%20Website%20Prototype/icons/produce.png">
+						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
 							<p class="item-name">Apple Apr-26</p>
 							<p class="item-expires">Expires in 3 days</p>
 							<div class="small-circle"></div>
-						</a><a href="#item-popup" data-rel="popup" class="list-item ui-btn"><img src="../../Desktop/Courses/COMP%202910/Zero%20Food%20Waste/COMP-2910-Project/Other%20Website%20Prototype/icons/produce.png">
-						<p class="item-name">Apple Apr-26</p>
-						<p class="item-expires">Expires in 3 days</p>
-						<div class="small-circle"></div>
-					</a><a href="#item-popup" data-rel="popup" class="list-item ui-btn"><img src="../../Desktop/Courses/COMP%202910/Zero%20Food%20Waste/COMP-2910-Project/Other%20Website%20Prototype/icons/produce.png">
-						<p class="item-name">Apple Apr-26</p>
-						<p class="item-expires">Expires in 3 days</p>
-						<div class="small-circle"></div>
-					</a>
+						</a>
+                        <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+                            <p class="item-name">Apple Apr-26</p>
+                            <p class="item-expires">Expires in 3 days</p>
+                            <div class="small-circle"></div>
+					    </a>
+                        <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+                            <p class="item-name">Apple Apr-26</p>
+                            <p class="item-expires">Expires in 3 days</p>
+                            <div class="small-circle"></div>
+					    </a>
 					</div>
 				</div>
 				<a href="#add-popup" data-rel="popup" class="large-circle ui-alt-icon ui-nodisc-icon  ui-btn ui-icon-plus ui-btn-icon-notext">No text</a>
-				<div data-role="popup" id="add-popup">
-					<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right close-button">Close</a>
-					<p id="add-header">Add Item</p>
-					<h3>Common Items</h3>
-					<div id="common-items">
-						<div class="item-panel">
-							<img src="../../Desktop/Courses/COMP%202910/Zero%20Food%20Waste/COMP-2910-Project/Other%20Website%20Prototype/icons/dairy.png" class="add-icons">
-							<p>Milk</p>
-						</div>
-						<div class="item-panel">
-							<img src="../../Desktop/Courses/COMP%202910/Zero%20Food%20Waste/COMP-2910-Project/Other%20Website%20Prototype/icons/dairy.png" class="add-icons">
-							<p>Milk</p>
-						</div>
-						<div class="item-panel">
-							<img src="../../Desktop/Courses/COMP%202910/Zero%20Food%20Waste/COMP-2910-Project/Other%20Website%20Prototype/icons/dairy.png" class="add-icons">
-							<p>Milk</p>
-						</div>
-						<div class="item-panel">
-							<img src="../../Desktop/Courses/COMP%202910/Zero%20Food%20Waste/COMP-2910-Project/Other%20Website%20Prototype/icons/dairy.png" class="add-icons">
-							<p>Milk</p>
-						</div>
-						<div class="item-panel">
-							<img src="../../Desktop/Courses/COMP%202910/Zero%20Food%20Waste/COMP-2910-Project/Other%20Website%20Prototype/icons/dairy.png" class="add-icons">
-							<p>Milk</p>
-						</div>
-						<div class="item-panel">
-							<img src="../../Desktop/Courses/COMP%202910/Zero%20Food%20Waste/COMP-2910-Project/Other%20Website%20Prototype/icons/dairy.png" class="add-icons">
-							<p>Milk</p>
-						</div>
+				<div data-role="popup" data-overlay-theme="b" id="add-popup">
+                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                    <p id="add-header">Add Item</p>
+                    <h3>Common Items</h3>
+                    <div id="common-items">
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
 
-					</div>
+                    </div>
 
-					<h3>Bought Items</h3>
-					<div id="bought-items">
+                    <h3>Recently Purchased Items</h3>
+                    <div id="bought-items">
 
-						<div class="item-panel">
-							<img src="../../Desktop/Courses/COMP%202910/Zero%20Food%20Waste/COMP-2910-Project/Other%20Website%20Prototype/icons/dairy.png" class="add-icons">
-							<p>Milk</p>
-						</div>
-						<div class="item-panel">
-							<img src="../../Desktop/Courses/COMP%202910/Zero%20Food%20Waste/COMP-2910-Project/Other%20Website%20Prototype/icons/dairy.png" class="add-icons">
-							<p>Milk</p>
-						</div>
-						<div class="item-panel">
-							<img src="../../Desktop/Courses/COMP%202910/Zero%20Food%20Waste/COMP-2910-Project/Other%20Website%20Prototype/icons/dairy.png" class="add-icons">
-							<p>Milk</p>
-						</div>
-						<div class="item-panel">
-							<img src="../../Desktop/Courses/COMP%202910/Zero%20Food%20Waste/COMP-2910-Project/Other%20Website%20Prototype/icons/dairy.png" class="add-icons">
-							<p>Milk</p>
-						</div>
-						<div class="item-panel">
-							<img src="../../Desktop/Courses/COMP%202910/Zero%20Food%20Waste/COMP-2910-Project/Other%20Website%20Prototype/icons/dairy.png" class="add-icons">
-							<p>Milk</p>
-						</div>
-						<div class="item-panel">
-							<img src="../../Desktop/Courses/COMP%202910/Zero%20Food%20Waste/COMP-2910-Project/Other%20Website%20Prototype/icons/dairy.png" class="add-icons">
-							<p>Milk</p>
-						</div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" height="50" width="50" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
 
-					</div>
+                    </div>
 
-					<div id="button-div" align="right">
-						<a href="#" class="ui-btn ui-shadow ui-btn-inline" id="add-button">Custom Item</a>
-					</div>
+                    <div id="button-div" align="right">
+                        <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="add-button">Custom Item</a>
+                    </div>
 				</div>
+<!-- <<<<<<< HEAD -->
+                <div data-role="popup" data-overlay-theme="b" id="custom-item-popup">
+                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-btn-inherit ui-icon-back ui-btn-icon-notext ui-btn-left" id="custom-add-back">Back</a>
+                    <p class="item-popup-name">Add item</p>
+                    <h3>Required</h3>
+                    <hr>
+                    <br>
+                    <div class="add-item-table">
+                        <table>
+                            <tr>
+                                <td>
+                                    <label for="food-name">Name of food</label>
+                                </td>
+                                <td>
+                                    <input id="food-name" name="food-name" type="text"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="food-group">Food group</label>
+                                </td>
+                                <td>
+                                    <select id="food-group" name="food-group">
+                                        <option>----------</option>
+                                        <option>Produce</option>
+                                        <option>Dairy</option>
+                                        <option>Grains</option>
+                                        <option>Meats</option>
+                                        <option>Misc</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="expiry-date">Expiry Date</label>
+                                </td>
+                                <td>
+                                    <input id="expiry-date" name="expiry-date" type="date"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <h3>Optional</h3>
+                    <hr>
+                    <br>
+                    <div class="add-item-table">
+                        <table>
+                            <tr>
+                                <td>
+                                    <label for="item-quantity">Quantity</label>
+                                </td>
+                                <td>
+                                    <input id="item-quantity" name="item-quantity" type="text"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="item-price">Price ($)</label>
+                                </td>
+                                <td>
+                                    <input id="item-price" name="item-price" type="text"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div>
+                        <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="add-button2">Add Item</a>
+                    </div>
+                </div>
+<!-- ======= -->
+                <!-- >>>>>>> 264fa2c1d8c1fc18c0749353689ccef82ace1d5e -->
 			</div>
 			<div data-role="footer">
 			</div>
@@ -303,17 +434,20 @@
 
 				<div class="top-hr"></div>
 				<div class="item-list">
-					<a href="#item-popup2" data-rel="popup" class="ui-btn shopping-item"><img src="../../Desktop/Courses/COMP%202910/Zero%20Food%20Waste/COMP-2910-Project/Other%20Website%20Prototype/icons/produce.png">
+					<a href="#item-popup2" data-rel="popup" class="list-item ui-btn shopping-item"><img height="50" width="50" src="icons/produce.svg">
 						<p class="item-name">Apple Apr-26</p>
 						<p class="item-expires">Expires in 3 days</p>
 						<div class="small-circle"></div>
 					</a>
-					<div data-role="popup" id="item-popup2" data-overlay-theme="b" data-theme="b">
+					<div data-role="popup" id="item-popup2" data-overlay-theme="b" data-theme="a">
+						<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right close-button">Close</a>
+
 						<p class="item-popup-name">Apple Apr-26</p>
 						<p class="item-popup-expires">Expires on April 29th, 2017 if bought today</p>
 						<div id="tabs2" data-role="tabs">
-							<div data-role="navbar">
-
+							<div id="navbar2" data-role="navbar">
+								<a href="#" id="storageTab2">Storage</a>
+								<a href="#" id="expiredTab2">Expired?</a>
 							</div>
 							<div class="ui-body-d ui-content" id="storage2">
 								<br/>
@@ -371,23 +505,23 @@
 				<h1 id="dev-header">The Developers</h1>
 				<div class="ui-grid-a">
 					<div class="ui-block-a">
-						<img src="../../Desktop/Courses/COMP%202910/Zero%20Food%20Waste/COMP-2910-Project/Other%20Website%20Prototype/icons/dairy.png" class="develop-img">
+						<img height="50" width="50" src="icons/dairy.svg" class="develop-img">
 						<h1>Phat Le</h1>
 						<p class="develop-text">Our fearless leader, co-ordinator, and dank memer, loves
 						league of legends and stuff.</p>
-						<img src="../../Desktop/Courses/COMP%202910/Zero%20Food%20Waste/COMP-2910-Project/Other%20Website%20Prototype/icons/meat.png" class="develop-img">
+						<img height="50" width="50" src="icons/meat.svg" class="develop-img">
 						<h1>Simon Shoban</h1>
 						<p class="develop-text">Dankest pokemon master, gotta catchem all~1</p>
-						<img src="../../Desktop/Courses/COMP%202910/Zero%20Food%20Waste/COMP-2910-Project/Other%20Website%20Prototype/icons/misc.png" class="develop-img">
+						<img height="50" width="50" src="icons/misc.svg" class="develop-img">
 						<h1>Akemi Haraguchi</h1>
 						<p class="develop-text">The sikkest grafix designer in existence desu</p>
 					</div>
 					<div class="ui-block-b">
-						<img src="../../Desktop/Courses/COMP%202910/Zero%20Food%20Waste/COMP-2910-Project/Other%20Website%20Prototype/icons/grain.png" class="develop-img">
+						<img height="50" width="50" src="icons/grain.svg" class="develop-img">
 						<h1>Ben Zhang</h1>
 						<p class="develop-text">Master procrastinator, loves to fap and play yugeeohh a
 							nd stuff lmao hello lol xdasd asdasd</p>
-						<img src="../../Desktop/Courses/COMP%202910/Zero%20Food%20Waste/COMP-2910-Project/Other%20Website%20Prototype/icons/produce.png" class="develop-img">
+						<img height="50" width="50" src="icons/produce.svg" class="develop-img">
 						<h1>Camron Roberts</h1>
 						<p class="develop-text">The D00d dat does it all</p>
 					</div>
@@ -418,31 +552,35 @@
 				<div class="top-hr"></div>
 
 
-				<img src="../../Desktop/Courses/COMP%202910/Zero%20Food%20Waste/COMP-2910-Project/Other%20Website%20Prototype/icons/dairy.png" class="aff-icon">
+
+				<img height="50" width="50" src="icons/dairy.svg" class="aff-icon">
+
+				<img height="50" width="50" src="icons/dairy.svg" class="aff-icon">
+
 				<h1 class="aff-header">Race To Zero</h1>
 				<h3>Category: Game</h3>
 				<p>A game designed to inform players on the issue of avoidable food waste</p>
 				<p>Users play through game levels and answer questions about food waste using in-game mechanics</p>
 
-				<img src="../../Desktop/Courses/COMP%202910/Zero%20Food%20Waste/COMP-2910-Project/Other%20Website%20Prototype/icons/dairy.png" class="aff-icon">
+				<img height="50" width="50" src="icons/dairy.svg" class="aff-icon">
 				<h1 class="aff-header">Take 2</h1>
 				<h3>Category: Web App</h3>
 				<p>A website where you take two ingredients, and the user gets suggested recipes</p>
 				<p>Users will be given recipes and directions on how to make the dishes</p>
 
-				<img src="../../Desktop/Courses/COMP%202910/Zero%20Food%20Waste/COMP-2910-Project/Other%20Website%20Prototype/icons/dairy.png" class="aff-icon">
+				<img height="50" width="50" src="icons/dairy.svg" class="aff-icon">
 				<h1 class="aff-header">F2E</h1>
 				<h3>Category: Web App</h3>
 				<p>An app for users to share food with one another </p>
 				<p>Users can connect through facebook and post any spare food to share</p>
 
-				<img src="../../Desktop/Courses/COMP%202910/Zero%20Food%20Waste/COMP-2910-Project/Other%20Website%20Prototype/icons/dairy.png" class="aff-icon">
+				<img height="50" width="50" src="icons/dairy.svg" class="aff-icon">
 				<h1 class="aff-header">Waste</h1>
 				<h3>Category: Web App</h3>
 				<p>An App to track food usage/wastage</p>
 				<p>Users input food from shopping list and track their usage/wastage</p>
 
-				<img src="../../Desktop/Courses/COMP%202910/Zero%20Food%20Waste/COMP-2910-Project/Other%20Website%20Prototype/icons/dairy.png" class="aff-icon">
+				<img height="50" width="50" src="icons/dairy.svg" class="aff-icon">
 				<h1 class="aff-header">Pocket Pantry</h1>
 				<h3>Category: Web App</h3>
 				<p>A meal planner & grocery list</p>
@@ -453,7 +591,7 @@
 		</div><!-- Affliated Apps -->
 
 		<div data-role="panel" id="defaultpanel" data-theme="a" data-display="overlay" class="ui-panel ui-panel-position-left ui-body-inherit ui-panel-animate ui-panel-closed">
-			<p id="logo" >WhatsinmyFridge.com</p>
+			<p id="logo2" >WhatsinmyFridge.com</p>
 			<a id="fridge-btn" href="#fridge" data-transition="slide" class="nav-btn ui-btn">Fridge</a>
 			<a id="shopping-list-btn" href="#list" data-transition="slide" class="nav-btn ui-btn">Shopping List</a>
 			<a id="settings-btn" href="#settings" data-transition="slide" class="nav-btn ui-btn">Settings</a>
@@ -467,54 +605,74 @@
 
 	</div>
 	<script>
-
-		
 		/***********Don't change**********/
 		
-		
 		/**************Fridge*************/
-		
-		//Sets overview tab as default tab and highlights tab
-		$(".fridge-item").click(function(){
-			$("#overview").show();
-			$("#overviewTab").click();
-		});
-		
-		//Displays overview when clicked
 
-		$("#overviewTab").click(function() {
-			$("#overview").show();
-		});
-		
-		//Hides overview when storage tab is clicked
-		$("#storageTab").click(function() {
-			$("#overview").hide();
-		});
-		
-		//Hides overview when expired tab is clicked
-		$("#expiredTab").click(function() {
-			$("#overview").hide();
-		});
-		
-		/**********Shopping List**********/
-		
-		//Sets storage tab as default tab and highlights tab
-		$(".shopping-item").click(function(){
-			$("#storage2").show();
-			$("#storageTab2").click();
-		});
-		
-		//Shows storage when storage tab is clicked
-		$("#storageTab2").click(function() {
-			$("#storage2").show();
-		});
-		
-		//Hides storage when expired tab is clicked
-		$("#expiredTab2").click(function() {
-			$("#storage2").hide();
-		});	
-		
-		/*********************************/
+        //Sets overview tab as default tab and highlights tab
+        $(".fridge-item").click(function(){
+            $("#overview").show();
+            $("#overviewTab").click();
+        });
+
+        //Displays overview when clicked
+        $("#overviewTab").click(function() {
+            $("#overview").show();
+            $("#storage").hide();
+            $("#expired").hide();
+        });
+
+        //Hides overview when storage tab is clicked
+        $("#storageTab").click(function() {
+            $("#overview").hide();
+            $("#storage").show();
+            $("#expired").hide();
+        });
+
+        //Hides overview when expired tab is clicked
+        $("#expiredTab").click(function() {
+            $("#overview").hide();
+            $("#storage").hide();
+            $("#expired").show();
+        });
+
+        /**********Shopping List**********/
+
+        //Sets storage tab as default tab and highlights tab
+        $(".shopping-item").click(function(){
+            $("#storage2").show();
+            $("#storageTab2").click();
+        });
+
+        //Shows storage when storage tab is clicked and hides
+        $("#storageTab2").click(function() {
+            $("#storage2").show();
+            $("#expired2").hide();
+        });
+
+        //Hides storage when expired tab is clicked
+        $("#expiredTab2").click(function() {
+            $("#storage2").hide();
+            $("#expired2").show();
+        });
+
+        /*********Add custom item*********/
+
+        $("#add-button").click(function(){
+            setTimeout(function(){
+                $("#custom-item-popup").popup("open");
+            }, 100);
+        });
+
+        /********Custom item back*********/
+
+        $("#custom-add-back").click(function() {
+            setTimeout(function() {
+                $("#add-popup").popup("open");
+            }, 100);
+        });
+
+        /*********************************/
 	</script>
 	<script>
 
@@ -569,7 +727,9 @@
                         $("#fridge-btn").hide();
                         $("#settings-btn").hide();
                         $("#shopping-list-btn").hide();
-                        $.mobile.changePage("#login");
+
+                        $.mobile.changePage("#loading");
+
                         $("html").removeClass("loading")
 
                     })

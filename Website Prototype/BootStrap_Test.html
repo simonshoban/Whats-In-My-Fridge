@@ -21,7 +21,7 @@
     		margin: 0;
     		padding: 0.7em 0;
     	}
-    	#signupModal {
+    	.modalPage {
     		padding-top: 5em;
     	}
     	.text-center {
@@ -32,13 +32,6 @@
     		color: white;
     		padding: 0.7em 1em;
     		border-radius: 7px;
-    	}
-    	.control-label {
-    		font-size: 1.5em;
-    	}
-    	.form-control {
-    		font-size: 16px;
-    		height: 40px;
     	}
     </style>
     </head>
@@ -58,10 +51,10 @@
 		</div>
 
 		<div class="text-center">
-			<a href="#">Already a member?</a>
+			<a href="#" data-toggle="modal" data-target="#loginModal">Already a member?</a>
 
-		<!-- This is the code for the modal -->
-		<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+		<!-- This is the code for the modal sign up -->
+		<div class="modal fade modalPage" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
 		  	<div class="modal-dialog" role="document">
 		    	<div class="modal-content">
 		      		<div class="modal-header">
@@ -82,11 +75,40 @@
 		      		</div>
 	      			<div class="modal-footer">
 		        		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		        		<button type="button" class="confirm">Comfirm</button>
+		        		<button type="button" class="btn confirm">Comfirm</button>
 	      			</div>
 	    		</div>
 	  		</div>
 		</div>
+
+		<!-- This is the code for the modal login -->
+		<div class="modal fade modalPage" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+		  	<div class="modal-dialog" role="document">
+		    	<div class="modal-content">
+		      		<div class="modal-header">
+		        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        		<h4 class="modal-title" id="modalLabel">Log in Here!</h4>
+		      		</div>
+		      		<div class="modal-body">
+		        		<form>
+	          				<div class="form-group">
+		            			<label for="username" class="control-label">Username:</label>
+		            			<input type="text" class="form-control" id="username">
+		          			</div>
+		          			<div class="form-group">
+		            			<label for="password" class="control-label">Password:</label>
+		            			<input type="password" class="form-control" id="password">
+		          			</div>
+		        		</form>
+		      		</div>
+	      			<div class="modal-footer">
+		        		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        		<button type="button" class="btn confirm">Comfirm</button>
+	      			</div>
+	    		</div>
+	  		</div>
+		</div>
+
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
