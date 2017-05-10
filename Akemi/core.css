@@ -1,5 +1,7 @@
 body{
     margin:0;
+    font-family: "Calibri Light", Calibri, "Arial Narrow";
+    font-weight: normal;
 }
 .hidden {
     display:none;
@@ -9,9 +11,10 @@ h1 {
     text-align:center;
     padding-top: 12px;
     font-size: 1.6em;
+    color:white;
 }
 #override [data-role="header"]{
-    background-color: lightgrey;
+    background-color:#76B5B0;
 }
 a.sort-button.ui-btn{
     color: white;
@@ -20,32 +23,33 @@ a.sort-button.ui-btn{
 }
 #collapse-produce a{
     color: white;
-    background-color: green;
+    background-color: #6AC261;
 }
 #collapse-meat a{
     color: white;
-    background-color: brown;
+    background-color: #E9767C;
 }
 #collapse-dairy a{
     color: white;
-    background-color: blue;
+    background-color: #8397BF;
 }
 #collapse-grain a{
     color: white;
-    background-color: yellow;
+    background-color: #EDC477;
 }
 #collapse-misc a{
     color: white;
-    background-color: pink;
+    background-color: #A8949F;
 }
 #override a.nav-button{
     padding: 8px;
     margin-top: 5px;
     margin-left: 5px;
-    background-color: green;
+    background-color:#76B5B0;
+    border-style: none;
 }
 #defaultpanel{
-    width:250px;
+    width:200px;
 }
 .nav{
     height:58px;
@@ -113,11 +117,8 @@ a.sort-button.ui-btn{
     position:absolute;
     right: 6px;
     bottom: 6px;
-    background-color: forestgreen !important;
 }
-.sort-button{
-    background-color: forestgreen !important;
-}
+
 #item-popup, #item-popup2 {
     background-color:white;
 	color:black;
@@ -166,7 +167,7 @@ a.sort-button.ui-btn{
 #ate-button {
     margin:10px auto;
     color:white;
-    background-color:green;
+    background-color:#76B5B0;
 }
 .expired-button-div {
     position:absolute;
@@ -176,7 +177,7 @@ a.sort-button.ui-btn{
 #expired-button {
     margin:10px auto;
     color:white;
-    background-color:green;
+    background-color:#76B5B0;
 }
 .ui-panel-inner{
     padding: 0;
@@ -239,13 +240,13 @@ a.sort-button.ui-btn{
 #goal-header{
     padding-bottom: 10px;
     margin-bottom: 20px;
-    background-color: lightgreen;
+    background-color:#76B5B0;
 }
 /* About page css */
 
 /* Affiliated page css */
 .aff-header{
-    background-color: lightgreen;
+    background-color:#76B5B0;
     padding-bottom: 5px;
     padding-right: 30px;
 }
@@ -284,7 +285,7 @@ a.sort-button.ui-btn{
 }
 #add-button, #add-button2, #add-button3, #add-button4{
     color: white;
-    background-color: lightgreen;
+    background-color:#76B5B0;
     margin:10px auto;
 }
 #add-header, #add-header2{
@@ -295,7 +296,7 @@ a.sort-button.ui-btn{
 #override [data-rel="back"]{
     right:0;
     top:0;
-    background-color: lightgreen;
+    background-color:#76B5B0;
 }
 #add-popup, #add-popup2, #custom-item-popup, #custom-item-popup2{
     width: 90vw;
@@ -430,7 +431,7 @@ html.loading body {
 #log-button {
     min-width: 80px;
     max-width: 100px;
-    background-color: green;
+    background-color:#76B5B0;
     margin: 1em auto;
 
 }
@@ -442,6 +443,7 @@ html.loading body {
     margin: 1em;
     text-align: center;
 }
+}
 #google-btn {
     text-align: center;
     color: orange;
@@ -449,4 +451,27 @@ html.loading body {
 }
 #signin {
     margin: 2em;
+}
+
+/* Akemi's code */
+#override .sort-button{
+    background-color:#76B5B0;
+    border-style: none;
+
+}
+
+#override .large-circle {
+    background-color:#76B5B0;
+    border-style: none;
+}
+
+#defaultpanel, #fridge-btn, #shopping-list-btn, #settings-btn, #about-btn, #logout-btn, a.nav-btn.ui-btn{
+    background-color:#918B8E;
+    color: white;
+    border-bottom: 1px solid white;
+    font-weight: normal;
+}
+
+[data-role="collapsible"] {
+    margin:0;
 }
