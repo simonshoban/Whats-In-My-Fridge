@@ -14,6 +14,7 @@ h1 {
     padding-top: 12px;
     font-size: 1.6em;
     color: white;
+    text-shadow: none;
 }
 #override [data-role="header"]{
     background-color: #444;
@@ -28,26 +29,31 @@ a.sort-button.ui-btn{
     background-color: lightgreen;
     padding-top: 1em;
     padding-bottom: 1em;
+    text-shadow: none;
 }
 #collapse-meat a{
     background-color: #FF9696;
     padding-top: 1em;
     padding-bottom: 1em;
+    text-shadow: none;
 }
 #collapse-dairy a{
     background-color: lightblue;
     padding-top: 1em;
     padding-bottom: 1em;
+    text-shadow: none;
 }
 #collapse-grain a{
     background-color: palegoldenrod;
     padding-top: 1em;
     padding-bottom: 1em;
+    text-shadow: none;
 }
 #collapse-misc a{
     background-color: pink;
     padding-top: 1em;
     padding-bottom: 1em;
+    text-shadow: none;
 }
 #override a.nav-button{
     padding: 8px;

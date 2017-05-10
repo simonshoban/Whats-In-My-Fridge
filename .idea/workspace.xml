@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ab1e367-e792-47cb-a50e-5e57dcd3cbd2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Other Website Prototype/icons/dairy.png" afterPath="$PROJECT_DIR$/Other Website Prototype/icons/dairy.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Other Website Prototype/icons/grain.png" afterPath="$PROJECT_DIR$/Other Website Prototype/icons/grain.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Other Website Prototype/icons/meat.png" afterPath="$PROJECT_DIR$/Other Website Prototype/icons/meat.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Other Website Prototype/icons/misc.png" afterPath="$PROJECT_DIR$/Other Website Prototype/icons/misc.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Other Website Prototype/icons/produce.png" afterPath="$PROJECT_DIR$/Other Website Prototype/icons/produce.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Other Website Prototype/core.css" afterPath="$PROJECT_DIR$/Other Website Prototype/core.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Other Website Prototype/icons/produce.svg" afterPath="$PROJECT_DIR$/Other Website Prototype/icons/produce.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Other Website Prototype/test.html" afterPath="$PROJECT_DIR$/Other Website Prototype/test.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -37,8 +30,8 @@
       <file leaf-file-name="core.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Other Website Prototype/core.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2469">
-              <caret line="134" column="27" lean-forward="false" selection-start-line="134" selection-start-column="27" selection-end-line="134" selection-end-column="27" />
+            <state relative-caret-position="336">
+              <caret line="16" column="22" lean-forward="false" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -68,8 +61,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Other Website Prototype/core.css" />
         <option value="$PROJECT_DIR$/Other Website Prototype/test.html" />
+        <option value="$PROJECT_DIR$/Other Website Prototype/core.css" />
       </list>
     </option>
   </component>
@@ -159,15 +152,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1494381082850</updated>
-      <workItem from="1494381084271" duration="7943000" />
+      <workItem from="1494381084271" duration="8338000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7943000" />
+    <option name="totallyTimeSpent" value="8338000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1060" extended-state="7" />
+    <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13177083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -209,8 +202,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Other Website Prototype/core.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2469">
-          <caret line="134" column="27" lean-forward="false" selection-start-line="134" selection-start-column="27" selection-end-line="134" selection-end-column="27" />
+        <state relative-caret-position="336">
+          <caret line="16" column="22" lean-forward="false" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
           <folding />
         </state>
       </provider>
