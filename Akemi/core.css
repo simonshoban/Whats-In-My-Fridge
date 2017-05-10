@@ -1,0 +1,477 @@
+body{
+    margin:0;
+    font-family: "Calibri Light", Calibri, "Arial Narrow";
+    font-weight: normal;
+}
+.hidden {
+    display:none;
+}
+h1 {
+    margin: 0;
+    text-align:center;
+    padding-top: 12px;
+    font-size: 1.6em;
+    color:white;
+}
+#override [data-role="header"]{
+    background-color:#76B5B0;
+}
+a.sort-button.ui-btn{
+    color: white;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+#collapse-produce a{
+    color: white;
+    background-color: #6AC261;
+}
+#collapse-meat a{
+    color: white;
+    background-color: #E9767C;
+}
+#collapse-dairy a{
+    color: white;
+    background-color: #8397BF;
+}
+#collapse-grain a{
+    color: white;
+    background-color: #EDC477;
+}
+#collapse-misc a{
+    color: white;
+    background-color: #A8949F;
+}
+#override a.nav-button{
+    padding: 8px;
+    margin-top: 5px;
+    margin-left: 5px;
+    background-color:#76B5B0;
+    border-style: none;
+}
+#defaultpanel{
+    width:200px;
+}
+.nav{
+    height:58px;
+}
+
+.sort-button{
+    position:absolute;
+    right:6px;
+    top:0;
+}
+#override .nav-button {
+    margin: 0;
+    position: absolute;
+    padding: 14px 14px 14px 14px;
+}
+.item-list .list-item{
+    margin: 0;
+}
+.top-hr {
+    margin:0;
+    width:100%;
+    height:0.5px;
+    border-bottom:1px grey solid;
+    background-color:darkgrey;
+}
+.item-list img {
+    position:absolute;
+    left:4px;
+    top: 4px;
+}
+.item-list .list-item {
+    height: 58px;
+    padding: 0;
+    text-align:left;
+}
+.item-list .item-name{
+    padding-left: 62px;
+    font-size:large;
+}
+.item-list .item-expires{
+    position:absolute;
+    right:30px;
+    top:33px;
+    font-size:x-small;
+    color: grey;
+}
+#defaultpanel #logo {
+    font-weight: bold;
+    text-align: center;
+    font-size: large;
+}
+.small-circle{
+    background-color:red;
+    border-radius:50%;
+    height:12px;
+    width:12px;
+    position:absolute;
+    right: 6px;
+    top: 6px;
+}
+.large-circle{
+    height:50px;
+    width:50px;
+    border-radius:50%;
+    position:absolute;
+    right: 6px;
+    bottom: 6px;
+}
+
+#item-popup, #item-popup2 {
+    background-color:white;
+	color:black;
+    width:90vw;
+    height:85vh;
+    position:fixed;
+    top:8vh;
+    left: 5vw;
+    overflow-y: auto;
+}
+.item-popup-name {
+	text-align:center;
+	font-size:2.2em;
+	color:green;
+    margin-bottom:.2em !important;
+}
+.item-popup-expires {
+	text-align:center;
+}
+#navbar, #navbar2 {
+    display:flex;
+}
+#navbar a, #navbar2 a {
+    width:33%;
+    font-size: 0.89em;
+}
+#overview, #overview2, #storage, #storage2, #expired, #expired2 {
+	text-align:center;
+}
+.ui-table {
+	width:300px;
+	margin:auto;
+}
+.ui-table table {
+	width:100%;
+	margin:auto;
+}
+.item-button-container {
+    /*does stuff in the future*/
+}
+.ate-button-div {
+    position:absolute;
+    left:10%;
+    bottom:5%;
+}
+#ate-button {
+    margin:10px auto;
+    color:white;
+    background-color:#76B5B0;
+}
+.expired-button-div {
+    position:absolute;
+    right:10%;
+    bottom:5%;
+}
+#expired-button {
+    margin:10px auto;
+    color:white;
+    background-color:#76B5B0;
+}
+.ui-panel-inner{
+    padding: 0;
+}
+.nav-btn{
+    margin:0;
+}
+.ui-icon-produce:after {
+    background-image: url("icons/produce.svg");
+    background-size: 18px 18px;
+}
+.ui-nosvg .ui-icon-produce:after{
+    background-image: url("icons/produce.png");
+    background-size: 18px 18px;
+}
+.ui-large-icon{
+    background-size:30px 30px;
+}
+.ui-content {
+    padding:    0px;
+
+}
+#measurement-label {
+    display:inline;
+    padding-right:10px;
+    padding-left:20px;
+}
+#override .tex  t-input-container{
+    width:180px;
+    display:inline-block;
+
+}
+#override .text-input-label{
+    display:inline-block;
+    padding-right:30px;
+    padding-left:20px;
+    width:70px;
+
+}
+
+/* About page css */
+.develop-img{
+    margin-left: 45%;
+}
+.develop-text{
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#dev-header{
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    background-color: lightslategrey;
+}
+#mission-header{
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    background-color: rosybrown;
+}
+#goal-header{
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    background-color:#76B5B0;
+}
+/* About page css */
+
+/* Affiliated page css */
+.aff-header{
+    background-color:#76B5B0;
+    padding-bottom: 5px;
+    padding-right: 30px;
+}
+.aff-icon{
+    float: left;
+}
+#aff-apps h3{
+    text-align: center;
+}
+#aff-apps p{
+    text-align: center;
+}
+/* Affiliated page css */
+
+/*<<<<<<< HEAD*/
+/* Add predefined item page css */
+.ui-icon-green{ /* unused yet, could be used to set close icon to green, couldnt get it to work*/
+    background-image: url(icons/ui.png);
+}
+
+.add-icons{
+    margin-left:auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 5px;
+}
+.item-panel{
+    width: 60px;
+    display: inline-block;
+}
+.item-panel p{
+    text-align: center;
+}
+#button-div, #button-div2{
+    display:flex;
+}
+#add-button, #add-button2, #add-button3, #add-button4{
+    color: white;
+    background-color:#76B5B0;
+    margin:10px auto;
+}
+#add-header, #add-header2{
+    text-align:center;
+    font-size:2.2em;
+    color:green;
+}
+#override [data-rel="back"]{
+    right:0;
+    top:0;
+    background-color:#76B5B0;
+}
+#add-popup, #add-popup2, #custom-item-popup, #custom-item-popup2{
+    width: 90vw;
+    height: 90vh;
+    position:fixed;
+    top:5vh;
+    left:5vw;
+    overflow-y:auto;
+}
+#common-items, #common-items2 {
+    width: 90%;
+    height: 30%;
+    background-color: lightgrey;
+    margin: auto;
+    overflow: scroll;
+    border-style: solid;
+    border-color: green;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-around;
+}
+#bought-items, #bought-items2 {
+    width: 90%;
+    height: 30%;
+    background-color: lightgrey;
+    margin: auto;
+    overflow: scroll;
+    border-style: solid;
+    border-color: green;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-around;
+}
+
+#add-popup p, #add-popup2 p {
+    margin: 0;
+}
+#add-popup h3, #add-popup2 h3 {
+    color: dimgrey;
+    text-align: center;
+    margin-left:5px;
+    margin-right:5px;
+}
+#custom-item-popup, #custom-item-popup2 {
+    text-align:center;
+}
+#custom-item-popup hr, #custom-item-popup2 hr {
+    width:90%;
+}
+#custom-item-popup h3, #custom-item-popup2 h3 {
+    position:relative;
+    top:28px;
+    background-color:white;
+    display:inline-block;
+    padding: 0 15px;
+}
+.add-item-table {
+    max-width:400px;
+    margin:auto;
+}
+.add-item-table table {
+    width:90%;
+    margin:auto;
+    align-items:center;
+}
+.add-item-table table tr {
+    margin:auto;
+}
+.add-item-table table tr td:nth-child(2){
+    width:50%;
+}
+#custom-add-back, #custom-add-back2 {
+    left:0;
+}
+/* Add predefined item page css */
+
+.custom-size-flipswitch.ui-flipswitch .ui-btn.ui-flipswitch-on {
+    text-indent: -4.9em;
+}
+.custom-size-flipswitch.ui-flipswitch .ui-flipswitch-off {
+    text-indent: 1.2em;
+}
+.custom-size-flipswitch.ui-flipswitch {
+    width: 7.875em;
+}
+.custom-size-flipswitch.ui-flipswitch.ui-flipswitch-active {
+    padding-left: 6em;
+    width: 1.875em;
+}
+@media (min-width: 28em) {
+        .ui-field-contain > label + .custom-size-flipswitch.ui-flipswitch {
+        width: 1.875em;
+        }
+}
+
+html {
+    -webkit-transition: background-color 1s;
+    transition: background-color 1s;
+}
+html, body {
+    /* For the loading indicator to be vertically centered ensure */
+    /* the html and body elements take up the full viewport */
+    min-height: 100%;
+}
+html.loading {
+    /* Replace #333 with the background-color of your choice */
+    /* Replace loading.gif with the loading image of your choice */
+    background: #333 ;
+    /* Ensures that the transition only runs in one direction */
+    -webkit-transition: background-color: 0;
+    transition: background-color: 0;
+}
+body {
+    -webkit-transition: opacity 1s ease-in;
+    transition: opacity 1s ease-in;
+}
+html.loading body {
+    /* Make the contents of the body opaque during loading */
+    opacity: 0;
+
+    /* Ensures that the transition only runs in one direction */
+    -webkit-transition: opacity: 0;
+    transition: opacity: 0;
+    /*
+*/
+}
+#logo img {
+    width: 90vw;
+    height: auto;
+    margin: 7vh 5vw 5vw;
+}
+#log-button {
+    min-width: 80px;
+    max-width: 100px;
+    background-color:#76B5B0;
+    margin: 1em auto;
+
+}
+#log-button a {
+    text-decoration: none;
+    color: white;
+}
+.signup-link {
+    margin: 1em;
+    text-align: center;
+}
+}
+#google-btn {
+    text-align: center;
+    color: orange;
+    padding: 2px;
+}
+#signin {
+    margin: 2em;
+}
+
+/* Akemi's code */
+#override .sort-button{
+    background-color:#76B5B0;
+    border-style: none;
+
+}
+
+#override .large-circle {
+    background-color:#76B5B0;
+    border-style: none;
+}
+
+#defaultpanel, #fridge-btn, #shopping-list-btn, #settings-btn, #about-btn, #logout-btn, a.nav-btn.ui-btn{
+    background-color:#918B8E;
+    color: white;
+    border-bottom: 1px solid white;
+    font-weight: normal;
+}
+
+[data-role="collapsible"] {
+    margin:0;
+}
