@@ -1,14 +1,60 @@
 body{
     margin:0;
 }
+#fridge {
+    background-color: #f3f3f3;
+    min-height: 100%;
+}
 .hidden {
     display:none;
 }
 h1 {
-    margin: 0px;
+    margin: 0;
     text-align:center;
     padding-top: 12px;
     font-size: 1.6em;
+    color: white;
+}
+#override [data-role="header"]{
+    background-color: #444;
+}
+a.sort-button.ui-btn{
+    color: white;
+    margin-top: 10px;
+    margin-right: 5px;
+    border-radius: 10px;
+}
+#collapse-produce a{
+    background-color: lightgreen;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+#collapse-meat a{
+    background-color: #FF9696;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+#collapse-dairy a{
+    background-color: lightblue;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+#collapse-grain a{
+    background-color: palegoldenrod;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+#collapse-misc a{
+    background-color: pink;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+#override a.nav-button{
+    padding: 8px;
+    margin-top: 5px;
+    margin-left: 5px;
+    background-color: green;
+    border-radius: 10px;
 }
 #defaultpanel{
     width:250px;
@@ -20,7 +66,7 @@ h1 {
 .sort-button{
     position:absolute;
     right:6px;
-    top:0px;
+    top:0;
 }
 #override .nav-button {
     margin: 0;
@@ -44,7 +90,7 @@ h1 {
 }
 .item-list .list-item {
     height: 58px;
-    padding: 0px;
+    padding: 0;
     text-align:left;
 }
 .item-list .item-name{
@@ -62,6 +108,10 @@ h1 {
     font-weight: bold;
     text-align: center;
     font-size: large;
+    background-color: #444;
+    margin: 0;
+    padding: 1em;
+    color: white;
 }
 .small-circle{
     background-color:red;
@@ -72,6 +122,24 @@ h1 {
     right: 6px;
     top: 6px;
 }
+.small-circle2 {
+    background-color: orange;
+    border-radius: 50%;
+    height: 12px;
+    width: 12px;
+    position: absolute;
+    right: 6px;
+    top: 6px;
+}
+.small-circle3 {
+    background-color: green;
+    border-radius: 50%;
+    height: 12px;
+    width: 12px;
+    position: absolute;
+    right: 6px;
+    top: 6px;
+}
 .large-circle{
     height:50px;
     width:50px;
@@ -79,6 +147,10 @@ h1 {
     position:absolute;
     right: 6px;
     bottom: 6px;
+    background-color: forestgreen !important;
+}
+.sort-button{
+    background-color: forestgreen !important;
 }
 #item-popup, #item-popup2 {
     background-color:white;
@@ -94,11 +166,19 @@ h1 {
 	text-align:center;
 	font-size:2.2em;
 	color:green;
+    margin-bottom:.2em !important;
 }
 .item-popup-expires {
 	text-align:center;
 }
-#overview, #storage, #storage2, #expired, #expired2 {
+#navbar, #navbar2 {
+    display:flex;
+}
+#navbar a, #navbar2 a {
+    width:33%;
+    font-size: 0.89em;
+}
+#overview, #overview2, #storage, #storage2, #expired, #expired2 {
 	text-align:center;
 }
 .ui-table {
@@ -109,12 +189,34 @@ h1 {
 	width:100%;
 	margin:auto;
 }
+.item-button-container {
+    /*does stuff in the future*/
+}
+.ate-button-div {
+    position:absolute;
+    left:10%;
+    bottom:5%;
+}
+#ate-button {
+    margin:10px auto;
+    color:white;
+    background-color:green;
+}
+.expired-button-div {
+    position:absolute;
+    right:10%;
+    bottom:5%;
+}
+#expired-button {
+    margin:10px auto;
+    color:white;
+    background-color:green;
+}
 .ui-panel-inner{
     padding: 0;
 }
 .nav-btn{
     margin:0;
-
 }
 .ui-icon-produce:after {
     background-image: url("icons/produce.svg");
@@ -136,7 +238,7 @@ h1 {
     padding-right:10px;
     padding-left:20px;
 }
-#override .text-input-container{
+#override .tex  t-input-container{
     width:180px;
     display:inline-block;
 
@@ -192,6 +294,118 @@ h1 {
 }
 /* Affiliated page css */
 
+/*<<<<<<< HEAD*/
+/* Add predefined item page css */
+.ui-icon-green{ /* unused yet, could be used to set close icon to green, couldnt get it to work*/
+    background-image: url(icons/ui.png);
+}
+
+.add-icons{
+    margin-left:auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 5px;
+}
+.item-panel{
+    width: 60px;
+    display: inline-block;
+}
+.item-panel p{
+    text-align: center;
+}
+#button-div, #button-div2{
+    display:flex;
+}
+#add-button, #add-button2, #add-button3, #add-button4{
+    color: white;
+    background-color: lightgreen;
+    margin:10px auto;
+}
+#add-header, #add-header2{
+    text-align:center;
+    font-size:2.2em;
+    color:green;
+}
+#override [data-rel="back"]{
+    right:0;
+    top:0;
+    background-color: forestgreen;
+}
+#add-popup, #add-popup2, #custom-item-popup, #custom-item-popup2{
+    width: 90vw;
+    height: 90vh;
+    position:fixed;
+    top:5vh;
+    left:5vw;
+    overflow-y:auto;
+}
+#common-items, #common-items2 {
+    width: 90%;
+    height: 30%;
+    background-color: lightgrey;
+    margin: auto;
+    overflow: scroll;
+    border-style: solid;
+    border-color: green;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-around;
+}
+#bought-items, #bought-items2 {
+    width: 90%;
+    height: 30%;
+    background-color: lightgrey;
+    margin: auto;
+    overflow: scroll;
+    border-style: solid;
+    border-color: green;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-around;
+}
+
+#add-popup p, #add-popup2 p {
+    margin: 0;
+}
+#add-popup h3, #add-popup2 h3 {
+    color: dimgrey;
+    text-align: center;
+    margin-left:5px;
+    margin-right:5px;
+}
+#custom-item-popup, #custom-item-popup2 {
+    text-align:center;
+}
+#custom-item-popup hr, #custom-item-popup2 hr {
+    width:90%;
+}
+#custom-item-popup h3, #custom-item-popup2 h3 {
+    position:relative;
+    top:28px;
+    background-color:white;
+    display:inline-block;
+    padding: 0 15px;
+}
+.add-item-table {
+    max-width:400px;
+    margin:auto;
+}
+.add-item-table table {
+    width:90%;
+    margin:auto;
+    align-items:center;
+}
+.add-item-table table tr {
+    margin:auto;
+}
+.add-item-table table tr td:nth-child(2){
+    width:50%;
+}
+#custom-add-back, #custom-add-back2 {
+    left:0;
+}
+/* Add predefined item page css */
+
 .custom-size-flipswitch.ui-flipswitch .ui-btn.ui-flipswitch-on {
     text-indent: -4.9em;
 }
@@ -225,8 +439,8 @@ html.loading {
     /* Replace loading.gif with the loading image of your choice */
     background: #333 ;
     /* Ensures that the transition only runs in one direction */
-    -webkit-transition: background-color 0;
-    transition: background-color 0;
+    -webkit-transition: background-color: 0;
+    transition: background-color: 0;
 }
 body {
     -webkit-transition: opacity 1s ease-in;
@@ -237,8 +451,10 @@ html.loading body {
     opacity: 0;
 
     /* Ensures that the transition only runs in one direction */
-    -webkit-transition: opacity 0;
-    transition: opacity 0;
+    -webkit-transition: opacity: 0;
+    transition: opacity: 0;
+    /*
+*/
 }
 #logo img {
     width: 90vw;
@@ -267,4 +483,18 @@ html.loading body {
 }
 #signin {
     margin: 2em;
+}
+#nav-links {
+    margin: 0;
+}
+#nav-links a:hover {
+    background-color: #3388cc;
+    color: white;
+    shadow: none;
+}
+.ui-block-a h1, .ui-block-b h1 {
+    color: black;
+}
+.ui-collapsible-heading .ui-btn {
+    margin: 0 3px;
 }
