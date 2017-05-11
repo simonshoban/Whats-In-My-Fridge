@@ -1,31 +1,68 @@
 body{
     margin:0;
 }
+
 input{
     width:100%;
 }
 .hidden {
     display:none;
 }
+#override .ui-btn.ui-btn-active {
+    border-color: black;
+    color: black;
+    text-shadow: none;
+
+}
 .ui-panel-dismiss-open.ui-panel-dismiss-position-left{
     //background-color:black !important;
     //opacity:0.5;
     left:200px;
 }
+#override [data-role="footer"] {
+    height:90px;
+    background-color:inherit;
+    border:none;
+}
+.collapsible-container{
+    position:relative;
+}
 #meat h3 a{
     font-size: 1em;
-    color: #b55f5f;
-    border-right:solid #b55f5f 10px;
+    color: #9f2828;
+    border-right:solid #9f2828 12px;
+    background-color: white;
 }
 #produce h3 a{
     font-size: 1em;
-    color:green;
-    border-right:solid green 10px;
+    color:#008000;
+    border-right:solid #008000 12px;
+    background-color: white;
 }
 #grain h3 a{
     font-size: 1em;
-    color:burlywood;
-    border-right:solid burlywood 10px;
+    color: #de9f49;
+    border-right:solid #de9f49 12px;
+    background-color: white;
+}
+#dairy h3 a{
+    font-size: 1em;
+    color: #5daede;
+    border-right:solid #5daede 12px;
+    background-color: white;
+}
+#misc h3 a{
+    font-size: 1em;
+    color: #666666;
+    border-right:solid #666666 12px;
+    background-color: white;
+}
+#produce-number, #meat-number, #grain-number, #dairy-number, #misc-number {
+    position:absolute;
+    top:30px;
+    right:35px;
+    margin:0;
+    color: #666666;
 }
 #override .ui-collapsible-content{
     padding:0px;
@@ -57,9 +94,12 @@ h3{
 }
 #override #defaultpanel{
     width:200px;
+    background-color: inherit;
 }
 .nav{
     height:58px;
+    background-color: #3D7CB3;
+    color: white;
 }
 
 #override .sort-button{
@@ -69,6 +109,8 @@ h3{
     height:50px;
     width:50px;
     margin:4px;
+    border: none;
+    background-color: inherit;
 
 }
 #override #popup-sort{
@@ -79,9 +121,7 @@ h3{
     margin: 0;
     position: absolute;
     padding: 14px 18px 16px 16px;
-    border-left:none;
-    border-top:none;
-    border-bottom:none;
+    border: none;
     background-color:inherit;
 }
 .item-list .list-item{
@@ -111,31 +151,37 @@ h3{
 }
 .item-list .item-expires{
     position:absolute;
-    right:30px;
-    top:33px;
-    font-size:x-small;
+    right:10px;
+    top:34px;
+    font-size:15px;
     color: grey;
+    margin: 0;
 }
 .item-list .item-quantity {
     position:absolute;
-    right:80px;
-    top:33px;
-    font-size:x-small;
+    right:78px;
+    top:22px;
+    font-size:15px;
     color: grey;
 }
 #defaultpanel #logo2 {
     font-weight: bold;
     text-align: center;
     font-size: large;
+    color: white;
+    text-shadow: none;
+    margin: 0;
+    padding: 17px 10px;
+    background-color: black;
 }
 .small-circle{
-    background-color:red;
+    background-color: #dd4146;
     border-radius:50%;
     height:12px;
     width:12px;
     position:absolute;
-    right: 6px;
-    top: 6px;
+    right: 8px;
+    top: 8px;
 }
 #override .ui-checkbox, #override .checkbox-label {
     position:absolute;
@@ -161,13 +207,18 @@ h3{
 
 }
 
-.large-circle{
-    height:65px;
-    width:65px;
+#override .large-circle{
+    height:60px;
+    width:60px;
     border-radius:50%;
+    border-color: #101010;
+    border-width:1px;
     position:fixed;
     right: 14px;
     bottom: 6px;
+    background-color: #f3f3f3;
+    z-index: 3;
+)
 }
 
 #item-popup, #item-popup2 {
@@ -233,6 +284,7 @@ h3{
 }
 .nav-btn{
     margin:0;
+    background-color: white;
 }
 .ui-icon-produce:after {
     background-image: url("icons/produce.svg");
@@ -247,7 +299,6 @@ h3{
 }
 .ui-content {
     padding:    0px;
-
 }
 
 #override .text-input-container{
@@ -284,7 +335,7 @@ h3{
 }
 #dev-header{
     padding-bottom: 10px;
-    margin-bottom: 20px;
+    margin: 5px 0 20px;
     background-color: #e8e8e8;
     border-top: solid #4763e2 5px;
 }
@@ -308,6 +359,7 @@ h3{
 
 /* Affiliated page css */
 .aff-header{
+    margin-top: 5px;
     background-color: #e8e8e8;
     height:84px;
     width:100%;
@@ -498,8 +550,6 @@ body{
 html {
     -webkit-transition: background-color 1s;
     transition: background-color 1s;
-
-
 }
 html, body {
     /* For the loading indicator to be vertically centered ensure */
@@ -538,4 +588,30 @@ html.loading body {
 #google-btn {
     width:175px;
     margin:auto;
+}
+@media (max-width: 500px) {
+    .ui-page {
+
+        margin: 0;
+
+    }
+}
+@media (min-width: 501px) {
+    #override .ui-page{
+        //padding-left:200px !important;
+        //max-width: 500px;
+        //position: absolute;
+    }
+    #item-list{
+        //margin-left:200px;
+    }
+    #override .ui-page{
+        margin-left:200px;
+        width:calc(100vw - 200px);
+        float:right;
+        background-color: white;
+    }
+}
+#fridge-btn,#shopping-list-btn,#settings-btn, #about-btn, #aff-btn, #logout-btn, #login-btn {
+    background-color: white;
 }

@@ -2,50 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ab1e367-e792-47cb-a50e-5e57dcd3cbd2" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Other Website Prototype/Phat.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Other Website Prototype/core.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Other Website Prototype/icons/dairy.ai" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Other Website Prototype/icons/dairy.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Other Website Prototype/icons/dairy.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Other Website Prototype/icons/grain.ai" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Other Website Prototype/icons/grain.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Other Website Prototype/icons/grain.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Other Website Prototype/icons/logo.ai" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Other Website Prototype/icons/logo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Other Website Prototype/icons/meat.ai" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Other Website Prototype/icons/meat.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Other Website Prototype/icons/meat.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Other Website Prototype/icons/misc.ai" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Other Website Prototype/icons/misc.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Other Website Prototype/icons/misc.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Other Website Prototype/icons/produce.ai" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Other Website Prototype/icons/produce.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Other Website Prototype/icons/produce.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Other Website Prototype/icons/ui.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Other Website Prototype/jquery-1.11.1.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Other Website Prototype/jquery-3.2.1.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Other Website Prototype/jquery.mobile-1.4.5.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Other Website Prototype/jquery.mobile-1.4.5.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Other Website Prototype/placeholder.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Other Website Prototype/test.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Website Prototype/BootStrap_Test.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Website Prototype/css/bootstrap-theme.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Website Prototype/css/bootstrap-theme.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Website Prototype/css/bootstrap-theme.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Website Prototype/css/bootstrap-theme.min.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Website Prototype/css/bootstrap.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Website Prototype/css/bootstrap.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Website Prototype/css/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Website Prototype/css/bootstrap.min.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Website Prototype/fonts/glyphicons-halflings-regular.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Website Prototype/fonts/glyphicons-halflings-regular.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Website Prototype/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Website Prototype/fonts/glyphicons-halflings-regular.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Website Prototype/fonts/glyphicons-halflings-regular.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Website Prototype/image/placeholder.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Website Prototype/js/bootstrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Website Prototype/js/bootstrap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Website Prototype/js/npm.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/New Stuff/core.css" afterPath="$PROJECT_DIR$/New Stuff/core.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/New Stuff/jquery.mobile-1.4.5.css" afterPath="$PROJECT_DIR$/New Stuff/jquery.mobile-1.4.5.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/New Stuff/test.html" afterPath="$PROJECT_DIR$/New Stuff/test.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -60,11 +19,21 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="test.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/New Stuff/test.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="261">
+              <caret line="887" column="36" lean-forward="false" selection-start-line="887" selection-start-column="36" selection-end-line="887" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="core.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/New Stuff/core.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="651">
+              <caret line="614" column="91" lean-forward="false" selection-start-line="614" selection-start-column="91" selection-end-line="614" selection-end-column="91" />
               <folding />
             </state>
           </provider>
@@ -74,18 +43,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ui-alt-ic</find>
-      <find>footer</find>
-      <find>override</find>
-      <find>data-role=</find>
-      <find>page</find>
-      <find>collapse</find>
       <find>navPa</find>
       <find>ui-alt</find>
-      <find>nav</find>
       <find>logo</find>
       <find>small</find>
       <find>develop</find>
+      <find>push</find>
+      <find>overlay</find>
+      <find>navbar</find>
+      <find>defaultpanel</find>
+      <find>nav-button</find>
+      <find>produce</find>
+      <find>pr</find>
+      <find>alt</find>
+      <find>ui-group-theme-a a:visited</find>
+      <find>icon-plus</find>
+      <find>icon-delete</find>
+      <find>add-header</find>
+      <find>item-pop</find>
+      <find>item-popup</find>
+      <find>position</find>
+      <find>item-list</find>
+      <find>item-expire</find>
+      <find>fridge</find>
+      <find>nav</find>
+      <find>about</find>
+      <find>ui-btn</find>
+      <find>affliated</find>
+      <find>affil</find>
+      <find>custo</find>
+      <find>custom</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -96,6 +83,9 @@
       <list>
         <option value="$PROJECT_DIR$/Other Website Prototype/test.html" />
         <option value="$PROJECT_DIR$/Other Website Prototype/core.css" />
+        <option value="$PROJECT_DIR$/New Stuff/jquery.mobile-1.4.5.css" />
+        <option value="$PROJECT_DIR$/New Stuff/test.html" />
+        <option value="$PROJECT_DIR$/New Stuff/core.css" />
       </list>
     </option>
   </component>
@@ -126,6 +116,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -138,9 +129,22 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="COMP-2910-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="COMP-2910-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="New Stuff" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -161,6 +165,68 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <method />
+    </configuration>
+    <configuration default="true" type="DartTestRunConfigurationType" factoryName="Dart Test">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="cucumber.js" factoryName="Cucumber.js">
+      <option name="cucumberJsArguments" value="" />
+      <option name="executablePath" />
+      <option name="filePath" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+  </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
@@ -173,11 +239,12 @@
       <updated>1494381082850</updated>
       <workItem from="1494381084271" duration="8338000" />
       <workItem from="1494460346348" duration="593000" />
+      <workItem from="1494462996621" duration="13117000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8931000" />
+    <option name="totallyTimeSpent" value="22048000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
@@ -186,10 +253,10 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13177083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -212,12 +279,36 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Other Website Prototype/test.html" />
-    <entry file="file://$PROJECT_DIR$/Other Website Prototype/core.css" />
     <entry file="file://$PROJECT_DIR$/New Stuff/test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Other Website Prototype/test.html" />
+    <entry file="file://$PROJECT_DIR$/Other Website Prototype/core.css" />
+    <entry file="file://$PROJECT_DIR$/New Stuff/jquery.mobile-1.4.5.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="4511" column="22" lean-forward="true" selection-start-line="4511" selection-start-column="22" selection-end-line="4511" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/New Stuff/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="887" column="36" lean-forward="false" selection-start-line="887" selection-start-column="36" selection-end-line="887" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/New Stuff/core.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="651">
+          <caret line="614" column="91" lean-forward="false" selection-start-line="614" selection-start-column="91" selection-end-line="614" selection-end-column="91" />
           <folding />
         </state>
       </provider>

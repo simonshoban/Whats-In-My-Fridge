@@ -63,7 +63,7 @@
 		<div data-role="page" id="loading">
 			<div data-role="header">
 				<div class="nav">
-					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
+					<a id="default-nav-button" href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
 					<h1>Welcome!</h1>
 				</div>
 			</div>
@@ -119,7 +119,7 @@
 		<div data-role="page" id="login">
 			<div data-role="header">
 				<div class="nav">
-					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
+					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
 					<h1>Login</h1>
 				</div>
 			</div>
@@ -147,7 +147,7 @@
 		<div data-role="page" id="signup">
 			<div data-role="header">
 				<div class="nav">
-					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
+					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
 					<h1>Signup</h1>
 				</div>
 			</div>
@@ -190,9 +190,9 @@
 		<div data-role="page" id="fridge">
 			<div data-role="header">
 				<div class="nav">
-					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
-					<h1>Fridge</h1>
-					<a href="#popup-sort" data-rel="popup" data-transition="slide" class="sort-button ui-nodisc-icon ui-alt-icon ui-btn ui-corner-all ui-icon-bullets ui-btn-icon-notext ui-btn-inline">bullets</a>
+					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
+					<h1>My Fridge</h1>
+					<a href="#popup-sort" data-rel="popup" data-transition="slide" class="sort-button ui-nodisc-icon ui-btn ui-corner-all ui-icon-bullets ui-btn-icon-notext ui-btn-inline">bullets</a>
 					<div data-role="popup" data-transition="fade" id="popup-sort">
 						<form>
 							<fieldset data-role="controlgroup">
@@ -264,64 +264,113 @@
                             </div>
                         </div>
 					</div>
-					<div id="produce" data-role="collapsible" data-inset="true">
-						<h3>Produce</h3>
-						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
-							<p class="item-name">Apple Apr-26</p>
-							<p class="item-expires">Expires in 3 days</p>
-							<div class="small-circle"></div>
-						</a>
-                        <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
-                            <p class="item-name">Apple Apr-26</p>
-                            <p class="item-expires">Expires in 3 days</p>
-                            <div class="small-circle"></div>
-					    </a>
-                        <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
-                            <p class="item-name">Apple Apr-26</p>
-                            <p class="item-expires">Expires in 3 days</p>
-                            <div class="small-circle"></div>
-					    </a>
+					<div class="collapsible-container">
+						<div id="produce" data-role="collapsible" data-inset="true">
+							<h3>Produce</h3>
+							<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+								<p class="item-name">Apple Apr-26</p>
+								<p class="item-expires">Expires in 3 days</p>
+								<div class="small-circle"></div>
+							</a>
+							<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+								<p class="item-name">Apple Apr-26</p>
+								<p class="item-expires">Expires in 3 days</p>
+								<div class="small-circle"></div>
+							</a>
+							<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+								<p class="item-name">Apple Apr-26</p>
+								<p class="item-expires">Expires in 3 days</p>
+								<div class="small-circle"></div>
+							</a>
+						</div>
+						<p id="produce-number">3 Items</p>
 					</div>
-					<div id="meat" data-role="collapsible" data-inset="true">
-						<h3>Meat</h3>
-						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
-							<p class="item-name">Apple Apr-26</p>
-							<p class="item-expires">Expires in 3 days</p>
-							<div class="small-circle"></div>
-						</a>
-						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
-							<p class="item-name">Apple Apr-26</p>
-							<p class="item-expires">Expires in 3 days</p>
-							<div class="small-circle"></div>
-						</a>
-						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
-							<p class="item-name">Apple Apr-26</p>
-							<p class="item-expires">Expires in 3 days</p>
-							<div class="small-circle"></div>
-
-						</a>
+					<div class="collapsible-container">
+						<div id="meat" data-role="collapsible" data-inset="true">
+							<h3>Meat</h3>
+							<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/meat.svg">
+								<p class="item-name">Apple Apr-26</p>
+								<p class="item-expires">Expires in 3 days</p>
+								<div class="small-circle"></div>
+							</a>
+							<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/meat.svg">
+								<p class="item-name">Apple Apr-26</p>
+								<p class="item-expires">Expires in 3 days</p>
+								<div class="small-circle"></div>
+							</a>
+							<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/meat.svg">
+								<p class="item-name">Apple Apr-26</p>
+								<p class="item-expires">Expires in 3 days</p>
+								<div class="small-circle"></div>
+							</a>
+						</div>
+						<p id="meat-number">3 Items</p>
 					</div>
-					<div id="grain" data-role="collapsible" data-inset="true">
-						<h3>Grains</h3>
-						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
-							<p class="item-name">Apple Apr-26</p>
-							<p class="item-expires">Expires in 3 days</p>
-							<div class="small-circle"></div>
-						</a>
-						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
-							<p class="item-name">Apple Apr-26</p>
-							<p class="item-expires">Expires in 3 days</p>
-							<div class="small-circle"></div>
-						</a>
-						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
-							<p class="item-name">Apple Apr-26</p>
-							<p class="item-expires">Expires in 3 days</p>
-							<div class="small-circle"></div>
-
-						</a>
+					<div class="collapsible-container">
+						<div id="grain" data-role="collapsible" data-inset="true">
+							<h3>Grains</h3>
+							<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/grain.svg">
+								<p class="item-name">Apple Apr-26</p>
+								<p class="item-expires">Expires in 3 days</p>
+								<div class="small-circle"></div>
+							</a>
+							<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/grain.svg">
+								<p class="item-name">Apple Apr-26</p>
+								<p class="item-expires">Expires in 3 days</p>
+								<div class="small-circle"></div>
+							</a>
+							<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/grain.svg">
+								<p class="item-name">Apple Apr-26</p>
+								<p class="item-expires">Expires in 3 days</p>
+								<div class="small-circle"></div>
+							</a>
+						</div>
+						<p id="grain-number">3 Items</p>
+					</div>
+					<div class="collapsible-container">
+						<div id="dairy" data-role="collapsible" data-inset="true">
+							<h3>Dairy</h3>
+							<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/dairy.svg">
+								<p class="item-name">Apple Apr-26</p>
+								<p class="item-expires">Expires in 3 days</p>
+								<div class="small-circle"></div>
+							</a>
+							<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/dairy.svg">
+								<p class="item-name">Apple Apr-26</p>
+								<p class="item-expires">Expires in 3 days</p>
+								<div class="small-circle"></div>
+							</a>
+							<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/dairy.svg">
+								<p class="item-name">Apple Apr-26</p>
+								<p class="item-expires">Expires in 3 days</p>
+								<div class="small-circle"></div>
+							</a>
+						</div>
+						<p id="dairy-number">3 Items</p>
+					</div>
+					<div class="collapsible-container">
+						<div id="misc" data-role="collapsible" data-inset="true">
+							<h3>Misc</h3>
+							<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/misc.svg">
+								<p class="item-name">Apple Apr-26</p>
+								<p class="item-expires">Expires in 3 days</p>
+								<div class="small-circle"></div>
+							</a>
+							<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/misc.svg">
+								<p class="item-name">Apple Apr-26</p>
+								<p class="item-expires">Expires in 3 days</p>
+								<div class="small-circle"></div>
+							</a>
+							<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/misc.svg">
+								<p class="item-name">Apple Apr-26</p>
+								<p class="item-expires">Expires in 3 days</p>
+								<div class="small-circle"></div>
+							</a>
+						</div>
+						<p id="misc-number">3 Items</p>
 					</div>
 				</div>
-				<a href="#add-popup" data-rel="popup" class="large-circle ui-shadow ui-alt-icon ui-nodisc-icon  ui-btn ui-icon-plus ui-btn-icon-notext">No text</a>
+				<a href="#add-popup" data-rel="popup" class="large-circle ui-shadow ui-nodisc-icon ui-alt-icon ui-btn ui-icon-plus ui-btn-icon-notext">No text</a>
 				<div data-role="popup" data-transition="none" data-overlay-theme="b" id="add-popup">
                     <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
                     <p id="add-header">Add Item</p>
@@ -481,10 +530,10 @@
 		<div data-role="page" id="list">
 			<div data-role="header">
 				<div class="nav">
-					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
+					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
 					<h1>Shopping List</h1>
 
-					<a href="#" data-rel="popup" data-transition="slide" class="sort-button ui-nodisc-icon ui-alt-icon ui-btn ui-corner-all ui-icon-shop ui-btn-icon-notext ui-btn-inline">bullets</a>
+					<a href="#" data-rel="popup" data-transition="slide" class="sort-button ui-nodisc-icon ui-btn ui-corner-all ui-icon-shop ui-btn-icon-notext ui-btn-inline">bullets</a>
 
 				</div>
 			</div>
@@ -556,7 +605,7 @@
 						</div>
 					</div>
 				</div>
-				<a href="#add-popup2" data-rel="popup" class="large-circle ui-alt-icon ui-nodisc-icon  ui-btn ui-icon-plus ui-btn-icon-notext">No text</a>
+				<a href="#add-popup2" data-rel="popup" class="large-circle ui-nodisc-icon ui-alt-icon ui-btn ui-icon-plus ui-btn-icon-notext">No text</a>
                 <div data-role="popup" data-transition="none" data-overlay-theme="b" id="add-popup2">
                     <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
                     <p id="add-header2">Add Item</p>
@@ -716,7 +765,7 @@
 		<div data-role="page" id="settings">
 			<div data-role="header">
 				<div class="nav">
-					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
+					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
 					<h1>Settings</h1>
 				</div>
 			</div>
@@ -743,7 +792,7 @@
 		<div data-role="page" id="about">
 			<div data-role="header">
 				<div class="nav">
-					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
+					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
 					<h1>About</h1>
 				</div>
 			</div>
@@ -788,7 +837,7 @@
 		<div data-role="page" id="aff-apps">
 			<div data-role="header">
 				<div class="nav">
-					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
+					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
 					<h1>Affiliated Apps</h1>
 				</div>
 			</div>
@@ -820,8 +869,8 @@
 			</div>
 		</div><!-- Affliated Apps -->
 
-		<div data-role="panel" id="defaultpanel" data-theme="a" data-display="overlay" class="ui-panel ui-panel-position-left ui-body-inherit ui-panel-animate ui-panel-closed">
-			<p id="logo2" >WhatsinmyFridge.ca</p>
+		<div data-role="panel" id="defaultpanel"  data-theme="a" data-display="overlay" class="ui-panel ui-responsive-panel ui-panel-position-left ui-body-inherit ui-panel-animate ui-panel-closed">
+			<p id="logo2" >Whats In My Fridge</p>
 			<ul id="nav-list">
 				<li>
 					<a id="fridge-btn" href="#fridge" data-transition="slide" class="nav-btn ui-btn">Fridge</a>
@@ -836,7 +885,7 @@
 					<a id="about-btn" href="#about" data-transition="slide" class="nav-btn ui-btn">About</a>
 				</li>
 				<li>
-					<a href="#aff-apps" data-transition="slide" class="nav-btn ui-btn">Affiliated Apps</a>
+					<a id="aff-btn" href="#aff-apps" data-transition="slide" class="nav-btn ui-btn">Affiliated Apps</a>
 				</li>
 				<li>
 					<a id="login-btn" data-transition="slide" href="#loading" class="nav-btn ui-btn">Login</a>
@@ -1023,6 +1072,46 @@
         $("#custom-item-popup2").height(vh);
         $("#custom-item-popup2").offset({top: offset});
 	</script>
+	<script>
+	$("body").on("keyup", function(e){
+	if (e.which === 27){
+	return false;
+	}
+	});
+	</script>
+	<script>var eventFired = 0;
 
+    if (window.matchMedia('(max-width: 500px)').matches) {
+        $("#defaultpanel").attr("data-dismissible", "true");
+		$("#defaultpanel").attr("data-swipe-close", "true");
+        setTimeout(function () {
+            $("#defaultpanel").panel("close");
+        }, 100);
+    }
+    else {
+        setTimeout(function () {
+            $("#defaultpanel").panel("open");
+        }, 100);
+        $("#defaultpanel").attr("data-dismissible", "false");
+        $("#defaultpanel").attr("data-swipe-close", "false");
+	}
+
+    $(window).resize(function() {
+		if (window.matchMedia('(min-width: 500px)').matches) {
+			$("#defaultpanel").attr("data-dismissible", "true");
+			$("#defaultpanel").attr("data-swipe-close", "true");
+			//alert($(window).width());
+            setTimeout(function () {
+                $("#defaultpanel").panel("open");
+            }, 100);
+		} else {
+            setTimeout(function () {
+                $("#defaultpanel").panel("close");
+            }, 100);
+            $("#defaultpanel").attr("data-dismissible", "false");
+            $("#defaultpanel").attr("data-swipe-close", "false");
+		}
+    });
+	</script>
 	</body>
 </html>
