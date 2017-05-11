@@ -11,8 +11,8 @@ header{
     background-image: url("../img/food.jpg");
     background-size: cover;
 }
-.intro-text button{
-    width: 200px;
+.intro-text a{
+    width: 150px;
     height: 50px;
 }
 #sign-up{
@@ -24,4 +24,14 @@ header{
 }
 #sign-up-link{
     text-decoration: none;
+}
+nav#mainNav{
+    background-color: #3d7cb3;
+}
+span.skills{
+    text-shadow: black 2px 2px 8px, black -2px -2px 8px, black -2px 2px 8px;
+}
+h3#sign-up{
+    color: #18BC9C;
+    text-shadow: black 2px 2px 8px, black -4px -4px 8px, black -4px 4px 8px;
 }
