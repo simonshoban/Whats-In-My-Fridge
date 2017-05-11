@@ -9,8 +9,8 @@ input{
     display:none;
 }
 #override .ui-btn.ui-btn-active {
-    border-color: black;
-    color: black;
+    border-color: inherit;
+    color: inherit;
     text-shadow: none;
 
 }
