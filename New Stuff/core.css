@@ -1,7 +1,6 @@
 body{
     margin:0;
 }
-
 input{
     width:100%;
 }
@@ -23,6 +22,15 @@ input{
 }
 .collapsible-container{
     position:relative;
+}
+#meat h3 + div, #produce h3 + div, #grain h3 + div, #dairy h3 + div, #misc h3 + div{
+    border:none;
+    border-right:solid 8px;
+    border-color:inherit;
+
+}
+#meat h3 a, #produce h3 a, #grain h3 a, #dairy h3 a, #misc h3 a{
+    background-color:white;
 }
 #meat h3 a{
     font-size: 1em;
@@ -46,15 +54,31 @@ input{
 }
 #misc h3 a{
     font-size: 1em;
-    color: #a6a4a3;
-    border-right:solid #a6a4a3 12px;;
+    color: #959392;
+    border-right:solid #959392 12px;;
 }
+#meat{
+    border-color:#9f2828;
+}
+#produce {
+    border-color:#008000;
+}
+#grain{
+    border-color:#de9f49;
+}
+#dairy{
+    border-color:#5daede;
+}
+#misc{
+    border-color:#959392;
+}
+
 #produce-number, #meat-number, #grain-number, #dairy-number, #misc-number {
     position:absolute;
     top:30px;
     right:35px;
     margin:0;
-    color: #b4b4b4;
+    color: grey;
 }
 #override .ui-collapsible-content{
     padding:0px;
@@ -74,6 +98,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 h1, h2 {
     font-size: 1.6em;
+    text-shadow:none;
 }
 h3{
     font-size: 1.3em;
@@ -90,6 +115,8 @@ h3{
 .nav{
     position:relative;
     height:58px;
+    background-color:#3d7cb3;
+    color:white;
 }
 
 #override .sort-button{
@@ -99,6 +126,8 @@ h3{
     height:50px;
     width:50px;
     margin:4px;
+    border:none;
+    background-color:inherit;
 
 }
 #override #popup-sort{
@@ -109,9 +138,7 @@ h3{
     margin: 0;
     position: absolute;
     padding: 14px 18px 16px 16px;
-    border-left:none;
-    border-top:none;
-    border-bottom:none;
+    border:none;
     background-color:inherit;
 }
 .item-list .list-item{
@@ -144,21 +171,28 @@ h3{
 .item-list .item-expires{
     position:absolute;
     right:30px;
-    top:33px;
-    font-size:x-small;
+    top:26px;
+    font-size:small;
     color: grey;
 }
 .item-list .item-quantity {
     position:absolute;
     right:80px;
-    top:33px;
-    font-size:x-small;
+    top:26px;
+    font-size:small;
     color: grey;
 }
 #defaultpanel .logo2 , .fakepanel .logo2{
     font-weight: bold;
     text-align: center;
     font-size: large;
+    text-shadow: none;
+    color:white;
+    margin:0;
+    padding-top:18px;
+    background-color: #3d7cb3;
+    padding-bottom:18px;
+
 }
 .small-circle{
     background-color: #dd4146;
@@ -268,8 +302,28 @@ h3{
 .ui-panel-inner{
     padding: 0;
 }
-.nav-btn{
+#override .nav-btn{
     margin:0;
+    background-color: #fcfcfc;
+    border:none;
+    text-align:left;
+    padding-left:45px;
+    padding-top:12px;
+    padding-bottom:12px;
+    color:black;
+    text-shadow:none;
+
+}
+#override a:focus {
+    box-shadow:none;
+}
+#override .nav-btn:focus {
+    box-shadow:none;
+    background-color:#3d7cb3;
+    color:white;
+}
+#defaultpanel li:last-child, #fakepanel li:last-child{
+    border-bottom:solid 1px lightgrey;
 }
 .ui-icon-produce:after {
     background-image: url("icons/produce.svg");
@@ -323,7 +377,7 @@ h3{
     padding-bottom: 10px;
     margin-bottom: 20px;
     background-color: #e8e8e8;
-    border-top: solid #4763e2 5px;
+}
 }
 #mission-header{
     padding-bottom: 10px;
@@ -371,7 +425,6 @@ h3{
     text-align: center;
 }
 #forkpotato .aff-header{
-    border-top: solid #4763e2 5px;
 }
 #foodfall .aff-header{
     border-top: solid #34e23c 5px;
