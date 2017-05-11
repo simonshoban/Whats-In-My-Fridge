@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html class="loading" lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>What's in My Fridge?</title>
+		<link rel="stylesheet" href="jquery.mobile-1.4.5.css">
+		<link rel="stylesheet" href="core.css">
+		<meta name="google-signin-client_id" content="901409010191-fh44qef7jm9jniv1h13etlpg35lgqi63.apps.googleusercontent.com">
+
+
+		<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+		<script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyCem7c3julHajYjuPi5dpwBF7FisO5mVBA",
+                authDomain: "whatsinmyfridge-b1f71.firebaseapp.com",
+                databaseURL: "https://whatsinmyfridge-b1f71.firebaseio.com",
+                projectId: "whatsinmyfridge-b1f71",
+                storageBucket: "whatsinmyfridge-b1f71.appspot.com",
+                messagingSenderId: "981344901205"
+            };
+            firebase.initializeApp(config);
+		</script>
+		<script src="jquery-1.11.1.min.js"></script>
+		<script src="jquery.mobile-1.4.5.js"></script>
+		<script>
+            $(function () {
+                $("[data-role=panel]").panel().enhanceWithin();
+            });
+
+		</script>
+		<script>
+            var provider = new firebase.auth.GoogleAuthProvider();
+
+            firebase.auth().getRedirectResult().then(function(result) {
+                if (result.credential) {
+                    // This gives you a Google Access Token. You can use it to access the Google API.
+                    var token = result.credential.accessToken;
+                    // ...
+                }
+                // The signed-in user info.
+                var user = result.user;
+            }).catch(function(error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                // The email of the user's account used.
+                var email = error.email;
+                // The firebase.auth.AuthCredential type that was used.
+                var credential = error.credential;
+                // ...
+            });
+		</script>
+
+
+	</head>
+	<body>
+	<div id="override">
+
+		<div data-role="page" id="loading">
+			<div data-role="header">
+				<div class="nav">
+					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
+					<h1></h1>
+					<h1>Welcome!</h1>
+				</div>
+			</div>
+			<div role="main" class="ui-content">
+				<div class="top-hr"></div>
+				<div id="logo"><img src="placeholder.gif"></div>
+				<button id="log-button"><a href="#signup">Sign-up</a></button>
+				<div class="signup-link">
+					<a id="google-btn">Sign in with Google</a>
+					<script>
+	                    $("#google-btn").click(function () {
+	                        firebase.auth().signInWithRedirect(provider);
+	                    });
+					</script>
+					<br>	
+				</div>
+				<div class="signup-link">			
+					<a href="#login">Already a member?</a>
+					<br>
+				</div>
+			</div>
+
+		</div><!-- page loading -->
+
+		<div data-role="page" id="login">
+			<div data-role="header">
+				<div class="nav">
+					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
+					<h1>Login</h1>
+				</div>
+			</div>
+			<div role="main" class="ui-content">
+				<div class="top-hr"></div>
+				<br>
+				<form method="post" id="login-form">
+					<label class="text-input-label" for="login-email">Email:</label>
+					<div class="text-input-container">
+						<input id="login-email" name="username" type="text" value="">
+					</div>
+					<label class="text-input-label" for="login-password">Password:</label>
+					<div class="text-input-container">
+						<input id="login-password" name="password" type="password" value="">
+					</div>
+					<input type="submit" value="Login">
+					<script>
+                        $("#login-form").submit(
+                            function(){
+                                firebase.auth().signInWithEmailAndPassword($("#login-email").val(), $("#login-password").val()).catch(function(error){
+                                var errorCode = error.code;
+                                var errorMessage = error.message;
+                                alert(errorMessage);
+								alert(errorCode);
+                            })})
+					</script>
+				</form>
+				<div class="signup-link">
+					<a id="google-btn2">Sign in with Google</a>
+					<script>
+	                    $("#google-btn2").click(function () {
+	                        firebase.auth().signInWithRedirect(provider);
+	                    });
+					</script>
+					<br>	
+				</div>
+				<div class="signup-link">
+					<a href="#signup">dont have an account?</a>
+				</div>
+			</div>
+			<div data-role="footer">
+			</div>
+		</div><!-- page login -->
+
+		<div data-role="page" id="signup">
+			<div data-role="header">
+				<div class="nav">
+					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
+					<h1>Signup</h1>
+				</div>
+			</div>
+			<div role="main" class="ui-content">
+				<div class="top-hr"></div>
+
+				<form method="post" id="signin">
+					<label class="text-input-label" for="login-email">Email:</label>
+					<div class="text-input-container">
+						<input id="login-email2" name="username" type="text" value="">
+					</div>
+					<label class="text-input-label" for="login-password">Password:</label>
+					<div class="text-input-container">
+						<input id="login-password2" name="password" type="password" value="">
+					</div>
+					<input type="submit" value="submit">
+					<script>
+						$("#signin").submit(
+						    function(){firebase.auth().createUserWithEmailAndPassword($("#signup-email").val(), $("#signup-password").val()).catch(function(error){
+						  	  var errorCode = error.code;
+						  	  var errorMessage = error.message;
+                               alert(errorMessage);
+                               alert(errorCode);
+						})})
+					</script>
+				</form>
+				<div class="signup-link">
+					<a id="google-btn3">Sign in with Google</a>
+					<script>
+	                    $("#google-btn3").click(function () {
+	                        firebase.auth().signInWithRedirect(provider);
+	                    });
+					</script>
+					<br>	
+				</div>
+			</div>
+			<div data-role="footer">
+			</div>
+		</div><!-- page signup -->
+
+		<div data-role="page" id="fridge">
+			<div data-role="header">
+				<div class="nav">
+					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars ui-shadow">Default panel</a>
+					<h1>Fridge</h1>
+					<a href="#" class="sort-button ui-btn ui-shadow">Sort</a>
+				</div>
+			</div>
+			<div role="main" class="ui-content">
+				<div class="top-hr"></div>
+				<div class="item-list">
+					<div data-role="popup" id="item-popup" data-overlay-theme="b" data-theme="a">
+						<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right close-button">Close</a>
+						<p class="item-popup-name">Apple Apr-26</p>
+						<p class="item-popup-expires">Expires on April 29th, 2017</p>
+						<div id="tabs" data-role="tabs">
+							<div id="navbar" data-role="navbar">
+								<a href="#" id="overviewTab">Overview</a>
+								<a href="#" id="storageTab">Storage</a>
+								<a href="#" id="expiredTab">Expired?</a>
+							</div>
+							<div class="ui-body-d ui-content" id="overview">
+								<div class="ui-table">
+									<br/>
+									<table>
+										<tr>
+											<td>Purchase Date: </td>
+											<td>April 26, 2017</td>
+										</tr>
+										<tr>
+											<td>Quantity</td>
+											<td>1</td>
+										</tr> 
+										<tr>
+											<td>Value of items</td>
+											<td>$0.93</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<div class="ui-body-d ui-content" id="storage">
+								<br/>
+								best stored in stomach
+							</div>
+							<div class="ui-body-d ui-content" id="expired">
+								<br/>
+								if its red then its dead, if its brown scarf it down
+							</div>
+						</div>
+                        <div class="item-button-container">
+                            <div class="ate-button-div">
+                                <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="ate-button">I ate it</a>
+                            </div>
+                            <div class="expired-button-div">
+                                <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="expired-button">I threw it out</a>
+                            </div>
+                        </div>
+					</div>
+					<div data-role="collapsible" data-inset="true">
+						<h3 id="collapse-produce">Produce</h3>
+						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+							<p class="item-name">Apple Apr-26</p>
+							<p class="item-expires">Expires in 3 days</p>
+							<div class="small-circle"></div>
+						</a>
+                        <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+                            <p class="item-name">Apple Apr-26</p>
+                            <p class="item-expires">Expires in 3 days</p>
+                            <div class="small-circle"></div>
+					    </a>
+                        <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+                            <p class="item-name">Apple Apr-26</p>
+                            <p class="item-expires">Expires in 3 days</p>
+                            <div class="small-circle"></div>
+					    </a>
+					</div>
+
+					<div data-role="collapsible" data-inset="true">
+						<h3 id="collapse-meat">Produce</h3>
+						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+							<p class="item-name">Apple Apr-26</p>
+							<p class="item-expires">Expires in 3 days</p>
+							<div class="small-circle"></div>
+						</a>
+						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+							<p class="item-name">Apple Apr-26</p>
+							<p class="item-expires">Expires in 3 days</p>
+							<div class="small-circle"></div>
+						</a>
+						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+							<p class="item-name">Apple Apr-26</p>
+							<p class="item-expires">Expires in 3 days</p>
+							<div class="small-circle"></div>
+						</a>
+					</div>
+
+					<div data-role="collapsible" data-inset="true">
+						<h3 id="collapse-dairy">Produce</h3>
+						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+							<p class="item-name">Apple Apr-26</p>
+							<p class="item-expires">Expires in 3 days</p>
+							<div class="small-circle"></div>
+						</a>
+						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+							<p class="item-name">Apple Apr-26</p>
+							<p class="item-expires">Expires in 3 days</p>
+							<div class="small-circle"></div>
+						</a>
+						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+							<p class="item-name">Apple Apr-26</p>
+							<p class="item-expires">Expires in 3 days</p>
+							<div class="small-circle"></div>
+						</a>
+					</div>
+
+					<div data-role="collapsible" data-inset="true">
+						<h3 id="collapse-grain">Produce</h3>
+						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+							<p class="item-name">Apple Apr-26</p>
+							<p class="item-expires">Expires in 3 days</p>
+							<div class="small-circle"></div>
+						</a>
+						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+							<p class="item-name">Apple Apr-26</p>
+							<p class="item-expires">Expires in 3 days</p>
+							<div class="small-circle"></div>
+						</a>
+						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+							<p class="item-name">Apple Apr-26</p>
+							<p class="item-expires">Expires in 3 days</p>
+							<div class="small-circle"></div>
+						</a>
+					</div>
+
+					<div data-role="collapsible" data-inset="true">
+						<h3 id="collapse-misc">Produce</h3>
+						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+							<p class="item-name">Apple Apr-26</p>
+							<p class="item-expires">Expires in 3 days</p>
+							<div class="small-circle"></div>
+						</a>
+						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+							<p class="item-name">Apple Apr-26</p>
+							<p class="item-expires">Expires in 3 days</p>
+							<div class="small-circle"></div>
+						</a>
+						<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
+							<p class="item-name">Apple Apr-26</p>
+							<p class="item-expires">Expires in 3 days</p>
+							<div class="small-circle"></div>
+						</a>
+					</div>
+
+				</div>
+				<a href="#add-popup" data-rel="popup" class="large-circle ui-nodisc-icon  ui-btn ui-icon-plus ui-btn-icon-notext ui-shadow">No text</a>
+				<div data-role="popup" data-overlay-theme="b" id="add-popup">
+                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                    <p id="add-header">Add Item</p>
+                    <h3>Common Items</h3>
+                    <div id="common-items">
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+
+                    </div>
+
+                    <h3>Recently Purchased Items</h3>
+                    <div id="bought-items">
+
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" height="50" width="50" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+
+                    </div>
+
+                    <div id="button-div" align="right">
+                        <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="add-button">Custom Item</a>
+                    </div>
+				</div>
+                <div data-role="popup" data-overlay-theme="b" id="custom-item-popup">
+                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-btn-inherit ui-icon-back ui-btn-icon-notext ui-btn-left" id="custom-add-back">Back</a>
+                    <p class="item-popup-name">Add item</p>
+                    <h3>Required</h3>
+                    <hr>
+                    <br>
+                    <div class="add-item-table">
+                        <table>
+                            <tr>
+                                <td>
+                                    <label for="food-name">Name of food</label>
+                                </td>
+                                <td>
+                                    <input id="food-name" name="food-name" type="text"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="food-group">Food group</label>
+                                </td>
+                                <td>
+                                    <select id="food-group" name="food-group">
+                                        <option>----------</option>
+                                        <option>Produce</option>
+                                        <option>Dairy</option>
+                                        <option>Grains</option>
+                                        <option>Meats</option>
+                                        <option>Misc</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="expiry-date">Expiry Date</label>
+                                </td>
+                                <td>
+                                    <input id="expiry-date" name="expiry-date" type="date"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <h3>Optional</h3>
+                    <hr>
+                    <br>
+                    <div class="add-item-table">
+                        <table>
+                            <tr>
+                                <td>
+                                    <label for="item-quantity">Quantity</label>
+                                </td>
+                                <td>
+                                    <input id="item-quantity" name="item-quantity" type="text"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="item-price">Price ($)</label>
+                                </td>
+                                <td>
+                                    <input id="item-price" name="item-price" type="text"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div>
+                        <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="add-button2">Add Item</a>
+                    </div>
+                </div>
+			</div>
+			<div data-role="footer">
+			</div>
+		</div><!-- page fridge -->
+
+		<div data-role="page" id="list">
+			<div data-role="header">
+				<div class="nav">
+					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
+					<h1>Shopping List</h1>
+					<a href="#" class="sort-button ui-btn">Sort</a>
+				</div>
+			</div>
+			<div role="main" class="ui-content">
+
+				<div class="top-hr"></div>
+				<div class="item-list">
+					<a href="#item-popup2" data-rel="popup" class="list-item ui-btn shopping-item"><img height="50" width="50" src="icons/produce.svg">
+						<p class="item-name">Apple Apr-26</p>
+						<p class="item-expires">Expires in 3 days</p>
+						<div class="small-circle"></div>
+					</a>
+					<div data-role="popup" id="item-popup2" data-overlay-theme="b" data-theme="a">
+						<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right close-button">Close</a>
+
+						<p class="item-popup-name">Apple Apr-26</p>
+						<p class="item-popup-expires">Expires on April 29th, 2017 if bought today</p>
+						<div id="tabs2" data-role="tabs">
+							<div id="navbar2" data-role="navbar">
+                                <a href="#" id="overviewTab2">Overview</a>
+								<a href="#" id="storageTab2">Storage</a>
+								<a href="#" id="expiredTab2">Expired?</a>
+							</div>
+                            <div class="ui-body-d ui-content" id="overview2">
+                                <div class="ui-table">
+                                    <br/>
+                                    <table>
+                                        <tr>
+                                            <td>Quantity</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Value of items</td>
+                                            <td>$0.93</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+							<div class="ui-body-d ui-content" id="storage2">
+								<br/>
+								best stored in stomach
+							</div>
+							<div class="ui-body-d ui-content" id="expired2">
+								<br/>
+								if its red then its dead, if its brown scarf it down
+							</div>
+						</div>
+					</div>
+				</div>
+				<a href="#add-popup2" data-rel="popup" class="large-circle ui-nodisc-icon  ui-btn ui-icon-plus ui-btn-icon-notext">No text</a>
+                <div data-role="popup" data-overlay-theme="b" id="add-popup2">
+                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                    <p id="add-header2">Add Item</p>
+                    <h3>Common Items</h3>
+                    <div id="common-items2">
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+
+                    </div>
+
+                    <h3>Recently Purchased Items</h3>
+                    <div id="bought-items2">
+
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" height="50" width="50" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+                        <div class="item-panel">
+                            <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                            <p>Milk</p>
+                        </div>
+
+                    </div>
+
+                    <div id="button-div2" align="right">
+                        <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="add-button3">Custom Item</a>
+                    </div>
+                </div>
+                <div data-role="popup" data-overlay-theme="b" id="custom-item-popup2">
+                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-btn-inherit ui-icon-back ui-btn-icon-notext ui-btn-left" id="custom-add-back2">Back</a>
+                    <p class="item-popup-name">Add item</p>
+                    <h3>Required</h3>
+                    <hr>
+                    <br>
+                    <div class="add-item-table">
+                        <table>
+                            <tr>
+                                <td>
+                                    <label for="food-name2">Name of food</label>
+                                </td>
+                                <td>
+                                    <input id="food-name2" name="food-name" type="text"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="food-group2">Food group</label>
+                                </td>
+                                <td>
+                                    <select id="food-group2" name="food-group">
+                                        <option>----------</option>
+                                        <option>Produce</option>
+                                        <option>Dairy</option>
+                                        <option>Grains</option>
+                                        <option>Meats</option>
+                                        <option>Misc</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="expiry-date2">Expiry Date</label>
+                                </td>
+                                <td>
+                                    <input id="expiry-date2" name="expiry-date" type="date"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <h3>Optional</h3>
+                    <hr>
+                    <br>
+                    <div class="add-item-table">
+                        <table>
+                            <tr>
+                                <td>
+                                    <label for="item-quantity2">Quantity</label>
+                                </td>
+                                <td>
+                                    <input id="item-quantity2" name="item-quantity" type="text"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="item-price2">Price ($)</label>
+                                </td>
+                                <td>
+                                    <input id="item-price2" name="item-price" type="text"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div>
+                        <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="add-button4">Add Item</a>
+                    </div>
+                </div>
+			</div>
+			<div data-role="footer">
+			</div>
+		</div><!-- page list -->
+
+		<div data-role="page" id="settings">
+			<div data-role="header">
+				<div class="nav">
+					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
+					<h1>Settings</h1>
+				</div>
+			</div>
+			<div role="main" class="ui-content">
+				<div class="top-hr"></div>
+				<form>
+					<label id="measurement-label" for="flip-metric-imperial">Measurement type:</label>
+					<input type="checkbox" data-role="flipswitch" name="measurement-type" id="flip-metric-imperial" data-on-text="Imperial" data-off-text="Metric" data-wrapper-class="custom-size-flipswitch">
+				</form>
+				<form>
+					<div data-role="">
+						<label class="text-input-label" for="email-link">Email:</label>
+						<div class="text-input-container">
+							<input id="email-link" name="email" type="text" value="">
+							<button onclick="">Link Email</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div data-role="footer">
+			</div>
+		</div><!-- page settings -->
+
+		<div data-role="page" id="about">
+			<div data-role="header">
+				<div class="nav">
+					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
+					<h1>About</h1>
+				</div>
+			</div>
+			<div role="main" class="ui-content">
+				<div class="top-hr"></div>
+				<h1 id="dev-header">The Developers</h1>
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<img height="50" width="50" src="icons/dairy.svg" class="develop-img">
+						<h1>Phat Le</h1>
+						<p class="develop-text">Our fearless leader, co-ordinator, and dank memer, loves
+						league of legends and stuff.</p>
+						<img height="50" width="50" src="icons/meat.svg" class="develop-img">
+						<h1>Simon Shoban</h1>
+						<p class="develop-text">Dankest pokemon master, gotta catchem all~1</p>
+						<img height="50" width="50" src="icons/misc.svg" class="develop-img">
+						<h1>Akemi Haraguchi</h1>
+						<p class="develop-text">The sikkest grafix designer in existence desu</p>
+					</div>
+					<div class="ui-block-b">
+						<img height="50" width="50" src="icons/grain.svg" class="develop-img">
+						<h1>Ben Zhang</h1>
+						<p class="develop-text">Master procrastinator, loves to fap and play yugeeohh a
+							nd stuff lmao hello lol xdasd asdasd</p>
+						<img height="50" width="50" src="icons/produce.svg" class="develop-img">
+						<h1>Camron Roberts</h1>
+						<p class="develop-text">The D00d dat does it all</p>
+					</div>
+				</div>
+				<h1 id="mission-header">Mission Statement</h1>
+				<ul>
+					<li><h5>To improve the environment and stuf</h5></li>
+					<li><h5>And other stuf</h5></li>
+					<li><h5>U kno??</h5></li>
+					<li><h5>Saem</h5></li>
+				</ul>
+				<h1 id="goal-header">Goal</h1>
+				<h5 class="develop-text">Our goal is to promote food waste awareness through this app,
+				we want more people to conserve food through shopping planning and expiry date tracking.</h5>
+			</div>
+			<div data-role="footer">
+			</div>
+		</div><!-- page about -->
+
+		<div data-role="page" id="aff-apps">
+			<div data-role="header">
+				<div class="nav">
+					<a href="#defaultpanel" class="nav-button ui-large-icon ui-btn ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default panel</a>
+					<h1>Affiliated Apps</h1>
+				</div>
+			</div>
+			<div role="main" class="ui-content">
+				<div class="top-hr"></div>
+
+				<img height="50" width="50" src="icons/dairy.svg" class="aff-icon">
+
+				<img height="50" width="50" src="icons/dairy.svg" class="aff-icon">
+
+				<h1 class="aff-header">Race To Zero</h1>
+				<h3>Category: Game</h3>
+				<p>A game designed to inform players on the issue of avoidable food waste</p>
+				<p>Users play through game levels and answer questions about food waste using in-game mechanics</p>
+
+				<img height="50" width="50" src="icons/dairy.svg" class="aff-icon">
+				<h1 class="aff-header">Take 2</h1>
+				<h3>Category: Web App</h3>
+				<p>A website where you take two ingredients, and the user gets suggested recipes</p>
+				<p>Users will be given recipes and directions on how to make the dishes</p>
+
+				<img height="50" width="50" src="icons/dairy.svg" class="aff-icon">
+				<h1 class="aff-header">F2E</h1>
+				<h3>Category: Web App</h3>
+				<p>An app for users to share food with one another </p>
+				<p>Users can connect through facebook and post any spare food to share</p>
+
+				<img height="50" width="50" src="icons/dairy.svg" class="aff-icon">
+				<h1 class="aff-header">Waste</h1>
+				<h3>Category: Web App</h3>
+				<p>An App to track food usage/wastage</p>
+				<p>Users input food from shopping list and track their usage/wastage</p>
+
+				<img height="50" width="50" src="icons/dairy.svg" class="aff-icon">
+				<h1 class="aff-header">Pocket Pantry</h1>
+				<h3>Category: Web App</h3>
+				<p>A meal planner & grocery list</p>
+				<p>Easy meal planning & calculation of necessary ingredients to reduce wasteful expenditure</p>
+			</div>
+			<div data-role="footer">
+			</div>
+		</div><!-- Affliated Apps -->
+
+		<div data-role="panel" id="defaultpanel" data-theme="a" data-display="overlay" class="ui-panel ui-panel-position-left ui-body-inherit ui-panel-animate ui-panel-closed">
+			<p id="logo2" >WhatsinmyFridge.com</p>
+			<a id="fridge-btn" href="#fridge" data-transition="slide" class="nav-btn ui-btn">Fridge</a>
+			<a id="shopping-list-btn" href="#list" data-transition="slide" class="nav-btn ui-btn">Shopping List</a>
+			<a id="settings-btn" href="#settings" data-transition="slide" class="nav-btn ui-btn">Settings</a>
+			<a id="about-btn" href="#about" data-transition="slide" class="nav-btn ui-btn">About</a>
+			<a href="#aff-apps" class="nav-btn ui-btn">Affiliated Apps</a>
+			<a id="login-btn" data-transition="slide" href="#login" class="nav-btn ui-btn">Login</a>
+			<!--<a id="signup-btn" data-transition="slide" href="#signup" class="nav-btn ui-btn">Sign Up</a>-->
+			<a id="logout-btn" href="#" class="nav-btn ui-btn">Logout</a>
+
+		</div>
+
+	</div>
+	<script>
+		/***********Don't change**********/
+		
+		/**************Fridge*************/
+
+        //Sets overview tab as default tab and highlights tab
+        $(".fridge-item").click(function(){
+            $("#overview").show();
+            $("#overviewTab").click();
+        });
+
+        //Displays overview when clicked
+        $("#overviewTab").click(function() {
+            $("#overview").show();
+            $("#storage").hide();
+            $("#expired").hide();
+        });
+
+        //Hides overview when storage tab is clicked
+        $("#storageTab").click(function() {
+            $("#overview").hide();
+            $("#storage").show();
+            $("#expired").hide();
+        });
+
+        //Hides overview when expired tab is clicked
+        $("#expiredTab").click(function() {
+            $("#overview").hide();
+            $("#storage").hide();
+            $("#expired").show();
+        });
+
+        /**********Shopping List**********/
+
+        //Sets overview tab as default tab and highlights tab
+        $(".shopping-item").click(function(){
+            $("#overview2").show();
+            $("#overviewTab2").click();
+        });
+
+        //Shows overview when overview tab is clicked and hides other sections
+        $("#overviewTab2").click(function() {
+            $("#overview2").show();
+            $("#storage2").hide();
+            $("#expired2").hide();
+        });
+
+        //Shows storage when storage tab is clicked and hides other sections
+        $("#storageTab2").click(function() {
+            $("#overview2").hide();
+            $("#storage2").show();
+            $("#expired2").hide();
+        });
+
+        //Shows expired? when expired tab is clicked and hides other sections
+        $("#expiredTab2").click(function() {
+            $("#overview2").hide();
+            $("#storage2").hide();
+            $("#expired2").show();
+        });
+
+        /*********Add custom item*********/
+
+        //Fridge custom item button
+        $("#add-button").click(function(){
+            setTimeout(function(){
+                $("#custom-item-popup").popup("open");
+            }, 100);
+        });
+
+        //Shopping list custom item button
+        $("#add-button3").click(function(){
+            setTimeout(function(){
+                $("#custom-item-popup2").popup("open");
+            }, 100);
+        });
+
+        /********Custom item back*********/
+
+        //Fridge custom item back button
+        $("#custom-add-back").click(function() {
+            setTimeout(function() {
+                $("#add-popup").popup("open");
+            }, 100);
+        });
+
+        //Shopping list custom item back button
+        $("#custom-add-back2").click(function() {
+            setTimeout(function() {
+                $("#add-popup2").popup("open");
+            }, 100);
+        });
+
+        /*********************************/
+	</script>
+	<script>
+
+        $("#logout-btn").click(function () {
+            firebase.auth().signOut().then(function() {
+                // Sign-out successful.
+            }).catch(function(error) {
+                // An error happened.
+            });
+        });
+
+	</script>
+	<script>
+        $("#logout-btn").removeClass("hidden");
+        firebase.auth().onAuthStateChanged(
+            function(user) {
+                if (user) {
+                    // User is signed in.
+                    var displayName = user.displayName;
+                    var email = user.email;
+                    var emailVerified = user.emailVerified;
+                    var photoURL = user.photoURL;
+                    var isAnonymous = user.isAnonymous;
+                    var uid = user.uid;
+                    var providerData = user.providerData;
+                    // ...
+                    //alert("logged in");
+
+
+                    $(function(){
+
+                        $("#login-btn").hide();
+                        $("#signup-btn").hide();
+                        $("#logout-btn").show();
+                        $("#fridge-btn").show();
+                        $("#settings-btn").show();
+                        $("#shopping-list-btn").show();
+                        $.mobile.navigate("#fridge");
+                        $("html").removeClass("loading")
+
+
+                    })
+
+                } else {
+                    // User is signed out.
+                    // ...
+                    //alert("not logged in");
+                    $(function () {
+                        $("#signup-btn").show();
+                        $("#logout-btn").hide();
+                        $("#login-btn").show();
+                        $("#fridge-btn").hide();
+                        $("#settings-btn").hide();
+                        $("#shopping-list-btn").hide();
+
+                        $.mobile.changePage("#loading");
+
+                        $("html").removeClass("loading")
+
+                    })
+
+                }
+            }
+        );
+
+
+	</script>
+
+	</body>
+</html>

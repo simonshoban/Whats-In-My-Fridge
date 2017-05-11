@@ -10,6 +10,40 @@ h1 {
     padding-top: 12px;
     font-size: 1.6em;
 }
+#override [data-role="header"]{
+    background-color: lightgrey;
+}
+a.sort-button.ui-btn{
+    color: white;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+#collapse-produce a{
+    color: white;
+    background-color: green;
+}
+#collapse-meat a{
+    color: white;
+    background-color: brown;
+}
+#collapse-dairy a{
+    color: white;
+    background-color: blue;
+}
+#collapse-grain a{
+    color: white;
+    background-color: yellow;
+}
+#collapse-misc a{
+    color: white;
+    background-color: pink;
+}
+#override a.nav-button{
+    padding: 8px;
+    margin-top: 5px;
+    margin-left: 5px;
+    background-color: green;
+}
 #defaultpanel{
     width:250px;
 }
@@ -79,10 +113,10 @@ h1 {
     position:absolute;
     right: 6px;
     bottom: 6px;
-    background-color: lightgreen !important;
+    background-color: forestgreen !important;
 }
 .sort-button{
-    background-color: lightgreen !important;
+    background-color: forestgreen !important;
 }
 #item-popup, #item-popup2 {
     background-color:white;
@@ -261,6 +295,7 @@ h1 {
 #override [data-rel="back"]{
     right:0;
     top:0;
+    background-color: lightgreen;
 }
 #add-popup, #add-popup2, #custom-item-popup, #custom-item-popup2{
     width: 90vw;
@@ -385,8 +420,6 @@ html.loading body {
     -webkit-transition: opacity: 0;
     transition: opacity: 0;
     /*
-<<<<<<< HEAD
-=======
 */
 }
 #logo img {
@@ -416,5 +449,4 @@ html.loading body {
 }
 #signin {
     margin: 2em;
->>>>>>> Phat
 }
