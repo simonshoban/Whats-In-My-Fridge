@@ -12,28 +12,81 @@ input{
     //opacity:0.5;
     left:200px;
 }
+[data-role="header"], [data-role="footer"]{
+    border:none;
+}
+#override .footer {
+    height:90px;
+    background-color:#f9f9f9;
+    border:none;
+}
+.collapsible-container{
+    position:relative;
+}
+#meat h3 + div, #produce h3 + div, #grain h3 + div, #dairy h3 + div, #misc h3 + div{
+    border:none;
+    border-right:solid 8px;
+    border-color:inherit;
+
+}
+#meat h3 a, #produce h3 a, #grain h3 a, #dairy h3 a, #misc h3 a{
+    background-color:white;
+}
 #meat h3 a{
     font-size: 1em;
-    color: #b55f5f;
-    border-right:solid #b55f5f 10px;
+    color: #9f2828;
+    border-right:solid #9f2828 12px;
 }
 #produce h3 a{
     font-size: 1em;
-    color:green;
-    border-right:solid green 10px;
+    color:#008000;
+    border-right:solid #008000 12px;
 }
 #grain h3 a{
     font-size: 1em;
-    color:burlywood;
-    border-right:solid burlywood 10px;
+    color: #de9f49;
+    border-right:solid #de9f49 12px;;
+}
+#dairy h3 a{
+    font-size: 1em;
+    color: #5daede;
+    border-right:solid #5daede 12px;;
+}
+#misc h3 a{
+    font-size: 1em;
+    color: #959392;
+    border-right:solid #959392 12px;;
+}
+#meat{
+    border-color:#9f2828;
+}
+#produce {
+    border-color:#008000;
+}
+#grain{
+    border-color:#de9f49;
+}
+#dairy{
+    border-color:#5daede;
+}
+#misc{
+    border-color:#959392;
+}
+
+#produce-number, #meat-number, #grain-number, #dairy-number, #misc-number {
+    position:absolute;
+    top:30px;
+    right:35px;
+    margin:0;
+    color: grey;
 }
 #override .ui-collapsible-content{
     padding:0px;
 }
-#override [data-role="header"]{
+#override .header{
     background-color: #f5f5f5;
 }
-#nav-list{
+.nav-list{
     padding:0;
     margin:0;
     list-style-type:none;
@@ -45,6 +98,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 h1, h2 {
     font-size: 1.6em;
+    text-shadow:none;
 }
 h3{
     font-size: 1.3em;
@@ -55,11 +109,14 @@ h3{
     margin-left:auto;
     margin-right:auto;
 }
-#override #defaultpanel{
+#override #defaultpanel, .fakepanel{
     width:200px;
 }
 .nav{
+    position:relative;
     height:58px;
+    background-color:#3d7cb3;
+    color:white;
 }
 
 #override .sort-button{
@@ -69,6 +126,8 @@ h3{
     height:50px;
     width:50px;
     margin:4px;
+    border:none;
+    background-color:inherit;
 
 }
 #override #popup-sort{
@@ -79,14 +138,18 @@ h3{
     margin: 0;
     position: absolute;
     padding: 14px 18px 16px 16px;
-    border-left:none;
-    border-top:none;
-    border-bottom:none;
+    border:none;
     background-color:inherit;
 }
 .item-list .list-item{
     margin: 0;
     background-color: #fbfbfb;
+    height: 58px;
+    padding: 0;
+    text-align:left;
+}
+.item-list{
+    margin-bottom:90px;
 }
 .top-hr {
     margin:0;
@@ -100,11 +163,7 @@ h3{
     left:4px;
     top: 4px;
 }
-.item-list .list-item {
-    height: 58px;
-    padding: 0;
-    text-align:left;
-}
+
 .item-list .item-name{
     padding-left: 62px;
     font-size:large;
@@ -112,30 +171,37 @@ h3{
 .item-list .item-expires{
     position:absolute;
     right:30px;
-    top:33px;
-    font-size:x-small;
+    top:26px;
+    font-size:small;
     color: grey;
 }
 .item-list .item-quantity {
     position:absolute;
     right:80px;
-    top:33px;
-    font-size:x-small;
+    top:26px;
+    font-size:small;
     color: grey;
 }
-#defaultpanel #logo2 {
+#defaultpanel .logo2 , .fakepanel .logo2{
     font-weight: bold;
     text-align: center;
     font-size: large;
+    text-shadow: none;
+    color:white;
+    margin:0;
+    padding-top:18px;
+    background-color: #3d7cb3;
+    padding-bottom:18px;
+
 }
 .small-circle{
-    background-color:red;
+    background-color: #dd4146;
     border-radius:50%;
     height:12px;
     width:12px;
     position:absolute;
-    right: 6px;
-    top: 6px;
+    right: 8px;
+    top: 8px;
 }
 #override .ui-checkbox, #override .checkbox-label {
     position:absolute;
@@ -161,13 +227,18 @@ h3{
 
 }
 
-.large-circle{
+#override .large-circle{
     height:65px;
     width:65px;
     border-radius:50%;
+    border-color: #bebebe;
+    border-width:1px;
     position:fixed;
     right: 14px;
     bottom: 6px;
+    background-color: #f7f7f7;
+    z-index: 3;
+)
 }
 
 #item-popup, #item-popup2 {
@@ -231,8 +302,28 @@ h3{
 .ui-panel-inner{
     padding: 0;
 }
-.nav-btn{
+#override .nav-btn{
     margin:0;
+    background-color: #fcfcfc;
+    border:none;
+    text-align:left;
+    padding-left:45px;
+    padding-top:12px;
+    padding-bottom:12px;
+    color:black;
+    text-shadow:none;
+
+}
+#override a:focus {
+    box-shadow:none;
+}
+#override .nav-btn:focus {
+    box-shadow:none;
+    background-color:#3d7cb3;
+    color:white;
+}
+#defaultpanel li:last-child, #fakepanel li:last-child{
+    border-bottom:solid 1px lightgrey;
 }
 .ui-icon-produce:after {
     background-image: url("icons/produce.svg");
@@ -286,7 +377,7 @@ h3{
     padding-bottom: 10px;
     margin-bottom: 20px;
     background-color: #e8e8e8;
-    border-top: solid #4763e2 5px;
+}
 }
 #mission-header{
     padding-bottom: 10px;
@@ -334,7 +425,6 @@ h3{
     text-align: center;
 }
 #forkpotato .aff-header{
-    border-top: solid #4763e2 5px;
 }
 #foodfall .aff-header{
     border-top: solid #34e23c 5px;
@@ -498,8 +588,6 @@ body{
 html {
     -webkit-transition: background-color 1s;
     transition: background-color 1s;
-
-
 }
 html, body {
     /* For the loading indicator to be vertically centered ensure */
@@ -528,6 +616,9 @@ html.loading body {
 =======
 */
 }
+.fakepanel{
+    display:none;
+}
 #logo img {
     max-width: 150px;
     height: auto;
@@ -538,4 +629,61 @@ html.loading body {
 #google-btn {
     width:175px;
     margin:auto;
+}
+@media (max-width: 500px) {
+    .ui-page {
+
+        margin: 0;
+
+    }
+}
+
+@media (min-width: 501px) {
+    #override #defaultpanel{
+        position:absolute;
+        right:0;
+        border-left:solid #cfcfcf 1px;
+    }
+    #override .nav-button{
+        display:none;
+    }
+    .fakepanel{
+        width:200px;
+        display:block;
+        order:1;
+        border-left:2px solid #b8b8b8;
+    }
+    .container{
+        width:calc(100vw - 200px);
+        max-width:500px;
+        order:2;
+        border-left:2px solid #b8b8b8;
+        border-right:2px solid #b8b8b8;
+        min-height:100vh;
+        position:relative;
+
+    }
+    .fakepanel ul{
+        padding:0;
+        margin:0;
+    }
+    .big-container{
+        display:flex;
+        margin:auto;
+        width:700px;
+    }
+    #override .footer{
+        height:0;
+    }
+     #override .large-circle{
+        top:0px;
+        position:absolute;
+        left:13px;
+         height:40px;
+         width:40px;
+    }
+
+}
+@media (min-width: 701px){
+
 }
