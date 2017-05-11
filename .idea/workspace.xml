@@ -18,7 +18,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="test.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/New Stuff/test.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="261">
@@ -28,11 +28,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="core.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="core.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/New Stuff/core.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state relative-caret-position="42">
+              <caret line="2" column="30" lean-forward="false" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -42,7 +42,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ui-alt</find>
       <find>logo</find>
       <find>small</find>
       <find>develop</find>
@@ -72,6 +71,7 @@
       <find>custo</find>
       <find>custom</find>
       <find>acti</find>
+      <find>body</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -245,15 +245,15 @@
       <workItem from="1494381084271" duration="8338000" />
       <workItem from="1494460346348" duration="593000" />
       <workItem from="1494462996621" duration="13117000" />
-      <workItem from="1494477419080" duration="140000" />
+      <workItem from="1494477419080" duration="515000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22188000" />
+    <option name="totallyTimeSpent" value="22563000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1060" extended-state="7" />
+    <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13177083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -318,18 +318,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/New Stuff/core.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/New Stuff/test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
           <caret line="887" column="36" lean-forward="false" selection-start-line="887" selection-start-column="36" selection-end-line="887" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/New Stuff/core.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="30" lean-forward="false" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
           <folding />
         </state>
       </provider>
