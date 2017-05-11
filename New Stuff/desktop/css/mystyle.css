@@ -11,8 +11,8 @@ header{
     background-image: url("../img/food.jpg");
     background-size: cover;
 }
-.intro-text button{
-    width: 200px;
+.intro-text a{
+    width: 150px;
     height: 50px;
 }
 #sign-up{
