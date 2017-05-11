@@ -660,6 +660,7 @@ html.loading body {
         border-left:2px solid #b8b8b8;
         border-right:2px solid #b8b8b8;
         min-height:100vh;
+        position:relative;
 
     }
     .fakepanel ul{
@@ -673,6 +674,13 @@ html.loading body {
     }
     #override .footer{
         height:0;
+    }
+     #override .large-circle{
+        top:0px;
+        position:absolute;
+        left:13px;
+         height:40px;
+         width:40px;
     }
 
 }
