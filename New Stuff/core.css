@@ -604,9 +604,9 @@ html.loading body {
         width:calc(100vw - 200px);
         max-width:500px;
         order:2;
-        height:100%;
         border-left:2px solid #b8b8b8;
         border-right:2px solid #b8b8b8;
+        min-height:100vh;
 
     }
     .fakepanel ul{
@@ -617,6 +617,9 @@ html.loading body {
         display:flex;
         margin:auto;
         width:700px;
+    }
+    #override .footer{
+        height:0;
     }
 
 }

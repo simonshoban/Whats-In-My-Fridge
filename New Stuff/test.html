@@ -347,7 +347,7 @@
 										</div>
 									</div>
 									<div class="collapsible-container">
-										<div id="produce" data-role="collapsible" data-inset="true">
+										<div id="produce" onclick="calcPageHeight()" data-role="collapsible" data-inset="true">
 											<h3>Produce</h3>
 											<a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item"><img height="50" width="50" src="icons/produce.svg">
 												<p class="item-name">Apple Apr-26</p>
@@ -1342,34 +1342,45 @@
 
 	</script>
 	<script>
-		var docuementHeight;
+/*
         function calcPageHeight() {
-            if ($(document).height() < $(window).height()) {
-                documentHeight = $(document).height()
-            } else {
-                documentHeight = $(window).height()
-            }
-            if (window.matchMedia('(max-width: 500px)').matches) {
-                $(".fakepanel").height(0);
-
-            }
-            else {
+            alert("help")
+            if ($(".container").height() < $(window).height()) {
+                var documentHeight = $(window).height();
                 $(".container").height(documentHeight);
                 $(".fakepanel").height(documentHeight);
 
+            } else {
+                $(".container").css( "height", "auto" );
+                $(".fakepanel").css( "height", "auto" );
+                documentHeight = $(window).height()
             }
         }
-		calcPageHeight()
+        calcPageHeight();
 
         $(function(){
             $( ".nav-btn" ).click(function() {
-			calcPageHeight()
+				calcPageHeight()
 			})
-        })
-        $(window).resize(function () {
-            calcPageHeight()
-        })
+        });
+        $(function(){
+            $( "" ).click(function() {
 
+                setTimeout(calcPageHeight(),  20000 );
+
+            })
+        });
+        $( ".selector" ).collapsible({
+            expand: function( event, ui ) {
+                alert("")
+			}
+        });
+        $(window).resize(function () {
+
+            calcPageHeight()
+
+        })
+*/
 
 
 
