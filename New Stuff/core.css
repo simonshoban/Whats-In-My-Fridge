@@ -1,6 +1,7 @@
 body{
     margin:0;
 }
+
 input{
     width:100%;
 }
@@ -12,20 +13,45 @@ input{
     //opacity:0.5;
     left:200px;
 }
+#override [data-role="footer"] {
+    height:90px;
+    background-color:#f9f9f9;
+    border:none;
+}
+.collapsible-container{
+    position:relative;
+}
 #meat h3 a{
     font-size: 1em;
-    color: #b55f5f;
-    border-right:solid #b55f5f 10px;
+    color: #9f2828;
+    border-right:solid #9f2828 12px;
 }
 #produce h3 a{
     font-size: 1em;
-    color:green;
-    border-right:solid green 10px;
+    color:#008000;
+    border-right:solid #008000 12px;
 }
 #grain h3 a{
     font-size: 1em;
-    color:burlywood;
-    border-right:solid burlywood 10px;
+    color: #de9f49;
+    border-right:solid #de9f49 12px;;
+}
+#dairy h3 a{
+    font-size: 1em;
+    color: #5daede;
+    border-right:solid #5daede 12px;;
+}
+#misc h3 a{
+    font-size: 1em;
+    color: #a6a4a3;
+    border-right:solid #a6a4a3 12px;;
+}
+#produce-number, #meat-number, #grain-number, #dairy-number, #misc-number {
+    position:absolute;
+    top:30px;
+    right:35px;
+    margin:0;
+    color: #b4b4b4;
 }
 #override .ui-collapsible-content{
     padding:0px;
@@ -129,13 +155,13 @@ h3{
     font-size: large;
 }
 .small-circle{
-    background-color:red;
+    background-color: #dd4146;
     border-radius:50%;
     height:12px;
     width:12px;
     position:absolute;
-    right: 6px;
-    top: 6px;
+    right: 8px;
+    top: 8px;
 }
 #override .ui-checkbox, #override .checkbox-label {
     position:absolute;
@@ -161,13 +187,18 @@ h3{
 
 }
 
-.large-circle{
+#override .large-circle{
     height:65px;
     width:65px;
     border-radius:50%;
+    border-color: #bebebe;
+    border-width:1px;
     position:fixed;
     right: 14px;
     bottom: 6px;
+    background-color: #f7f7f7;
+    z-index: 3;
+)
 }
 
 #item-popup, #item-popup2 {
@@ -498,8 +529,6 @@ body{
 html {
     -webkit-transition: background-color 1s;
     transition: background-color 1s;
-
-
 }
 html, body {
     /* For the loading indicator to be vertically centered ensure */
@@ -538,4 +567,26 @@ html.loading body {
 #google-btn {
     width:175px;
     margin:auto;
+}
+@media (max-width: 500px) {
+    .ui-page {
+
+        margin: 0;
+
+    }
+}
+@media (min-width: 501px) {
+    #override .ui-page{
+        //padding-left:200px !important;
+        //max-width: 500px;
+        //position: absolute;
+    }
+    #item-list{
+        //margin-left:200px;
+    }
+    #override .ui-page{
+        margin-left:200px;
+        width:calc(100vw - 200px);
+        float:right;
+    }
 }
