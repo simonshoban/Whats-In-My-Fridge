@@ -1,541 +1,777 @@
-body{
-    margin:0;
+/* ------------------------ Things used by multiple pages ------------------------ */
+body {
+    margin: 0;
 }
-input{
-    width:100%;
+
+input {
+    width: 100%;
 }
-.hidden {
-    display:none;
+
+body {
+    font-family: 'Raleway', sans-serif;
+    -webkit-font-smoothing: subpixel-antialiased;
+    font-weight: 400;
+    font-kerning: normal;
+    background-color: #f9f9f9;
 }
-.ui-panel-dismiss-open.ui-panel-dismiss-position-left{
-    //background-color:black !important;
-    //opacity:0.5;
-    left:200px;
+
+#override a, #override input {
+    font-family: 'Nunito', sans-serif;
+
 }
-#meat h3 a{
-    font-size: 1em;
-    color: #b55f5f;
-    border-right:solid #b55f5f 10px;
+
+[data-role="popup"] h3 {
+    padding-top: 0;
 }
-#produce h3 a{
-    font-size: 1em;
-    color:green;
-    border-right:solid green 10px;
+
+[data-role="header"], [data-role="footer"] {
+    border: none;
 }
-#grain h3 a{
-    font-size: 1em;
-    color:burlywood;
-    border-right:solid burlywood 10px;
+
+#override .footer {
+    height: 0;
+    background-color: #f9f9f9;
+    border: none;
 }
-#override .ui-collapsible-content{
-    padding:0px;
+
+.nav-list {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
 }
-#override [data-role="header"]{
-    background-color: #f5f5f5;
+
+.nav-list li:last-child {
+    border-bottom: solid lightgrey 2px;
 }
-#nav-list{
-    padding:0;
-    margin:0;
-    list-style-type:none;
-}
+
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
-    text-align:center;
+    text-align: center;
     padding-top: 12px;
 }
+
 h1, h2 {
     font-size: 1.6em;
+    text-shadow: none;
 }
-h3{
+
+h3 {
     font-size: 1.3em;
 }
-#login-table, #signup-table{
-    text-align:right;
-    margin-top:20px;
-    margin-left:auto;
-    margin-right:auto;
-}
-#override #defaultpanel{
-    width:200px;
-}
-.nav{
-    height:58px;
-}
 
-#override .sort-button{
-    position:absolute;
-    right:0;
-    top:0px;
-    height:50px;
-    width:50px;
-    margin:4px;
+#override #defaultpanel, .fakepanel {
+    width: 200px;
 
 }
-#override #popup-sort{
-    width:150px;
 
+#overide #defaultpanel {
+    min-height: 101%;
 }
+
+.nav {
+    position: relative;
+    height: 58px;
+    background-color: #3d7cb3;
+    color: white;
+}
+
 #override .nav-button {
     margin: 0;
     position: absolute;
     padding: 14px 18px 16px 16px;
-    border-left:none;
-    border-top:none;
-    border-bottom:none;
-    background-color:inherit;
+    border: none;
+    background-color: inherit;
 }
-.item-list .list-item{
-    margin: 0;
-    background-color: #fbfbfb;
-}
-.top-hr {
-    margin:0;
-    width:100%;
-    height:0.5px;
-    border-bottom:1px grey solid;
-    background-color:darkgrey;
-}
-.item-list img {
-    position:absolute;
-    left:4px;
-    top: 4px;
-}
-.item-list .list-item {
-    height: 58px;
-    padding: 0;
-    text-align:left;
-}
-.item-list .item-name{
-    padding-left: 62px;
-    font-size:large;
-}
-.item-list .item-expires{
-    position:absolute;
-    right:30px;
-    top:33px;
-    font-size:x-small;
-    color: grey;
-}
-.item-list .item-quantity {
-    position:absolute;
-    right:80px;
-    top:33px;
-    font-size:x-small;
-    color: grey;
-}
-#defaultpanel #logo2 {
+
+#defaultpanel .logo2, .fakepanel .logo2 {
     font-weight: bold;
     text-align: center;
     font-size: large;
-}
-.small-circle{
-    background-color:red;
-    border-radius:50%;
-    height:12px;
-    width:12px;
-    position:absolute;
-    right: 6px;
-    top: 6px;
-}
-#override .ui-checkbox, #override .checkbox-label {
-    position:absolute;
-    right:0;
-    top:0;
-    margin:0;
-    border-radius:0;
-    border-right:none;
-    border-top:none;
-    border-bottom:none;
-
-}
-#override .checkbox-label {
-    padding:30PX;
-
-}
-#override .checkbox-label::after {
-    height:40px;
-    width:40px;
-    position:absolute;
-    top:18px;
-    right:18px;
-
+    text-shadow: none;
+    color: white;
+    margin: 0;
+    padding-top: 18px;
+    background-color: #3d7cb3;
+    padding-bottom: 18px;
 }
 
-.large-circle{
-    height:65px;
-    width:65px;
-    border-radius:50%;
-    position:fixed;
-    right: 14px;
-    bottom: 6px;
-}
-
-#item-popup, #item-popup2 {
-    background-color:white;
-	color:black;
-    width:90vw;
-    position:fixed;
-    left: 5vw;
-    overflow-y: auto;
-}
-.item-popup-name {
-	text-align:center;
-	font-size:2.2em;
-	color:#495655;
-}
-.item-popup-expires {
-	text-align:center;
-}
-#navbar, #navbar2 {
-    display:flex;
-}
-#navbar a, #navbar2 a {
-    width:33%;
-    font-size: 0.89em;
-}
-#overview, #overview2, #storage, #storage2, #expired, #expired2 {
-	text-align:center;
-}
 .ui-table {
-	max-width:300px;
-	margin:auto;
+    max-width: 300px;
+    margin: auto;
 
 }
+
 .ui-table table {
-	width:100%;
-	margin:auto;
+    width: 100%;
+    margin: auto;
 
 }
-.item-button-container {
-    /*does stuff in the future*/
-}
-.ate-button-div {
-    position:absolute;
-    left:10%;
-    bottom:5%;
-}
-#ate-button {
-    margin:10px auto;
-    color:#235f23;
+
+#override .nav-btn {
+    margin: 0;
+    background-color: #fcfcfc;
+    border: none;
+    text-align: left;
+    padding-left: 45px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: black;
+    text-shadow: none;
 
 }
-.expired-button-div {
-    position:absolute;
-    right:10%;
-    bottom:5%;
+
+#override a:focus {
+    box-shadow: none;
 }
-#expired-button {
-    margin:10px auto;
-    color: #5f1309;
+
+#override .nav-btn:focus {
+    box-shadow: none;
+    background-color: #3d7cb3;
+    color: white;
 }
-.ui-panel-inner{
+
+#defaultpanel li:last-child, #fakepanel li:last-child {
+    border-bottom: solid 1px lightgrey;
+}
+
+.ui-content {
+    padding: 0;
+
+}
+
+#override .text-input-container {
+    width: 180px;
+    display: inline-block;
+    padding-right: 30px;
+
+}
+
+#override .input-container {
+    max-width: 100px;
+    margin: auto;
+    padding-bottom: 10px;
+    display: block;
+
+}
+
+#override .text-input-label {
+    display: inline-block;
+    padding-right: 15px;
+    padding-left: 10px;
+    min-width: 80px;
+}
+
+/* ------------------------ Login Page ------------------------ */
+#login-table, #signup-table {
+    text-align: right;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ------------------------ End Login Page ------------------------ */
+
+/* ------------------------ Fridge Page ------------------------ */
+
+.collapsible-container {
+    position: relative;
+}
+
+#meat h3 + div, #produce h3 + div, #grain h3 + div, #dairy h3 + div, #misc h3 + div {
+    border: none;
+    border: solid 8px inherit;
+
+}
+
+#meat h3 a, #produce h3 a, #grain h3 a, #dairy h3 a, #misc h3 a {
+    background-color: white;
+}
+
+#meat h3 a {
+    font-size: 1em;
+    color: #9f2828;
+    border-right: solid #9f2828 12px;
+}
+
+#produce h3 a {
+    font-size: 1em;
+    color: #008000;
+    border-right: solid #008000 12px;
+}
+
+#grain h3 a {
+    font-size: 1em;
+    color: #de9f49;
+    border-right: solid #de9f49 12px;;
+}
+
+#dairy h3 a {
+    font-size: 1em;
+    color: #5daede;
+    border-right: solid #5daede 12px;;
+}
+
+#misc h3 a {
+    font-size: 1em;
+    color: #959392;
+    border-right: solid #959392 12px;;
+}
+
+#meat {
+    border-color: #9f2828;
+}
+
+#produce {
+    border-color: #008000;
+}
+
+#grain {
+    border-color: #de9f49;
+}
+
+#dairy {
+    border-color: #5daede;
+}
+
+#misc {
+    border-color: #959392;
+}
+
+#produce-number, #meat-number, #grain-number, #dairy-number, #misc-number {
+    position: absolute;
+    top: 30px;
+    right: 35px;
+    margin: 0;
+    color: grey;
+}
+
+#override .ui-collapsible-content {
     padding: 0;
 }
-.nav-btn{
-    margin:0;
+
+#override .sort-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 50px;
+    width: 50px;
+    margin: 4px;
+    border: none;
+    background-color: inherit;
 }
-.ui-icon-produce:after {
-    background-image: url("icons/produce.svg");
-    background-size: 18px 18px;
-}
-.ui-nosvg .ui-icon-produce:after{
-    background-image: url("icons/produce.png");
-    background-size: 18px 18px;
-}
-.ui-large-icon{
-    background-size:30px 30px;
-}
-.ui-content {
-    padding:    0px;
+
+#override #popup-sort {
+    width: 250px;
 
 }
 
-#override .text-input-container{
-    width:180px;
-    display:inline-block;
-    padding-right:30px;
-
-}
-#override .input-container{
-    max-width:100px;
-    margin:auto;
-    padding-bottom:10px;
-    display:block;
-
-}
-#override .text-input-label{
-    display:inline-block;
-    padding-right:15px;
-    padding-left:10px;
-    min-width:80px;
-}
-#settings-form-table{
-    margin:auto;
-}
-/* About page css */
-.develop-img{
-    margin:auto;
-    display:block;
-}
-.develop-text{
-    text-align: center;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-#dev-header{
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    background-color: #e8e8e8;
-    border-top: solid #4763e2 5px;
-}
-#mission-header{
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    background-color: #e8e8e8;
-    border-top: solid #34e23c 5px;
-
-}
-#mission-body{
-    font-size: 1.1em;
-}
-#goal-header{
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    border-top: solid #e23238 5px;
-    background-color: #e8e8e8;
-}
-/* About page css */
-
-/* Affiliated page css */
-.aff-header{
-    background-color: #e8e8e8;
-    height:84px;
-    width:100%;
-    position:relative;
-
-}
-.aff-header h2{
-    position:absolute;
-    left:100px;
-    top:15px;
-    text-align:left;
-
-}
-.aff-icon{
-    float: left;
-    position:absolute;
-    padding:7px;
-
-}
-#aff-apps h3{
-    text-align: center;
-}
-#aff-apps p{
-    text-align: center;
-}
-#forkpotato .aff-header{
-    border-top: solid #4763e2 5px;
-}
-#foodfall .aff-header{
-    border-top: solid #34e23c 5px;
-}
-#overcooked .aff-header{
-    border-top: solid #e23238 5px;
-}
-#useitup .aff-header{
-    border-top: solid #ffb02a 5px;
-}
-/* Affiliated page css */
-
-/*<<<<<<< HEAD*/
-/* Add predefined item page css */
-.ui-icon-green{ /* unused yet, could be used to set close icon to green, couldnt get it to work*/
-    background-image: url(icons/ui.png);
+.small-circle {
+    background-color: #dd4146;
+    border-radius: 50%;
+    height: 12px;
+    width: 12px;
+    position: absolute;
+    right: 8px;
+    top: 8px;
 }
 
-.add-icons{
-    margin-left:auto;
-    margin-right: auto;
-    display: block;
-    margin-top: 5px;
+.item-list .item-expires {
+    position: absolute;
+    right: 30px;
+    top: 26px;
+    font-size: small;
+    color: grey;
 }
-.item-panel{
-    width: 60px;
-    display: inline-block;
-}
-.item-panel p{
-    text-align: center;
-}
-#button-div, #button-div2{
-    display:flex;
-}
-#add-button, #add-button2, #add-button3, #add-button4{
-    color: darkslategray;
 
-    margin:10px auto;
-}
-#add-header, #add-header2{
-    text-align:center;
-    font-size:2.2em;
-    color: #495655;
-}
-#override [data-rel="back"]{
-    right:0;
-    top:0;
-}
 [data-role="collapsible"] {
-    margin:0;
-    border-radius:0;
+    margin: 0;
+    border-radius: 0;
 }
+
 #override [data-role="collapsible"] h3 > a {
     padding-top: 22px;
     padding-bottom: 22px;
 }
-#add-popup, #add-popup2, #custom-item-popup, #custom-item-popup2{
-    width: 90vw;
-    position:fixed;
-    left:5vw;
-    overflow-y:auto;
+
+/* ------------------------ Fridge Page End ------------------------ */
+
+/* ------------------------ List Page ------------------------ */
+.item-list .item-quantity {
+    position: absolute;
+    right: 80px;
+    top: 26px;
+    font-size: small;
+    color: grey;
 }
+
+#override .ui-checkbox, #override .checkbox-label {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0;
+    border-radius: 0;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+
+}
+
+#override .checkbox-label {
+    padding: 30PX;
+
+}
+
+#override .checkbox-label::after {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 18px;
+    right: 18px;
+
+}
+
+.item-button-container {
+    display: flex;
+    flex-flow: column;
+}
+
+.ate-button-div {
+    position: absolute;
+    left: 10%;
+    bottom: 5%;
+}
+
+#ate-button {
+    margin: 10px auto;
+    color: #235f23;
+
+}
+
+.expired-button-div {
+    position: absolute;
+    right: 10%;
+    bottom: 5%;
+}
+
+#expired-button {
+    margin: 10px auto;
+    color: #5f1309;
+}
+
+.ui-panel-inner {
+    padding: 0;
+}
+
+.ui-large-icon {
+    background-size: 30px 30px;
+}
+
+/* ------------------------ List Page End ------------------------ */
+
+/* ------------------------ Shared Fridge and List ------------------------ */
+
+.item-list .list-item {
+    margin: 0;
+    background-color: #fbfbfb;
+    height: 58px;
+    padding: 0;
+    text-align: left;
+}
+
+.item-list {
+    margin-bottom: 90px;
+}
+
+.item-list img {
+    position: absolute;
+    left: 4px;
+    top: 4px;
+}
+
+.item-list .item-name {
+    padding-left: 62px;
+    font-size: large;
+}
+
+#override .large-circle {
+    height: 65px;
+    width: 65px;
+    border-radius: 50%;
+    border-color: #bebebe;
+    border-width: 1px;
+    position: fixed;
+    right: 14px;
+    bottom: 6px;
+    background-color: #f7f7f7;
+    z-index: 3;
+
+}
+
+#item-popup, #item-popup2 {
+    background-color: white;
+    color: black;
+    width: 90vw;
+    position: fixed;
+    left: 5vw;
+    overflow-y: auto;
+}
+
+.item-popup-name {
+    text-align: center;
+    font-size: 2.2em;
+    color: #495655;
+}
+
+.item-popup-expires {
+    text-align: center;
+}
+
+#navbar, #navbar2 {
+    display: flex;
+}
+
+#navbar a, #navbar2 a {
+    width: 33%;
+    font-size: 0.89em;
+}
+
+#overview, #overview2, #storage, #storage2, #expired, #expired2 {
+    text-align: center;
+}
+
+.add-icons {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 5px;
+}
+
+.item-panel {
+    width: 60px;
+    display: inline-block;
+}
+
+.item-panel p {
+    text-align: center;
+}
+
+#button-div, #button-div2 {
+    display: flex;
+}
+
+#add-button, #add-button2, #add-button3, #add-button4 {
+    color: darkslategray;
+
+    margin: 10px auto;
+}
+
+#add-header, #add-header2 {
+    text-align: center;
+    font-size: 2.2em;
+    color: #495655;
+}
+
+#override .close-button {
+    background-color: #ddd;
+    position: fixed;
+    right: 5vw;
+    top: 5vh;
+}
+
+#add-popup, #add-popup2, #custom-item-popup, #custom-item-popup2 {
+    width: 90vw;
+    position: fixed;
+    left: 5vw;
+    overflow-y: auto;
+}
+
 #common-items, #common-items2 {
     width: 90%;
     height: 30%;
     background-color: lightgrey;
     margin: auto;
     overflow: scroll;
-    border-style: solid;
-    border-color: darkslategrey;
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:space-around;
+    border: solid darkslategrey;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
+
 #bought-items, #bought-items2 {
     width: 90%;
     height: 30%;
     background-color: lightgrey;
     margin: auto;
     overflow: scroll;
-    border-style: solid;
-    border-color: darkslategrey;
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:space-around;
+    border: solid darkslategrey;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 #add-popup p, #add-popup2 p {
     margin: 0;
 }
+
 #add-popup h3, #add-popup2 h3 {
     color: dimgrey;
     text-align: center;
-    margin-left:5px;
-    margin-right:5px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
+
 #custom-item-popup, #custom-item-popup2 {
-    text-align:center;
+    text-align: center;
 }
+
 #custom-item-popup hr, #custom-item-popup2 hr {
-    width:90%;
+    width: 90%;
 }
+
 #custom-item-popup h3, #custom-item-popup2 h3 {
-    position:relative;
-    top:28px;
-    background-color:white;
-    display:inline-block;
+    position: relative;
+    top: 28px;
+    background-color: white;
+    display: inline-block;
     padding: 0 15px;
 }
+
 .add-item-table {
-    max-width:400px;
-    margin:auto;
+    max-width: 400px;
+    margin: auto;
 }
+
 .add-item-table table {
-    width:90%;
-    margin:auto;
-    align-items:center;
+    width: 90%;
+    margin: auto;
+    align-items: center;
 }
+
 .add-item-table table tr {
-    margin:auto;
+    margin: auto;
 }
-.add-item-table table tr td:nth-child(2){
-    width:50%;
+
+.add-item-table table tr td:nth-child(2) {
+    width: 50%;
 }
+
 #custom-add-back, #custom-add-back2 {
-    left:0;
+    left: 5.4vw;
+    position: fixed;
 }
-/* Add predefined item page css */
+
+/* ------------------------ Shared Fridge and List End ------------------------ */
+
+/* ------------------------ Settings Page ------------------------ */
+#settings-form-table {
+    margin: auto;
+}
 
 .custom-size-flipswitch.ui-flipswitch .ui-btn.ui-flipswitch-on {
     text-indent: -4.9em;
 }
+
 .custom-size-flipswitch.ui-flipswitch .ui-flipswitch-off {
     text-indent: 1.2em;
 }
+
 .custom-size-flipswitch.ui-flipswitch {
     width: 7.875em;
 }
+
 .custom-size-flipswitch.ui-flipswitch.ui-flipswitch-active {
     padding-left: 6em;
     width: 1.875em;
 }
+
 @media (min-width: 28em) {
         .ui-field-contain > label + .custom-size-flipswitch.ui-flipswitch {
         width: 1.875em;
-        }
-}
-body{
-    font-family: 'Raleway', sans-serif;
-    -webkit-font-smoothing: subpixel-antialiased;
-    font-weight: 400;
-    font-kerning:normal;
+    }
 }
 
-#override a, #override input{
-    font-family: 'Nunito', sans-serif;
+/* ------------------------ Settings Page End ------------------------ */
 
+/* ------------------------ About page  ------------------------ */
+.develop-img {
+    margin: auto;
+    display: block;
+}
+
+.develop-text {
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#dev-header {
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    background-color: #e8e8e8;
+}
+
+#mission-header {
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    background-color: #e8e8e8;
+    border-top: solid #34e23c 5px;
 
 }
+
+#mission-body {
+    font-size: 1.1em;
+}
+
+#goal-header {
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-top: solid #e23238 5px;
+    background-color: #e8e8e8;
+}
+
+/* ------------------------ About Page End ------------------------ */
+
+/* ------------------------ Affiliated Apps Page ------------------------ */
+.aff-header {
+    background-color: #e8e8e8;
+    height: 84px;
+    width: 100%;
+    position: relative;
+
+}
+
+.aff-header h2 {
+    position: absolute;
+    left: 100px;
+    top: 15px;
+    text-align: left;
+
+}
+
+.aff-icon {
+    float: left;
+    position: absolute;
+    padding: 7px;
+
+}
+
+#aff-apps h3 {
+    text-align: center;
+}
+
+#aff-apps p {
+    text-align: center;
+}
+
+#forkpotato .aff-header {
+}
+
+#foodfall .aff-header {
+    border-top: solid #34e23c 5px;
+}
+
+#overcooked .aff-header {
+    border-top: solid #e23238 5px;
+}
+
+#useitup .aff-header {
+    border-top: solid #ffb02a 5px;
+}
+
+/* ------------------------ Affiliated Apps End ------------------------ */
+
+/* Loading Animation */
 
 html {
     -webkit-transition: background-color 1s;
     transition: background-color 1s;
-
-
+    overflow-y: scroll;
 }
-html, body {
-    /* For the loading indicator to be vertically centered ensure */
-    /* the html and body elements take up the full viewport */
-    min-height: 100%;
-}
+
 html.loading {
-    /* Replace #333 with the background-color of your choice */
-    /* Replace loading.gif with the loading image of your choice */
-    background: #efefef ;
-    /* Ensures that the transition only runs in one direction */
+    background: #efefef;
 
 }
+
 body {
     -webkit-transition: opacity 1s ease-in;
     transition: opacity 1s ease-in;
 }
+
 html.loading body {
     /* Make the contents of the body opaque during loading */
     opacity: 0;
-
-    /* Ensures that the transition only runs in one direction */
-
-    /*
-<<<<<<< HEAD
-=======
-*/
 }
+
+/* End Loading Animation */
+
+.fakepanel {
+    display: none;
+}
+
 #logo img {
     max-width: 150px;
     height: auto;
     margin: 20px auto;
-    display:block;
+    display: block;
 }
 
 #google-btn {
-    width:175px;
-    margin:auto;
+    width: 175px;
+    margin: auto;
+}
+
+/* ------------------------ Media Queries ------------------------ */
+
+@media (min-width: 501px) {
+    #override #defaultpanel {
+        position: absolute;
+        right: 0;
+        border-left: solid #cfcfcf 1px;
+    }
+
+    #override .nav-button {
+        display: none;
+    }
+
+    .fakepanel {
+        width: 200px;
+        display: block;
+        order: 1;
+        border-left: 2px solid #b8b8b8;
+    }
+
+    .container {
+        width: calc(100vw - 200px);
+        max-width: 500px;
+        order: 2;
+        border-left: 2px solid #b8b8b8;
+        border-right: 2px solid #b8b8b8;
+        min-height: 100vh;
+        position: relative;
+
+    }
+
+    .fakepanel ul {
+        padding: 0;
+        margin: 0;
+    }
+
+    .big-container {
+        display: flex;
+        margin: auto;
+        width: 700px;
+    }
+
+    #override .footer {
+        height: 0;
+    }
+
+    #override .large-circle {
+        top: 0;
+        position: absolute;
+        left: 13px;
+        height: 40px;
+        width: 40px;
+    }
 }
