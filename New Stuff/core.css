@@ -139,6 +139,10 @@ h3 {
 
 #override #defaultpanel, .fakepanel {
     width: 200px;
+
+}
+#ovveride #defaultpanel{
+    min-height:101%;
 }
 
 .nav {
@@ -447,8 +451,6 @@ h3 {
     margin-bottom: 20px;
     background-color: #e8e8e8;
 }
-
-}
 #mission-header {
     padding-bottom: 10px;
     margin-bottom: 20px;
@@ -557,9 +559,18 @@ h3 {
     color: #495655;
 }
 
-#override [data-rel="back"] {
-    right: 0;
-    top: 0;
+#override .close-button {
+   // right: 5vw;
+    //top: 0;
+    //position:fixed;
+}
+#override .close-button {
+    background-color:#ddd;
+    position: fixed;
+    //padding: 2em;
+    right: 5vw;
+    top: 5vh;
+   // transform: translateX(-50%);
 }
 
 [data-role="collapsible"] {
@@ -652,7 +663,8 @@ h3 {
 }
 
 #custom-add-back, #custom-add-back2 {
-    left: 0;
+    left: 5.4vw;
+    position:fixed;
 }
 
 /* Add predefined item page css */
@@ -695,6 +707,7 @@ body {
 html {
     -webkit-transition: background-color 1s;
     transition: background-color 1s;
+    overflow-y:scroll;
 }
 
 html, body {

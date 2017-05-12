@@ -3,19 +3,23 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-signin-client_id"
+          content="901409010191-fh44qef7jm9jniv1h13etlpg35lgqi63.apps.googleusercontent.com">
     <title>What's in My Fridge?</title>
+
     <link rel="stylesheet" href="jquery.mobile-1.4.5.css">
     <link rel="stylesheet" href="core.css">
 
     <link href="https://fonts.googleapis.com/css?family=Nunito|Raleway" rel="stylesheet">
-    <meta name="google-signin-client_id"
-          content="901409010191-fh44qef7jm9jniv1h13etlpg35lgqi63.apps.googleusercontent.com">
+
     <script src="jquery-1.11.1.min.js"></script>
     <script src="jquery.mobile-1.4.5.js"></script>
+
 </head>
 <body>
-<div id="override">
-    <div data-role="page" id="loading">
+<div id="override"><!-- an id for overriding jquery mobile defaults-->
+
+    <div data-role="page" id="login"><!-- the welcome page-->
         <div data-role="header">
         </div>
         <div role="main" class="ui-content">
@@ -31,7 +35,6 @@
                     </div>
                     <div class="main">
                         <div id="logo"><img src="placeholder.gif"></div>
-
                         <div class="signup-link">
                             <form method="post" id="login-form">
                                 <table id="login-table">
@@ -55,34 +58,17 @@
                                 <div class="input-container"><input data-enhanced="true" data-role="none"
                                                                     class="ui-btn ui-corner-all" type="submit"
                                                                     value="Login"></div>
-                                <script>
-                                    $("#login-form").submit(
-                                        function () {
-                                            firebase.auth().signInWithEmailAndPassword($("#login-email").val(), $("#login-password").val()).catch(function (error) {
-                                                var errorCode = error.code;
-                                                var errorMessage = error.message;
-                                                alert(errorMessage);
-                                                alert(errorCode);
-                                            })
-                                        })
-                                </script>
-
                             </form>
                         </div>
                         <div class="signup-link">
                             <a class="ui-btn ui-corner-all" id="google-btn">Sign in with Google</a>
-                            <script>
-                                $("#google-btn").click(function () {
-                                    firebase.auth().signInWithRedirect(provider);
-                                });
-                            </script>
                         </div>
                         <br>
                         <div class="input-container"><a class="ui-btn ui-corner-all" href="#signup">Sign-up</a></div>
                     </div>
                 </div>
                 <div class="fakepanel">
-                    <div>
+                    <div class="panel-container">
                         <p class="logo2">WhatsinmyFridge.ca</p>
                         <ul class="nav-list">
                             <li>
@@ -103,7 +89,7 @@
                                 <a href="#aff-apps" data-transition="none" class="nav-btn ui-btn">Affiliated Apps</a>
                             </li>
                             <li>
-                                <a data-transition="none" href="#loading" class="login-btn nav-btn ui-btn">Login</a>
+                                <a data-transition="none" href="#login" class="login-btn nav-btn ui-btn">Login</a>
                             </li>
                             <li>
                                 <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
@@ -115,38 +101,9 @@
         </div>
         <div data-role="footer">
         </div>
-    </div><!-- page loading -->
+    </div><!-- login page end -->
 
-    <div data-role="page" id="login">
-        <div data-role="header">
-            <div class="nav">
-                <a href="#defaultpanel"
-                   class="nav-button ui-large-icon ui-btn  ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default
-                    panel</a>
-                <h1>Login</h1>
-            </div>
-        </div>
-        <div role="main" class="ui-content">
-            <br>
-
-            <div class="signup-link">
-                <a id="google-btn2">Sign in with Google</a>
-                <script>
-                    $("#google-btn2").click(function () {
-                        firebase.auth().signInWithRedirect(provider);
-                    });
-                </script>
-                <br>
-            </div>
-            <div class="signup-link">
-                <a href="#signup">dont have an account?</a>
-            </div>
-        </div>
-        <div data-role="footer">
-        </div>
-    </div><!-- page login -->
-
-    <div data-role="page" id="signup">
+    <div data-role="page" id="signup"><!-- the signup page-->
         <div data-role="header">
         </div>
         <div role="main" class="ui-content">
@@ -183,25 +140,11 @@
                             <div class="input-container"><input data-enhanced="true" data-role="none"
                                                                 class="ui-btn ui-corner-all" type="submit"
                                                                 value="Login"></div>
-                            <script>
-                                $("#signup-form").submit(
-                                    function () {
-                                        firebase.auth().createUserWithEmailAndPassword($("#signup-email").val(), $("#signup-password").val()).catch(function (error) {
-                                            var errorCode = error.code;
-                                            var errorMessage = error.message;
-                                            alert(errorMessage);
-                                            alert(errorCode);
-                                        })
-                                    })
-                            </script>
-
                         </form>
-
-
                     </div>
                 </div>
                 <div class="fakepanel">
-                    <div>
+                    <div class="panel-container">
                         <p class="logo2">WhatsinmyFridge.ca</p>
                         <ul class="nav-list">
                             <li>
@@ -222,7 +165,7 @@
                                 <a href="#aff-apps" data-transition="none" class="nav-btn ui-btn">Affiliated Apps</a>
                             </li>
                             <li>
-                                <a data-transition="none" href="#loading" class="login-btn nav-btn ui-btn">Login</a>
+                                <a data-transition="none" href="#login" class="login-btn nav-btn ui-btn">Login</a>
                             </li>
                             <li>
                                 <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
@@ -234,9 +177,9 @@
         </div>
         <div data-role="footer">
         </div>
-    </div><!-- page signup -->
+    </div><!-- signup page end -->
 
-    <div data-role="page" id="fridge">
+    <div data-role="page" id="fridge"><!-- the fridge page-->
         <div data-role="header">
         </div>
         <div role="main" class="ui-content">
@@ -269,16 +212,10 @@
                     </div>
                     <div class="main">
                         <div class="item-list">
-                            <!--<a href="#item-popup" data-rel="popup" class="ui-btn list-item fridge-item">
-                                <img height="50" width="50" src="icons/produce.svg">
-                                <p class="item-name">Apple Apr-26</p>
-                                <p class="item-expires">Expires in 3 days</p>
-                                <div class="small-circle"></div>
-                            </a>-->
                             <div data-role="popup" data-transition="fade" id="item-popup" data-overlay-theme="b"
                                  data-theme="a">
                                 <a href="#" data-rel="back"
-                                   class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right close-button">Close</a>
+                                   class="close-button ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ">Close</a>
                                 <p class="item-popup-name">Apple Apr-26</p>
                                 <p class="item-popup-expires">Expires on April 29th, 2017</p>
                                 <div id="tabs" data-role="tabs">
@@ -449,7 +386,7 @@
                         </div>
                         <div data-role="popup" data-transition="none" data-overlay-theme="b" id="add-popup">
                             <a href="#" data-rel="back"
-                               class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                               class="close-button ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ">Close</a>
                             <p id="add-header">Add Item</p>
                             <h3>Common Items</h3>
                             <div id="common-items">
@@ -485,12 +422,9 @@
                                     <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
-
                             </div>
-
                             <h3>Recently Purchased Items</h3>
                             <div id="bought-items">
-
                                 <div class="item-panel">
                                     <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
                                     <p>Milk</p>
@@ -512,11 +446,6 @@
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" height="50" width="50"
-                                         class="add-icons">
-                                    <p>Milk</p>
-                                </div>
-                                <div class="item-panel">
                                     <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
@@ -524,9 +453,11 @@
                                     <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
-
+                                <div class="item-panel">
+                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <p>Milk</p>
+                                </div>
                             </div>
-
                             <div id="button-div" align="right">
                                 <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="add-button">Custom
                                     Item</a>
@@ -534,9 +465,9 @@
                         </div>
                         <div data-role="popup" data-transition="none" data-overlay-theme="b" id="custom-item-popup">
                             <a href="#" data-rel="back"
-                               class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                               class="close-button ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ">Close</a>
                             <a href="#" data-rel="back"
-                               class="ui-btn ui-corner-all ui-shadow ui-btn ui-btn-inherit ui-icon-back ui-btn-icon-notext ui-btn-left"
+                               class=" ui-btn ui-corner-all ui-shadow ui-btn ui-btn-inherit ui-icon-back ui-btn-icon-notext"
                                id="custom-add-back">Back</a>
                             <p class="item-popup-name">Add item</p>
                             <h3>Required</h3>
@@ -609,12 +540,11 @@
                     <a href="#add-popup" data-rel="popup"
                        class="large-circle ui-shadow ui-alt-icon ui-nodisc-icon  ui-btn ui-icon-plus ui-btn-icon-notext">No
                         text</a>
-
                     <div class="footer">
                     </div>
                 </div>
                 <div class="fakepanel">
-                    <div>
+                    <div class="panel-container">
                         <p class="logo2">WhatsInMyFridge.ca</p>
                         <ul class="nav-list">
                             <li>
@@ -635,7 +565,7 @@
                                 <a href="#aff-apps" data-transition="none" class="nav-btn ui-btn">Affiliated Apps</a>
                             </li>
                             <li>
-                                <a data-transition="none" href="#loading" class="login-btn nav-btn ui-btn">Login</a>
+                                <a data-transition="none" href="#login" class="login-btn nav-btn ui-btn">Login</a>
                             </li>
                             <li>
                                 <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
@@ -647,9 +577,9 @@
         </div>
         <div data-role="footer">
         </div>
-    </div><!-- page fridge -->
+    </div><!-- fridge page end -->
 
-    <div data-role="page" id="list">
+    <div data-role="page" id="list"><!-- the list page -->
         <div data-role="header">
         </div>
         <div role="main" class="ui-content">
@@ -664,11 +594,9 @@
 
                             <a href="#" data-rel="popup" data-transition="slide"
                                class="sort-button ui-nodisc-icon  ui-btn ui-corner-all ui-icon-shop ui-btn-icon-notext ui-btn-inline">bullets</a>
-
                         </div>
                     </div>
                     <div class="main">
-
                         <div class="item-list">
                             <a href="#item-popup2" data-rel="popup" class="list-item ui-btn shopping-item"><img
                                     height="50" width="50" src="icons/produce.svg">
@@ -705,7 +633,7 @@
                             <div data-role="popup" data-transition="fade" id="item-popup2" data-overlay-theme="b"
                                  data-theme="a">
                                 <a href="#" data-rel="back"
-                                   class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right close-button">Close</a>
+                                   class="close-button ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ">Close</a>
                                 <p class="item-popup-name">Apple Apr-26</p>
                                 <p class="item-popup-expires">Expires on April 29th, 2017 if bought today</p>
                                 <div id="tabs2" data-role="tabs">
@@ -745,7 +673,7 @@
                             text</a>
                         <div data-role="popup" data-transition="none" data-overlay-theme="b" id="add-popup2">
                             <a href="#" data-rel="back"
-                               class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                               class="close-button ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ">Close</a>
                             <p id="add-header2">Add Item</p>
                             <h3>Common Items</h3>
                             <div id="common-items2">
@@ -781,12 +709,9 @@
                                     <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
-
                             </div>
-
                             <h3>Recently Purchased Items</h3>
                             <div id="bought-items2">
-
                                 <div class="item-panel">
                                     <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
                                     <p>Milk</p>
@@ -808,11 +733,6 @@
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" height="50" width="50"
-                                         class="add-icons">
-                                    <p>Milk</p>
-                                </div>
-                                <div class="item-panel">
                                     <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
@@ -820,9 +740,11 @@
                                     <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
-
+                                <div class="item-panel">
+                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <p>Milk</p>
+                                </div>
                             </div>
-
                             <div id="button-div2" align="right">
                                 <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="add-button3">Custom
                                     Item</a>
@@ -830,9 +752,9 @@
                         </div>
                         <div data-role="popup" data-transition="none" data-overlay-theme="b" id="custom-item-popup2">
                             <a href="#" data-rel="back"
-                               class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                               class="close-button ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ">Close</a>
                             <a href="#" data-rel="back"
-                               class="ui-btn ui-corner-all ui-shadow ui-btn ui-btn-inherit ui-icon-back ui-btn-icon-notext ui-btn-left"
+                               class="ui-btn ui-corner-all ui-shadow ui-btn ui-btn-inherit ui-icon-back ui-btn-icon-notext "
                                id="custom-add-back2">Back</a>
                             <p class="item-popup-name">Add item</p>
                             <h3>Required</h3>
@@ -906,7 +828,7 @@
                     </div>
                 </div>
                 <div class="fakepanel">
-                    <div>
+                    <div class="panel-container">
                         <p class="logo2">WhatsinmyFridge.ca</p>
                         <ul class="nav-list">
                             <li>
@@ -927,7 +849,7 @@
                                 <a href="#aff-apps" data-transition="none" class="nav-btn ui-btn">Affiliated Apps</a>
                             </li>
                             <li>
-                                <a data-transition="none" href="#loading" class="login-btn nav-btn ui-btn">Login</a>
+                                <a data-transition="none" href="#login" class="login-btn nav-btn ui-btn">Login</a>
                             </li>
                             <li>
                                 <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
@@ -939,9 +861,9 @@
         </div>
         <div data-role="footer">
         </div>
-    </div><!-- page list -->
+    </div><!-- list page end -->
 
-    <div data-role="page" id="settings">
+    <div data-role="page" id="settings"><!-- the settings page-->
         <div data-role="header">
         </div>
         <div role="main" class="ui-content">
@@ -974,7 +896,7 @@
                     </div>
                 </div>
                 <div class="fakepanel">
-                    <div>
+                    <div class="panel-container">
                         <p class="logo2">WhatsinmyFridge.ca</p>
                         <ul class="nav-list">
                             <li>
@@ -995,7 +917,7 @@
                                 <a href="#aff-apps" data-transition="none" class="nav-btn ui-btn">Affiliated Apps</a>
                             </li>
                             <li>
-                                <a data-transition="none" href="#loading" class="login-btn nav-btn ui-btn">Login</a>
+                                <a data-transition="none" href="#login" class="login-btn nav-btn ui-btn">Login</a>
                             </li>
                             <li>
                                 <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
@@ -1007,9 +929,9 @@
         </div>
         <div data-role="footer">
         </div>
-    </div><!-- page settings -->
+    </div><!-- settings page end -->
 
-    <div data-role="page" id="about">
+    <div data-role="page" id="about"><!-- the about page -->
         <div data-role="header">
         </div>
         <div role="main" class="ui-content">
@@ -1058,7 +980,7 @@
                     </div>
                 </div>
                 <div class="fakepanel">
-                    <div>
+                    <div class="panel-container">
                         <p class="logo2">WhatsinmyFridge.ca</p>
                         <ul class="nav-list">
                             <li>
@@ -1079,7 +1001,7 @@
                                 <a href="#aff-apps" data-transition="none" class="nav-btn ui-btn">Affiliated Apps</a>
                             </li>
                             <li>
-                                <a data-transition="none" href="#loading" class="login-btn nav-btn ui-btn">Login</a>
+                                <a data-transition="none" href="#login" class="login-btn nav-btn ui-btn">Login</a>
                             </li>
                             <li>
                                 <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
@@ -1092,9 +1014,9 @@
         </div>
         <div data-role="footer">
         </div>
-    </div><!-- page about -->
+    </div><!-- about page end -->
 
-    <div data-role="page" id="aff-apps">
+    <div data-role="page" id="aff-apps"><!-- the affiliated apps page-->
         <div data-role="header">
         </div>
         <div role="main" class="ui-content">
@@ -1125,7 +1047,7 @@
                         </a>
                         <p>A JavaScript based game where you catch falling food in a basket and learn about how to
                             prevent food waste!</p>
-                        <a id="overcooked" href="http://overcoocked.ca">
+                        <a id="overcooked" href="http://overcooked.ca">
                             <div class="aff-header">
                                 <img height="70" width="70" src="images/overcooked-logo.svg" class="aff-icon">
                                 <h2>Overcooked.ca</h2>
@@ -1144,7 +1066,7 @@
                     </div>
                 </div>
                 <div class="fakepanel">
-                    <div>
+                    <div class="panel-container">
                         <p class="logo2">WhatsinmyFridge.ca</p>
                         <ul class="nav-list">
                             <li>
@@ -1165,7 +1087,7 @@
                                 <a href="#aff-apps" data-transition="none" class="nav-btn ui-btn">Affiliated Apps</a>
                             </li>
                             <li>
-                                <a data-transition="none" href="#loading" class="login-btn nav-btn ui-btn">Login</a>
+                                <a data-transition="none" href="#login" class="login-btn nav-btn ui-btn">Login</a>
                             </li>
                             <li>
                                 <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
@@ -1177,9 +1099,9 @@
         </div>
         <div data-role="footer">
         </div>
-    </div><!-- Affliated Apps -->
+    </div><!-- affliated apps end -->
 
-
+    <!-- the panel thehamburger menu opens -->
     <div data-role="panel" id="defaultpanel" data-overlay-theme="b" data-theme="a" data-display="overlay"
          class="ui-panel ui-responsive-panel ui-panel-position-left ui-body-inherit ui-panel-animate ui-panel-closed">
         <p class="logo2">WhatsinmyFridge.ca</p>
@@ -1200,16 +1122,15 @@
                 <a href="#aff-apps" data-transition="slide" class="nav-btn ui-btn">Affiliated Apps</a>
             </li>
             <li>
-                <a data-transition="slide" href="#loading" class="login-btn nav-btn ui-btn">Login</a>
+                <a data-transition="slide" href="#login" class="login-btn nav-btn ui-btn">Login</a>
             </li>
             <li>
                 <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
             </li>
         </ul>
-
     </div>
-
 </div>
+
 <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 <script>
     // Initialize Firebase
@@ -1225,11 +1146,38 @@
 </script>
 
 <script>
+    // due to default panel being outside page hierarchy
     $(function () {
         $("[data-role=panel]").panel().enhanceWithin();
         //$("#fakepanel a").button();
     });
-
+</script>
+<script>
+    $("#google-btn").click(function () {
+        firebase.auth().signInWithRedirect(provider);
+    });
+</script>
+<script>
+    $("#login-form").submit(
+        function () {
+            firebase.auth().signInWithEmailAndPassword($("#login-email").val(), $("#login-password").val()).catch(function (error) {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                alert(errorMessage);
+                alert(errorCode);
+            })
+        })
+</script>
+<script>
+    $("#signup-form").submit(
+        function () {
+            firebase.auth().createUserWithEmailAndPassword($("#signup-email").val(), $("#signup-password").val()).catch(function (error) {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                alert(errorMessage);
+                alert(errorCode);
+            })
+        })
 </script>
 <script>
     var provider = new firebase.auth.GoogleAuthProvider();
@@ -1372,7 +1320,6 @@
                 var uid = user.uid;
                 var providerData = user.providerData;
                 // ...
-                //alert("logged in");
 
                 $(".login-btn").hide();
                 $(".signup-btn").hide();
@@ -1387,7 +1334,6 @@
             } else {
                 // User is signed out.
                 // ...
-                //alert("not logged in");
 
                 $(".signup-btn").show();
                 $(".logout-btn").hide();
@@ -1395,9 +1341,8 @@
                 $(".fridge-btn").hide();
                 $(".settings-btn").hide();
                 $(".shopping-list-btn").hide();
-                $.mobile.navigate("#loading");
-                setTimeout($("html").removeClass("loading"), 20000);
-                //$("html").removeClass("loading")
+                $.mobile.navigate("#login");
+                $("html").removeClass("loading")
 
 
             }
@@ -1422,50 +1367,43 @@
     $("#custom-item-popup").offset({top: offset});
     $("#custom-item-popup2").height(vh);
     $("#custom-item-popup2").offset({top: offset});
-
-
+    $(".close-button").offset({top: height * 0.05});
+    $("#custom-add-back2").offset({top: height * 0.05});
+    $("#custom-add-back").offset({top: height * 0.05});
 </script>
 <script>
-    /*
-     function calcPageHeight() {
-     alert("help")
-     if ($(".container").height() < $(window).height()) {
-     var documentHeight = $(window).height();
-     $(".container").height(documentHeight);
-     $(".fakepanel").height(documentHeight);
+    $(document).on("pageinit", "#loading", function (event) {
 
-     } else {
-     $(".container").css( "height", "auto" );
-     $(".fakepanel").css( "height", "auto" );
-     documentHeight = $(window).height()
-     }
-     }
-     calcPageHeight();
+        $("#defaultpanel").on("panelopen", function (event, ui) {
+            //setting overflow : hidden and binding "touchmove" with event which returns false
+            $('body').css("overflow", "hidden").on("touchmove", stopScroll);
+        });
 
-     $(function(){
-     $( ".nav-btn" ).click(function() {
-     calcPageHeight()
-     })
-     });
-     $(function(){
-     $( "" ).click(function() {
+        $("#defaultpanel").on("panelclose", function (event, ui) {
+            //remove the overflow: hidden property. Also, remove the "touchmove" event.
+            $('body').css("overflow", "auto").off("touchmove");
+        });
 
-     setTimeout(calcPageHeight(),  20000 );
+        function stopScroll() {
+            return false;
+        }
+    });
+    $(document).on("pageinit", "#fridge", function (event) {
 
-     })
-     });
-     $( ".selector" ).collapsible({
-     expand: function( event, ui ) {
-     alert("")
-     }
-     });
-     $(window).resize(function () {
+        $("#defaultpanel").on("panelopen", function (event, ui) {
+            //setting overflow : hidden and binding "touchmove" with event which returns false
+            $('body').css("overflow", "hidden").on("touchmove", stopScroll);
+        });
 
-     calcPageHeight()
+        $("#defaultpanel").on("panelclose", function (event, ui) {
+            //remove the overflow: hidden property. Also, remove the "touchmove" event.
+            $('body').css("overflow", "auto").off("touchmove");
+        });
 
-     })
-     */
-
+        function stopScroll() {
+            return false;
+        }
+    });
 
 </script>
 </body>
