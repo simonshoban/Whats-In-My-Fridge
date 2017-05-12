@@ -465,7 +465,7 @@
                         </div>
                         <div data-role="popup" data-transition="none" data-overlay-theme="b" id="custom-item-popup">
                             <a href="#" data-rel="back"
-                               class="close-button ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ">Close</a>
+                               class="close-button ui-btn ui-corner-all ui-shadow ui-btn  ui-icon-delete ui-btn-icon-notext ">Close</a>
                             <a href="#" data-rel="back"
                                class=" ui-btn ui-corner-all ui-shadow ui-btn ui-btn-inherit ui-icon-back ui-btn-icon-notext"
                                id="custom-add-back">Back</a>
@@ -1144,49 +1144,14 @@
     };
     firebase.initializeApp(config);
 </script>
-
-<script>
-    // due to default panel being outside page hierarchy
-    $(function () {
-        $("[data-role=panel]").panel().enhanceWithin();
-        //$("#fakepanel a").button();
-    });
-</script>
-<script>
-    $("#google-btn").click(function () {
-        firebase.auth().signInWithRedirect(provider);
-    });
-</script>
-<script>
-    $("#login-form").submit(
-        function () {
-            firebase.auth().signInWithEmailAndPassword($("#login-email").val(), $("#login-password").val()).catch(function (error) {
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                alert(errorMessage);
-                alert(errorCode);
-            })
-        })
-</script>
-<script>
-    $("#signup-form").submit(
-        function () {
-            firebase.auth().createUserWithEmailAndPassword($("#signup-email").val(), $("#signup-password").val()).catch(function (error) {
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                alert(errorMessage);
-                alert(errorCode);
-            })
-        })
-</script>
 <script>
     var provider = new firebase.auth.GoogleAuthProvider();
 
+    //gets redirect from google sign in
     firebase.auth().getRedirectResult().then(function (result) {
         if (result.credential) {
             // This gives you a Google Access Token. You can use it to access the Google API.
             var token = result.credential.accessToken;
-            // ...
         }
         // The signed-in user info.
         var user = result.user;
@@ -1198,7 +1163,45 @@
         var email = error.email;
         // The firebase.auth.AuthCredential type that was used.
         var credential = error.credential;
-        // ...
+    });
+</script>
+
+<script>
+    //sign in with google when "sign in with google" button is clicked
+    $("#google-btn").click(function () {
+        firebase.auth().signInWithRedirect(provider);
+    });
+</script>
+<script>
+    // calls the firebase sign in function when the login form is submitted
+    $("#login-form").submit(
+        function () {
+            firebase.auth().signInWithEmailAndPassword($("#login-email").val(), $("#login-password").val()).catch(function (error) {
+                // handle sign in errors here
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                alert(errorMessage);
+                alert(errorCode);
+            })
+        })
+</script>
+<script>
+    // calls the firebase create account function when sign up form is submitted
+    $("#signup-form").submit(
+        function () {
+            firebase.auth().createUserWithEmailAndPassword($("#signup-email").val(), $("#signup-password").val()).catch(function (error) {
+                // handle account creation errors here
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                alert(errorMessage);
+                alert(errorCode);
+            })
+        })
+</script>
+<script>
+    // manually enhances #defaultpanel
+    $(function () {
+        $("[data-role=panel]").panel().enhanceWithin();
     });
 </script>
 <script>
@@ -1297,7 +1300,7 @@
     /*********************************/
 </script>
 <script>
-
+    //bind firebase logout function ot logout button
     $(".logout-btn").click(function () {
         firebase.auth().signOut().then(function () {
             // Sign-out successful.
@@ -1308,10 +1311,13 @@
 
 </script>
 <script>
+    //observer that fires when login state changes or page is loaded
     firebase.auth().onAuthStateChanged(
         function (user) {
             if (user) {
                 // User is signed in.
+
+                // set user data to variables
                 var displayName = user.displayName;
                 var email = user.email;
                 var emailVerified = user.emailVerified;
@@ -1319,29 +1325,37 @@
                 var isAnonymous = user.isAnonymous;
                 var uid = user.uid;
                 var providerData = user.providerData;
-                // ...
 
+                // hide and show buttons based on login state
                 $(".login-btn").hide();
                 $(".signup-btn").hide();
                 $(".logout-btn").show();
                 $(".fridge-btn").show();
                 $(".settings-btn").show();
                 $(".shopping-list-btn").show();
+
+                // go to the fridge page
                 $.mobile.navigate("#fridge");
+
+                // remove the loading class from html to show page
                 $("html").removeClass("loading")
 
 
             } else {
                 // User is signed out.
-                // ...
 
+                // hide and show buttons based on login state
                 $(".signup-btn").show();
                 $(".logout-btn").hide();
                 $(".login-btn").show();
                 $(".fridge-btn").hide();
                 $(".settings-btn").hide();
                 $(".shopping-list-btn").hide();
+
+                // go to login page
                 $.mobile.navigate("#login");
+
+                // remove the loading class from html to show page
                 $("html").removeClass("loading")
 
 
@@ -1352,59 +1366,78 @@
 
 </script>
 <script>
-    var height = $(window).height();
-    vh = height * 0.9;
-    offset = height * 0.05
-    $("#item-popup").height(vh);
-    $("#item-popup").offset({top: offset});
-    $("#item-popup2").height(vh);
-    $("#item-popup2").offset({top: offset});
-    $("#add-popup").height(vh);
-    $("#add-popup").offset({top: offset});
-    $("#add-popup2").height(vh);
-    $("#add-popup2").offset({top: offset});
-    $("#custom-item-popup").height(vh);
-    $("#custom-item-popup").offset({top: offset});
-    $("#custom-item-popup2").height(vh);
-    $("#custom-item-popup2").offset({top: offset});
-    $(".close-button").offset({top: height * 0.05});
-    $("#custom-add-back2").offset({top: height * 0.05});
-    $("#custom-add-back").offset({top: height * 0.05});
+    //calculate the proper value for panel height and ofset and assign
+    function setPanelSize(){
+        var height = $(window).height();
+        vh = height * 0.9;
+        offset = height * 0.05;
+
+        $("#item-popup").height(vh);
+        $("#item-popup").offset({top: offset});
+        $("#item-popup2").height(vh);
+        $("#item-popup2").offset({top: offset});
+        $("#add-popup").height(vh);
+        $("#add-popup").offset({top: offset});
+        $("#add-popup2").height(vh);
+        $("#add-popup2").offset({top: offset});
+        $("#custom-item-popup").height(vh);
+        $("#custom-item-popup").offset({top: offset});
+        $("#custom-item-popup2").height(vh);
+        $("#custom-item-popup2").offset({top: offset});
+        $(".close-button").offset({top: height * 0.05});
+        $("#custom-add-back2").offset({top: height * 0.05});
+        $("#custom-add-back").offset({top: height * 0.05});
+    }
+
+    //set initial sizes for popups
+    setPanelSize();
+
+    //set sizes for popups on orientation change
+    $( window ).on( "orientationchange", function( event ) {
+        setPanelSize()
+    });
+
+    //set sizes for popups when browser is resized
+    $( window ).resize(function() {
+        setPanelSize();
+
+    });
 </script>
 <script>
-    $(document).on("pageinit", "#loading", function (event) {
+    //makes it impossible to scroll when navbar is open. fires on login page load
+    $(document).on("pageinit", "#login", function (event) {
 
         $("#defaultpanel").on("panelopen", function (event, ui) {
             //setting overflow : hidden and binding "touchmove" with event which returns false
-            $('body').css("overflow", "hidden").on("touchmove", stopScroll);
+            $('html').css("overflow", "hidden").on("touchmove", stopScroll);
         });
 
         $("#defaultpanel").on("panelclose", function (event, ui) {
             //remove the overflow: hidden property. Also, remove the "touchmove" event.
-            $('body').css("overflow", "auto").off("touchmove");
+            $('html').css("overflow", "auto").off("touchmove");
         });
 
         function stopScroll() {
             return false;
         }
     });
+    //also makes it impossible to scroll when navbar is open. fires on fridge page load
     $(document).on("pageinit", "#fridge", function (event) {
 
         $("#defaultpanel").on("panelopen", function (event, ui) {
             //setting overflow : hidden and binding "touchmove" with event which returns false
-            $('body').css("overflow", "hidden").on("touchmove", stopScroll);
+            $('html').css("overflow", "hidden").on("touchmove", stopScroll);
         });
 
         $("#defaultpanel").on("panelclose", function (event, ui) {
             //remove the overflow: hidden property. Also, remove the "touchmove" event.
-            $('body').css("overflow", "auto").off("touchmove");
+            $('html').css("overflow", "auto").off("touchmove");
         });
 
         function stopScroll() {
             return false;
         }
     });
-
 </script>
 </body>
 </html>
