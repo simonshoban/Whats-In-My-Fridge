@@ -397,7 +397,8 @@ h3 {
     height: 65px;
     width: 65px;
     border-radius: 50%;
-    border: #bebebe 1px;
+    border-color: #bebebe;
+    border-width: 1px;
     position: fixed;
     right: 14px;
     bottom: 6px;
