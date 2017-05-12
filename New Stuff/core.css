@@ -1,18 +1,27 @@
+/* ------------------------ Things used by multiple pages ------------------------ */
 body {
     margin: 0;
 }
+
 input {
     width: 100%;
 }
 
-.hidden {
-    display: none;
+body {
+    font-family: 'Raleway', sans-serif;
+    -webkit-font-smoothing: subpixel-antialiased;
+    font-weight: 400;
+    font-kerning: normal;
+    background-color: #f9f9f9;
 }
+
+#override a, #override input {
+    font-family: 'Nunito', sans-serif;
+
+}
+
 [data-role="popup"] h3 {
-    padding-top:0;
-}
-.ui-panel-dismiss-open.ui-panel-dismiss-position-left {
-    left: 200px;
+    padding-top: 0;
 }
 
 [data-role="header"], [data-role="footer"] {
@@ -20,10 +29,149 @@ input {
 }
 
 #override .footer {
-    height: 0px;
+    height: 0;
     background-color: #f9f9f9;
     border: none;
 }
+
+.nav-list {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.nav-list li:last-child {
+    border-bottom: solid lightgrey 2px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    text-align: center;
+    padding-top: 12px;
+}
+
+h1, h2 {
+    font-size: 1.6em;
+    text-shadow: none;
+}
+
+h3 {
+    font-size: 1.3em;
+}
+
+#override #defaultpanel, .fakepanel {
+    width: 200px;
+
+}
+
+#overide #defaultpanel {
+    min-height: 101%;
+}
+
+.nav {
+    position: relative;
+    height: 58px;
+    background-color: #3d7cb3;
+    color: white;
+}
+
+#override .nav-button {
+    margin: 0;
+    position: absolute;
+    padding: 14px 18px 16px 16px;
+    border: none;
+    background-color: inherit;
+}
+
+#defaultpanel .logo2, .fakepanel .logo2 {
+    font-weight: bold;
+    text-align: center;
+    font-size: large;
+    text-shadow: none;
+    color: white;
+    margin: 0;
+    padding-top: 18px;
+    background-color: #3d7cb3;
+    padding-bottom: 18px;
+}
+
+.ui-table {
+    max-width: 300px;
+    margin: auto;
+
+}
+
+.ui-table table {
+    width: 100%;
+    margin: auto;
+
+}
+
+#override .nav-btn {
+    margin: 0;
+    background-color: #fcfcfc;
+    border: none;
+    text-align: left;
+    padding-left: 45px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: black;
+    text-shadow: none;
+
+}
+
+#override a:focus {
+    box-shadow: none;
+}
+
+#override .nav-btn:focus {
+    box-shadow: none;
+    background-color: #3d7cb3;
+    color: white;
+}
+
+#defaultpanel li:last-child, #fakepanel li:last-child {
+    border-bottom: solid 1px lightgrey;
+}
+
+.ui-content {
+    padding: 0;
+
+}
+
+#override .text-input-container {
+    width: 180px;
+    display: inline-block;
+    padding-right: 30px;
+
+}
+
+#override .input-container {
+    max-width: 100px;
+    margin: auto;
+    padding-bottom: 10px;
+    display: block;
+
+}
+
+#override .text-input-label {
+    display: inline-block;
+    padding-right: 15px;
+    padding-left: 10px;
+    min-width: 80px;
+}
+
+/* ------------------------ Login Page ------------------------ */
+#login-table, #signup-table {
+    text-align: right;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ------------------------ End Login Page ------------------------ */
+
+/* ------------------------ Fridge Page ------------------------ */
 
 .collapsible-container {
     position: relative;
@@ -31,8 +179,7 @@ input {
 
 #meat h3 + div, #produce h3 + div, #grain h3 + div, #dairy h3 + div, #misc h3 + div {
     border: none;
-    border-right: solid 8px;
-    border-color: inherit;
+    border: solid 8px inherit;
 
 }
 
@@ -99,141 +246,22 @@ input {
 }
 
 #override .ui-collapsible-content {
-    padding: 0px;
-}
-
-#override .header {
-    background-color: #f5f5f5;
-}
-
-.nav-list {
     padding: 0;
-    margin: 0;
-    list-style-type: none;
-}
-.nav-list li:last-child{
-    border-bottom:solid lightgrey 2px;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-    text-align: center;
-    padding-top: 12px;
-}
-
-h1, h2 {
-    font-size: 1.6em;
-    text-shadow: none;
-}
-
-h3 {
-    font-size: 1.3em;
-}
-
-#login-table, #signup-table {
-    text-align: right;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#override #defaultpanel, .fakepanel {
-    width: 200px;
-
-}
-#ovveride #defaultpanel{
-    min-height:101%;
-}
-
-.nav {
-    position: relative;
-    height: 58px;
-    background-color: #3d7cb3;
-    color: white;
 }
 
 #override .sort-button {
     position: absolute;
     right: 0;
-    top: 0px;
+    top: 0;
     height: 50px;
     width: 50px;
     margin: 4px;
     border: none;
     background-color: inherit;
-
 }
 
 #override #popup-sort {
-    width: 150px;
-
-}
-
-#override .nav-button {
-    margin: 0;
-    position: absolute;
-    padding: 14px 18px 16px 16px;
-    border: none;
-    background-color: inherit;
-}
-
-.item-list .list-item {
-    margin: 0;
-    background-color: #fbfbfb;
-    height: 58px;
-    padding: 0;
-    text-align: left;
-}
-
-.item-list {
-    margin-bottom: 90px;
-}
-
-.top-hr {
-    margin: 0;
-    width: 100%;
-    height: 0.5px;
-    border-bottom: 1px grey solid;
-    background-color: darkgrey;
-}
-
-.item-list img {
-    position: absolute;
-    left: 4px;
-    top: 4px;
-}
-
-.item-list .item-name {
-    padding-left: 62px;
-    font-size: large;
-}
-
-.item-list .item-expires {
-    position: absolute;
-    right: 30px;
-    top: 26px;
-    font-size: small;
-    color: grey;
-}
-
-.item-list .item-quantity {
-    position: absolute;
-    right: 80px;
-    top: 26px;
-    font-size: small;
-    color: grey;
-}
-
-#defaultpanel .logo2, .fakepanel .logo2 {
-    font-weight: bold;
-    text-align: center;
-    font-size: large;
-    text-shadow: none;
-    color: white;
-    margin: 0;
-    padding-top: 18px;
-    background-color: #3d7cb3;
-    padding-bottom: 18px;
+    width: 250px;
 
 }
 
@@ -245,6 +273,35 @@ h3 {
     position: absolute;
     right: 8px;
     top: 8px;
+}
+
+.item-list .item-expires {
+    position: absolute;
+    right: 30px;
+    top: 26px;
+    font-size: small;
+    color: grey;
+}
+
+[data-role="collapsible"] {
+    margin: 0;
+    border-radius: 0;
+}
+
+#override [data-role="collapsible"] h3 > a {
+    padding-top: 22px;
+    padding-bottom: 22px;
+}
+
+/* ------------------------ Fridge Page End ------------------------ */
+
+/* ------------------------ List Page ------------------------ */
+.item-list .item-quantity {
+    position: absolute;
+    right: 80px;
+    top: 26px;
+    font-size: small;
+    color: grey;
 }
 
 #override .ui-checkbox, #override .checkbox-label {
@@ -273,18 +330,80 @@ h3 {
 
 }
 
+.item-button-container {
+    display: flex;
+    flex-flow: column;
+}
+
+.ate-button-div {
+    position: absolute;
+    left: 10%;
+    bottom: 5%;
+}
+
+#ate-button {
+    margin: 10px auto;
+    color: #235f23;
+
+}
+
+.expired-button-div {
+    position: absolute;
+    right: 10%;
+    bottom: 5%;
+}
+
+#expired-button {
+    margin: 10px auto;
+    color: #5f1309;
+}
+
+.ui-panel-inner {
+    padding: 0;
+}
+
+.ui-large-icon {
+    background-size: 30px 30px;
+}
+
+/* ------------------------ List Page End ------------------------ */
+
+/* ------------------------ Shared Fridge and List ------------------------ */
+
+.item-list .list-item {
+    margin: 0;
+    background-color: #fbfbfb;
+    height: 58px;
+    padding: 0;
+    text-align: left;
+}
+
+.item-list {
+    margin-bottom: 90px;
+}
+
+.item-list img {
+    position: absolute;
+    left: 4px;
+    top: 4px;
+}
+
+.item-list .item-name {
+    padding-left: 62px;
+    font-size: large;
+}
+
 #override .large-circle {
     height: 65px;
     width: 65px;
     border-radius: 50%;
-    border-color: #bebebe;
-    border-width: 1px;
+    border: #bebebe 1px;
     position: fixed;
     right: 14px;
     bottom: 6px;
     background-color: #f7f7f7;
     z-index: 3;
-)
+
 }
 
 #item-popup, #item-popup2 {
@@ -317,214 +436,6 @@ h3 {
 
 #overview, #overview2, #storage, #storage2, #expired, #expired2 {
     text-align: center;
-}
-
-.ui-table {
-    max-width: 300px;
-    margin: auto;
-
-}
-
-.ui-table table {
-    width: 100%;
-    margin: auto;
-
-}
-
-.item-button-container {
-    /*does stuff in the future*/
-}
-
-.ate-button-div {
-    position: absolute;
-    left: 10%;
-    bottom: 5%;
-}
-
-#ate-button {
-    margin: 10px auto;
-    color: #235f23;
-
-}
-
-.expired-button-div {
-    position: absolute;
-    right: 10%;
-    bottom: 5%;
-}
-
-#expired-button {
-    margin: 10px auto;
-    color: #5f1309;
-}
-
-.ui-panel-inner {
-    padding: 0;
-}
-
-#override .nav-btn {
-    margin: 0;
-    background-color: #fcfcfc;
-    border: none;
-    text-align: left;
-    padding-left: 45px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    color: black;
-    text-shadow: none;
-
-}
-
-#override a:focus {
-    box-shadow: none;
-}
-
-#override .nav-btn:focus {
-    box-shadow: none;
-    background-color: #3d7cb3;
-    color: white;
-}
-
-#defaultpanel li:last-child, #fakepanel li:last-child {
-    border-bottom: solid 1px lightgrey;
-}
-
-.ui-icon-produce:after {
-    background-image: url("icons/produce.svg");
-    background-size: 18px 18px;
-}
-
-.ui-nosvg .ui-icon-produce:after {
-    background-image: url("icons/produce.png");
-    background-size: 18px 18px;
-}
-
-.ui-large-icon {
-    background-size: 30px 30px;
-}
-
-.ui-content {
-    padding: 0px;
-
-}
-
-#override .text-input-container {
-    width: 180px;
-    display: inline-block;
-    padding-right: 30px;
-
-}
-
-#override .input-container {
-    max-width: 100px;
-    margin: auto;
-    padding-bottom: 10px;
-    display: block;
-
-}
-
-#override .text-input-label {
-    display: inline-block;
-    padding-right: 15px;
-    padding-left: 10px;
-    min-width: 80px;
-}
-
-#settings-form-table {
-    margin: auto;
-}
-
-/* About page css */
-.develop-img {
-    margin: auto;
-    display: block;
-}
-
-.develop-text {
-    text-align: center;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-#dev-header {
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    background-color: #e8e8e8;
-}
-#mission-header {
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    background-color: #e8e8e8;
-    border-top: solid #34e23c 5px;
-
-}
-
-#mission-body {
-    font-size: 1.1em;
-}
-
-#goal-header {
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    border-top: solid #e23238 5px;
-    background-color: #e8e8e8;
-}
-
-/* About page css */
-
-/* Affiliated page css */
-.aff-header {
-    background-color: #e8e8e8;
-    height: 84px;
-    width: 100%;
-    position: relative;
-
-}
-
-.aff-header h2 {
-    position: absolute;
-    left: 100px;
-    top: 15px;
-    text-align: left;
-
-}
-
-.aff-icon {
-    float: left;
-    position: absolute;
-    padding: 7px;
-
-}
-
-#aff-apps h3 {
-    text-align: center;
-}
-
-#aff-apps p {
-    text-align: center;
-}
-
-#forkpotato .aff-header {
-}
-
-#foodfall .aff-header {
-    border-top: solid #34e23c 5px;
-}
-
-#overcooked .aff-header {
-    border-top: solid #e23238 5px;
-}
-
-#useitup .aff-header {
-    border-top: solid #ffb02a 5px;
-}
-
-/* Affiliated page css */
-
-/*<<<<<<< HEAD*/
-/* Add predefined item page css */
-.ui-icon-green { /* unused yet, could be used to set close icon to green, couldnt get it to work*/
-    background-image: url(icons/ui.png);
 }
 
 .add-icons {
@@ -560,27 +471,10 @@ h3 {
 }
 
 #override .close-button {
-   // right: 5vw;
-    //top: 0;
-    //position:fixed;
-}
-#override .close-button {
-    background-color:#ddd;
+    background-color: #ddd;
     position: fixed;
-    //padding: 2em;
     right: 5vw;
     top: 5vh;
-   // transform: translateX(-50%);
-}
-
-[data-role="collapsible"] {
-    margin: 0;
-    border-radius: 0;
-}
-
-#override [data-role="collapsible"] h3 > a {
-    padding-top: 22px;
-    padding-bottom: 22px;
 }
 
 #add-popup, #add-popup2, #custom-item-popup, #custom-item-popup2 {
@@ -596,8 +490,7 @@ h3 {
     background-color: lightgrey;
     margin: auto;
     overflow: scroll;
-    border-style: solid;
-    border-color: darkslategrey;
+    border: solid darkslategrey;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -609,8 +502,7 @@ h3 {
     background-color: lightgrey;
     margin: auto;
     overflow: scroll;
-    border-style: solid;
-    border-color: darkslategrey;
+    border: solid darkslategrey;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -664,10 +556,15 @@ h3 {
 
 #custom-add-back, #custom-add-back2 {
     left: 5.4vw;
-    position:fixed;
+    position: fixed;
 }
 
-/* Add predefined item page css */
+/* ------------------------ Shared Fridge and List End ------------------------ */
+
+/* ------------------------ Settings Page ------------------------ */
+#settings-form-table {
+    margin: auto;
+}
 
 .custom-size-flipswitch.ui-flipswitch .ui-btn.ui-flipswitch-on {
     text-indent: -4.9em;
@@ -692,36 +589,106 @@ h3 {
     }
 }
 
-body {
-    font-family: 'Raleway', sans-serif;
-    -webkit-font-smoothing: subpixel-antialiased;
-    font-weight: 400;
-    font-kerning: normal;
-    background-color:#f9f9f9;
+/* ------------------------ Settings Page End ------------------------ */
+
+/* ------------------------ About page  ------------------------ */
+.develop-img {
+    margin: auto;
+    display: block;
 }
 
-#override a, #override input {
-    font-family: 'Nunito', sans-serif;
+.develop-text {
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#dev-header {
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    background-color: #e8e8e8;
+}
+
+#mission-header {
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    background-color: #e8e8e8;
+    border-top: solid #34e23c 5px;
 
 }
+
+#mission-body {
+    font-size: 1.1em;
+}
+
+#goal-header {
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-top: solid #e23238 5px;
+    background-color: #e8e8e8;
+}
+
+/* ------------------------ About Page End ------------------------ */
+
+/* ------------------------ Affiliated Apps Page ------------------------ */
+.aff-header {
+    background-color: #e8e8e8;
+    height: 84px;
+    width: 100%;
+    position: relative;
+
+}
+
+.aff-header h2 {
+    position: absolute;
+    left: 100px;
+    top: 15px;
+    text-align: left;
+
+}
+
+.aff-icon {
+    float: left;
+    position: absolute;
+    padding: 7px;
+
+}
+
+#aff-apps h3 {
+    text-align: center;
+}
+
+#aff-apps p {
+    text-align: center;
+}
+
+#forkpotato .aff-header {
+}
+
+#foodfall .aff-header {
+    border-top: solid #34e23c 5px;
+}
+
+#overcooked .aff-header {
+    border-top: solid #e23238 5px;
+}
+
+#useitup .aff-header {
+    border-top: solid #ffb02a 5px;
+}
+
+/* ------------------------ Affiliated Apps End ------------------------ */
+
+/* Loading Animation */
 
 html {
     -webkit-transition: background-color 1s;
     transition: background-color 1s;
-    overflow-y:scroll;
-}
-
-html, body {
-    /* For the loading indicator to be vertically centered ensure */
-    /* the html and body elements take up the full viewport */
-    min-height: 100%;
+    overflow-y: scroll;
 }
 
 html.loading {
-    /* Replace #333 with the background-color of your choice */
-    /* Replace loading.gif with the loading image of your choice */
     background: #efefef;
-    /* Ensures that the transition only runs in one direction */
 
 }
 
@@ -733,14 +700,9 @@ body {
 html.loading body {
     /* Make the contents of the body opaque during loading */
     opacity: 0;
-
-    /* Ensures that the transition only runs in one direction */
-
-    /*
-<<<<<<< HEAD
-=======
-*/
 }
+
+/* End Loading Animation */
 
 .fakepanel {
     display: none;
@@ -758,13 +720,7 @@ html.loading body {
     margin: auto;
 }
 
-@media (max-width: 500px) {
-    .ui-page {
-
-        margin: 0;
-
-    }
-}
+/* ------------------------ Media Queries ------------------------ */
 
 @media (min-width: 501px) {
     #override #defaultpanel {
@@ -811,15 +767,10 @@ html.loading body {
     }
 
     #override .large-circle {
-        top: 0px;
+        top: 0;
         position: absolute;
         left: 13px;
         height: 40px;
         width: 40px;
     }
-
-}
-
-@media (min-width: 701px) {
-
 }

@@ -1173,7 +1173,7 @@
     });
 </script>
 <script>
-    // calls the firebase sign in method when the login form is submitted
+    // calls the firebase sign in function when the login form is submitted
     $("#login-form").submit(
         function () {
             firebase.auth().signInWithEmailAndPassword($("#login-email").val(), $("#login-password").val()).catch(function (error) {
@@ -1186,7 +1186,7 @@
         })
 </script>
 <script>
-    // calls the firebase create account method when sign up form is submitted
+    // calls the firebase create account function when sign up form is submitted
     $("#signup-form").submit(
         function () {
             firebase.auth().createUserWithEmailAndPassword($("#signup-email").val(), $("#signup-password").val()).catch(function (error) {
@@ -1300,7 +1300,7 @@
     /*********************************/
 </script>
 <script>
-
+    //bind firebase logout function ot logout button
     $(".logout-btn").click(function () {
         firebase.auth().signOut().then(function () {
             // Sign-out successful.
@@ -1311,10 +1311,13 @@
 
 </script>
 <script>
+    //observer that fires when login state changes or page is loaded
     firebase.auth().onAuthStateChanged(
         function (user) {
             if (user) {
                 // User is signed in.
+
+                // set user data to variables
                 var displayName = user.displayName;
                 var email = user.email;
                 var emailVerified = user.emailVerified;
@@ -1322,29 +1325,37 @@
                 var isAnonymous = user.isAnonymous;
                 var uid = user.uid;
                 var providerData = user.providerData;
-                // ...
 
+                // hide and show buttons based on login state
                 $(".login-btn").hide();
                 $(".signup-btn").hide();
                 $(".logout-btn").show();
                 $(".fridge-btn").show();
                 $(".settings-btn").show();
                 $(".shopping-list-btn").show();
+
+                // go to the fridge page
                 $.mobile.navigate("#fridge");
+
+                // remove the loading class from html to show page
                 $("html").removeClass("loading")
 
 
             } else {
                 // User is signed out.
-                // ...
 
+                // hide and show buttons based on login state
                 $(".signup-btn").show();
                 $(".logout-btn").hide();
                 $(".login-btn").show();
                 $(".fridge-btn").hide();
                 $(".settings-btn").hide();
                 $(".shopping-list-btn").hide();
+
+                // go to login page
                 $.mobile.navigate("#login");
+
+                // remove the loading class from html to show page
                 $("html").removeClass("loading")
 
 
@@ -1393,41 +1404,40 @@
     });
 </script>
 <script>
-
-    $(document).on("pageinit", "#loading", function (event) {
+    //makes it impossible to scroll when navbar is open. fires on login page load
+    $(document).on("pageinit", "#login", function (event) {
 
         $("#defaultpanel").on("panelopen", function (event, ui) {
             //setting overflow : hidden and binding "touchmove" with event which returns false
-            $('body').css("overflow", "hidden").on("touchmove", stopScroll);
+            $('html').css("overflow", "hidden").on("touchmove", stopScroll);
         });
 
         $("#defaultpanel").on("panelclose", function (event, ui) {
             //remove the overflow: hidden property. Also, remove the "touchmove" event.
-            $('body').css("overflow", "auto").off("touchmove");
+            $('html').css("overflow", "auto").off("touchmove");
         });
 
         function stopScroll() {
             return false;
         }
     });
-
+    //also makes it impossible to scroll when navbar is open. fires on fridge page load
     $(document).on("pageinit", "#fridge", function (event) {
 
         $("#defaultpanel").on("panelopen", function (event, ui) {
             //setting overflow : hidden and binding "touchmove" with event which returns false
-            $('body').css("overflow", "hidden").on("touchmove", stopScroll);
+            $('html').css("overflow", "hidden").on("touchmove", stopScroll);
         });
 
         $("#defaultpanel").on("panelclose", function (event, ui) {
             //remove the overflow: hidden property. Also, remove the "touchmove" event.
-            $('body').css("overflow", "auto").off("touchmove");
+            $('html').css("overflow", "auto").off("touchmove");
         });
 
         function stopScroll() {
             return false;
         }
     });
-
 </script>
 </body>
 </html>
