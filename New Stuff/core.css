@@ -697,6 +697,7 @@ body {
     -webkit-font-smoothing: subpixel-antialiased;
     font-weight: 400;
     font-kerning: normal;
+    background-color:#f9f9f9;
 }
 
 #override a, #override input {
