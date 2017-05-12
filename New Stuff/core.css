@@ -161,14 +161,29 @@ h3 {
     min-width: 80px;
 }
 
+/*panel hidden untill enabled by media query*/
+.fakepanel {
+    display: none;
+}
 /* ------------------------ Login Page ------------------------ */
+
+#logo img {
+    max-width: 150px;
+    height: auto;
+    margin: 10px auto;
+    display: block;
+}
 #login-table, #signup-table {
     text-align: right;
-    margin-top: 20px;
+    margin-top: 5px;
     margin-left: auto;
     margin-right: auto;
 }
 
+#google-btn {
+    width: 175px;
+    margin: auto;
+}
 /* ------------------------ End Login Page ------------------------ */
 
 /* ------------------------ Fridge Page ------------------------ */
@@ -705,21 +720,8 @@ html.loading body {
 
 /* End Loading Animation */
 
-.fakepanel {
-    display: none;
-}
 
-#logo img {
-    max-width: 150px;
-    height: auto;
-    margin: 20px auto;
-    display: block;
-}
 
-#google-btn {
-    width: 175px;
-    margin: auto;
-}
 
 /* ------------------------ Media Queries ------------------------ */
 
