@@ -1,3 +1,8 @@
+/* z-indexes currently in use
+    3 = large-circle
+    4 = nav
+ */
+
 /* ------------------------ Things used by multiple pages ------------------------ */
 body {
     margin: 0;
@@ -13,6 +18,10 @@ body {
     font-weight: 400;
     font-kerning: normal;
     background-color: #f9f9f9;
+}
+.main {
+    margin-top:58px;
+
 }
 
 #override a, #override input {
@@ -58,7 +67,8 @@ h1, h2 {
 h3 {
     font-size: 1.3em;
 }
-
+#defaultpanel{
+}
 #override #defaultpanel, .fakepanel {
     width: 200px;
 
@@ -69,7 +79,11 @@ h3 {
 }
 
 .nav {
-    position: relative;
+    position: fixed;
+    z-index: 4;
+    width:100%;
+    top:0;
+    left:0;
     height: 58px;
     background-color: #3d7cb3;
     color: white;
@@ -194,7 +208,7 @@ h3 {
 
 #meat h3 + div, #produce h3 + div, #grain h3 + div, #dairy h3 + div, #misc h3 + div {
     border: none;
-    border: solid 8px inherit;
+    border-right-color:inherit;
 
 }
 
@@ -346,30 +360,23 @@ h3 {
 }
 
 .item-button-container {
+    position:absolute;
     display: flex;
-    flex-flow: column;
+    flex-flow: row;
+    bottom:20px;
+    width:300px;
+    left: calc(100% - 5% - 300px);
+    justify-content: space-around;
 }
 
-.ate-button-div {
-    position: absolute;
-    left: 10%;
-    bottom: 5%;
-}
-
-#ate-button {
-    margin: 10px auto;
+#override .ate-button {
+    margin:0;
     color: #235f23;
 
 }
 
-.expired-button-div {
-    position: absolute;
-    right: 10%;
-    bottom: 5%;
-}
-
-#expired-button {
-    margin: 10px auto;
+#override .expired-button {
+    margin:0;
     color: #5f1309;
 }
 
@@ -385,12 +392,30 @@ h3 {
 
 /* ------------------------ Shared Fridge and List ------------------------ */
 
+.list-item-container {
+    position:relative;
+    border-right:inherit;
+
+}
 .item-list .list-item {
     margin: 0;
     background-color: #fbfbfb;
     height: 58px;
     padding: 0;
     text-align: left;
+    z-index:2;
+    border-right: solid 8px;
+    border-right-color:inherit;
+
+}
+.list-item-back{
+    position:absolute;
+    display:flex;
+    justify-content: space-around;
+    top:0;
+    left:-100vw;
+    width:100vw;
+    height:60px;
 }
 
 .item-list {
@@ -425,10 +450,12 @@ h3 {
 #item-popup, #item-popup2 {
     background-color: white;
     color: black;
-    width: 90vw;
+    width: 90%;
     position: fixed;
-    left: 5vw;
+    left: 5%;
     overflow-y: auto;
+    height:90%;
+    top:5%;
 }
 
 .item-popup-name {
@@ -489,14 +516,17 @@ h3 {
 #override .close-button {
     background-color: #ddd;
     position: fixed;
-    right: 5vw;
-    top: 5vh;
+    right: 5%;
+    top: 5%;
+    margin:0;
 }
 
 #add-popup, #add-popup2, #custom-item-popup, #custom-item-popup2 {
-    width: 90vw;
+    width: 90%;
+    height: 90%;
     position: fixed;
-    left: 5vw;
+    right: 5%;
+    top:5%;
     overflow-y: auto;
 }
 
@@ -541,6 +571,7 @@ h3 {
 
 #custom-item-popup hr, #custom-item-popup2 hr {
     width: 90%;
+
 }
 
 #custom-item-popup h3, #custom-item-popup2 h3 {
@@ -571,8 +602,10 @@ h3 {
 }
 
 #custom-add-back, #custom-add-back2 {
-    left: 5.4vw;
+    left: 5%;
+    top:5%;
     position: fixed;
+    margin:0;
 }
 
 /* ------------------------ Shared Fridge and List End ------------------------ */
@@ -725,7 +758,7 @@ html.loading body {
 
 /* ------------------------ Media Queries ------------------------ */
 
-@media (min-width: 501px) {
+@media (min-width: 701px) {
     #override #defaultpanel {
         position: absolute;
         right: 0;
@@ -745,7 +778,7 @@ html.loading body {
 
     .container {
         width: calc(100vw - 200px);
-        max-width: 500px;
+        max-width: 700px;
         order: 2;
         border-left: 2px solid #b8b8b8;
         border-right: 2px solid #b8b8b8;
@@ -762,7 +795,7 @@ html.loading body {
     .big-container {
         display: flex;
         margin: auto;
-        width: 700px;
+        width: 900px;
     }
 
     #override .footer {
