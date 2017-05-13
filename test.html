@@ -1440,20 +1440,29 @@
             left: "-=" + width
         });
         $(".moved").removeClass("moved")
-        swiped = false;
+
 
 
     }
     $("a").click(function () {
         resetSlidePositions();
-    })
-
-
-    $('#produce').bind('collapsibleexpand', function () {
-        resetSlidePositions
-    }).bind('collapsiblecollapse', function () {
-        resetSlidePositions
     });
+
+    $('.collapsible').bind('collapsibleexpand', function () {
+        $(this).find(".moved").find(".list-item").offset({left:0})
+        $(this).find(".moved").removeClass("moved")
+        resetSlidePositions()
+    }).bind('collapsiblecollapse', function () {
+        if($(this).find(".moved").hasClass("moved")){
+        }
+        else{
+            resetSlidePositions()
+
+        }
+
+    });
+
+
     $(".list-item-container").on("swipeleft", function () {
         width = $(window).width();
         if(width > 700){
