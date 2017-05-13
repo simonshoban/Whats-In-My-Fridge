@@ -544,68 +544,71 @@
                             <h3>Required</h3>
                             <hr>
                             <br>
-                            <div class="add-item-table">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <label for="food-name">Name of food</label>
-                                        </td>
-                                        <td>
-                                            <input id="food-name" name="food-name" type="text"/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label for="food-group">Food group</label>
-                                        </td>
-                                        <td>
-                                            <select id="food-group" name="food-group">
-                                                <option>----------</option>
-                                                <option>Produce</option>
-                                                <option>Dairy</option>
-                                                <option>Grains</option>
-                                                <option>Meats</option>
-                                                <option>Misc</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label for="expiry-date">Expiry Date</label>
-                                        </td>
-                                        <td>
-                                            <input id="expiry-date" name="expiry-date" type="date"/>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <h3>Optional</h3>
-                            <hr>
-                            <br>
-                            <div class="add-item-table">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <label for="item-quantity">Quantity</label>
-                                        </td>
-                                        <td>
-                                            <input id="item-quantity" name="item-quantity" type="text"/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label for="item-price">Price ($)</label>
-                                        </td>
-                                        <td>
-                                            <input id="item-price" name="item-price" type="text"/>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div>
-                                <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="add-button2">Add
-                                    Item</a>
-                            </div>
+                            <form>
+                                <div class="add-item-table">
+
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <label for="food-name">Name of food</label>
+                                            </td>
+                                            <td>
+                                                <input id="food-name" name="food-name" type="text"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="food-group">Food group</label>
+                                            </td>
+                                            <td>
+                                                <select id="food-group" name="food-group">
+                                                    <option>----------</option>
+                                                    <option>Produce</option>
+                                                    <option>Dairy</option>
+                                                    <option>Grains</option>
+                                                    <option>Meats</option>
+                                                    <option>Misc</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="expiry-date">Expiry Date</label>
+                                            </td>
+                                            <td>
+                                                <input id="expiry-date" name="expiry-date" type="date"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <h3>Optional</h3>
+                                <hr>
+                                <br>
+                                <div class="add-item-table">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <label for="item-quantity">Quantity</label>
+                                            </td>
+                                            <td>
+                                                <input id="item-quantity" name="item-quantity" type="text"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="item-price">Price ($)</label>
+                                            </td>
+                                            <td>
+                                                <input id="item-price" name="item-price" type="text"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div>
+                                    <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="add-button2">Add
+                                        Item</a>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <a href="#add-popup" data-rel="popup"
@@ -1397,6 +1400,9 @@
                 var uid = user.uid;
                 var providerData = user.providerData;
 
+
+                //createFridge(uid);
+                //createList(uid);
                 // hide and show buttons based on login state
                 $(".login-btn").hide();
                 $(".signup-btn").hide();
@@ -1613,6 +1619,67 @@
             return false;
         }
     });
+</script>
+<script>
+    var database = firebase.database();
+
+    function createFridge(uid) {
+        var newFridgeKey = firebase.database().ref().child('fridge').push().key;
+
+        var updates = {};
+        updates['/users/' + uid + '/fridge/' + newFridgeKey] = "true";
+
+        return firebase.database().ref().update(updates);
+    }
+    function createList(uid) {
+        var newListKey = firebase.database().ref().child('list').push().key;
+
+        var updates = {};
+        updates['/users/' + uid + '/list/' + newListKey] = "true";
+
+        return firebase.database().ref().update(updates);
+    }
+
+
+    function addFridgeItem(uid, name, expire, category, quantity, price,) {
+        var itemData = {
+            name: name,
+            expire: expire,
+            category: category,
+            quantity: quantity,
+            price: price,
+            date: Date()
+
+        }
+        alert(uid)
+        return firebase.database().ref('/users/' + uid + "/fridge/").once('child_added').then(function (snapshot) {
+            var fridgeId = snapshot.key;
+            var newItemKey = firebase.database().ref().child('fridge/' + fridgeId).push().key;
+            var updates = {};
+            updates['/fridge/' + fridgeId + "/" + newItemKey] = itemData;
+
+            return firebase.database().ref().update(updates);
+        });
+
+    }
+
+    $("#add-button2").click(function () {
+        var uid = firebase.auth().currentUser.uid;
+        var name = $("#food-name").val();
+        alert(name)
+        var type = $("#food-group").val();
+        alert(type)
+        var expires = $("#expiry-date").val();
+        alert(expires)
+        var quantity = $("#item-quantity").val();
+        alert(quantity)
+        var price = $("#item-price").val();
+        alert(price)
+        addFridgeItem( uid, name, expires, type, quantity, price)
+
+    })
+
+
 </script>
 </body>
 </html>
