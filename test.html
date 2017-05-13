@@ -530,7 +530,7 @@
                                 </div>
                             </div>
                             <div id="button-div" align="right">
-                                <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="add-button">Custom
+                                <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="custom-item-fridge">Custom
                                     Item</a>
                             </div>
                         </div>
@@ -544,9 +544,8 @@
                             <h3>Required</h3>
                             <hr>
                             <br>
-                            <form>
+                            <form id="fridge-add-form">
                                 <div class="add-item-table">
-
                                     <table>
                                         <tr>
                                             <td>
@@ -605,7 +604,7 @@
                                     </table>
                                 </div>
                                 <div>
-                                    <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="add-button2">Add
+                                    <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="add-button-fridge">Add
                                         Item</a>
                                 </div>
                             </form>
@@ -834,6 +833,7 @@
                             <h3>Required</h3>
                             <hr>
                             <br>
+                            <form id="list-add-form">
                             <div class="add-item-table">
                                 <table>
                                     <tr>
@@ -893,9 +893,10 @@
                                 </table>
                             </div>
                             <div>
-                                <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="add-button4">Add
+                                <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="add-button-list">Add
                                     Item</a>
                             </div>
+                            </form>
                         </div>
                     </div>
                     <div class="footer">
@@ -1342,14 +1343,14 @@
     /*********Add custom item*********/
 
     //Fridge custom item button
-    $("#add-button").click(function () {
+    $("#custom-item-fridge").click(function () {
         setTimeout(function () {
             $("#custom-item-popup").popup("open");
         }, 100);
     });
 
     //Shopping list custom item button
-    $("#add-button3").click(function () {
+    $("#custom-item-list").click(function () {
         setTimeout(function () {
             $("#custom-item-popup2").popup("open");
         }, 100);
@@ -1651,7 +1652,6 @@
             date: Date()
 
         }
-        alert(uid)
         return firebase.database().ref('/users/' + uid + "/fridge/").once('child_added').then(function (snapshot) {
             var fridgeId = snapshot.key;
             var newItemKey = firebase.database().ref().child('fridge/' + fridgeId).push().key;
@@ -1663,18 +1663,14 @@
 
     }
 
-    $("#add-button2").click(function () {
+    $("#add-button-fridge").click(function () {
         var uid = firebase.auth().currentUser.uid;
         var name = $("#food-name").val();
-        alert(name)
         var type = $("#food-group").val();
-        alert(type)
         var expires = $("#expiry-date").val();
-        alert(expires)
         var quantity = $("#item-quantity").val();
-        alert(quantity)
         var price = $("#item-price").val();
-        alert(price)
+        $("#fridge-add-form").trigger("reset");
         addFridgeItem( uid, name, expires, type, quantity, price)
 
     })

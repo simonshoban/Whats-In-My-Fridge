@@ -502,7 +502,7 @@ h3 {
     display: flex;
 }
 
-#add-button, #add-button2, #add-button3, #add-button4 {
+#custom-item-fridge, #add-button-fridge, #custom-item-list, #add-button-list {
     color: darkslategray;
 
     margin: 10px auto;
