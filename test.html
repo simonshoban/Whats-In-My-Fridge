@@ -1437,15 +1437,19 @@
 
 </script>
 <script>
+    //store width of screen
     var width;
-    var inAnimation = false;
+    //function to return the list-item to its original position
     function resetSlidePositions() {
+        //checks if somethign is currently animating.if it is do nothing
         if (!$(":animated").length) {
+            //movees the list item offscreen to the right
             $($(".moved")).find(".list-item").offset({left: width})
-
+            //animates the list item moving back into position
             $($(".moved")).find(".list-item").animate({
                 left: "-=" + width
             });
+            //animates the backpnel off screen
             $($(".moved")).find(".list-item-back").animate({
                 left: "-=" + width
             });
@@ -1454,16 +1458,20 @@
         ;
 
     }
+    //resets the position if a link is clicked
     $("a").click(function () {
         resetSlidePositions();
     });
-
+    //if a collapsible is opened while somthing is slid calls reset position. If it was somthing in this collapsible set it back with no animation
     $('.collapsible').bind('collapsibleexpand', function () {
-        $(this).find(".moved").find(".list-item").offset({left: 0})
-        $(this).find(".moved").removeClass("moved")
+        $(this).find(".moved-in-collapsible").find(".list-item").offset({left: 0})
+        $(this).find(".moved-in-collapsible").removeClass("moved")
         resetSlidePositions()
+        //when a collapsible is closed call reset position unless the thing moved is a child of this collapsible
     }).bind('collapsiblecollapse', function () {
         if ($(this).find(".moved").hasClass("moved")) {
+            $(this).find(".moved").addClass("moved-in-collapsible")
+            $(this).find(".moved").removeClass("moved")
         }
         else {
             resetSlidePositions()
