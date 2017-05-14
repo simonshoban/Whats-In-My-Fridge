@@ -772,6 +772,9 @@ html.loading body {
     }
 
     .fakepanel {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
         width: 200px;
         display: block;
         order: 1;
@@ -787,6 +790,9 @@ html.loading body {
         border-right: 2px solid #b8b8b8;
         min-height: 100vh;
         position: relative;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
 
     }
 
@@ -796,6 +802,10 @@ html.loading body {
     }
     .panel-container{
         width:194px;
+        position:fixed;
+    }
+    .panel-container{
+        width:198px;
         position:fixed;
     }
 
@@ -814,16 +824,21 @@ html.loading body {
 
     #override .large-circle {
         top: 0;
-        position: absolute;
-        left: 13px;
+        left:213px;
+        position: fixed;
         height: 40px;
         width: 40px;
     }
 }
 
 @media (min-width: 901px) {
+    #override .large-circle {
+        left:calc(50% + 13px - 450px + 200px);
+
+    }
     .nav{
         max-width:700px;
         left:calc(50% - 450px + 200px - 2px)
     }
+   
 }
