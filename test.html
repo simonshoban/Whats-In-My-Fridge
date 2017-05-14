@@ -530,7 +530,8 @@
                                 </div>
                             </div>
                             <div id="button-div" align="right">
-                                <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="custom-item-fridge">Custom
+                                <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline"
+                                   id="custom-item-fridge">Custom
                                     Item</a>
                             </div>
                         </div>
@@ -604,7 +605,8 @@
                                     </table>
                                 </div>
                                 <div>
-                                    <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="add-button-fridge">Add
+                                    <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline"
+                                       id="add-button-fridge">Add
                                         Item</a>
                                 </div>
                             </form>
@@ -834,68 +836,69 @@
                             <hr>
                             <br>
                             <form id="list-add-form">
-                            <div class="add-item-table">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <label for="food-name2">Name of food</label>
-                                        </td>
-                                        <td>
-                                            <input id="food-name2" name="food-name" type="text"/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label for="food-group2">Food group</label>
-                                        </td>
-                                        <td>
-                                            <select id="food-group2" name="food-group">
-                                                <option>----------</option>
-                                                <option>Produce</option>
-                                                <option>Dairy</option>
-                                                <option>Grains</option>
-                                                <option>Meats</option>
-                                                <option>Misc</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label for="expiry-date2">Expiry Date</label>
-                                        </td>
-                                        <td>
-                                            <input id="expiry-date2" name="expiry-date" type="date"/>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <h3>Optional</h3>
-                            <hr>
-                            <br>
-                            <div class="add-item-table">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <label for="item-quantity2">Quantity</label>
-                                        </td>
-                                        <td>
-                                            <input id="item-quantity2" name="item-quantity" type="text"/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label for="item-price2">Price ($)</label>
-                                        </td>
-                                        <td>
-                                            <input id="item-price2" name="item-price" type="text"/>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div>
-                                <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="add-button-list">Add
-                                    Item</a>
-                            </div>
+                                <div class="add-item-table">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <label for="food-name2">Name of food</label>
+                                            </td>
+                                            <td>
+                                                <input id="food-name2" name="food-name" type="text"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="food-group2">Food group</label>
+                                            </td>
+                                            <td>
+                                                <select id="food-group2" name="food-group">
+                                                    <option>----------</option>
+                                                    <option>Produce</option>
+                                                    <option>Dairy</option>
+                                                    <option>Grains</option>
+                                                    <option>Meats</option>
+                                                    <option>Misc</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="expiry-date2">Expiry Date</label>
+                                            </td>
+                                            <td>
+                                                <input id="expiry-date2" name="expiry-date" type="date"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <h3>Optional</h3>
+                                <hr>
+                                <br>
+                                <div class="add-item-table">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <label for="item-quantity2">Quantity</label>
+                                            </td>
+                                            <td>
+                                                <input id="item-quantity2" name="item-quantity" type="text"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="item-price2">Price ($)</label>
+                                            </td>
+                                            <td>
+                                                <input id="item-price2" name="item-price" type="text"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div>
+                                    <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline"
+                                       id="add-button-list">Add
+                                        Item</a>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -1393,17 +1396,18 @@
                 // User is signed in.
 
                 // set user data to variables
-                var displayName = user.displayName;
-                var email = user.email;
-                var emailVerified = user.emailVerified;
-                var photoURL = user.photoURL;
-                var isAnonymous = user.isAnonymous;
-                var uid = user.uid;
-                var providerData = user.providerData;
+                displayName = user.displayName;
+                email = user.email;
+                emailVerified = user.emailVerified;
+                photoURL = user.photoURL;
+                isAnonymous = user.isAnonymous;
+                uid = user.uid;
+                providerData = user.providerData;
 
 
                 //createFridge(uid);
                 //createList(uid);
+                getFridgeList()
                 // hide and show buttons based on login state
                 $(".login-btn").hide();
                 $(".signup-btn").hide();
@@ -1663,15 +1667,33 @@
 
     }
 
+    function getFridgeList() {
+        return firebase.database().ref('/users/' + uid + "/fridge/").once('value').then(function (snapshot) {
+            var fridgeId = snapshot.key;
+            return firebase.database().ref('/fridge/-Kk2oVvwphcbYuAlEAkR').once('value').then(function (snapshot) {
+                snapshot.forEach(function (snapshot) {
+                    var key = snapshot.key;
+                    name = snapshot.val().name
+                    category = snapshot.val().category
+                    expire = snapshot.val().expire
+                    name = snapshot.val().name
+                    name = snapshot.val().name
+
+                    $("#fridge #" + category).append("<div class='list-item-container'> <a href='#"+ key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/"+category+".svg'> <p class='item-name'>"+name+"</p> <p class='item-expires'>"+expire+"</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>")
+
+                });
+            });
+        });
+    }
     $("#add-button-fridge").click(function () {
         var uid = firebase.auth().currentUser.uid;
         var name = $("#food-name").val();
         var type = $("#food-group").val();
-        var expires = $("#expiry-date").val();
+        var expires = Date($("#expiry-date").val())
         var quantity = $("#item-quantity").val();
         var price = $("#item-price").val();
         $("#fridge-add-form").trigger("reset");
-        addFridgeItem( uid, name, expires, type, quantity, price)
+        addFridgeItem(uid, name, expires, type, quantity, price)
 
     })
 
