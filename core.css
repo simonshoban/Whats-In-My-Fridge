@@ -118,6 +118,18 @@ h3 {
     background-image: url("icons/about.svg");
 }
 
+.aff-btn {
+    background-image: url("icons/affiliates.svg");
+}
+
+.logout-btn {
+    background-image: url("icons/logout.svg");
+}
+
+.login-btn {
+    background-image: url("icons/login.svg");
+}
+
 #defaultpanel .logo2, .fakepanel .logo2 {
     font-weight: bold;
     text-align: center;
