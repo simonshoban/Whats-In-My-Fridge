@@ -1,6 +1,6 @@
 /* z-indexes currently in use
     2 = list-item
-    3 = large-circle
+    5 = large-circle
     4 = nav
  */
 
@@ -49,7 +49,11 @@ body {
     margin: 0;
     list-style-type: none;
 }
+#override .nav-list li a {
+    z-index:10;
+    position:relative;
 
+}
 .nav-list li:last-child {
     border-bottom: solid lightgrey 2px;
 }
@@ -145,9 +149,7 @@ h3 {
     color: white;
 }
 
-#defaultpanel li:last-child, #fakepanel li:last-child {
-    border-bottom: solid 1px lightgrey;
-}
+
 
 .ui-content {
     padding: 0;
@@ -405,9 +407,12 @@ h3 {
     padding: 0;
     text-align: left;
     z-index:2;
+
+
+}
+.collapsible .list-item {
     border-right: solid 8px;
     border-right-color:inherit;
-
 }
 .list-item-back{
     position:absolute;
@@ -444,7 +449,7 @@ h3 {
     right: 14px;
     bottom: 6px;
     background-color: #f7f7f7;
-    z-index: 3;
+    z-index: 5;
 
 }
 
@@ -502,7 +507,7 @@ h3 {
     display: flex;
 }
 
-#add-button, #add-button2, #add-button3, #add-button4 {
+#custom-item-fridge, #add-button-fridge, #custom-item-list, #add-button-list {
     color: darkslategray;
 
     margin: 10px auto;
@@ -771,6 +776,9 @@ html.loading body {
     }
 
     .fakepanel {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
         width: 200px;
         display: block;
         order: 1;
@@ -785,6 +793,9 @@ html.loading body {
         border-right: 2px solid #b8b8b8;
         min-height: 100vh;
         position: relative;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
 
     }
 
@@ -792,22 +803,45 @@ html.loading body {
         padding: 0;
         margin: 0;
     }
+    .panel-container{
+        width:194px;
+        position:fixed;
+    }
+    .panel-container{
+        width:198px;
+        position:fixed;
+    }
 
     .big-container {
         display: flex;
         margin: auto;
         width: 900px;
     }
-
+    .nav{
+        left: 200px;
+        max-width:calc(100% - 200px)
+    }
     #override .footer {
         height: 0;
     }
 
     #override .large-circle {
         top: 0;
-        position: absolute;
-        left: 13px;
+        left:213px;
+        position: fixed;
         height: 40px;
         width: 40px;
     }
+}
+
+@media (min-width: 901px) {
+    #override .large-circle {
+        left:calc(50% + 13px - 450px + 200px);
+
+    }
+    .nav{
+        max-width:700px;
+        left:calc(50% - 450px + 200px - 2px)
+    }
+
 }

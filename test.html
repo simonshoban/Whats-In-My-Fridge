@@ -530,7 +530,8 @@
                                 </div>
                             </div>
                             <div id="button-div" align="right">
-                                <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="add-button">Custom
+                                <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline"
+                                   id="custom-item-fridge">Custom
                                     Item</a>
                             </div>
                         </div>
@@ -544,68 +545,71 @@
                             <h3>Required</h3>
                             <hr>
                             <br>
-                            <div class="add-item-table">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <label for="food-name">Name of food</label>
-                                        </td>
-                                        <td>
-                                            <input id="food-name" name="food-name" type="text"/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label for="food-group">Food group</label>
-                                        </td>
-                                        <td>
-                                            <select id="food-group" name="food-group">
-                                                <option>----------</option>
-                                                <option>Produce</option>
-                                                <option>Dairy</option>
-                                                <option>Grains</option>
-                                                <option>Meats</option>
-                                                <option>Misc</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label for="expiry-date">Expiry Date</label>
-                                        </td>
-                                        <td>
-                                            <input id="expiry-date" name="expiry-date" type="date"/>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <h3>Optional</h3>
-                            <hr>
-                            <br>
-                            <div class="add-item-table">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <label for="item-quantity">Quantity</label>
-                                        </td>
-                                        <td>
-                                            <input id="item-quantity" name="item-quantity" type="text"/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label for="item-price">Price ($)</label>
-                                        </td>
-                                        <td>
-                                            <input id="item-price" name="item-price" type="text"/>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div>
-                                <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="add-button2">Add
-                                    Item</a>
-                            </div>
+                            <form id="fridge-add-form">
+                                <div class="add-item-table">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <label for="food-name">Name of food</label>
+                                            </td>
+                                            <td>
+                                                <input id="food-name" name="food-name" type="text"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="food-group">Food group</label>
+                                            </td>
+                                            <td>
+                                                <select id="food-group" name="food-group">
+                                                    <option>----------</option>
+                                                    <option>Produce</option>
+                                                    <option>Dairy</option>
+                                                    <option>Grains</option>
+                                                    <option>Meats</option>
+                                                    <option>Misc</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="expiry-date">Expiry Date</label>
+                                            </td>
+                                            <td>
+                                                <input id="expiry-date" name="expiry-date" type="date"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <h3>Optional</h3>
+                                <hr>
+                                <br>
+                                <div class="add-item-table">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <label for="item-quantity">Quantity</label>
+                                            </td>
+                                            <td>
+                                                <input id="item-quantity" name="item-quantity" type="text"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="item-price">Price ($)</label>
+                                            </td>
+                                            <td>
+                                                <input id="item-price" name="item-price" type="text"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div>
+                                    <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline"
+                                       id="add-button-fridge">Add
+                                        Item</a>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <a href="#add-popup" data-rel="popup"
@@ -831,68 +835,71 @@
                             <h3>Required</h3>
                             <hr>
                             <br>
-                            <div class="add-item-table">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <label for="food-name2">Name of food</label>
-                                        </td>
-                                        <td>
-                                            <input id="food-name2" name="food-name" type="text"/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label for="food-group2">Food group</label>
-                                        </td>
-                                        <td>
-                                            <select id="food-group2" name="food-group">
-                                                <option>----------</option>
-                                                <option>Produce</option>
-                                                <option>Dairy</option>
-                                                <option>Grains</option>
-                                                <option>Meats</option>
-                                                <option>Misc</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label for="expiry-date2">Expiry Date</label>
-                                        </td>
-                                        <td>
-                                            <input id="expiry-date2" name="expiry-date" type="date"/>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <h3>Optional</h3>
-                            <hr>
-                            <br>
-                            <div class="add-item-table">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <label for="item-quantity2">Quantity</label>
-                                        </td>
-                                        <td>
-                                            <input id="item-quantity2" name="item-quantity" type="text"/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label for="item-price2">Price ($)</label>
-                                        </td>
-                                        <td>
-                                            <input id="item-price2" name="item-price" type="text"/>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div>
-                                <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="add-button4">Add
-                                    Item</a>
-                            </div>
+                            <form id="list-add-form">
+                                <div class="add-item-table">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <label for="food-name2">Name of food</label>
+                                            </td>
+                                            <td>
+                                                <input id="food-name2" name="food-name" type="text"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="food-group2">Food group</label>
+                                            </td>
+                                            <td>
+                                                <select id="food-group2" name="food-group">
+                                                    <option>----------</option>
+                                                    <option>Produce</option>
+                                                    <option>Dairy</option>
+                                                    <option>Grains</option>
+                                                    <option>Meats</option>
+                                                    <option>Misc</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="expiry-date2">Expiry Date</label>
+                                            </td>
+                                            <td>
+                                                <input id="expiry-date2" name="expiry-date" type="date"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <h3>Optional</h3>
+                                <hr>
+                                <br>
+                                <div class="add-item-table">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <label for="item-quantity2">Quantity</label>
+                                            </td>
+                                            <td>
+                                                <input id="item-quantity2" name="item-quantity" type="text"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="item-price2">Price ($)</label>
+                                            </td>
+                                            <td>
+                                                <input id="item-price2" name="item-price" type="text"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div>
+                                    <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline"
+                                       id="add-button-list">Add
+                                        Item</a>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <div class="footer">
@@ -1339,14 +1346,14 @@
     /*********Add custom item*********/
 
     //Fridge custom item button
-    $("#add-button").click(function () {
+    $("#custom-item-fridge").click(function () {
         setTimeout(function () {
             $("#custom-item-popup").popup("open");
         }, 100);
     });
 
     //Shopping list custom item button
-    $("#add-button3").click(function () {
+    $("#custom-item-list").click(function () {
         setTimeout(function () {
             $("#custom-item-popup2").popup("open");
         }, 100);
@@ -1389,14 +1396,18 @@
                 // User is signed in.
 
                 // set user data to variables
-                var displayName = user.displayName;
-                var email = user.email;
-                var emailVerified = user.emailVerified;
-                var photoURL = user.photoURL;
-                var isAnonymous = user.isAnonymous;
-                var uid = user.uid;
-                var providerData = user.providerData;
+                displayName = user.displayName;
+                email = user.email;
+                emailVerified = user.emailVerified;
+                photoURL = user.photoURL;
+                isAnonymous = user.isAnonymous;
+                uid = user.uid;
+                providerData = user.providerData;
 
+
+               // createFridge(uid);
+               // createList(uid);
+                getFridgeList();
                 // hide and show buttons based on login state
                 $(".login-btn").hide();
                 $(".signup-btn").hide();
@@ -1436,148 +1447,7 @@
 
 
 </script>
-<script>
-    //store width of screen
-    var width;
-    //function to return the list-item to its original position
-    function resetSlidePositions() {
-        //checks if somethign is currently animating.if it is do nothing
-        if (!$(":animated").length) {
-            //movees the list item offscreen to the right
-            $($(".moved")).find(".list-item").offset({left: width})
-            //animates the list item moving back into position
-            $($(".moved")).find(".list-item").animate({
-                left: "-=" + width
-            });
-            //animates the backpnel off screen
-            $($(".moved")).find(".list-item-back").animate({
-                left: "-=" + width
-            });
-            $(".moved").removeClass("moved")
-        }
-        ;
-    }
 
-
-    //resets the position if a link is clicked
-    $("a").click(function () {
-        resetSlidePositions();
-    });
-    //if a collapsible is opened while somthing is slid calls reset position. If it was something in this collapsible set it back with no animation
-    $('.collapsible').bind('collapsibleexpand', function () {
-        var offset = $(this).offset()
-        $(this).find(".moved-in-collapsible").find(".list-item").offset({left: offset.left})
-        $(this).find(".moved-in-collapsible").removeClass("moved")
-        resetSlidePositions()
-        //when a collapsible is closed call reset position unless the thing moved is a child of this collapsible then it gives it a marker
-    }).bind('collapsiblecollapse', function () {
-        if ($(this).find(".moved").hasClass("moved")) {
-            $(this).find(".moved").addClass("moved-in-collapsible")
-            $(this).find(".moved").removeClass("moved")
-        }
-        else {
-            resetSlidePositions()
-        }
-
-    });
-
-
-    // event that fires when a list-item-container is swiped left
-    $(".list-item-container").on("swipeleft", function () {
-        //checks if anything is being animated
-        if (!$(":animated").length) {
-            //sets window width
-            width = $(window).width();
-            //sliding is only allowed on mobile
-            if (width > 700) {
-                return false;
-            }
-            //if it has not moved move it
-            if (!$(this).hasClass("moved")) {
-                resetSlidePositions();
-                $(this).find(".list-item-back").offset({left: width})
-                $(this).addClass(".list-item-back").animate({
-                    left: "-=" + width
-                });
-
-                $(this).toggleClass("moved")
-                $(this).find(".list-item").animate({
-                        left: "-=" + width
-                    },
-                    //after it finishes animating move it very far away
-                    function () {
-                        $(".moved").find(".list-item").offset({left: 10000})
-                    })
-                return false;
-            }   //if it has already moved move it back
-            if ($(this).hasClass("moved")) {
-                $(this).find(".list-item").offset({left: width})
-
-                $(this).find(".list-item").animate({
-                    left: "-=" + width
-                });
-                $(this).removeClass("moved")
-                $(this).find(".list-item-back").animate({
-                        left: "-=" + width
-                    },
-                    //after it finishes animating move it very far away
-                    function () {
-                        $(".moved").find(".list-item-back").offset({left: 10000})
-                    })
-                return false;
-            }
-        }
-    });
-    // event that fires when a list-item-container is swiped right
-    $(".list-item-container").on("swiperight", function () {
-        //checks if anything is being animated
-        if (!$(":animated").length) {
-            //sets window width
-            width = $(window).width();
-            //sliding is only allowed on mobile
-            if (width > 700) {
-                return false;
-            }
-            //if it has not moved move it
-            if (!$(this).hasClass("moved")) {
-                resetSlidePositions();
-                $(this).find(".list-item-back").offset({left: -width})
-                $(this).find(".list-item-back").animate({
-                    left: "+=" + width
-                });
-
-                $(this).addClass("moved")
-                $(this).find(".list-item").animate({
-                        left: "+=" + width
-                    },
-                    //after it finishes animating move it very far away
-                    function () {
-                        $(".moved").find(".list-item").offset({left: 10000})
-                    })
-                return false;
-            }
-            //if it has already moved move it back
-            if ($(this).hasClass("moved")) {
-                $(this).find(".list-item").offset({left: -width})
-
-                $(this).find(".list-item").animate({
-                    left: "+=" + width
-                });
-
-                $(this).removeClass("moved")
-                $(this).find(".list-item-back").animate({
-                        left: "+=" + width
-                    },
-                    //after it finishes animating move it very far away
-                    function () {
-                        $(".moved").find(".list-item-back").offset({left: 10000})
-                    })
-                return false;
-            }
-        }
-    });
-
-</script>
 <script>
     //makes it impossible to scroll when navbar is open. fires on login page load
     $(document).on("pageinit", "#login", function (event) {
@@ -1613,6 +1483,226 @@
             return false;
         }
     });
+</script>
+<script>
+    var database = firebase.database();
+
+    function createFridge(uid) {
+        var newFridgeKey = firebase.database().ref().child('fridge').push().key;
+
+        var updates = {};
+        updates['/users/' + uid + '/fridge/' + newFridgeKey] = "true";
+
+        return firebase.database().ref().update(updates);
+    }
+    function createList(uid) {
+        var newListKey = firebase.database().ref().child('list').push().key;
+
+        var updates = {};
+        updates['/users/' + uid + '/list/' + newListKey] = "true";
+
+        return firebase.database().ref().update(updates);
+    }
+
+
+    function addFridgeItem(uid, name, expire, category, quantity, price,) {
+        var itemData = {
+            name: name,
+            expire: expire,
+            category: category,
+            quantity: quantity,
+            price: price,
+            date: Date()
+
+        }
+        return firebase.database().ref('/users/' + uid + "/fridge/").once('child_added').then(function (snapshot) {
+            var fridgeId = snapshot.key;
+            var newItemKey = firebase.database().ref().child('fridge/' + fridgeId).push().key;
+            var updates = {};
+            updates['/fridge/' + fridgeId + "/" + newItemKey] = itemData;
+
+            return firebase.database().ref().update(updates);
+        });
+
+    }
+
+    function getFridgeList() {
+        return firebase.database().ref('/users/' + uid + "/fridge/").once('value').then(function (snapshot) {
+            snapshot.forEach(function (snapshot) {
+                var fridgeId = snapshot.key;
+                return firebase.database().ref('/fridge/' + fridgeId).once('value').then(function (snapshot) {
+                    snapshot.forEach(function (snapshot) {
+                        var key = snapshot.key;
+                        var name = snapshot.val().name
+                        var category = snapshot.val().category
+                        var expire = snapshot.val().expire
+                        var quantity = snapshot.val().quantity
+                        var price = snapshot.val().price
+
+                        var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expire + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
+                        $("#fridge #" + category + "> div").append(element)
+                    });
+                });
+            });
+        })
+    }
+    $("#add-button-fridge").click(function () {
+        var uid = firebase.auth().currentUser.uid;
+        var name = $("#food-name").val();
+        var type = $("#food-group").val().toLowerCase();
+        var expires = ($("#expiry-date").val())
+        var quantity = $("#item-quantity").val();
+        var price = $("#item-price").val();
+        $("#fridge-add-form").trigger("reset");
+        addFridgeItem(uid, name, expires, type, quantity, price)
+
+    })
+
+
+</script>
+<script>
+    $(function () {
+        //store width of screen
+        var width;
+        //function to return the list-item to its original position
+        function resetSlidePositions() {
+            //checks if somethign is currently animating.if it is do nothing
+            if (!$(":animated").length) {
+                //movees the list item offscreen to the right
+                $($(".moved")).find(".list-item").offset({left: width})
+                //animates the list item moving back into position
+                $($(".moved")).find(".list-item").animate({
+                    left: "-=" + width
+                });
+                //animates the backpnel off screen
+                $($(".moved")).find(".list-item-back").animate({
+                    left: "-=" + width
+                });
+                $(".moved").removeClass("moved")
+            }
+            ;
+        }
+
+
+        //resets the position if a link is clicked
+        $("a").click(function () {
+            resetSlidePositions();
+        });
+        //if a collapsible is opened while somthing is slid calls reset position. If it was something in this collapsible set it back with no animation
+        $('.collapsible').bind('collapsibleexpand', function () {
+            var offset = $(this).offset()
+            $(this).find(".moved-in-collapsible").find(".list-item").offset({left: offset.left})
+            $(this).find(".moved-in-collapsible").removeClass("moved")
+            resetSlidePositions()
+            //when a collapsible is closed call reset position unless the thing moved is a child of this collapsible then it gives it a marker
+        }).bind('collapsiblecollapse', function () {
+            if ($(this).find(".moved").hasClass("moved")) {
+                $(this).find(".moved").addClass("moved-in-collapsible")
+                $(this).find(".moved").removeClass("moved")
+            }
+            else {
+                resetSlidePositions()
+            }
+
+        });
+
+
+        // event that fires when a list-item-container is swiped left
+        $(".item-list").on("swipeleft", ".list-item-container", function () {
+            //checks if anything is being animated
+            if (!$(":animated").length) {
+                //sets window width
+                width = $(window).width();
+                //sliding is only allowed on mobile
+                if (width > 700) {
+                    return false;
+                }
+                //if it has not moved move it
+                if (!$(this).hasClass("moved")) {
+                    resetSlidePositions();
+                    $(this).find(".list-item-back").offset({left: width})
+                    $(this).addClass(".list-item-back").animate({
+                        left: "-=" + width
+                    });
+
+                    $(this).toggleClass("moved")
+                    $(this).find(".list-item").animate({
+                            left: "-=" + width
+                        },
+                        //after it finishes animating move it very far away
+                        function () {
+                            $(".moved").find(".list-item").offset({left: 10000})
+                        })
+                    return false;
+                }   //if it has already moved move it back
+                if ($(this).hasClass("moved")) {
+                    $(this).find(".list-item").offset({left: width})
+
+                    $(this).find(".list-item").animate({
+                        left: "-=" + width
+                    });
+                    $(this).removeClass("moved")
+                    $(this).find(".list-item-back").animate({
+                            left: "-=" + width
+                        },
+                        //after it finishes animating move it very far away
+                        function () {
+                            $(".moved").find(".list-item-back").offset({left: 10000})
+                        })
+                    return false;
+                }
+            }
+        });
+        // event that fires when a list-item-container is swiped right
+        $(".item-list").on("swiperight", ".list-item-container", function () {
+            //checks if anything is being animated
+            if (!$(":animated").length) {
+                //sets window width
+                width = $(window).width();
+                //sliding is only allowed on mobile
+                if (width > 700) {
+                    return false;
+                }
+                //if it has not moved move it
+                if (!$(this).hasClass("moved")) {
+                    resetSlidePositions();
+                    $(this).find(".list-item-back").offset({left: -width})
+                    $(this).find(".list-item-back").animate({
+                        left: "+=" + width
+                    });
+
+                    $(this).addClass("moved")
+                    $(this).find(".list-item").animate({
+                            left: "+=" + width
+                        },
+                        //after it finishes animating move it very far away
+                        function () {
+                            $(".moved").find(".list-item").offset({left: 10000})
+                        })
+                    return false;
+                }
+                //if it has already moved move it back
+                if ($(this).hasClass("moved")) {
+                    $(this).find(".list-item").offset({left: -width})
+
+                    $(this).find(".list-item").animate({
+                        left: "+=" + width
+                    });
+
+                    $(this).removeClass("moved")
+                    $(this).find(".list-item-back").animate({
+                            left: "+=" + width
+                        },
+                        //after it finishes animating move it very far away
+                        function () {
+                            $(".moved").find(".list-item-back").offset({left: 10000})
+                        })
+                    return false;
+                }
+            }
+        })
+    });
+
 </script>
 </body>
 </html>
