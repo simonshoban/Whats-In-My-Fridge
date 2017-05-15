@@ -102,6 +102,22 @@ h3 {
     background-color: inherit;
 }
 
+.fridge-btn {
+    background-image: url("icons/fridge.svg");
+}
+
+.shopping-list-btn {
+    background-image: url("icons/list.svg");
+}
+
+.settings-btn {
+    background-image: url("icons/settings.svg");
+}
+
+.about-btn {
+    background-image: url("icons/about.svg");
+}
+
 #defaultpanel .logo2, .fakepanel .logo2 {
     font-weight: bold;
     text-align: center;
@@ -136,6 +152,10 @@ h3 {
     padding-bottom: 12px;
     color: black;
     text-shadow: none;
+    background-size: 25px;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 8px;
 
 }
 
