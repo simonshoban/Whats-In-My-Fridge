@@ -1405,9 +1405,9 @@
                 providerData = user.providerData;
 
 
-                //createFridge(uid);
-                //createList(uid);
-                getFridgeList()
+               // createFridge(uid);
+               // createList(uid);
+                getFridgeList();
                 // hide and show buttons based on login state
                 $(".login-btn").hide();
                 $(".signup-btn").hide();
@@ -1528,27 +1528,29 @@
 
     function getFridgeList() {
         return firebase.database().ref('/users/' + uid + "/fridge/").once('value').then(function (snapshot) {
-            var fridgeId = snapshot.key;
-            return firebase.database().ref('/fridge/-Kk2oVvwphcbYuAlEAkR').once('value').then(function (snapshot) {
-                snapshot.forEach(function (snapshot) {
-                    var key = snapshot.key;
-                    var name = snapshot.val().name
-                    var category = snapshot.val().category
-                    var expire = snapshot.val().expire
-                    var quantity = snapshot.val().quantity
-                    var price = snapshot.val().price
+            snapshot.forEach(function (snapshot) {
+                var fridgeId = snapshot.key;
+                return firebase.database().ref('/fridge/' + fridgeId).once('value').then(function (snapshot) {
+                    snapshot.forEach(function (snapshot) {
+                        var key = snapshot.key;
+                        var name = snapshot.val().name
+                        var category = snapshot.val().category
+                        var expire = snapshot.val().expire
+                        var quantity = snapshot.val().quantity
+                        var price = snapshot.val().price
 
-                    var element = "<div class='list-item-container'> <a href='#"+ key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/"+category+".svg'> <p class='item-name'>"+name+"</p> <p class='item-expires'>"+expire+"</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
-                   $("#fridge #" + category + "> div").append(element)
+                        var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expire + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
+                        $("#fridge #" + category + "> div").append(element)
+                    });
                 });
             });
-        });
+        })
     }
     $("#add-button-fridge").click(function () {
         var uid = firebase.auth().currentUser.uid;
         var name = $("#food-name").val();
-        var type = $("#food-group").val();
-        var expires = Date($("#expiry-date").val())
+        var type = $("#food-group").val().toLowerCase();
+        var expires = ($("#expiry-date").val())
         var quantity = $("#item-quantity").val();
         var price = $("#item-price").val();
         $("#fridge-add-form").trigger("reset");
@@ -1559,7 +1561,7 @@
 
 </script>
 <script>
-    $(function() {
+    $(function () {
         //store width of screen
         var width;
         //function to return the list-item to its original position
@@ -1606,7 +1608,7 @@
 
 
         // event that fires when a list-item-container is swiped left
-        $(".item-list").on("swipeleft",".list-item-container", function () {
+        $(".item-list").on("swipeleft", ".list-item-container", function () {
             //checks if anything is being animated
             if (!$(":animated").length) {
                 //sets window width
@@ -1652,7 +1654,7 @@
             }
         });
         // event that fires when a list-item-container is swiped right
-        $(".item-list").on("swiperight",".list-item-container", function () {
+        $(".item-list").on("swiperight", ".list-item-container", function () {
             //checks if anything is being animated
             if (!$(":animated").length) {
                 //sets window width
