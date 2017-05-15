@@ -49,7 +49,11 @@ body {
     margin: 0;
     list-style-type: none;
 }
+#override .nav-list li a {
+    z-index:10;
+    position:relative;
 
+}
 .nav-list li:last-child {
     border-bottom: solid lightgrey 2px;
 }
@@ -779,7 +783,6 @@ html.loading body {
         display: block;
         order: 1;
         border-left: 2px solid #b8b8b8;
-        z-index:6;
     }
 
     .container {
