@@ -140,7 +140,7 @@
                             </table>
                             <div class="input-container"><input data-enhanced="true" data-role="none"
                                                                 class="ui-btn ui-corner-all" type="submit"
-                                                                 value="Sign Up"></div>
+                                                                value="Sign Up"></div>
                         </form>
                     </div>
                 </div>
@@ -1434,7 +1434,7 @@
 
                 checkFridge()
                 checkList()
-                getFridgeList();
+                updateFridgeList();
                 // hide and show buttons based on login state
                 $(".login-btn").hide();
                 $(".signup-btn").hide();
@@ -1580,16 +1580,15 @@
     function updateFridgeList() {
         return firebase.database().ref('/users/' + uid + "/fridge/").once('child_added').then(function (snapshot) {
             var fridgeId = snapshot.key;
-            return firebase.database().ref('/fridge/' + fridgeId).once('child_added').then(function (snapshot) {
-                    var key = snapshot.key;
-                    var name = snapshot.val().name
-                    var category = snapshot.val().category
-                    var expire = snapshot.val().expire
-                    var quantity = snapshot.val().quantity
-                    var price = snapshot.val().price
-
-                    var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expire + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
-                    $("#fridge #" + category + "> div").append(element)
+            return firebase.database().ref('/fridge/' + fridgeId).on('child_added', function (snapshot) {
+                var key = snapshot.key;
+                var name = snapshot.val().name
+                var category = snapshot.val().category
+                var expire = snapshot.val().expire
+                var quantity = snapshot.val().quantity
+                var price = snapshot.val().price
+                var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expire + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
+                $("#fridge #" + category + "> div").append(element)
             });
         });
     }
@@ -1603,7 +1602,6 @@
         var price = $("#item-price").val();
         $("#fridge-add-form").trigger("reset");
         addFridgeItem(uid, name, expires, type, quantity, price)
-        updateFridgeList()
 
 
     })
