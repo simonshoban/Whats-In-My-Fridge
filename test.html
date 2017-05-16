@@ -1417,7 +1417,7 @@
                 $(".shopping-list-btn").show();
 
                 // go to the fridge page
-                $.mobile.navigate("#fridge");
+                $( ":mobile-pagecontainer" ).pagecontainer( "change", "test.html#fridge" );
 
                 // remove the loading class from html to show page
                 $("html").removeClass("loading")
@@ -1435,7 +1435,8 @@
                 $(".shopping-list-btn").hide();
 
                 // go to login page
-                $.mobile.navigate("#login");
+                $( ":mobile-pagecontainer" ).pagecontainer( "change", "test.html#login" );
+
 
                 // remove the loading class from html to show page
                 $("html").removeClass("loading")
