@@ -993,8 +993,21 @@
                                                data-wrapper-class="custom-size-flipswitch">
                                     </td>
                                 </tr>
+                                <tr id="ronic-slider-container">
+                                    <td>
+                                        <label for="ronic-slider" class="text-input-label">Go fast?</label>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" data-role="flipswitch" name="ronic-slider"
+                                        id="ronic-slider" data-on-text="AAAAAA" data-off-text="YES!"
+                                        data-wrapper-class="custom-size-flipswitch">
+                                    </td>
+                                </tr>
                             </table>
                         </form>
+                        <div id="easter-egg-box">
+                            <input type="text" name="easter-egg" id="easter-egg" maxlength="5" data-wrapper-class="ui-custom" onchange="easterEgg()"/>
+                        </div>
                     </div>
                 </div>
                 <div class="fakepanel">
@@ -1334,6 +1347,15 @@
     $(function () {
         $("[data-role=panel]").panel().enhanceWithin();
     });
+</script>
+<script>
+    function easterEgg() {
+        var input = $("#easter-egg").val().toUpperCase();
+        if (input == "RONIC") {
+            $("#easter-egg").hide();
+            $("#ronic-slider-container").show();
+        }
+    }
 </script>
 <script>
     /***********Don't change**********/
