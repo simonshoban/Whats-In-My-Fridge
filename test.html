@@ -576,10 +576,13 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <label for="expiry-date">Expiry Date</label>
+                                                <label for="expiry-date">Expiry Date<span class="invalid-input-star">*</span></label>
                                             </td>
                                             <td>
-                                                <input id="expiry-date" name="expiry-date" type="date"/>
+                                                <div style="display: flex">
+                                                    <input id="expiry-date" name="expiry-date" type="date"/>
+                                                    <p class="invalid-input">asd</p>
+                                                </div>
                                             </td>
                                         </tr>
                                     </table>
@@ -608,8 +611,8 @@
                                     </table>
                                 </div>
                                 <div>
-                                    <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline"
-                                       id="add-button-fridge">Add
+                                    <a href="#" class="ui-btn ui-shadow ui-btn-inline"
+                                       id="add-button-fridge" onclick="addValidate()">Add
                                         Item</a>
                                 </div>
                             </form>
@@ -1782,6 +1785,21 @@ function clearFridgeList(){
     //fridgeRef.off("child_added");
     $(".list-item-container").remove()
 }
+</script>
+<script>
+    function addValidate(){
+        if($("#expiry-date").val() == "1234-12-34"){
+            var year = $("#expiry-date").val().substring(0,4);
+            var month = $("#expiry-date").val().substring(5,7);
+            var day = $("#expiry-date").val().substring(8,10);
+            alert(new Date(year,month,day,0,0,0,0).getTime());
+            $("#custom-item-popup").popup("close");
+        }
+        else{
+            $(".invalid-input").css("display", "inline");
+            $(".invalid-input-star").css("display", "inline");
+        }
+    }
 </script>
 
 </body>
