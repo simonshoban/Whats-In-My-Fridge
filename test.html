@@ -197,11 +197,12 @@
                                class="sort-button ui-nodisc-icon  ui-btn ui-corner-all ui-icon-bullets ui-btn-icon-notext ui-btn-inline">bullets</a>
                             <div data-role="popup" data-transition="fade" id="popup-sort">
                                 <form>
+                                    <label for="flip-checkbox-1">Categories:</label>
+                                        <input type="checkbox" data-role="flipswitch" name="flip-checkbox-1" id="flip-checkbox-1">
                                     <fieldset data-role="controlgroup">
                                         <legend>Change sorting method:</legend>
-                                        <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2a" value="on"
-                                               checked="checked">
-                                        <label for="radio-choice-v-2a">Category</label>
+                                            
+
                                         <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2b" value="off">
                                         <label for="radio-choice-v-2b">Alphabetical</label>
                                         <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2c"
@@ -214,6 +215,7 @@
                     </div>
                     <div class="main">
                         <div class="item-list">
+                            <button onClick="clearFridgeList()">button</button>
                             <div data-role="popup" data-transition="fade" id="item-popup" data-overlay-theme="b"
                                  data-theme="a">
                                 <a href="#" data-rel="back"
@@ -262,11 +264,11 @@
                                 </div>
                             </div>
                             <div class="collapsible-container">
-                                <div id="produce" data-role="collapsible" class="collapsible" data-inset="true">
+                                <div id="p" data-role="collapsible" class="collapsible" data-inset="true">
                                     <h3>Produce</h3>
                                     <div class="list-item-container">
                                         <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
-                                            <img height="50" width="50" src="icons/produce.svg">
+                                            <img height="50" width="50" src="icons/p.svg">
                                             <p class="item-name">Apple Apr-26</p>
                                             <p class="item-expires">Expires in 3 days</p>
                                             <div class="small-circle"></div>
@@ -277,7 +279,7 @@
                                     </div>
                                     <div class="list-item-container">
                                         <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
-                                            <img height="50" width="50" src="icons/produce.svg">
+                                            <img height="50" width="50" src="icons/p.svg">
                                             <p class="item-name">Apple Apr-26</p>
                                             <p class="item-expires">Expires in 3 days</p>
                                             <div class="small-circle"></div>
@@ -288,7 +290,7 @@
                                     </div>
                                     <div class="list-item-container">
                                         <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
-                                            <img height="50" width="50" src="icons/produce.svg">
+                                            <img height="50" width="50" src="icons/p.svg">
                                             <p class="item-name">Apple Apr-26</p>
                                             <p class="item-expires">Expires in 3 days</p>
                                             <div class="small-circle"></div>
@@ -301,11 +303,11 @@
                                 <p id="produce-number">3 Items</p>
                             </div>
                             <div class="collapsible-container">
-                                <div id="meat" data-role="collapsible" class="collapsible" data-inset="true">
+                                <div id= "m"data-role="collapsible" class="collapsible" data-inset="true">
                                     <h3>Meat</h3>
                                     <div class="list-item-container">
                                         <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
-                                            <img height="50" width="50" src="icons/meat.svg">
+                                            <img height="50" width="50" src="icons/m.svg">
                                             <p class="item-name">Apple Apr-26</p>
                                             <p class="item-expires">Expires in 3 days</p>
                                             <div class="small-circle"></div>
@@ -316,7 +318,7 @@
                                     </div>
                                     <div class="list-item-container">
                                         <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
-                                            <img height="50" width="50" src="icons/meat.svg">
+                                            <img height="50" width="50" src="icons/m.svg">
                                             <p class="item-name">Apple Apr-26</p>
                                             <p class="item-expires">Expires in 3 days</p>
                                             <div class="small-circle"></div>
@@ -327,7 +329,7 @@
                                     </div>
                                     <div class="list-item-container">
                                         <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
-                                            <img height="50" width="50" src="icons/meat.svg">
+                                            <img height="50" width="50" src="icons/m.svg">
                                             <p class="item-name">Apple Apr-26</p>
                                             <p class="item-expires">Expires in 3 days</p>
                                             <div class="small-circle"></div>
@@ -340,11 +342,11 @@
                                 <p id="meat-number">3 Items</p>
                             </div>
                             <div class="collapsible-container">
-                                <div id="grain" data-role="collapsible" class="collapsible" data-inset="true">
+                                <div id="g" data-role="collapsible" class="collapsible" data-inset="true">
                                     <h3>Grains</h3>
                                     <div class="list-item-container">
                                         <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
-                                            <img height="50" width="50" src="icons/grain.svg">
+                                            <img height="50" width="50" src="icons/g.svg">
                                             <p class="item-name">Apple Apr-26</p>
                                             <p class="item-expires">Expires in 3 days</p>
                                             <div class="small-circle"></div>
@@ -355,7 +357,7 @@
                                     </div>
                                     <div class="list-item-container">
                                         <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
-                                            <img height="50" width="50" src="icons/grain.svg">
+                                            <img height="50" width="50" src="icons/g.svg">
                                             <p class="item-name">Apple Apr-26</p>
                                             <p class="item-expires">Expires in 3 days</p>
                                             <div class="small-circle"></div>
@@ -366,7 +368,7 @@
                                     </div>
                                     <div class="list-item-container">
                                         <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
-                                            <img height="50" width="50" src="icons/grain.svg">
+                                            <img height="50" width="50" src="icons/g.svg">
                                             <p class="item-name">Apple Apr-26</p>
                                             <p class="item-expires">Expires in 3 days</p>
                                             <div class="small-circle"></div>
@@ -379,11 +381,11 @@
                                 <p id="grain-number">3 Items</p>
                             </div>
                             <div class="collapsible-container">
-                                <div id="dairy" data-role="collapsible" class="collapsible" data-inset="true">
+                                <div id="d" data-role="collapsible" class="collapsible" data-inset="true">
                                     <h3>Dairy</h3>
                                     <div class="list-item-container">
                                         <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
-                                            <img height="50" width="50" src="icons/dairy.svg">
+                                            <img height="50" width="50" src="icons/d.svg">
                                             <p class="item-name">Apple Apr-26</p>
                                             <p class="item-expires">Expires in 3 days</p>
                                             <div class="small-circle"></div>
@@ -394,7 +396,7 @@
                                     </div>
                                     <div class="list-item-container">
                                         <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
-                                            <img height="50" width="50" src="icons/dairy.svg">
+                                            <img height="50" width="50" src="icons/d.svg">
                                             <p class="item-name">Apple Apr-26</p>
                                             <p class="item-expires">Expires in 3 days</p>
                                             <div class="small-circle"></div>
@@ -405,7 +407,7 @@
                                     </div>
                                     <div class="list-item-container">
                                         <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
-                                            <img height="50" width="50" src="icons/dairy.svg">
+                                            <img height="50" width="50" src="icons/d.svg">
                                             <p class="item-name">Apple Apr-26</p>
                                             <p class="item-expires">Expires in 3 days</p>
                                             <div class="small-circle"></div>
@@ -418,11 +420,11 @@
                                 <p id="dairy-number">3 Items</p>
                             </div>
                             <div class="collapsible-container">
-                                <div id="misc" data-role="collapsible" class="collapsible" data-inset="true">
+                                <div id="o" data-role="collapsible" class="collapsible" data-inset="true">
                                     <h3>Misc</h3>
                                     <div class="list-item-container">
                                         <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
-                                            <img height="50" width="50" src="icons/misc.svg">
+                                            <img height="50" width="50" src="icons/o.svg">
                                             <p class="item-name">Apple Apr-26</p>
                                             <p class="item-expires">Expires in 3 days</p>
                                             <div class="small-circle"></div>
@@ -433,7 +435,7 @@
                                     </div>
                                     <div class="list-item-container">
                                         <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
-                                            <img height="50" width="50" src="icons/misc.svg">
+                                            <img height="50" width="50" src="icons/o.svg">
                                             <p class="item-name">Apple Apr-26</p>
                                             <p class="item-expires">Expires in 3 days</p>
                                             <div class="small-circle"></div>
@@ -444,7 +446,7 @@
                                     </div>
                                     <div class="list-item-container">
                                         <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
-                                            <img height="50" width="50" src="icons/misc.svg">
+                                            <img height="50" width="50" src="icons/o.svg">
                                             <p class="item-name">Apple Apr-26</p>
                                             <p class="item-expires">Expires in 3 days</p>
                                             <div class="small-circle"></div>
@@ -464,70 +466,70 @@
                             <h3>Common Items</h3>
                             <div id="common-items">
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                             </div>
                             <h3>Recently Purchased Items</h3>
                             <div id="bought-items">
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                             </div>
@@ -678,7 +680,7 @@
                         <div class="item-list">
                             <div class="list-item-container">
                                 <a href="#item-popup2" data-rel="popup" class="list-item ui-btn shopping-item"><img
-                                        height="50" width="50" src="icons/produce.svg">
+                                        height="50" width="50" src="icons/p.svg">
                                     <p class="item-name">Apple Apr-26</p>
                                     <p class="item-quantity">Quantity: 3</p>
                                     <label class="checkbox-label ">
@@ -691,7 +693,7 @@
                             </div>
                             <div class="list-item-container">
                                 <a href="#item-popup2" data-rel="popup" class="list-item ui-btn shopping-item"><img
-                                        height="50" width="50" src="icons/produce.svg">
+                                        height="50" width="50" src="icons/p.svg">
                                     <p class="item-name">Apple Apr-26</p>
                                     <p class="item-quantity">Quantity: 3</p>
                                     <label class="checkbox-label">
@@ -704,7 +706,7 @@
                             </div>
                             <div class="list-item-container">
                                 <a href="#item-popup2" data-rel="popup" class="list-item ui-btn shopping-item"><img
-                                        height="50" width="50" src="icons/produce.svg">
+                                        height="50" width="50" src="icons/p.svg">
                                     <p class="item-name">Apple Apr-26</p>
                                     <p class="item-quantity">Quantity: 3</p>
                                     <label class="checkbox-label">
@@ -717,7 +719,7 @@
                             </div>
                             <div class="list-item-container">
                                 <a href="#item-popup2" data-rel="popup" class="list-item ui-btn shopping-item"><img
-                                        height="50" width="50" src="icons/produce.svg">
+                                        height="50" width="50" src="icons/p.svg">
                                     <p class="item-name">Apple Apr-26</p>
                                     <p class="item-quantity">Quantity: 3</p>
                                     <label class="checkbox-label">
@@ -776,70 +778,70 @@
                             <h3>Common Items</h3>
                             <div id="common-items2">
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                             </div>
                             <h3>Recently Purchased Items</h3>
                             <div id="bought-items2">
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/dairy.svg" class="add-icons">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
                                     <p>Milk</p>
                                 </div>
                             </div>
@@ -1063,21 +1065,21 @@
                     </div>
                     <div class="main">
                         <h2 id="dev-header">The Developers</h2>
-                        <img height="50" width="50" src="icons/dairy.svg" class="develop-img">
+                        <img height="50" width="50" src="icons/d.svg" class="develop-img">
                         <h3>Phat Le</h3>
                         <p class="develop-text">Our fearless leader, co-ordinator, and dank memer, loves
                             league of legends and stuff.</p>
-                        <img height="50" width="50" src="icons/meat.svg" class="develop-img">
+                        <img height="50" width="50" src="icons/m.svg" class="develop-img">
                         <h3>Simon Shoban</h3>
                         <p class="develop-text">Dankest pokemon master, gotta catchem all~1</p>
-                        <img height="50" width="50" src="icons/misc.svg" class="develop-img">
+                        <img height="50" width="50" src="icons/o.svg" class="develop-img">
                         <h3>Akemi Haraguchi</h3>
                         <p class="develop-text">The sikkest grafix designer in existence desu</p>
-                        <img height="50" width="50" src="icons/grain.svg" class="develop-img">
+                        <img height="50" width="50" src="icons/g.svg" class="develop-img">
                         <h3>Ben Zhang</h3>
                         <p class="develop-text">Master procrastinator, loves to play yugeeohh a
                             nd stuff lmao hello lol xdasd asdasd</p>
-                        <img height="50" width="50" src="icons/produce.svg" class="develop-img">
+                        <img height="50" width="50" src="icons/p.svg" class="develop-img">
                         <h3>Cameron Roberts</h3>
                         <p class="develop-text">The D00d dat does it all</p>
                         <br>
@@ -1480,9 +1482,10 @@
                 providerData = user.providerData;
 
 
-                checkFridge()
-                checkList()
-                updateFridgeList();
+                $(checkFridge)
+                $(checkList)
+                getFridgeListByName();
+
                 // hide and show buttons based on login state
                 $(".login-btn").hide();
                 $(".signup-btn").hide();
@@ -1492,8 +1495,7 @@
                 $(".shopping-list-btn").show();
 
                 // go to the fridge page
-
-                $(":mobile-pagecontainer").pagecontainer("change", "test.html#fridge");
+                $.mobile.navigate("#fridge")
 
                 // remove the loading class from html to show page
                 $("html").removeClass("loading")
@@ -1511,8 +1513,7 @@
                 $(".shopping-list-btn").hide();
 
                 // go to login page
-
-                $(":mobile-pagecontainer").pagecontainer("change", "test.html#login");
+                $.mobile.navigate("#login")
 
 
                 // remove the loading class from html to show page
@@ -1604,11 +1605,11 @@
 
     }
 
-    function getFridgeList() {
+    function getFridgeListByName() {
         return firebase.database().ref('/users/' + uid + "/fridge/").once('value').then(function (snapshot) {
             snapshot.forEach(function (snapshot) {
                 var fridgeId = snapshot.key;
-                return firebase.database().ref('/fridge/' + fridgeId).once('value').then(function (snapshot) {
+                return firebase.database().ref('/fridge/' + fridgeId).orderByChild("name").once('value').then(function (snapshot) {
                     snapshot.forEach(function (snapshot) {
                         var key = snapshot.key;
                         var name = snapshot.val().name
@@ -1625,26 +1626,10 @@
         })
     }
 
-    function updateFridgeList() {
-        return firebase.database().ref('/users/' + uid + "/fridge/").once('child_added').then(function (snapshot) {
-            var fridgeId = snapshot.key;
-            return firebase.database().ref('/fridge/' + fridgeId).on('child_added', function (snapshot) {
-                var key = snapshot.key;
-                var name = snapshot.val().name
-                var category = snapshot.val().category
-                var expire = snapshot.val().expire
-                var quantity = snapshot.val().quantity
-                var price = snapshot.val().price
-                var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expire + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
-                $("#fridge #" + category + "> div").append(element)
-            });
-        });
-    }
-
     $("#add-button-fridge").click(function () {
         var uid = firebase.auth().currentUser.uid;
         var name = $("#food-name").val();
-        var type = $("#food-group").val().toLowerCase();
+        var type = $("#food-group").val().substr(0,1).toLowerCase();
         var expires = ($("#expiry-date").val())
         var quantity = $("#item-quantity").val();
         var price = $("#item-price").val();
@@ -1815,6 +1800,11 @@
             }
         })
     }
+
+function clearFridgeList(){
+    //fridgeRef.off("child_added");
+    $(".list-item-container").remove()
+}
 </script>
 
 </body>
