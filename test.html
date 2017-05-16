@@ -567,8 +567,8 @@
                                                     <option>----------</option>
                                                     <option>Produce</option>
                                                     <option>Dairy</option>
-                                                    <option>Grains</option>
-                                                    <option>Meats</option>
+                                                    <option>Grain</option>
+                                                    <option>Meat</option>
                                                     <option>Misc</option>
                                                 </select>
                                             </td>
@@ -878,8 +878,8 @@
                                                     <option>----------</option>
                                                     <option>Produce</option>
                                                     <option>Dairy</option>
-                                                    <option>Grains</option>
-                                                    <option>Meats</option>
+                                                    <option>Grain</option>
+                                                    <option>Meat</option>
                                                     <option>Misc</option>
                                                 </select>
                                             </td>
@@ -1576,6 +1576,24 @@
             });
         })
     }
+
+    function updateFridgeList() {
+        return firebase.database().ref('/users/' + uid + "/fridge/").once('child_added').then(function (snapshot) {
+            var fridgeId = snapshot.key;
+            return firebase.database().ref('/fridge/' + fridgeId).once('child_added').then(function (snapshot) {
+                    var key = snapshot.key;
+                    var name = snapshot.val().name
+                    var category = snapshot.val().category
+                    var expire = snapshot.val().expire
+                    var quantity = snapshot.val().quantity
+                    var price = snapshot.val().price
+
+                    var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expire + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
+                    $("#fridge #" + category + "> div").append(element)
+            });
+        });
+    }
+
     $("#add-button-fridge").click(function () {
         var uid = firebase.auth().currentUser.uid;
         var name = $("#food-name").val();
@@ -1585,6 +1603,8 @@
         var price = $("#item-price").val();
         $("#fridge-add-form").trigger("reset");
         addFridgeItem(uid, name, expires, type, quantity, price)
+        updateFridgeList()
+
 
     })
 
@@ -1750,5 +1770,6 @@
         })
     }
 </script>
+
 </body>
 </html>
