@@ -198,28 +198,29 @@
                             <div data-role="popup" data-transition="fade" id="popup-sort">
                                 <form>
                                     <label for="category-flip">Categories:</label>
-                                        <input type="checkbox" data-role="flipswitch" name="category-flip" id="category-flip">
+                                        <input type="checkbox" data-role="flipswitch" checked name="category-flip"
+                                               id="category-flip">
                                     <fieldset data-role="controlgroup">
-                                            <legend>Change sorting method:</legend>
-                                                
-
-                                            <input type="radio" name="asc-desc" id="order-asc" value="off">
-                                            <label for="order-asc">Ascending</label>
-                                            <input type="radio" name="asc-desc" id="order-desc"
-                                                   value="other">
-                                            <label for="order-desc">Descending</label>
-                                        </fieldset>
-                                    <fieldset data-role="controlgroup">
-                                        <fieldset data-role="controlgroup">
                                         <legend>Change sorting method:</legend>
                                             
 
-                                        <input type="radio" name="sort-type" id="order-name" value="off">
-                                        <label for="order-name">Alphabetical</label>
-                                        <input type="radio" name="sort-type" id="order-date"
+                                        <input type="radio" name="asc-desc" id="order-asc" checked value="off">
+                                        <label for="order-asc">Ascending</label>
+                                        <input type="radio" name="asc-desc" id="order-desc"
                                                value="other">
-                                        <label for="order-date">Expiry Date</label>
+                                        <label for="order-desc">Descending</label>
                                     </fieldset>
+                                    <fieldset data-role="controlgroup">
+                                        <fieldset data-role="controlgroup">
+                                            <legend>Change sorting method:</legend>
+                                                
+
+                                            <input type="radio" name="sort-type" checked id="order-name" value="off">
+                                            <label for="order-name">Alphabetical</label>
+                                            <input type="radio" name="sort-type"  id="order-date"
+                                                   value="other">
+                                            <label for="order-date">Expiry Date</label>
+                                        </fieldset>
 
                                 </form>
                             </div>
@@ -227,7 +228,6 @@
                     </div>
                     <div class="main">
                         <div class="item-list">
-                            <button onClick="redrawList()">button</button>
                             <div data-role="popup" data-transition="fade" id="item-popup" data-overlay-theme="b"
                                  data-theme="a">
                                 <a href="#" data-rel="back"
@@ -315,7 +315,7 @@
                                 <p id="produce-number">3 Items</p>
                             </div>
                             <div class="collapsible-container">
-                                <div id= "m"data-role="collapsible" class="collapsible" data-inset="true">
+                                <div id="m" data-role="collapsible" class="collapsible" data-inset="true">
                                     <h3>Meat</h3>
                                     <div class="list-item-container">
                                         <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
@@ -1474,6 +1474,7 @@
 
                 $(checkFridge)
                 $(checkList)
+                $(redrawList())
 
                 // hide and show buttons based on login state
                 $(".login-btn").hide();
@@ -1608,10 +1609,10 @@
                         var price = snapshot.val().price
                         var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expire + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
 
-                        if(!$("#category-flip").prop("checked")){
+                        if (!$("#category-flip").prop("checked")) {
                             $("#fridge .item-list").append(element)
                         }
-                        else{
+                        else {
                             $("#fridge #" + category + "> div").append(element)
 
                         }
@@ -1636,10 +1637,10 @@
                         var price = snapshot.val().price
 
                         var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expire + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
-                        if(!$("#category-flip").prop("checked")){
+                        if (!$("#category-flip").prop("checked")) {
                             $("#fridge .item-list").prepend(element)
                         }
-                        else{
+                        else {
                             $("#fridge #" + category + "> div").prepend(element)
 
                         }
@@ -1662,13 +1663,14 @@
                         var price = snapshot.val().price
 
                         var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expire + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
-                        if(!$("#category-flip").prop("checked")){
+                        if (!$("#category-flip").prop("checked")) {
                             $("#fridge .item-list").append(element)
                         }
-                        else{
+                        else {
                             $("#fridge #" + category + "> div").append(element)
 
-                        }                    });
+                        }
+                    });
                 });
             });
         })
@@ -1687,13 +1689,14 @@
                         var price = snapshot.val().price
 
                         var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expire + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
-                        if(!$("#category-flip").prop("checked")){
+                        if (!$("#category-flip").prop("checked")) {
                             $("#fridge .item-list").prepend(element)
                         }
-                        else{
+                        else {
                             $("#fridge #" + category + "> div").prepend(element)
 
-                        }                    });
+                        }
+                    });
                 });
             });
         })
@@ -1701,13 +1704,13 @@
     $("#add-button-fridge").click(function () {
         var uid = firebase.auth().currentUser.uid;
         var name = $("#food-name").val();
-        var type = $("#food-group").val().substr(0,1).toLowerCase();
+        var type = $("#food-group").val().substr(0, 1).toLowerCase();
         var expires = ($("#expiry-date").val())
         var quantity = $("#item-quantity").val();
         var price = $("#item-price").val();
         $("#fridge-add-form").trigger("reset");
         addFridgeItem(uid, name, expires, type, quantity, price)
-
+        redrawList()
 
     })
 
@@ -1873,39 +1876,45 @@
         })
     }
 
-function clearFridgeList(){
-    //fridgeRef.off("child_added");
-    $(".list-item-container").remove()
-}
-function redrawList(){
-    clearFridgeList()
-    if(!$("#category-flip").prop("checked")){
-        $(".collapsible-container").hide()
+    function clearFridgeList() {
+        //fridgeRef.off("child_added");
+        $(".list-item-container").remove()
     }
-    else{
-        $(".collapsible-container").show()
-    }
-
-    if($("#order-name").prop("checked")){
-        if($("#order-asc").prop("checked")){
-            getFridgeListByNameAsc()
-        }
-        else{
-            getFridgeListByNameDesc()
-        }
-
-    } else if($("#order-date").prop("checked")) {
-        if($("#order-asc").prop("checked")) {
-            getFridgeListByDateAsc()
-
+    function redrawList() {
+        clearFridgeList();
+        if (!$("#category-flip").prop("checked")) {
+            $(".collapsible-container").hide()
         }
         else {
-            getFridgeListByDateDesc()
-
+            $(".collapsible-container").show()
         }
-    }
-}
 
+        if ($("#order-name").prop("checked")) {
+            if ($("#order-asc").prop("checked")) {
+                getFridgeListByNameAsc()
+            }
+            else {
+                getFridgeListByNameDesc()
+            }
+
+        } else if ($("#order-date").prop("checked")) {
+            if ($("#order-asc").prop("checked")) {
+                getFridgeListByDateAsc()
+            }
+            else {
+                getFridgeListByDateDesc()
+            }
+        }
+
+    }
+    $("input:radio").change(function () {
+            redrawList()
+        }
+    )
+    $("input:checkbox").change(function () {
+            redrawList()
+        }
+    )
 
 </script>
 
