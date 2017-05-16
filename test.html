@@ -200,15 +200,27 @@
                                     <label for="category-flip">Categories:</label>
                                         <input type="checkbox" data-role="flipswitch" name="category-flip" id="category-flip">
                                     <fieldset data-role="controlgroup">
+                                            <legend>Change sorting method:</legend>
+                                                
+
+                                            <input type="radio" name="asc-desc" id="order-asc" value="off">
+                                            <label for="order-asc">Ascending</label>
+                                            <input type="radio" name="asc-desc" id="order-desc"
+                                                   value="other">
+                                            <label for="order-desc">Descending</label>
+                                        </fieldset>
+                                    <fieldset data-role="controlgroup">
+                                        <fieldset data-role="controlgroup">
                                         <legend>Change sorting method:</legend>
                                             
 
-                                        <input type="radio" name="radio-choice-v-2" id="order-name" value="off">
+                                        <input type="radio" name="sort-type" id="order-name" value="off">
                                         <label for="order-name">Alphabetical</label>
-                                        <input type="radio" name="radio-choice-v-2" id="order-date"
+                                        <input type="radio" name="sort-type" id="order-date"
                                                value="other">
                                         <label for="order-date">Expiry Date</label>
                                     </fieldset>
+
                                 </form>
                             </div>
                         </div>
@@ -1874,10 +1886,23 @@ function redrawList(){
         $(".collapsible-container").show()
     }
 
-    if(!$("#order-name").prop("checked")){
-        getFridgeListByNameAsc()
-    } else if(!$("#order-name").prop("checked")) {
-        getFridgeListByDateAsc()
+    if($("#order-name").prop("checked")){
+        if($("#order-asc").prop("checked")){
+            getFridgeListByNameAsc()
+        }
+        else{
+            getFridgeListByNameDesc()
+        }
+
+    } else if($("#order-date").prop("checked")) {
+        if($("#order-asc").prop("checked")) {
+            getFridgeListByDateAsc()
+
+        }
+        else {
+            getFridgeListByDateDesc()
+
+        }
     }
 }
 
