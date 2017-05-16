@@ -197,11 +197,12 @@
                                class="sort-button ui-nodisc-icon  ui-btn ui-corner-all ui-icon-bullets ui-btn-icon-notext ui-btn-inline">bullets</a>
                             <div data-role="popup" data-transition="fade" id="popup-sort">
                                 <form>
+                                    <label for="flip-checkbox-1">Categories:</label>
+                                        <input type="checkbox" data-role="flipswitch" name="flip-checkbox-1" id="flip-checkbox-1">
                                     <fieldset data-role="controlgroup">
                                         <legend>Change sorting method:</legend>
-                                        <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2a" value="on"
-                                               checked="checked">
-                                        <label for="radio-choice-v-2a">Category</label>
+                                            
+
                                         <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2b" value="off">
                                         <label for="radio-choice-v-2b">Alphabetical</label>
                                         <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2c"
@@ -997,8 +998,21 @@
                                                data-wrapper-class="custom-size-flipswitch">
                                     </td>
                                 </tr>
+                                <tr id="ronic-slider-container">
+                                    <td>
+                                        <label for="ronic-slider" class="text-input-label">Go fast?</label>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" data-role="flipswitch" name="ronic-slider"
+                                        id="ronic-slider" data-on-text="AAAAAA" data-off-text="YES!"
+                                        data-wrapper-class="custom-size-flipswitch">
+                                    </td>
+                                </tr>
                             </table>
                         </form>
+                        <div id="easter-egg-box">
+                            <input type="text" name="easter-egg" id="easter-egg" maxlength="5" data-wrapper-class="ui-custom" onchange="easterEgg()"/>
+                        </div>
                     </div>
                 </div>
                 <div class="fakepanel">
@@ -1338,6 +1352,15 @@
     $(function () {
         $("[data-role=panel]").panel().enhanceWithin();
     });
+</script>
+<script>
+    function easterEgg() {
+        var input = $("#easter-egg").val().toUpperCase();
+        if (input == "RONIC") {
+            $("#easter-egg").hide();
+            $("#ronic-slider-container").show();
+        }
+    }
 </script>
 <script>
     /***********Don't change**********/
