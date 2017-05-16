@@ -1460,7 +1460,8 @@
 
                 $(checkFridge)
                 $(checkList)
-                updateFridgeList();
+                setFridgeList();
+                printFridgeList()
                 // hide and show buttons based on login state
                 $(".login-btn").hide();
                 $(".signup-btn").hide();
@@ -1580,12 +1581,15 @@
 
     }
 
+    var fridgeList = [];
+
     function getFridgeList() {
         return firebase.database().ref('/users/' + uid + "/fridge/").once('value').then(function (snapshot) {
             snapshot.forEach(function (snapshot) {
                 var fridgeId = snapshot.key;
                 return firebase.database().ref('/fridge/' + fridgeId).once('value').then(function (snapshot) {
                     snapshot.forEach(function (snapshot) {
+
                         var key = snapshot.key;
                         var name = snapshot.val().name
                         var category = snapshot.val().category
@@ -1593,16 +1597,16 @@
                         var quantity = snapshot.val().quantity
                         var price = snapshot.val().price
 
-
                         var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expire + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
                         $("#fridge #" + category + "> div").append(element)
+
                     });
                 });
             });
         })
     }
 
-    function updateFridgeList() {
+    function setFridgeList() {
         return firebase.database().ref('/users/' + uid + "/fridge/").once('child_added').then(function (snapshot) {
             var fridgeId = snapshot.key;
             return firebase.database().ref('/fridge/' + fridgeId).on('child_added', function (snapshot) {
@@ -1612,10 +1616,31 @@
                 var expire = snapshot.val().expire
                 var quantity = snapshot.val().quantity
                 var price = snapshot.val().price
-                var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expire + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
-                $("#fridge #" + category + "> div").append(element)
+
+
+                fridgeList[fridgeList.length] = {
+                    key: key,
+                    name:name,
+                    category:category,
+                    expire:expire,
+                    quantity:quantity,
+                    price:price
+
+                };
+
+
+
             });
         });
+    }
+
+    function printFridgeList(){
+        fridgeList.forEach(function(element, index, array){
+            alert("")
+            var element = "<div class='list-item-container'> <a href='#" + item.key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expire + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
+            $("#fridge #" + category + "> div").append(element)
+        })
+
     }
 
     $("#add-button-fridge").click(function () {
