@@ -197,25 +197,37 @@
                                class="sort-button ui-nodisc-icon  ui-btn ui-corner-all ui-icon-bullets ui-btn-icon-notext ui-btn-inline">bullets</a>
                             <div data-role="popup" data-transition="fade" id="popup-sort">
                                 <form>
-                                    <label for="flip-checkbox-1">Categories:</label>
-                                        <input type="checkbox" data-role="flipswitch" name="flip-checkbox-1" id="flip-checkbox-1">
+                                    <label for="category-flip">Categories:</label>
+                                        <input type="checkbox" data-role="flipswitch" checked name="category-flip"
+                                               id="category-flip">
                                     <fieldset data-role="controlgroup">
                                         <legend>Change sorting method:</legend>
                                             
 
-                                        <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2b" value="off">
-                                        <label for="radio-choice-v-2b">Alphabetical</label>
-                                        <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2c"
+                                        <input type="radio" name="asc-desc" id="order-asc" checked value="off">
+                                        <label for="order-asc">Ascending</label>
+                                        <input type="radio" name="asc-desc" id="order-desc"
                                                value="other">
-                                        <label for="radio-choice-v-2c">Expiry Date</label>
+                                        <label for="order-desc">Descending</label>
                                     </fieldset>
+                                    <fieldset data-role="controlgroup">
+                                        <fieldset data-role="controlgroup">
+                                            <legend>Change sorting method:</legend>
+                                                
+
+                                            <input type="radio" name="sort-type" checked id="order-name" value="off">
+                                            <label for="order-name">Alphabetical</label>
+                                            <input type="radio" name="sort-type"  id="order-date"
+                                                   value="other">
+                                            <label for="order-date">Expiry Date</label>
+                                        </fieldset>
+
                                 </form>
                             </div>
                         </div>
                     </div>
                     <div class="main">
                         <div class="item-list">
-                            <button onClick="clearFridgeList()">button</button>
                             <div data-role="popup" data-transition="fade" id="item-popup" data-overlay-theme="b"
                                  data-theme="a">
                                 <a href="#" data-rel="back"
@@ -303,7 +315,7 @@
                                 <p id="produce-number">3 Items</p>
                             </div>
                             <div class="collapsible-container">
-                                <div id= "m"data-role="collapsible" class="collapsible" data-inset="true">
+                                <div id="m" data-role="collapsible" class="collapsible" data-inset="true">
                                     <h3>Meat</h3>
                                     <div class="list-item-container">
                                         <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
@@ -1487,7 +1499,7 @@
 
                 $(checkFridge)
                 $(checkList)
-                getFridgeListByName();
+                $(redrawList())
 
                 // hide and show buttons based on login state
                 $(".login-btn").hide();
@@ -1608,7 +1620,61 @@
 
     }
 
-    function getFridgeListByName() {
+    function getFridgeListByDateAsc() {
+        return firebase.database().ref('/users/' + uid + "/fridge/").once('value').then(function (snapshot) {
+            snapshot.forEach(function (snapshot) {
+                var fridgeId = snapshot.key;
+                return firebase.database().ref('/fridge/' + fridgeId).orderByChild("expire").once('value').then(function (snapshot) {
+                    snapshot.forEach(function (snapshot) {
+                        var key = snapshot.key;
+                        var name = snapshot.val().name
+                        var category = snapshot.val().category
+                        var expire = snapshot.val().expire
+                        var quantity = snapshot.val().quantity
+                        var price = snapshot.val().price
+                        var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expire + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
+
+                        if (!$("#category-flip").prop("checked")) {
+                            $("#fridge .item-list").append(element)
+                        }
+                        else {
+                            $("#fridge #" + category + "> div").append(element)
+
+                        }
+
+                    });
+                });
+            });
+        })
+    }
+
+    function getFridgeListByDateDesc() {
+        return firebase.database().ref('/users/' + uid + "/fridge/").once('value').then(function (snapshot) {
+            snapshot.forEach(function (snapshot) {
+                var fridgeId = snapshot.key;
+                return firebase.database().ref('/fridge/' + fridgeId).orderByChild("expire").once('value').then(function (snapshot) {
+                    snapshot.forEach(function (snapshot) {
+                        var key = snapshot.key;
+                        var name = snapshot.val().name
+                        var category = snapshot.val().category
+                        var expire = snapshot.val().expire
+                        var quantity = snapshot.val().quantity
+                        var price = snapshot.val().price
+
+                        var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expire + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
+                        if (!$("#category-flip").prop("checked")) {
+                            $("#fridge .item-list").prepend(element)
+                        }
+                        else {
+                            $("#fridge #" + category + "> div").prepend(element)
+
+                        }
+                    });
+                });
+            });
+        })
+    }
+    function getFridgeListByNameAsc() {
         return firebase.database().ref('/users/' + uid + "/fridge/").once('value').then(function (snapshot) {
             snapshot.forEach(function (snapshot) {
                 var fridgeId = snapshot.key;
@@ -1622,23 +1688,54 @@
                         var price = snapshot.val().price
 
                         var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expire + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
-                        $("#fridge #" + category + "> div").append(element)
+                        if (!$("#category-flip").prop("checked")) {
+                            $("#fridge .item-list").append(element)
+                        }
+                        else {
+                            $("#fridge #" + category + "> div").append(element)
+
+                        }
                     });
                 });
             });
         })
     }
+    function getFridgeListByNameDesc() {
+        return firebase.database().ref('/users/' + uid + "/fridge/").once('value').then(function (snapshot) {
+            snapshot.forEach(function (snapshot) {
+                var fridgeId = snapshot.key;
+                return firebase.database().ref('/fridge/' + fridgeId).orderByChild("name").once('value').then(function (snapshot) {
+                    snapshot.forEach(function (snapshot) {
+                        var key = snapshot.key;
+                        var name = snapshot.val().name
+                        var category = snapshot.val().category
+                        var expire = snapshot.val().expire
+                        var quantity = snapshot.val().quantity
+                        var price = snapshot.val().price
 
+                        var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expire + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
+                        if (!$("#category-flip").prop("checked")) {
+                            $("#fridge .item-list").prepend(element)
+                        }
+                        else {
+                            $("#fridge #" + category + "> div").prepend(element)
+
+                        }
+                    });
+                });
+            });
+        })
+    }
     $("#add-button-fridge").click(function () {
         var uid = firebase.auth().currentUser.uid;
         var name = $("#food-name").val();
-        var type = $("#food-group").val().substr(0,1).toLowerCase();
+        var type = $("#food-group").val().substr(0, 1).toLowerCase();
         var expires = ($("#expiry-date").val())
         var quantity = $("#item-quantity").val();
         var price = $("#item-price").val();
         $("#fridge-add-form").trigger("reset");
         addFridgeItem(uid, name, expires, type, quantity, price)
-
+        redrawList()
 
     })
 
@@ -1804,10 +1901,46 @@
         })
     }
 
-function clearFridgeList(){
-    //fridgeRef.off("child_added");
-    $(".list-item-container").remove()
-}
+    function clearFridgeList() {
+        //fridgeRef.off("child_added");
+        $(".list-item-container").remove()
+    }
+    function redrawList() {
+        clearFridgeList();
+        if (!$("#category-flip").prop("checked")) {
+            $(".collapsible-container").hide()
+        }
+        else {
+            $(".collapsible-container").show()
+        }
+
+        if ($("#order-name").prop("checked")) {
+            if ($("#order-asc").prop("checked")) {
+                getFridgeListByNameAsc()
+            }
+            else {
+                getFridgeListByNameDesc()
+            }
+
+        } else if ($("#order-date").prop("checked")) {
+            if ($("#order-asc").prop("checked")) {
+                getFridgeListByDateAsc()
+            }
+            else {
+                getFridgeListByDateDesc()
+            }
+        }
+
+    }
+    $("input:radio").change(function () {
+            redrawList()
+        }
+    )
+    $("input:checkbox").change(function () {
+            redrawList()
+        }
+    )
+
 </script>
 <script>
     function addValidate(){
