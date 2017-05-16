@@ -1582,6 +1582,7 @@
 
     }
 
+    // This function is called when the site first loads
     function getFridgeListByName() {
         return firebase.database().ref('/users/' + uid + "/fridge/").once('value').then(function (snapshot) {
             snapshot.forEach(function (snapshot) {
@@ -1605,6 +1606,101 @@
         })
     }
 
+    // Sort fridge item-list by A-Z
+    function sortAlphabetAscending() {
+        return firebase.database().ref('/users/' + uid + "/fridge/").once('value').then(function (snapshot) {
+            snapshot.forEach(function (snapshot) {
+                var fridgeId = snapshot.key;
+                return firebase.database().ref('/fridge/' + fridgeId).orderByChild("name").once('value').then(function (snapshot) {
+                    snapshot.forEach(function (snapshot) {
+                        var key = snapshot.key;
+                        var name = snapshot.val().name
+                        var category = snapshot.val().category
+                        var expire = snapshot.val().expire
+                        var quantity = snapshot.val().quantity
+                        var price = snapshot.val().price
+
+
+                        // Change Append to Prepend if you descending order.
+                        var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expire + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
+                        $("#fridge #" + category + "> div").append(element)
+                    });
+                });
+            });
+        })
+    }
+
+    // Sort fridge list-item by Z-A
+    function sortAlphabetDescending() {
+        return firebase.database().ref('/users/' + uid + "/fridge/").once('value').then(function (snapshot) {
+            snapshot.forEach(function (snapshot) {
+                var fridgeId = snapshot.key;
+                return firebase.database().ref('/fridge/' + fridgeId).orderByChild("name").once('value').then(function (snapshot) {
+                    snapshot.forEach(function (snapshot) {
+                        var key = snapshot.key;
+                        var name = snapshot.val().name
+                        var category = snapshot.val().category
+                        var expire = snapshot.val().expire
+                        var quantity = snapshot.val().quantity
+                        var price = snapshot.val().price
+
+
+                        // Change Append to Prepend if you descending order.
+                        var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expire + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
+                        $("#fridge #" + category + "> div").prepend(element)
+                    });
+                });
+            });
+        })
+    }
+
+    // Sort fridge list-item by ascending expiration date
+    function sortExpireAscending() {
+        return firebase.database().ref('/users/' + uid + "/fridge/").once('value').then(function (snapshot) {
+            snapshot.forEach(function (snapshot) {
+                var fridgeId = snapshot.key;
+                return firebase.database().ref('/fridge/' + fridgeId).orderByChild("expire").once('value').then(function (snapshot) {
+                    snapshot.forEach(function (snapshot) {
+                        var key = snapshot.key;
+                        var name = snapshot.val().name
+                        var category = snapshot.val().category
+                        var expire = snapshot.val().expire
+                        var quantity = snapshot.val().quantity
+                        var price = snapshot.val().price
+
+
+                        // Change Append to Prepend if you descending order.
+                        var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expire + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
+                        $("#fridge #" + category + "> div").append(element)
+                    });
+                });
+            });
+        })
+    }
+
+    // Sort fridge list-item by descending exipration date
+    function sortAlphabetDescending() {
+        return firebase.database().ref('/users/' + uid + "/fridge/").once('value').then(function (snapshot) {
+            snapshot.forEach(function (snapshot) {
+                var fridgeId = snapshot.key;
+                return firebase.database().ref('/fridge/' + fridgeId).orderByChild("expire").once('value').then(function (snapshot) {
+                    snapshot.forEach(function (snapshot) {
+                        var key = snapshot.key;
+                        var name = snapshot.val().name
+                        var category = snapshot.val().category
+                        var expire = snapshot.val().expire
+                        var quantity = snapshot.val().quantity
+                        var price = snapshot.val().price
+
+
+                        // Change Append to Prepend if you descending order.
+                        var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expire + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
+                        $("#fridge #" + category + "> div").prepend(element)
+                    });
+                });
+            });
+        })
+    }
     $("#add-button-fridge").click(function () {
         var uid = firebase.auth().currentUser.uid;
         var name = $("#food-name").val();
