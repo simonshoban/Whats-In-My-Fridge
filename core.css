@@ -307,6 +307,16 @@ h3 {
     border-color: #959392;
 }
 
+.invalid-input{
+    display: none;
+    color: red;
+    margin-left: 5px;
+}
+.invalid-input-star{
+    display: none;
+    color: red;
+}
+
 #produce-number, #meat-number, #grain-number, #dairy-number, #misc-number {
     position: absolute;
     top: 30px;
