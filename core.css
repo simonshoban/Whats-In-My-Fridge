@@ -1,0 +1,891 @@
+/* z-indexes currently in use
+    2 = list-item
+    5 = large-circle
+    4 = nav
+ */
+
+/* ------------------------ Things used by multiple pages ------------------------ */
+body {
+    margin: 0;
+}
+
+input {
+    width: 100%;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    -webkit-font-smoothing: subpixel-antialiased;
+    font-weight: 400;
+    font-kerning: normal;
+    background-color: #f9f9f9;
+}
+.main {
+    margin-top:58px;
+
+}
+
+#override a, #override input {
+    font-family: 'Nunito', sans-serif;
+
+}
+
+[data-role="popup"] h3 {
+    padding-top: 0;
+}
+
+[data-role="header"], [data-role="footer"] {
+    border: none;
+}
+
+#override .footer {
+    height: 0;
+    background-color: #f9f9f9;
+    border: none;
+}
+
+.nav-list {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+#override .nav-list li a {
+    z-index:10;
+    position:relative;
+
+}
+.nav-list li:last-child {
+    border-bottom: solid lightgrey 2px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    text-align: center;
+    padding-top: 12px;
+}
+
+h1, h2 {
+    font-size: 1.6em;
+    text-shadow: none;
+}
+
+h3 {
+    font-size: 1.3em;
+}
+#defaultpanel{
+}
+#override #defaultpanel, .fakepanel {
+    width: 200px;
+
+}
+
+#overide #defaultpanel {
+    min-height: 101%;
+}
+
+.nav {
+    position: fixed;
+    z-index: 4;
+    width:100%;
+    top:0;
+    left:0;
+    height: 58px;
+    background-color: #3d7cb3;
+    color: white;
+}
+
+#override .nav-button {
+    margin: 0;
+    position: absolute;
+    padding: 14px 18px 16px 16px;
+    border: none;
+    background-color: inherit;
+}
+
+.fridge-btn {
+    background-image: url("icons/fridge.svg");
+}
+
+.shopping-list-btn {
+    background-image: url("icons/list.svg");
+}
+
+.settings-btn {
+    background-image: url("icons/settings.svg");
+}
+
+.about-btn {
+    background-image: url("icons/about.svg");
+}
+
+.aff-btn {
+    background-image: url("icons/affiliates.svg");
+}
+
+.logout-btn {
+    background-image: url("icons/logout.svg");
+}
+
+.login-btn {
+    background-image: url("icons/login.svg");
+}
+
+#defaultpanel .logo2, .fakepanel .logo2 {
+    font-weight: bold;
+    text-align: center;
+    font-size: large;
+    text-shadow: none;
+    color: white;
+    margin: 0;
+    padding-top: 18px;
+    background-color: #3d7cb3;
+    padding-bottom: 18px;
+}
+
+.ui-table {
+    max-width: 300px;
+    margin: auto;
+
+}
+
+.ui-table table {
+    width: 100%;
+    margin: auto;
+
+}
+
+#override .nav-btn {
+    margin: 0;
+    background-color: #fcfcfc;
+    border: none;
+    text-align: left;
+    padding-left: 45px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: black;
+    text-shadow: none;
+    background-size: 25px;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 8px;
+
+}
+
+#override a:focus {
+    box-shadow: none;
+}
+
+#override .nav-btn:focus {
+    box-shadow: none;
+    background-color: #3d7cb3;
+    color: white;
+}
+
+
+
+.ui-content {
+    padding: 0;
+
+}
+
+#override .text-input-container {
+    width: 180px;
+    display: inline-block;
+    padding-right: 30px;
+
+}
+
+#override .input-container {
+    max-width: 100px;
+    margin: auto;
+    padding-bottom: 10px;
+    display: block;
+
+}
+
+#override .text-input-label {
+    display: inline-block;
+    padding-right: 15px;
+    padding-left: 10px;
+    min-width: 80px;
+}
+
+/*panel hidden untill enabled by media query*/
+.fakepanel {
+    display: none;
+}
+/* ------------------------ Login Page ------------------------ */
+
+#logo img {
+    max-width: 150px;
+    height: auto;
+    margin: 10px auto;
+    display: block;
+}
+#login-table, #signup-table {
+    text-align: right;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#google-btn {
+    width: 175px;
+    margin: auto;
+}
+/* ------------------------ End Login Page ------------------------ */
+
+/* ------------------------ Fridge Page ------------------------ */
+
+.collapsible-container {
+    position: relative;
+}
+
+#meat h3 + div, #produce h3 + div, #grain h3 + div, #dairy h3 + div, #misc h3 + div {
+    border: none;
+    border-right-color:inherit;
+
+}
+
+#meat h3 a, #produce h3 a, #grain h3 a, #dairy h3 a, #misc h3 a {
+    background-color: white;
+}
+
+#meat h3 a {
+    font-size: 1em;
+    color: #9f2828;
+    border-right: solid #9f2828 12px;
+}
+
+#produce h3 a {
+    font-size: 1em;
+    color: #008000;
+    border-right: solid #008000 12px;
+}
+
+#grain h3 a {
+    font-size: 1em;
+    color: #de9f49;
+    border-right: solid #de9f49 12px;;
+}
+
+#dairy h3 a {
+    font-size: 1em;
+    color: #5daede;
+    border-right: solid #5daede 12px;;
+}
+
+#misc h3 a {
+    font-size: 1em;
+    color: #959392;
+    border-right: solid #959392 12px;;
+}
+
+#meat {
+    border-color: #9f2828;
+}
+
+#produce {
+    border-color: #008000;
+}
+
+#grain {
+    border-color: #de9f49;
+}
+
+#dairy {
+    border-color: #5daede;
+}
+
+#misc {
+    border-color: #959392;
+}
+
+#produce-number, #meat-number, #grain-number, #dairy-number, #misc-number {
+    position: absolute;
+    top: 30px;
+    right: 35px;
+    margin: 0;
+    color: grey;
+}
+
+#override .ui-collapsible-content {
+    padding: 0;
+}
+
+#override .sort-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 50px;
+    width: 50px;
+    margin: 4px;
+    border: none;
+    background-color: inherit;
+}
+
+#override #popup-sort {
+    width: 250px;
+
+}
+
+.small-circle {
+    background-color: #dd4146;
+    border-radius: 50%;
+    height: 12px;
+    width: 12px;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+}
+
+.item-list .item-expires {
+    position: absolute;
+    right: 30px;
+    top: 26px;
+    font-size: small;
+    color: grey;
+}
+
+[data-role="collapsible"] {
+    margin: 0;
+    border-radius: 0;
+}
+
+#override [data-role="collapsible"] h3 > a {
+    padding-top: 22px;
+    padding-bottom: 22px;
+}
+
+/* ------------------------ Fridge Page End ------------------------ */
+
+/* ------------------------ List Page ------------------------ */
+.item-list .item-quantity {
+    position: absolute;
+    right: 80px;
+    top: 26px;
+    font-size: small;
+    color: grey;
+}
+
+#override .ui-checkbox, #override .checkbox-label {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0;
+    border-radius: 0;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+
+}
+
+#override .checkbox-label {
+    padding: 30PX;
+
+}
+
+#override .checkbox-label::after {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 18px;
+    right: 18px;
+
+}
+
+.item-button-container {
+    position:absolute;
+    display: flex;
+    flex-flow: row;
+    bottom:20px;
+    width:300px;
+    left: calc(100% - 5% - 300px);
+    justify-content: space-around;
+}
+
+#override .ate-button {
+    margin:0;
+    color: #235f23;
+
+}
+
+#override .expired-button {
+    margin:0;
+    color: #5f1309;
+}
+
+.ui-panel-inner {
+    padding: 0;
+}
+
+.ui-large-icon {
+    background-size: 30px 30px;
+}
+
+/* ------------------------ List Page End ------------------------ */
+
+/* ------------------------ Shared Fridge and List ------------------------ */
+
+.list-item-container {
+    position:relative;
+    border-right:inherit;
+
+}
+.item-list .list-item {
+    margin: 0;
+    background-color: #fbfbfb;
+    height: 58px;
+    padding: 0;
+    text-align: left;
+    z-index:2;
+
+
+}
+.collapsible .list-item {
+    border-right: solid 8px;
+    border-right-color:inherit;
+}
+.list-item-back{
+    position:absolute;
+    display:flex;
+    justify-content: space-around;
+    top:0;
+    left:-100vw;
+    width:100vw;
+    height:60px;
+}
+
+.item-list {
+    margin-bottom: 90px;
+}
+
+.item-list img {
+    position: absolute;
+    left: 4px;
+    top: 4px;
+}
+
+.item-list .item-name {
+    padding-left: 62px;
+    font-size: large;
+}
+
+#override .large-circle {
+    height: 65px;
+    width: 65px;
+    border-radius: 50%;
+    border-color: #bebebe;
+    border-width: 1px;
+    position: fixed;
+    right: 14px;
+    bottom: 6px;
+    background-color: #f7f7f7;
+    z-index: 5;
+
+}
+
+#item-popup, #item-popup2 {
+    background-color: white;
+    color: black;
+    width: 90%;
+    position: fixed;
+    left: 5%;
+    overflow-y: auto;
+    height:90%;
+    top:5%;
+}
+
+.item-popup-name {
+    text-align: center;
+    font-size: 2.2em;
+    color: #495655;
+}
+
+.item-popup-expires {
+    text-align: center;
+}
+
+#navbar, #navbar2 {
+    display: flex;
+}
+
+#navbar a, #navbar2 a {
+    width: 33%;
+    font-size: 0.89em;
+}
+
+#overview, #overview2, #storage, #storage2, #expired, #expired2 {
+    text-align: center;
+}
+
+.add-icons {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 5px;
+}
+
+.item-panel {
+    width: 60px;
+    display: inline-block;
+}
+
+.item-panel p {
+    text-align: center;
+}
+
+#button-div, #button-div2 {
+    display: flex;
+}
+
+#custom-item-fridge, #add-button-fridge, #custom-item-list, #add-button-list {
+    color: darkslategray;
+
+    margin: 10px auto;
+}
+
+#add-header, #add-header2 {
+    text-align: center;
+    font-size: 2.2em;
+    color: #495655;
+}
+
+#override .close-button {
+    background-color: #ddd;
+    position: fixed;
+    right: 5%;
+    top: 5%;
+    margin:0;
+}
+
+#add-popup, #add-popup2, #custom-item-popup, #custom-item-popup2 {
+    width: 90%;
+    height: 90%;
+    position: fixed;
+    right: 5%;
+    top:5%;
+    overflow-y: auto;
+}
+
+#common-items, #common-items2 {
+    width: 90%;
+    height: 30%;
+    background-color: lightgrey;
+    margin: auto;
+    overflow: scroll;
+    border: solid darkslategrey;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#bought-items, #bought-items2 {
+    width: 90%;
+    height: 30%;
+    background-color: lightgrey;
+    margin: auto;
+    overflow: scroll;
+    border: solid darkslategrey;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#add-popup p, #add-popup2 p {
+    margin: 0;
+}
+
+#add-popup h3, #add-popup2 h3 {
+    color: dimgrey;
+    text-align: center;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#custom-item-popup, #custom-item-popup2 {
+    text-align: center;
+}
+
+#custom-item-popup hr, #custom-item-popup2 hr {
+    width: 90%;
+
+}
+
+#custom-item-popup h3, #custom-item-popup2 h3 {
+    position: absolute;
+    background-color: white;
+    display: inline-block;
+    padding: 0;
+    margin:0;
+}
+.required-header{
+    width:120px;
+    left:calc(50% - 60px);
+    top:65px
+}
+
+.optional-header{
+    width:110px;
+    left:calc(50% - 55px);
+    top:286px;
+}
+
+
+.add-item-table {
+    max-width: 400px;
+    margin: auto;
+}
+
+.add-item-table table {
+    width: 90%;
+    margin: auto;
+    align-items: center;
+}
+
+.add-item-table table tr {
+    margin: auto;
+}
+
+.add-item-table table tr td:nth-child(2) {
+    width: 50%;
+}
+
+#custom-add-back, #custom-add-back2 {
+    left: 5%;
+    top:5%;
+    position: fixed;
+    margin:0;
+}
+
+/* ------------------------ Shared Fridge and List End ------------------------ */
+
+/* ------------------------ Settings Page ------------------------ */
+#settings-form-table {
+    margin: auto;
+}
+
+.custom-size-flipswitch.ui-flipswitch .ui-btn.ui-flipswitch-on {
+    text-indent: -4.9em;
+}
+
+.custom-size-flipswitch.ui-flipswitch .ui-flipswitch-off {
+    text-indent: 1.2em;
+}
+
+.custom-size-flipswitch.ui-flipswitch {
+    width: 7.875em;
+}
+
+.custom-size-flipswitch.ui-flipswitch.ui-flipswitch-active {
+    padding-left: 6em;
+    width: 1.875em;
+}
+
+@media (min-width: 28em) {
+        .ui-field-contain > label + .custom-size-flipswitch.ui-flipswitch {
+        width: 1.875em;
+    }
+}
+
+/* ------------------------ Settings Page End ------------------------ */
+
+/* ------------------------ About page  ------------------------ */
+.develop-img {
+    margin: auto;
+    display: block;
+}
+
+.develop-text {
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#dev-header {
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    background-color: #e8e8e8;
+}
+
+#mission-header {
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    background-color: #e8e8e8;
+    border-top: solid #34e23c 5px;
+
+}
+
+#mission-body {
+    font-size: 1.1em;
+}
+
+#goal-header {
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-top: solid #e23238 5px;
+    background-color: #e8e8e8;
+}
+
+/* ------------------------ About Page End ------------------------ */
+
+/* ------------------------ Affiliated Apps Page ------------------------ */
+.aff-header {
+    background-color: #e8e8e8;
+    height: 84px;
+    width: 100%;
+    position: relative;
+
+}
+
+.aff-header h2 {
+    position: absolute;
+    left: 100px;
+    top: 15px;
+    text-align: left;
+
+}
+
+.aff-icon {
+    float: left;
+    position: absolute;
+    padding: 7px;
+
+}
+
+#aff-apps h3 {
+    text-align: center;
+}
+
+#aff-apps p {
+    text-align: center;
+}
+
+#forkpotato .aff-header {
+}
+
+#foodfall .aff-header {
+    border-top: solid #34e23c 5px;
+}
+
+#overcooked .aff-header {
+    border-top: solid #e23238 5px;
+}
+
+#useitup .aff-header {
+    border-top: solid #ffb02a 5px;
+}
+
+/* ------------------------ Affiliated Apps End ------------------------ */
+
+/* Loading Animation */
+
+html {
+    -webkit-transition: background-color 1s;
+    transition: background-color 1s;
+    overflow-y: scroll;
+}
+
+html.loading {
+    background: #efefef;
+
+}
+
+body {
+    -webkit-transition: opacity 1s ease-in;
+    transition: opacity 1s ease-in;
+}
+
+html.loading body {
+    /* Make the contents of the body opaque during loading */
+    opacity: 0;
+}
+
+/* End Loading Animation */
+
+
+
+
+/* ------------------------ Media Queries ------------------------ */
+
+@media (min-width: 701px) {
+    #override #defaultpanel {
+        position: absolute;
+        right: 0;
+        border-left: solid #cfcfcf 1px;
+    }
+
+    #override .nav-button {
+        display: none;
+    }
+
+    .fakepanel {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 200px;
+        display: block;
+        order: 1;
+        border-left: 2px solid #b8b8b8;
+    }
+
+    .container {
+        width: calc(100vw - 200px);
+        max-width: 700px;
+        order: 2;
+        border-left: 2px solid #b8b8b8;
+        border-right: 2px solid #b8b8b8;
+        min-height: 100vh;
+        position: relative;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+
+    }
+
+    .fakepanel ul {
+        padding: 0;
+        margin: 0;
+    }
+    .panel-container{
+        width:194px;
+        position:fixed;
+    }
+    .panel-container{
+        width:198px;
+        position:fixed;
+    }
+
+    .big-container {
+        display: flex;
+        margin: auto;
+        width: 900px;
+    }
+    .nav{
+        left: 200px;
+        max-width:calc(100% - 200px)
+    }
+    #override .footer {
+        height: 0;
+    }
+
+    #override .large-circle {
+        top: 0;
+        left:213px;
+        position: fixed;
+        height: 40px;
+        width: 40px;
+    }
+}
+
+@media (min-width: 901px) {
+    #override .large-circle {
+        left:calc(50% + 13px - 450px + 200px);
+
+    }
+    .nav{
+        max-width:700px;
+        left:calc(50% - 450px + 200px - 2px)
+    }
+
+}

@@ -5,3 +5,8 @@ Other Website Prototype/functions
 Other Website Prototype/public
 Other Website Prototype/database.rules.json
 Other Website Prototype/firebase.json
+.firebaserc
+database.rules.json
+firebase.json
+functions
+public
