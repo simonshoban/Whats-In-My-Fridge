@@ -1595,6 +1595,8 @@
                         var quantity = snapshot.val().quantity
                         var price = snapshot.val().price
 
+
+                        // Change Append to Prepend if you descending order.
                         var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expire + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
                         $("#fridge #" + category + "> div").append(element)
                     });
