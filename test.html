@@ -36,7 +36,7 @@
                     <div class="main">
                         <div id="logo"><img src="icons/logo.svg"></div>
                         <div class="signup-link">
-                            <form method="post" id="login-form">
+                            <form method="post" onSubmit="return false;" id="login-form">
                                 <table id="login-table">
                                     <tr>
                                         <td><label class="text-input-label" for="login-email">Email:</label></td>
@@ -119,7 +119,7 @@
                         </div>
                     </div>
                     <div class="main">
-                        <form method="post" id="signup-form">
+                        <form method="post" onSubmit="return false;" id="signup-form">
                             <table id="signup-table">
                                 <tr>
                                     <td><label class="text-input-label" for="signup-email">Email:</label></td>
@@ -140,7 +140,7 @@
                             </table>
                             <div class="input-container"><input data-enhanced="true" data-role="none"
                                                                 class="ui-btn ui-corner-all" type="submit"
-                                                                value="Login"></div>
+                                                                 value="Sign Up"></div>
                         </form>
                     </div>
                 </div>
@@ -1444,6 +1444,7 @@
                 $(".shopping-list-btn").show();
 
                 // go to the fridge page
+
                 $(":mobile-pagecontainer").pagecontainer("change", "test.html#fridge");
 
                 // remove the loading class from html to show page
@@ -1462,6 +1463,7 @@
                 $(".shopping-list-btn").hide();
 
                 // go to login page
+
                 $(":mobile-pagecontainer").pagecontainer("change", "test.html#login");
 
 
