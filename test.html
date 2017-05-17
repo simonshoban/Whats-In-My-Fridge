@@ -250,26 +250,22 @@
                                             <table>
                                                 <tr>
                                                     <td>Purchase Date:</td>
-                                                    <td>April 26, 2017</td>
+                                                    <td id="item-popup-purchase-fridge">April 26, 2017</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Quantity</td>
-                                                    <td>1</td>
+                                                    <td>Quantity:</td>
+                                                    <td id="item-popup-quantity-fridge"></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Value of items</td>
-                                                    <td>$0.93</td>
+                                                    <td>Price:</td>
+                                                    <td id="item-popup-price-fridge"></td>
                                                 </tr>
                                             </table>
                                         </div>
                                     </div>
                                     <div class="ui-body-d ui-content" id="storage">
-                                        <br/>
-                                        best stored in stomach
                                     </div>
                                     <div class="ui-body-d ui-content" id="expired">
-                                        <br/>
-                                        if its red then its dead, if its brown scarf it down
                                     </div>
                                 </div>
                                 <div class="item-button-container">
@@ -1390,7 +1386,8 @@
     /**************Fridge*************/
 
     //Sets overview tab as default tab and highlights tab
-    $(".fridge-item").click(function () {
+
+    $(document).on("click", ".fridge-item", function () {
         $("#overview").show();
         $("#overviewTab").click();
     });
@@ -1658,11 +1655,11 @@
                             expireText = "Expired " + expire + " day ago"
                         }
 
-                        if(expire <= 3){
+                        if (expire <= 3) {
                             circle = "red-circle"
-                        }else if(expire <= 5){
+                        } else if (expire <= 5) {
                             circle = "yellow-circle"
-                        }else{
+                        } else {
                             circle = "no-circle"
                         }
 
@@ -1678,7 +1675,7 @@
                             oNumber++;
                         }
 
-                        var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
+                        var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#' onclick='openItemPopup(this)' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
                         if (!$("#category-flip").prop("checked")) {
                             $("#fridge .item-list").append(element)
                         }
@@ -1722,11 +1719,11 @@
                             expireText = "Expired " + expire + " day ago"
                         }
 
-                        if(expire <= 3){
+                        if (expire <= 3) {
                             circle = "red-circle"
-                        }else if(expire <= 5){
+                        } else if (expire <= 5) {
                             circle = "yellow-circle"
-                        }else{
+                        } else {
                             circle = "no-circle"
                         }
 
@@ -1742,7 +1739,7 @@
                             oNumber++;
                         }
 
-                        var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
+                        var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#' onclick='openItemPopup(this)' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
                         if (!$("#category-flip").prop("checked")) {
                             $("#fridge .item-list").prepend(element)
                         }
@@ -1783,11 +1780,11 @@
                             expireText = "Expired " + expire + " day ago"
                         }
 
-                        if(expire <= 3){
+                        if (expire <= 3) {
                             circle = "red-circle"
-                        }else if(expire <= 5){
+                        } else if (expire <= 5) {
                             circle = "yellow-circle"
-                        }else{
+                        } else {
                             circle = "no-circle"
                         }
 
@@ -1803,7 +1800,7 @@
                             oNumber++;
                         }
 
-                        var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
+                        var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
                         if (!$("#category-flip").prop("checked")) {
                             $("#fridge .item-list").append(element)
                         }
@@ -1844,11 +1841,11 @@
                             expireText = "Expired " + expire + " day ago"
                         }
 
-                        if(expire <= 3){
+                        if (expire <= 3) {
                             circle = "red-circle"
-                        }else if(expire <= 5){
+                        } else if (expire <= 5) {
                             circle = "yellow-circle"
-                        }else{
+                        } else {
                             circle = "no-circle"
                         }
 
@@ -1864,7 +1861,7 @@
                             oNumber++;
                         }
 
-                        var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
+                        var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#' onclick='openItemPopup(this)' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
                         if (!$("#category-flip").prop("checked")) {
                             $("#fridge .item-list").prepend(element)
                         }
@@ -2252,6 +2249,38 @@
             $("#o").collapsible("collapse")
         }
     })
+
+    function openItemPopup(event) {
+        $("#item-popup").popup("open")
+        return firebase.database().ref('/users/' + uid + "/fridge/").once('child_added').then(function (snapshot) {
+            var fridgeId = snapshot.key;
+            return firebase.database().ref('/fridge/' + fridgeId + "/" + event.target.attr("data-key")).once('value').then(function (snapshot) {
+                console.log(snapshot.key)
+                $("#item-popup .item-popup-expires").html("")
+            })
+        })
+    }
+    $(document).on("click", ".list-item", function () {
+        var item = $(this)
+
+        return firebase.database().ref('/users/' + uid + "/fridge/").once('child_added').then(function (snapshot) {
+            var fridgeId = snapshot.key;
+            return firebase.database().ref('/fridge/' + fridgeId + "/" + item.attr("data-key")).once('value').then(function (snapshot) {
+                $(".item-popup-name").html(snapshot.val().name)
+                $("#item-popup .item-popup-expires").html("Purchased: " + new Date(snapshot.val().date).toDateString())
+                $("#item-popup-purchase-fridge").html(new Date(snapshot.val().date).toDateString())
+                if (snapshot.hasChild("quantity")) {
+                    $("#item-popup-quantity-fridge").html(snapshot.val().quantity)
+                }
+                if (snapshot.hasChild("price")) {
+                    $("#item-popup-price-fridge").html("$" + snapshot.val().price)
+                }
+                $("#storage").html("temp")
+                $("#expired").html("temp")
+                $("#item-popup").popup("open")
+            })
+        })
+    });
 </script>
 </body>
 </html>
