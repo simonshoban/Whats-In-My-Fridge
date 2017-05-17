@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="350px"
-	 height="350px" viewBox="0 0 350 350" enable-background="new 0 0 350 350" xml:space="preserve">
-<g id="Layer_1">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="350px" height="350px" viewBox="0 0 350 350" enable-background="new 0 0 350 350" xml:space="preserve">
+<g id="Layer_1_1_">
 	
-		<line fill="#6F6F6F" stroke="#3D7CB3" stroke-width="48" stroke-linecap="round" stroke-miterlimit="10" x1="175" y1="58" x2="175" y2="183"/>
+		<line fill="none" stroke="#3F3F3F" stroke-width="48" stroke-linecap="round" stroke-miterlimit="10" x1="175" y1="58" x2="175" y2="183"/>
 </g>
 <g id="Layer_2">
-	<path fill="#3D7CB3" stroke="#3D7CB3" stroke-miterlimit="10" d="M109.716,98.499c0,0-18.5-15-35.5,6c0,0-43.5,46-34.5,108
+	<path fill="#3F3F3F" stroke="#3F3F3F" stroke-miterlimit="10" d="M109.716,98.499c0,0-18.5-15-35.5,6c0,0-43.5,46-34.5,108
 		c0,0,2,56.5,54.5,93.5c0,0,43.5,38.5,116.5,22c0,0,44.5-10,77-54.5c0,0,33.5-39,21-105.5c0,0-6-39-36.5-67c0,0-16.5-14.5-32-1.5
 		c0,0-17,16-1,35c0,0,43,42,16.5,101c0,0-19.5,41-60,48c0,0-32,7-65-9c0,0-39-23-43.5-69.5c0,0-6-30,19.5-65
 		C106.716,139.999,132.216,117.499,109.716,98.499z"/>
