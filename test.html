@@ -1624,7 +1624,6 @@
             var newItemKey = firebase.database().ref().child('fridge/' + fridgeId).push().key;
             var updates = {};
             updates['/fridge/' + fridgeId + "/" + newItemKey] = itemData;
-            console.log("item added?")
             return firebase.database().ref().update(updates);
         });
 
@@ -2040,10 +2039,7 @@
                 var expireDay = snapshot.val().expire + Date.now()
                 $("#food-group").val(snapshot.val().foodGroup).selectmenu("refresh")
                 $("#expiry-date").val(new Date(expireDay).toISOString().substr(0,10))
-                console.log(snapshot.val().expire)
-                console.log(Date.now())
-                console.log(new Date(expireDay))
-                console.log(snapshot.val().expire + Date.now())
+
             }
         })
     })
@@ -2053,10 +2049,7 @@
                 var expireDay = snapshot.val().expire + Date.now()
                 $("#food-group").val(snapshot.val().foodGroup).selectmenu("refresh")
                 $("#expiry-date").val(new Date(expireDay).toISOString().substr(0,10))
-                console.log(snapshot.val().expire)
-                console.log(Date.now())
-                console.log(new Date(expireDay))
-                console.log(snapshot.val().expire + Date.now())
+
             }
         })
     })
