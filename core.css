@@ -686,8 +686,23 @@ h3 {
     box-shadow:none;
     color:#f9f9f9;
 }
+#ronic-slider {
+    cursor:pointer!important;
+}
 #ronic-slider-container {
     display:none;
+}
+#ronic-slider-container>td:last-child {
+    cursor:pointer !important;
+}
+#ronic-slider-container>td>div {
+    opacity:1;
+    cursor:pointer!important;
+}
+#settings p {
+    word-wrap: break-word;
+    max-width:500px;
+    margin:auto;
 }
 .ui-input-text.ui-custom {
     border: none;

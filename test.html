@@ -1021,10 +1021,10 @@
                                     <td>
                                         <label for="ronic-slider" class="text-input-label">Go fast?</label>
                                     </td>
-                                    <td>
+                                    <td id="ronic-slider-td">
                                         <input type="checkbox" data-role="flipswitch" name="ronic-slider"
                                                id="ronic-slider" data-on-text="AAAAAA" data-off-text="YES!"
-                                               data-wrapper-class="custom-size-flipswitch">
+                                               onchange="ronicImageSwap()" data-wrapper-class="custom-size-flipswitch">
                                     </td>
                                 </tr>
                             </table>
@@ -1316,7 +1316,7 @@
     });
 </script>
 <script>
-    // calls the firebase sign in function when the login form is submitted
+    // calls the firebase sign in function when the login form is submitted, also does client side validation
     $("#login-form").submit(
         function () {
             var emailRegex = /^[A-Z0-9_.+-]+@[A-Z0-9_.+-]+\.[A-Z]{2,}$/i;
@@ -1342,7 +1342,7 @@
         })
 </script>
 <script>
-    // calls the firebase create account function when sign up form is submitted
+    // calls the firebase create account function when sign up form is submitted, also does client side validation
     $("#signup-form").submit(
         function () {
             var emailRegex = /^[A-Z0-9_.+-]+@[A-Z0-9_.+-]+\.[A-Z]{2,}$/i;
@@ -1374,6 +1374,8 @@
     });
 </script>
 <script>
+    /* If hidden text box submits "RONIC", text box disappears
+    and Ronic image swap slider appears in settings page */
     function easterEgg() {
         var input = $("#easter-egg").val().toUpperCase();
         if (input == "RONIC") {
@@ -1381,6 +1383,39 @@
             $("#ronic-slider-container").show();
         }
     }
+
+    var clickCounter = 0;
+
+    function ronicImageSwap() {
+        var ronicImageArray = [
+            "icons/3A9CEA45.png",
+            "icons/54BFCAC8.png",
+            "icons/96D5E809.png",
+            "icons/7332E7F6.png",
+            "icons/85558730.png",
+            "icons/A99C66B4.png",
+            "icons/B40CCF7C.png",
+            "icons/CD07E8E3.png",
+            "icons/E6F30EF6.png",
+            "icons/EA407848.png"
+        ];
+
+        for (var index = 0; index < $("img").length; index++) {
+            var random = Math.floor(Math.random() * (9 - 0));
+            document.getElementsByTagName("img")[index].src = ronicImageArray[random];
+        }
+
+        $("#ronic-slider").flipswitch("disable");
+    }
+
+    $("#ronic-slider-td").click(function() {
+        clickCounter++;
+        if (clickCounter > 7) {
+            alert("Try refreshing");
+        } else if (clickCounter === 2) {
+            $("#settings-form-table").after("<p>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</p>");
+        }
+    });
 </script>
 <script>
     /***********Don't change**********/
