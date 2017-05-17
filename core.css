@@ -315,6 +315,7 @@ h3 {
 .invalid-input-star{
     display: none;
     color: red;
+    font-size:x-large;
 }
 
 #produce-number, #meat-number, #grain-number, #dairy-number, #misc-number {
