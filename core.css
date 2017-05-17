@@ -676,7 +676,15 @@ h3 {
     position: fixed;
     margin: 0;
 }
-
+.ui-autocomplete{
+    z-index: 9999 !important;
+    text-transform: capitalize;
+}
+.ui-datepicker {
+    left: calc(50% - 180px) !important;
+    font-size:1.3em !important;
+    top: calc(50% - 140px) !important;
+}
 /* ------------------------ Shared Fridge and List End ------------------------ */
 
 /* ------------------------ Settings Page ------------------------ */
