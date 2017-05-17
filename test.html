@@ -1644,6 +1644,7 @@
                         var quantity = snapshot.val().quantity
                         var price = snapshot.val().price
                         var expireText
+                        var circle
 
                         if (expire > 1) {
                             expireText = "Expires in " + expire + " days";
@@ -1655,6 +1656,14 @@
                             expireText = "Expires in " + expire + " day";
                         } else if (expire = -1) {
                             expireText = "Expired " + expire + " day ago"
+                        }
+
+                        if(expire <= 3){
+                            circle = "red-circle"
+                        }else if(expire <= 5){
+                            circle = "yellow-circle"
+                        }else{
+                            circle = "no-circle"
                         }
 
                         if (category === "p") {
@@ -1669,7 +1678,7 @@
                             oNumber++;
                         }
 
-                        var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
+                        var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
                         if (!$("#category-flip").prop("checked")) {
                             $("#fridge .item-list").append(element)
                         }
@@ -1698,6 +1707,8 @@
                         var quantity = snapshot.val().quantity
                         var price = snapshot.val().price
                         var expireText
+                        var circle
+
 
                         if (expire > 1) {
                             expireText = "Expires in " + expire + " days";
@@ -1709,6 +1720,14 @@
                             expireText = "Expires in " + expire + " day";
                         } else if (expire = -1) {
                             expireText = "Expired " + expire + " day ago"
+                        }
+
+                        if(expire <= 3){
+                            circle = "red-circle"
+                        }else if(expire <= 5){
+                            circle = "yellow-circle"
+                        }else{
+                            circle = "no-circle"
                         }
 
                         if (category === "p") {
@@ -1723,7 +1742,7 @@
                             oNumber++;
                         }
 
-                        var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
+                        var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
                         if (!$("#category-flip").prop("checked")) {
                             $("#fridge .item-list").prepend(element)
                         }
@@ -1750,6 +1769,7 @@
                         var quantity = snapshot.val().quantity
                         var price = snapshot.val().price
                         var expireText
+                        var circle
 
                         if (expire > 1) {
                             expireText = "Expires in " + expire + " days";
@@ -1761,6 +1781,14 @@
                             expireText = "Expires in " + expire + " day";
                         } else if (expire = -1) {
                             expireText = "Expired " + expire + " day ago"
+                        }
+
+                        if(expire <= 3){
+                            circle = "red-circle"
+                        }else if(expire <= 5){
+                            circle = "yellow-circle"
+                        }else{
+                            circle = "no-circle"
                         }
 
                         if (category === "p") {
@@ -1775,7 +1803,7 @@
                             oNumber++;
                         }
 
-                        var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
+                        var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
                         if (!$("#category-flip").prop("checked")) {
                             $("#fridge .item-list").append(element)
                         }
@@ -1802,6 +1830,7 @@
                         var quantity = snapshot.val().quantity
                         var price = snapshot.val().price
                         var expireText
+                        var circle
 
                         if (expire > 1) {
                             expireText = "Expires in " + expire + " days";
@@ -1813,6 +1842,14 @@
                             expireText = "Expires in " + expire + " day";
                         } else if (expire = -1) {
                             expireText = "Expired " + expire + " day ago"
+                        }
+
+                        if(expire <= 3){
+                            circle = "red-circle"
+                        }else if(expire <= 5){
+                            circle = "yellow-circle"
+                        }else{
+                            circle = "no-circle"
                         }
 
                         if (category === "p") {
@@ -1827,7 +1864,7 @@
                             oNumber++;
                         }
 
-                        var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
+                        var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
                         if (!$("#category-flip").prop("checked")) {
                             $("#fridge .item-list").prepend(element)
                         }
