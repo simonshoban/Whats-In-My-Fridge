@@ -2266,21 +2266,64 @@
         return firebase.database().ref('/users/' + uid + "/fridge/").once('child_added').then(function (snapshot) {
             var fridgeId = snapshot.key;
             return firebase.database().ref('/fridge/' + fridgeId + "/" + item.attr("data-key")).once('value').then(function (snapshot) {
-                $(".item-popup-name").html(snapshot.val().name)
-                $("#item-popup .item-popup-expires").html("Purchased: " + new Date(snapshot.val().date).toDateString())
-                $("#item-popup-purchase-fridge").html(new Date(snapshot.val().date).toDateString())
+                var name = snapshot.val().name
+                var date = snapshot.val().date
+                var quantity = snapshot.val().quantity
+                var price = snapshot.val().price
+                $(".item-popup-name").html(name)
+                $("#item-popup .item-popup-expires").html("Purchased: " + new Date(date).toDateString())
+                $("#item-popup-purchase-fridge").html(new Date(date).toDateString())
                 if (snapshot.hasChild("quantity")) {
-                    $("#item-popup-quantity-fridge").html(snapshot.val().quantity)
+                    $("#item-popup-quantity-fridge").html(quantity)
                 }
                 if (snapshot.hasChild("price")) {
-                    $("#item-popup-price-fridge").html("$" + snapshot.val().price)
+                    $("#item-popup-price-fridge").html("$" + price)
                 }
-                $("#storage").html("temp")
-                $("#expired").html("temp")
-                $("#item-popup").popup("open")
+                $("#storage").html("")
+                $("#expired").html("")
+                return firebase.database().ref('/info/' + name).once('value').then(function (snapshot) {
+                    if (snapshot.val() != null) {
+                        fillExpiredInfo(name);
+                        fillStorageInfo(name);
+                        $("#item-popup").popup("open")
+
+                    } else {
+                        $("#item-popup").popup("open")
+
+                    }
+                })
+
             })
         })
     });
+    function fillExpiredInfo(name){
+        return firebase.database().ref('/info/' + name + '/expire/').orderByValue().once('value').then(function (snapshot) {
+            snapshot.forEach(function(snapshot)
+            {
+                getExpiredInfo(snapshot.key)
+            })
+        })
+
+    }
+    function fillStorageInfo(name){
+        return firebase.database().ref('/info/' + name + '/storage/').orderByValue().once('value').then(function (snapshot) {
+            snapshot.forEach(function(snapshot)
+            {
+                getStorageInfo(snapshot.key)
+            })
+        })
+
+    }
+    function getExpiredInfo(expireKey){
+        return firebase.database().ref('/expireInfo/' + expireKey).orderByValue().once('value').then(function (snapshot) {
+            $("#expired").html($("#expired").html() + "<p>" + snapshot.val() + "</p>")
+        })
+    }
+    function getStorageInfo(storageKey){
+        return firebase.database().ref('/storageInfo/' + storageKey).orderByValue().once('value').then(function (snapshot) {
+            $("#storage").html($("#storage").html() + "<p>" + snapshot.val() + "</p>")
+        })
+    }
 </script>
 </body>
 </html>
