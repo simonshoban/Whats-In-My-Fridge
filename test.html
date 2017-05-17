@@ -567,47 +567,45 @@
                             <br>
                             <form id="fridge-add-form">
                                 <div class="add-item-table">
-                                    <div class="ui-widget">
-                                        <table>
+                                    <table>
 
-                                            <tr>
-                                                <td>
-                                                    <label id="food-name-label" for="food-name">Name of food<span
-                                                            class="invalid-input-star">*</span></label>
-                                                </td>
-                                                <td>
-                                                    <input id="food-name" name="food-name" type="text"/>
-                                                </td>
-                                            </tr>
+                                        <tr>
+                                            <td>
+                                                <label id="food-name-label" for="food-name">Name of food<span
+                                                        class="invalid-input-star">*</span></label>
+                                            </td>
+                                            <td>
+                                                <input id="food-name" name="food-name" type="text"/>
+                                            </td>
+                                        </tr>
 
-                                            <tr>
-                                                <td>
-                                                    <label id="food-group-label" for="food-group">Food group<span
+                                        <tr>
+                                            <td>
+                                                <label id="food-group-label" for="food-group">Food group<span
+                                                        class="invalid-input-star">*</span></label>
+                                            </td>
+                                            <td>
+                                                <select id="food-group" name="food-group">
+                                                    <option id="option-none">----------</option>
+                                                    <option id="option-produce">produce</option>
+                                                    <option id="option-dairy">dairy</option>
+                                                    <option id="option-grain">grain</option>
+                                                    <option id="option-meat">meat</option>
+                                                    <option id="option-other">other</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label id="food-expiry-date-label" for="expiry-date">Expiry
+                                                    Date<span
                                                             class="invalid-input-star">*</span></label>
-                                                </td>
-                                                <td>
-                                                    <select id="food-group" name="food-group">
-                                                        <option>----------</option>
-                                                        <option>Produce</option>
-                                                        <option>Dairy</option>
-                                                        <option>Grain</option>
-                                                        <option>Meat</option>
-                                                        <option>Misc</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <label id="food-expiry-date-label" for="expiry-date">Expiry
-                                                        Date<span
-                                                                class="invalid-input-star">*</span></label>
-                                                </td>
-                                                <td>
-                                                    <input id="expiry-date" name="expiry-date" readonly type="text"/>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
+                                            </td>
+                                            <td>
+                                                <input id="expiry-date" name="expiry-date" readonly type="text"/>
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </div>
                                 <h3 class="optional-header">Optional</h3>
                                 <hr>
@@ -1626,7 +1624,7 @@
             var newItemKey = firebase.database().ref().child('fridge/' + fridgeId).push().key;
             var updates = {};
             updates['/fridge/' + fridgeId + "/" + newItemKey] = itemData;
-
+            console.log("item added?")
             return firebase.database().ref().update(updates);
         });
 
@@ -1744,8 +1742,15 @@
             var name = $("#food-name").val().toLowerCase()
             var type = $("#food-group").val().substr(0, 1).toLowerCase();
             var expires = ($("#expiry-date").datepicker("getDate").getTime())
-            var quantity = parseInt($("#item-quantity").val())
-            var price = parseInt($("#item-price").val())
+            var quantity = null
+            var price = null
+            if(!isNaN(parseInt($("#item-quantity").val()))){
+                quantity = parseInt($("#item-quantity").val())
+            }
+            if(!isNaN(parseFloat($("#item-price").val()))){
+                price = parseFloat($("#item-price").val())
+
+            }
             $("#fridge-add-form").trigger("reset");
             addFridgeItem(uid, name, expires, type, quantity, price)
             redrawList()
@@ -1959,6 +1964,7 @@
     $("#expiry-date").datepicker({
         firstDay: 1,
         minDate: 0,
+        dateFormat: "yy-mm-dd",
         beforeShow: function (input, inst) {
             var cal = inst.dpDiv;
             var bottom = $("#expiry-date").offset().bottom + $("#expiry-date").outerHeight();
@@ -1989,10 +1995,8 @@
     function addItemValidate() {
         var check = true;
         if ($("#expiry-date").datepicker("getDate") != null) {
-            alert($("#expiry-date").datepicker("getDate").getTime())
             $("#custom-item-popup").popup("close");
             $("#food-expiry-date-label .invalid-input-star").css("display", "none");
-
         }
         else {
             $("#food-expiry-date-label .invalid-input-star").css("display", "inline");
@@ -2000,7 +2004,6 @@
         }
         if ($("#food-group").val() !== "----------") {
             $("#food-group-label .invalid-input-star").css("display", "none");
-
         }
         else {
             $("#food-group-label .invalid-input-star").css("display", "inline");
@@ -2008,7 +2011,6 @@
         }
         if ($("#food-name").val() !== "") {
             $("#food-name-label .invalid-input-star").css("display", "none");
-
         }
         else {
             $("#food-name-label .invalid-input-star").css("display", "inline");
@@ -2016,7 +2018,6 @@
         }
         if ($("#item-price").val() == "" || !isNaN(parseInt($("#item-price").val()))) {
             $("#item-price-label .invalid-input-star").css("display", "none");
-
         }
         else {
             $("#item-price-label .invalid-input-star").css("display", "inline");
@@ -2024,7 +2025,6 @@
         }
         if ($("#item-quantity").val() == "" || !isNaN(parseFloat($("#item-quantity").val()))) {
             $("#item-quantity-label .invalid-input-star").css("display", "none");
-
         }
         else {
             $("#item-quantity-label .invalid-input-star").css("display", "inline");
@@ -2033,6 +2033,34 @@
         return check;
     }
 </script>
+<script>
+    $("#food-name").on("focusout", function () {
+        return firebase.database().ref('/autofill/' + $("#food-name").val().toLowerCase()).once('value').then(function (snapshot) {
+            if (snapshot.hasChild("foodGroup")) {
+                var expireDay = snapshot.val().expire + Date.now()
+                $("#food-group").val(snapshot.val().foodGroup).selectmenu("refresh")
+                $("#expiry-date").val(new Date(expireDay).toISOString().substr(0,10))
+                console.log(snapshot.val().expire)
+                console.log(Date.now())
+                console.log(new Date(expireDay))
+                console.log(snapshot.val().expire + Date.now())
+            }
+        })
+    })
+    $("#food-name").on("autocompleteselect", function () {
+        return firebase.database().ref('/autofill/' + $("#food-name").val().toLowerCase()).once('value').then(function (snapshot) {
+            if (snapshot.hasChild("foodGroup")) {
+                var expireDay = snapshot.val().expire + Date.now()
+                $("#food-group").val(snapshot.val().foodGroup).selectmenu("refresh")
+                $("#expiry-date").val(new Date(expireDay).toISOString().substr(0,10))
+                console.log(snapshot.val().expire)
+                console.log(Date.now())
+                console.log(new Date(expireDay))
+                console.log(snapshot.val().expire + Date.now())
+            }
+        })
+    })
 
+</script>
 </body>
 </html>
