@@ -2047,7 +2047,7 @@
             }
         })
     })
-    $("#food-name").on("autocompleteselect", function () {
+    $("*").on("autocompleteclose", function () {
         return firebase.database().ref('/autofill/' + $("#food-name").val().toLowerCase()).once('value').then(function (snapshot) {
             if (snapshot.hasChild("foodGroup")) {
                 var expireDay = snapshot.val().expire + Date.now()
