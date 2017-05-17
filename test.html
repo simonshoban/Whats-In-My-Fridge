@@ -216,16 +216,15 @@
                                         <label for="order-desc">Descending</label>
                                     </fieldset>
                                     <fieldset data-role="controlgroup">
-                                        <fieldset data-role="controlgroup">
-                                            <legend>Change sorting method:</legend>
-                                                
+                                        <legend>Change sorting method:</legend>
+                                            
 
-                                            <input type="radio" name="sort-type" checked id="order-name" value="off">
-                                            <label for="order-name">Alphabetical</label>
-                                            <input type="radio" name="sort-type" id="order-date"
-                                                   value="other">
-                                            <label for="order-date">Expiry Date</label>
-                                        </fieldset>
+                                        <input type="radio" name="sort-type" checked id="order-name" value="off">
+                                        <label for="order-name">Alphabetical</label>
+                                        <input type="radio" name="sort-type" id="order-date"
+                                               value="other">
+                                        <label for="order-date">Expiry Date</label>
+                                    </fieldset>
 
                                 </form>
                             </div>
@@ -568,42 +567,47 @@
                             <br>
                             <form id="fridge-add-form">
                                 <div class="add-item-table">
-                                    <table>
-                                        <tr>
-                                            <td>
-                                                <label id="food-name-label" for="food-name">Name of food<span
-                                                        class="invalid-input-star">*</span></label>
-                                            </td>
-                                            <td>
-                                                <input id="food-name" name="food-name" type="text"/>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <label id="food-group-label" for="food-group">Food group<span
-                                                        class="invalid-input-star">*</span></label>
-                                            </td>
-                                            <td>
-                                                <select id="food-group" name="food-group">
-                                                    <option>----------</option>
-                                                    <option>Produce</option>
-                                                    <option>Dairy</option>
-                                                    <option>Grain</option>
-                                                    <option>Meat</option>
-                                                    <option>Misc</option>
-                                                </select>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <label id="food-expiry-date-label" for="expiry-date">Expiry Date<span
-                                                        class="invalid-input-star">*</span></label>
-                                            </td>
-                                            <td>
-                                                <input id="expiry-date" name="expiry-date" type="text"/>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                    <div class="ui-widget">
+                                        <table>
+
+                                            <tr>
+                                                <td>
+                                                    <label id="food-name-label" for="food-name">Name of food<span
+                                                            class="invalid-input-star">*</span></label>
+                                                </td>
+                                                <td>
+                                                    <input id="food-name" name="food-name" type="text"/>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <label id="food-group-label" for="food-group">Food group<span
+                                                            class="invalid-input-star">*</span></label>
+                                                </td>
+                                                <td>
+                                                    <select id="food-group" name="food-group">
+                                                        <option>----------</option>
+                                                        <option>Produce</option>
+                                                        <option>Dairy</option>
+                                                        <option>Grain</option>
+                                                        <option>Meat</option>
+                                                        <option>Misc</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label id="food-expiry-date-label" for="expiry-date">Expiry
+                                                        Date<span
+                                                                class="invalid-input-star">*</span></label>
+                                                </td>
+                                                <td>
+                                                    <input id="expiry-date" name="expiry-date" readonly type="text"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
                                 </div>
                                 <h3 class="optional-header">Optional</h3>
                                 <hr>
@@ -1735,7 +1739,7 @@
         })
     }
     $("#add-button-fridge").click(function () {
-        if (addItemValidate()){
+        if (addItemValidate()) {
             var uid = firebase.auth().currentUser.uid;
             var name = $("#food-name").val().toLowerCase()
             var type = $("#food-group").val().substr(0, 1).toLowerCase();
@@ -1954,11 +1958,37 @@
 <script>
     $("#expiry-date").datepicker({
         firstDay: 1,
-        minDate:0
+        minDate: 0,
+        beforeShow: function (input, inst) {
+            var cal = inst.dpDiv;
+            var bottom = $("#expiry-date").offset().bottom + $("#expiry-date").outerHeight();
+            var left = $(this).offset().left;
+            setTimeout(function () {
+                cal.css({
+                    'bottom': bottom,
+                    'left': left
+                });
+            }, 10);
+        }
     })
+    var availableTags = []
+    getAvailiableTags();
+    function getAvailiableTags() {
+        return firebase.database().ref('/autocomplete').once('value').then(function (snapshot) {
+            snapshot.forEach(function (snapshot) {
+                availableTags[availableTags.length] = snapshot.key
+            })
+        })
+    }
+
+    $(function () {
+        $("#food-name").autocomplete({
+            source: availableTags
+        })
+    });
     function addItemValidate() {
         var check = true;
-        if ($("#expiry-date").datepicker("getDate") != null ) {
+        if ($("#expiry-date").datepicker("getDate") != null) {
             alert($("#expiry-date").datepicker("getDate").getTime())
             $("#custom-item-popup").popup("close");
             $("#food-expiry-date-label .invalid-input-star").css("display", "none");
