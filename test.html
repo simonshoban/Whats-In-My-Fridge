@@ -316,7 +316,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p id="produce-number">3 Items</p>
+                                <p id="produce-number"></p>
                             </div>
                             <div class="collapsible-container">
                                 <div id="m" data-role="collapsible" class="collapsible" data-inset="true">
@@ -355,7 +355,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p id="meat-number">3 Items</p>
+                                <p id="meat-number"></p>
                             </div>
                             <div class="collapsible-container">
                                 <div id="g" data-role="collapsible" class="collapsible" data-inset="true">
@@ -394,7 +394,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p id="grain-number">3 Items</p>
+                                <p id="grain-number"></p>
                             </div>
                             <div class="collapsible-container">
                                 <div id="d" data-role="collapsible" class="collapsible" data-inset="true">
@@ -433,11 +433,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p id="dairy-number">3 Items</p>
+                                <p id="dairy-number"></p>
                             </div>
                             <div class="collapsible-container">
                                 <div id="o" data-role="collapsible" class="collapsible" data-inset="true">
-                                    <h3>Misc</h3>
+                                    <h3>Other</h3>
                                     <div class="list-item-container">
                                         <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
                                             <img height="50" width="50" src="icons/o.svg">
@@ -472,7 +472,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p id="misc-number">3 Items</p>
+                                <p id="other-number"></p>
                             </div>
                         </div>
                         <div data-role="popup" data-transition="none" data-overlay-theme="b" id="add-popup">
@@ -906,7 +906,7 @@
                                                     <option>Dairy</option>
                                                     <option>Grain</option>
                                                     <option>Meat</option>
-                                                    <option>Misc</option>
+                                                    <option>Other</option>
                                                 </select>
                                             </td>
                                         </tr>
@@ -1641,7 +1641,21 @@
                         var expire = snapshot.val().expire
                         var quantity = snapshot.val().quantity
                         var price = snapshot.val().price
+
+                        if (category == "p") {
+                            pNumber++;
+                        } else if (category == "m") {
+                            mNumber++;
+                        } else if (category == "d") {
+                            dNumber++;
+                        } else if (category == "g") {
+                            gNumber++
+                        } else if (category == "o") {
+                            oNumber++;
+                        }
+
                         var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expire + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
+
 
                         if (!$("#category-flip").prop("checked")) {
                             $("#fridge .item-list").append(element)
@@ -1652,6 +1666,7 @@
                         }
 
                     });
+                    setCollapsibleNumbers()
                 });
             });
         })
@@ -1670,6 +1685,18 @@
                         var quantity = snapshot.val().quantity
                         var price = snapshot.val().price
 
+                        if (category == "p") {
+                            pNumber++;
+                        } else if (category == "m") {
+                            mNumber++;
+                        } else if (category == "d") {
+                            dNumber++;
+                        } else if (category == "g") {
+                            gNumber++
+                        } else if (category == "o") {
+                            oNumber++;
+                        }
+
                         var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expire + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
                         if (!$("#category-flip").prop("checked")) {
                             $("#fridge .item-list").prepend(element)
@@ -1679,6 +1706,7 @@
 
                         }
                     });
+                    setCollapsibleNumbers()
                 });
             });
         })
@@ -1696,6 +1724,18 @@
                         var quantity = snapshot.val().quantity
                         var price = snapshot.val().price
 
+                        if (category == "p") {
+                            pNumber++;
+                        } else if (category == "m") {
+                            mNumber++;
+                        } else if (category == "d") {
+                            dNumber++;
+                        } else if (category == "g") {
+                            gNumber++
+                        } else if (category == "o") {
+                            oNumber++;
+                        }
+
                         var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expire + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
                         if (!$("#category-flip").prop("checked")) {
                             $("#fridge .item-list").append(element)
@@ -1705,6 +1745,7 @@
 
                         }
                     });
+                    setCollapsibleNumbers()
                 });
             });
         })
@@ -1722,6 +1763,18 @@
                         var quantity = snapshot.val().quantity
                         var price = snapshot.val().price
 
+                        if (category == "p") {
+                            pNumber++;
+                        } else if (category == "m") {
+                            mNumber++;
+                        } else if (category == "d") {
+                            dNumber++;
+                        } else if (category == "g") {
+                            gNumber++
+                        } else if (category == "o") {
+                            oNumber++;
+                        }
+
                         var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expire + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
                         if (!$("#category-flip").prop("checked")) {
                             $("#fridge .item-list").prepend(element)
@@ -1731,6 +1784,8 @@
 
                         }
                     });
+                    setCollapsibleNumbers()
+
                 });
             });
         })
@@ -1743,10 +1798,10 @@
             var expires = ($("#expiry-date").datepicker("getDate").getTime())
             var quantity = null
             var price = null
-            if(!isNaN(parseInt($("#item-quantity").val()))){
+            if (!isNaN(parseInt($("#item-quantity").val()))) {
                 quantity = parseInt($("#item-quantity").val())
             }
-            if(!isNaN(parseFloat($("#item-price").val()))){
+            if (!isNaN(parseFloat($("#item-price").val()))) {
                 price = parseFloat($("#item-price").val())
 
             }
@@ -1756,6 +1811,82 @@
         }
     })
 
+
+</script>
+<script>
+    function checkFridge() {
+        return firebase.database().ref('/users/' + uid + "/fridge/").once('value').then(function (snapshot) {
+            if (snapshot.numChildren() === 0) {
+                createFridge(uid);
+            }
+        })
+    }
+    function checkList() {
+        return firebase.database().ref('/users/' + uid + "/list/").once('value').then(function (snapshot) {
+            if (snapshot.numChildren() === 0) {
+                createList(uid);
+            }
+        })
+    }
+
+    function clearFridgeList() {
+        //fridgeRef.off("child_added");
+        $("#fridge .list-item-container").remove()
+    }
+    var pNumber;
+    var mNumber;
+    var gNumber;
+    var dNumber;
+    var oNumber;
+
+    function redrawList() {
+        pNumber = 0;
+        mNumber = 0;
+        gNumber = 0;
+        dNumber = 0;
+        oNumber = 0;
+        clearFridgeList();
+        if (!$("#category-flip").prop("checked")) {
+            $(".collapsible-container").hide()
+        }
+        else {
+            $(".collapsible-container").show()
+        }
+
+        if ($("#order-name").prop("checked")) {
+            if ($("#order-asc").prop("checked")) {
+                getFridgeListByNameAsc()
+            }
+            else {
+                getFridgeListByNameDesc()
+            }
+
+        } else if ($("#order-date").prop("checked")) {
+            if ($("#order-asc").prop("checked")) {
+                getFridgeListByDateAsc()
+            }
+            else {
+                getFridgeListByDateDesc()
+            }
+        }
+
+    }
+    function setCollapsibleNumbers(){
+        $("#produce-number").html(pNumber + " items")
+        $("#meat-number").html(mNumber + " items")
+        $("#grain-number").html(gNumber + " items")
+        $("#dairy-number").html(dNumber + " items")
+        $("#other-number").html(oNumber + " items")
+    }
+
+    $("input:radio").change(function () {
+            redrawList()
+        }
+    )
+    $("input:checkbox").change(function () {
+            redrawList()
+        }
+    )
 
 </script>
 <script>
@@ -1903,63 +2034,6 @@
 
 </script>
 <script>
-    function checkFridge() {
-        return firebase.database().ref('/users/' + uid + "/fridge/").once('value').then(function (snapshot) {
-            if (snapshot.numChildren() === 0) {
-                createFridge(uid);
-            }
-        })
-    }
-    function checkList() {
-        return firebase.database().ref('/users/' + uid + "/list/").once('value').then(function (snapshot) {
-            if (snapshot.numChildren() === 0) {
-                createList(uid);
-            }
-        })
-    }
-
-    function clearFridgeList() {
-        //fridgeRef.off("child_added");
-        $(".list-item-container").remove()
-    }
-    function redrawList() {
-        clearFridgeList();
-        if (!$("#category-flip").prop("checked")) {
-            $(".collapsible-container").hide()
-        }
-        else {
-            $(".collapsible-container").show()
-        }
-
-        if ($("#order-name").prop("checked")) {
-            if ($("#order-asc").prop("checked")) {
-                getFridgeListByNameAsc()
-            }
-            else {
-                getFridgeListByNameDesc()
-            }
-
-        } else if ($("#order-date").prop("checked")) {
-            if ($("#order-asc").prop("checked")) {
-                getFridgeListByDateAsc()
-            }
-            else {
-                getFridgeListByDateDesc()
-            }
-        }
-
-    }
-    $("input:radio").change(function () {
-            redrawList()
-        }
-    )
-    $("input:checkbox").change(function () {
-            redrawList()
-        }
-    )
-
-</script>
-<script>
     $("#expiry-date").datepicker({
         firstDay: 1,
         minDate: 0,
@@ -2038,7 +2112,7 @@
             if (snapshot.hasChild("foodGroup")) {
                 var expireDay = snapshot.val().expire + Date.now()
                 $("#food-group").val(snapshot.val().foodGroup).selectmenu("refresh")
-                $("#expiry-date").val(new Date(expireDay).toISOString().substr(0,10))
+                $("#expiry-date").val(new Date(expireDay).toISOString().substr(0, 10))
 
             }
         })
@@ -2048,12 +2122,47 @@
             if (snapshot.hasChild("foodGroup")) {
                 var expireDay = snapshot.val().expire + Date.now()
                 $("#food-group").val(snapshot.val().foodGroup).selectmenu("refresh")
-                $("#expiry-date").val(new Date(expireDay).toISOString().substr(0,10))
+                $("#expiry-date").val(new Date(expireDay).toISOString().substr(0, 10))
 
             }
         })
     })
 
+    $("#produce-number").click(function () {
+        if ($("#p").hasClass("ui-collapsible-collapsed")) {
+            $("#p").collapsible("expand")
+        } else {
+            $("#p").collapsible("collapse")
+        }
+    })
+    $("#meat-number").click(function () {
+        if ($("#m").hasClass("ui-collapsible-collapsed")) {
+            $("#m").collapsible("expand")
+        } else {
+            $("#m").collapsible("collapse")
+        }
+    })
+    $("#dairy-number").click(function () {
+        if ($("#d").hasClass("ui-collapsible-collapsed")) {
+            $("#d").collapsible("expand")
+        } else {
+            $("#d").collapsible("collapse")
+        }
+    })
+    $("#grain-number").click(function () {
+        if ($("#g").hasClass("ui-collapsible-collapsed")) {
+            $("#g").collapsible("expand")
+        } else {
+            $("#g").collapsible("collapse")
+        }
+    })
+    $("#other-number").click(function () {
+        if ($("#o").hasClass("ui-collapsible-collapsed")) {
+            $("#o").collapsible("expand")
+        } else {
+            $("#o").collapsible("collapse")
+        }
+    })
 </script>
 </body>
 </html>
