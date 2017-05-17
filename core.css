@@ -348,13 +348,19 @@ h3 {
 }
 
 .small-circle {
-    background-color: #dd4146;
     border-radius: 50%;
     height: 12px;
     width: 12px;
     position: absolute;
     right: 8px;
     top: 8px;
+}
+.red-circle{
+    background-color: #dd4146;
+}
+.yellow-circle{
+    background-color: #fff552;
+
 }
 
 .item-list .item-expires {
