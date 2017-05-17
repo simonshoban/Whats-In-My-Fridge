@@ -216,16 +216,15 @@
                                         <label for="order-desc">Descending</label>
                                     </fieldset>
                                     <fieldset data-role="controlgroup">
-                                        <fieldset data-role="controlgroup">
-                                            <legend>Change sorting method:</legend>
-                                                
+                                        <legend>Change sorting method:</legend>
+                                            
 
-                                            <input type="radio" name="sort-type" checked id="order-name" value="off">
-                                            <label for="order-name">Alphabetical</label>
-                                            <input type="radio" name="sort-type" id="order-date"
-                                                   value="other">
-                                            <label for="order-date">Expiry Date</label>
-                                        </fieldset>
+                                        <input type="radio" name="sort-type" checked id="order-name" value="off">
+                                        <label for="order-name">Alphabetical</label>
+                                        <input type="radio" name="sort-type" id="order-date"
+                                               value="other">
+                                        <label for="order-date">Expiry Date</label>
+                                    </fieldset>
 
                                 </form>
                             </div>
@@ -251,26 +250,22 @@
                                             <table>
                                                 <tr>
                                                     <td>Purchase Date:</td>
-                                                    <td>April 26, 2017</td>
+                                                    <td id="item-popup-purchase-fridge">April 26, 2017</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Quantity</td>
-                                                    <td>1</td>
+                                                    <td>Quantity:</td>
+                                                    <td id="item-popup-quantity-fridge"></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Value of items</td>
-                                                    <td>$0.93</td>
+                                                    <td>Price:</td>
+                                                    <td id="item-popup-price-fridge"></td>
                                                 </tr>
                                             </table>
                                         </div>
                                     </div>
                                     <div class="ui-body-d ui-content" id="storage">
-                                        <br/>
-                                        best stored in stomach
                                     </div>
                                     <div class="ui-body-d ui-content" id="expired">
-                                        <br/>
-                                        if its red then its dead, if its brown scarf it down
                                     </div>
                                 </div>
                                 <div class="item-button-container">
@@ -283,197 +278,36 @@
                             <div class="collapsible-container">
                                 <div id="p" data-role="collapsible" class="collapsible" data-inset="true">
                                     <h3>Produce</h3>
-                                    <div class="list-item-container">
-                                        <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
-                                            <img height="50" width="50" src="icons/p.svg">
-                                            <p class="item-name">Apple Apr-26</p>
-                                            <p class="item-expires">Expires in 3 days</p>
-                                            <div class="small-circle"></div>
-                                        </a>
-                                        <div class="list-item-back">
-                                            behind
-                                        </div>
-                                    </div>
-                                    <div class="list-item-container">
-                                        <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
-                                            <img height="50" width="50" src="icons/p.svg">
-                                            <p class="item-name">Apple Apr-26</p>
-                                            <p class="item-expires">Expires in 3 days</p>
-                                            <div class="small-circle"></div>
-                                        </a>
-                                        <div class="list-item-back">
-                                            behind
-                                        </div>
-                                    </div>
-                                    <div class="list-item-container">
-                                        <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
-                                            <img height="50" width="50" src="icons/p.svg">
-                                            <p class="item-name">Apple Apr-26</p>
-                                            <p class="item-expires">Expires in 3 days</p>
-                                            <div class="small-circle"></div>
-                                        </a>
-                                        <div class="list-item-back">
-                                            behind
-                                        </div>
-                                    </div>
+
                                 </div>
-                                <p id="produce-number">3 Items</p>
+                                <p id="produce-number"></p>
                             </div>
                             <div class="collapsible-container">
                                 <div id="m" data-role="collapsible" class="collapsible" data-inset="true">
                                     <h3>Meat</h3>
-                                    <div class="list-item-container">
-                                        <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
-                                            <img height="50" width="50" src="icons/m.svg">
-                                            <p class="item-name">Apple Apr-26</p>
-                                            <p class="item-expires">Expires in 3 days</p>
-                                            <div class="small-circle"></div>
-                                        </a>
-                                        <div class="list-item-back">
-                                            behind
-                                        </div>
-                                    </div>
-                                    <div class="list-item-container">
-                                        <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
-                                            <img height="50" width="50" src="icons/m.svg">
-                                            <p class="item-name">Apple Apr-26</p>
-                                            <p class="item-expires">Expires in 3 days</p>
-                                            <div class="small-circle"></div>
-                                        </a>
-                                        <div class="list-item-back">
-                                            behind
-                                        </div>
-                                    </div>
-                                    <div class="list-item-container">
-                                        <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
-                                            <img height="50" width="50" src="icons/m.svg">
-                                            <p class="item-name">Apple Apr-26</p>
-                                            <p class="item-expires">Expires in 3 days</p>
-                                            <div class="small-circle"></div>
-                                        </a>
-                                        <div class="list-item-back">
-                                            behind
-                                        </div>
-                                    </div>
+
                                 </div>
-                                <p id="meat-number">3 Items</p>
+                                <p id="meat-number"></p>
                             </div>
                             <div class="collapsible-container">
                                 <div id="g" data-role="collapsible" class="collapsible" data-inset="true">
                                     <h3>Grains</h3>
-                                    <div class="list-item-container">
-                                        <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
-                                            <img height="50" width="50" src="icons/g.svg">
-                                            <p class="item-name">Apple Apr-26</p>
-                                            <p class="item-expires">Expires in 3 days</p>
-                                            <div class="small-circle"></div>
-                                        </a>
-                                        <div class="list-item-back">
-                                            behind
-                                        </div>
-                                    </div>
-                                    <div class="list-item-container">
-                                        <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
-                                            <img height="50" width="50" src="icons/g.svg">
-                                            <p class="item-name">Apple Apr-26</p>
-                                            <p class="item-expires">Expires in 3 days</p>
-                                            <div class="small-circle"></div>
-                                        </a>
-                                        <div class="list-item-back">
-                                            behind
-                                        </div>
-                                    </div>
-                                    <div class="list-item-container">
-                                        <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
-                                            <img height="50" width="50" src="icons/g.svg">
-                                            <p class="item-name">Apple Apr-26</p>
-                                            <p class="item-expires">Expires in 3 days</p>
-                                            <div class="small-circle"></div>
-                                        </a>
-                                        <div class="list-item-back">
-                                            behind
-                                        </div>
-                                    </div>
+
                                 </div>
-                                <p id="grain-number">3 Items</p>
+                                <p id="grain-number"></p>
                             </div>
                             <div class="collapsible-container">
                                 <div id="d" data-role="collapsible" class="collapsible" data-inset="true">
                                     <h3>Dairy</h3>
-                                    <div class="list-item-container">
-                                        <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
-                                            <img height="50" width="50" src="icons/d.svg">
-                                            <p class="item-name">Apple Apr-26</p>
-                                            <p class="item-expires">Expires in 3 days</p>
-                                            <div class="small-circle"></div>
-                                        </a>
-                                        <div class="list-item-back">
-                                            behind
-                                        </div>
-                                    </div>
-                                    <div class="list-item-container">
-                                        <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
-                                            <img height="50" width="50" src="icons/d.svg">
-                                            <p class="item-name">Apple Apr-26</p>
-                                            <p class="item-expires">Expires in 3 days</p>
-                                            <div class="small-circle"></div>
-                                        </a>
-                                        <div class="list-item-back">
-                                            behind
-                                        </div>
-                                    </div>
-                                    <div class="list-item-container">
-                                        <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
-                                            <img height="50" width="50" src="icons/d.svg">
-                                            <p class="item-name">Apple Apr-26</p>
-                                            <p class="item-expires">Expires in 3 days</p>
-                                            <div class="small-circle"></div>
-                                        </a>
-                                        <div class="list-item-back">
-                                            behind
-                                        </div>
-                                    </div>
+
                                 </div>
-                                <p id="dairy-number">3 Items</p>
+                                <p id="dairy-number"></p>
                             </div>
                             <div class="collapsible-container">
                                 <div id="o" data-role="collapsible" class="collapsible" data-inset="true">
-                                    <h3>Misc</h3>
-                                    <div class="list-item-container">
-                                        <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
-                                            <img height="50" width="50" src="icons/o.svg">
-                                            <p class="item-name">Apple Apr-26</p>
-                                            <p class="item-expires">Expires in 3 days</p>
-                                            <div class="small-circle"></div>
-                                        </a>
-                                        <div class="list-item-back">
-                                            behind
-                                        </div>
-                                    </div>
-                                    <div class="list-item-container">
-                                        <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
-                                            <img height="50" width="50" src="icons/o.svg">
-                                            <p class="item-name">Apple Apr-26</p>
-                                            <p class="item-expires">Expires in 3 days</p>
-                                            <div class="small-circle"></div>
-                                        </a>
-                                        <div class="list-item-back">
-                                            behind
-                                        </div>
-                                    </div>
-                                    <div class="list-item-container">
-                                        <a href="#item-popup" data-rel="popup" class="list-item ui-btn fridge-item">
-                                            <img height="50" width="50" src="icons/o.svg">
-                                            <p class="item-name">Apple Apr-26</p>
-                                            <p class="item-expires">Expires in 3 days</p>
-                                            <div class="small-circle"></div>
-                                        </a>
-                                        <div class="list-item-back">
-                                            behind
-                                        </div>
-                                    </div>
+                                    <h3>Other</h3>
                                 </div>
-                                <p id="misc-number">3 Items</p>
+                                <p id="other-number"></p>
                             </div>
                         </div>
                         <div data-role="popup" data-transition="none" data-overlay-theme="b" id="add-popup">
@@ -569,6 +403,7 @@
                             <form id="fridge-add-form">
                                 <div class="add-item-table">
                                     <table>
+
                                         <tr>
                                             <td>
                                                 <label id="food-name-label" for="food-name">Name of food<span
@@ -578,6 +413,7 @@
                                                 <input id="food-name" name="food-name" type="text"/>
                                             </td>
                                         </tr>
+
                                         <tr>
                                             <td>
                                                 <label id="food-group-label" for="food-group">Food group<span
@@ -585,22 +421,23 @@
                                             </td>
                                             <td>
                                                 <select id="food-group" name="food-group">
-                                                    <option>----------</option>
-                                                    <option>Produce</option>
-                                                    <option>Dairy</option>
-                                                    <option>Grain</option>
-                                                    <option>Meat</option>
-                                                    <option>Misc</option>
+                                                    <option id="option-none">----------</option>
+                                                    <option id="option-produce">produce</option>
+                                                    <option id="option-dairy">dairy</option>
+                                                    <option id="option-grain">grain</option>
+                                                    <option id="option-meat">meat</option>
+                                                    <option id="option-other">other</option>
                                                 </select>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <label id="food-expiry-date-label" for="expiry-date">Expiry Date<span
-                                                        class="invalid-input-star">*</span></label>
+                                                <label id="food-expiry-date-label" for="expiry-date">Expiry
+                                                    Date<span
+                                                            class="invalid-input-star">*</span></label>
                                             </td>
                                             <td>
-                                                <input id="expiry-date" name="expiry-date" type="text"/>
+                                                <input id="expiry-date" name="expiry-date" readonly type="text"/>
                                             </td>
                                         </tr>
                                     </table>
@@ -904,7 +741,7 @@
                                                     <option>Dairy</option>
                                                     <option>Grain</option>
                                                     <option>Meat</option>
-                                                    <option>Misc</option>
+                                                    <option>Other</option>
                                                 </select>
                                             </td>
                                         </tr>
@@ -1423,7 +1260,8 @@
     /**************Fridge*************/
 
     //Sets overview tab as default tab and highlights tab
-    $(".fridge-item").click(function () {
+
+    $(document).on("click", ".fridge-item", function () {
         $("#overview").show();
         $("#overviewTab").click();
     });
@@ -1657,11 +1495,12 @@
             var newItemKey = firebase.database().ref().child('fridge/' + fridgeId).push().key;
             var updates = {};
             updates['/fridge/' + fridgeId + "/" + newItemKey] = itemData;
-
             return firebase.database().ref().update(updates);
         });
 
     }
+
+    var msPerDay = 86400000
 
     function getFridgeListByDateAsc() {
         return firebase.database().ref('/users/' + uid + "/fridge/").once('value').then(function (snapshot) {
@@ -1672,11 +1511,45 @@
                         var key = snapshot.key;
                         var name = snapshot.val().name
                         var category = snapshot.val().category
-                        var expire = snapshot.val().expire
+                        var expire = Math.floor((snapshot.val().expire - Date.now()) / msPerDay)
                         var quantity = snapshot.val().quantity
                         var price = snapshot.val().price
-                        var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expire + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
+                        var expireText
+                        var circle
 
+                        if (expire > 1) {
+                            expireText = "Expires in " + expire + " days";
+                        } else if (expire < -1) {
+                            expireText = "Expired " + expire + " days ago"
+                        } else if (expire = 0) {
+                            expireText = "Expires today"
+                        } else if (expire = 1) {
+                            expireText = "Expires in " + expire + " day";
+                        } else if (expire = -1) {
+                            expireText = "Expired " + expire + " day ago"
+                        }
+
+                        if (expire <= 3) {
+                            circle = "red-circle"
+                        } else if (expire <= 5) {
+                            circle = "yellow-circle"
+                        } else {
+                            circle = "no-circle"
+                        }
+
+                        if (category === "p") {
+                            pNumber++;
+                        } else if (category === "m") {
+                            mNumber++;
+                        } else if (category === "d") {
+                            dNumber++;
+                        } else if (category === "g") {
+                            gNumber++
+                        } else if (category === "o") {
+                            oNumber++;
+                        }
+
+                        var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#' onclick='openItemPopup(this)' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
                         if (!$("#category-flip").prop("checked")) {
                             $("#fridge .item-list").append(element)
                         }
@@ -1686,6 +1559,7 @@
                         }
 
                     });
+                    setCollapsibleNumbers()
                 });
             });
         })
@@ -1700,11 +1574,46 @@
                         var key = snapshot.key;
                         var name = snapshot.val().name
                         var category = snapshot.val().category
-                        var expire = snapshot.val().expire
+                        var expire = Math.floor((snapshot.val().expire - Date.now()) / msPerDay)
                         var quantity = snapshot.val().quantity
                         var price = snapshot.val().price
+                        var expireText
+                        var circle
 
-                        var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expire + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
+
+                        if (expire > 1) {
+                            expireText = "Expires in " + expire + " days";
+                        } else if (expire < -1) {
+                            expireText = "Expired " + expire + " days ago"
+                        } else if (expire = 0) {
+                            expireText = "Expires today"
+                        } else if (expire = 1) {
+                            expireText = "Expires in " + expire + " day";
+                        } else if (expire = -1) {
+                            expireText = "Expired " + expire + " day ago"
+                        }
+
+                        if (expire <= 3) {
+                            circle = "red-circle"
+                        } else if (expire <= 5) {
+                            circle = "yellow-circle"
+                        } else {
+                            circle = "no-circle"
+                        }
+
+                        if (category === "p") {
+                            pNumber++;
+                        } else if (category === "m") {
+                            mNumber++;
+                        } else if (category === "d") {
+                            dNumber++;
+                        } else if (category === "g") {
+                            gNumber++
+                        } else if (category === "o") {
+                            oNumber++;
+                        }
+
+                        var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#' onclick='openItemPopup(this)' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
                         if (!$("#category-flip").prop("checked")) {
                             $("#fridge .item-list").prepend(element)
                         }
@@ -1713,6 +1622,7 @@
 
                         }
                     });
+                    setCollapsibleNumbers()
                 });
             });
         })
@@ -1726,11 +1636,45 @@
                         var key = snapshot.key;
                         var name = snapshot.val().name
                         var category = snapshot.val().category
-                        var expire = snapshot.val().expire
+                        var expire = Math.floor((snapshot.val().expire - Date.now()) / msPerDay)
                         var quantity = snapshot.val().quantity
                         var price = snapshot.val().price
+                        var expireText
+                        var circle
 
-                        var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expire + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
+                        if (expire > 1) {
+                            expireText = "Expires in " + expire + " days";
+                        } else if (expire < -1) {
+                            expireText = "Expired " + expire + " days ago"
+                        } else if (expire = 0) {
+                            expireText = "Expires today"
+                        } else if (expire = 1) {
+                            expireText = "Expires in " + expire + " day";
+                        } else if (expire = -1) {
+                            expireText = "Expired " + expire + " day ago"
+                        }
+
+                        if (expire <= 3) {
+                            circle = "red-circle"
+                        } else if (expire <= 5) {
+                            circle = "yellow-circle"
+                        } else {
+                            circle = "no-circle"
+                        }
+
+                        if (category === "p") {
+                            pNumber++;
+                        } else if (category === "m") {
+                            mNumber++;
+                        } else if (category === "d") {
+                            dNumber++;
+                        } else if (category === "g") {
+                            gNumber++
+                        } else if (category === "o") {
+                            oNumber++;
+                        }
+
+                        var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
                         if (!$("#category-flip").prop("checked")) {
                             $("#fridge .item-list").append(element)
                         }
@@ -1739,6 +1683,7 @@
 
                         }
                     });
+                    setCollapsibleNumbers()
                 });
             });
         })
@@ -1752,11 +1697,45 @@
                         var key = snapshot.key;
                         var name = snapshot.val().name
                         var category = snapshot.val().category
-                        var expire = snapshot.val().expire
+                        var expire = Math.floor((snapshot.val().expire - Date.now()) / msPerDay)
                         var quantity = snapshot.val().quantity
                         var price = snapshot.val().price
+                        var expireText
+                        var circle
 
-                        var element = "<div class='list-item-container'> <a href='#" + key + "' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expire + "</p> <div class='small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
+                        if (expire > 1) {
+                            expireText = "Expires in " + expire + " days";
+                        } else if (expire < -1) {
+                            expireText = "Expired " + expire + " days ago"
+                        } else if (expire = 0) {
+                            expireText = "Expires today"
+                        } else if (expire = 1) {
+                            expireText = "Expires in " + expire + " day";
+                        } else if (expire = -1) {
+                            expireText = "Expired " + expire + " day ago"
+                        }
+
+                        if (expire <= 3) {
+                            circle = "red-circle"
+                        } else if (expire <= 5) {
+                            circle = "yellow-circle"
+                        } else {
+                            circle = "no-circle"
+                        }
+
+                        if (category === "p") {
+                            pNumber++;
+                        } else if (category === "m") {
+                            mNumber++;
+                        } else if (category === "d") {
+                            dNumber++;
+                        } else if (category === "g") {
+                            gNumber++
+                        } else if (category === "o") {
+                            oNumber++;
+                        }
+
+                        var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#' onclick='openItemPopup(this)' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
                         if (!$("#category-flip").prop("checked")) {
                             $("#fridge .item-list").prepend(element)
                         }
@@ -1765,24 +1744,109 @@
 
                         }
                     });
+                    setCollapsibleNumbers()
+
                 });
             });
         })
     }
     $("#add-button-fridge").click(function () {
-        if (addItemValidate()){
+        if (addItemValidate()) {
             var uid = firebase.auth().currentUser.uid;
             var name = $("#food-name").val().toLowerCase()
             var type = $("#food-group").val().substr(0, 1).toLowerCase();
             var expires = ($("#expiry-date").datepicker("getDate").getTime())
-            var quantity = parseInt($("#item-quantity").val())
-            var price = parseInt($("#item-price").val())
+            var quantity = null
+            var price = null
+            if (!isNaN(parseInt($("#item-quantity").val()))) {
+                quantity = parseInt($("#item-quantity").val())
+            }
+            if (!isNaN(parseFloat($("#item-price").val()))) {
+                price = parseFloat($("#item-price").val())
+
+            }
             $("#fridge-add-form").trigger("reset");
             addFridgeItem(uid, name, expires, type, quantity, price)
             redrawList()
         }
     })
 
+
+</script>
+<script>
+    function checkFridge() {
+        return firebase.database().ref('/users/' + uid + "/fridge/").once('value').then(function (snapshot) {
+            if (snapshot.numChildren() === 0) {
+                createFridge(uid);
+            }
+        })
+    }
+    function checkList() {
+        return firebase.database().ref('/users/' + uid + "/list/").once('value').then(function (snapshot) {
+            if (snapshot.numChildren() === 0) {
+                createList(uid);
+            }
+        })
+    }
+
+    function clearFridgeList() {
+        //fridgeRef.off("child_added");
+        $("#fridge .list-item-container").remove()
+    }
+    var pNumber;
+    var mNumber;
+    var gNumber;
+    var dNumber;
+    var oNumber;
+
+    function redrawList() {
+        pNumber = 0;
+        mNumber = 0;
+        gNumber = 0;
+        dNumber = 0;
+        oNumber = 0;
+        clearFridgeList();
+        if (!$("#category-flip").prop("checked")) {
+            $(".collapsible-container").hide()
+        }
+        else {
+            $(".collapsible-container").show()
+        }
+
+        if ($("#order-name").prop("checked")) {
+            if ($("#order-asc").prop("checked")) {
+                getFridgeListByNameAsc()
+            }
+            else {
+                getFridgeListByNameDesc()
+            }
+
+        } else if ($("#order-date").prop("checked")) {
+            if ($("#order-asc").prop("checked")) {
+                getFridgeListByDateAsc()
+            }
+            else {
+                getFridgeListByDateDesc()
+            }
+        }
+
+    }
+    function setCollapsibleNumbers() {
+        $("#produce-number").html(pNumber + " items")
+        $("#meat-number").html(mNumber + " items")
+        $("#grain-number").html(gNumber + " items")
+        $("#dairy-number").html(dNumber + " items")
+        $("#other-number").html(oNumber + " items")
+    }
+
+    $("input:radio").change(function () {
+            redrawList()
+        }
+    )
+    $("input:checkbox").change(function () {
+            redrawList()
+        }
+    )
 
 </script>
 <script>
@@ -1930,74 +1994,42 @@
 
 </script>
 <script>
-    function checkFridge() {
-        return firebase.database().ref('/users/' + uid + "/fridge/").once('value').then(function (snapshot) {
-            if (snapshot.numChildren() === 0) {
-                createFridge(uid);
-            }
-        })
-    }
-    function checkList() {
-        return firebase.database().ref('/users/' + uid + "/list/").once('value').then(function (snapshot) {
-            if (snapshot.numChildren() === 0) {
-                createList(uid);
-            }
-        })
-    }
-
-    function clearFridgeList() {
-        //fridgeRef.off("child_added");
-        $(".list-item-container").remove()
-    }
-    function redrawList() {
-        clearFridgeList();
-        if (!$("#category-flip").prop("checked")) {
-            $(".collapsible-container").hide()
-        }
-        else {
-            $(".collapsible-container").show()
-        }
-
-        if ($("#order-name").prop("checked")) {
-            if ($("#order-asc").prop("checked")) {
-                getFridgeListByNameAsc()
-            }
-            else {
-                getFridgeListByNameDesc()
-            }
-
-        } else if ($("#order-date").prop("checked")) {
-            if ($("#order-asc").prop("checked")) {
-                getFridgeListByDateAsc()
-            }
-            else {
-                getFridgeListByDateDesc()
-            }
-        }
-
-    }
-    $("input:radio").change(function () {
-            redrawList()
-        }
-    )
-    $("input:checkbox").change(function () {
-            redrawList()
-        }
-    )
-
-</script>
-<script>
     $("#expiry-date").datepicker({
         firstDay: 1,
-        minDate:0
+        minDate: 0,
+        dateFormat: "yy-mm-dd",
+        beforeShow: function (input, inst) {
+            var cal = inst.dpDiv;
+            var bottom = $("#expiry-date").offset().bottom + $("#expiry-date").outerHeight();
+            var left = $(this).offset().left;
+            setTimeout(function () {
+                cal.css({
+                    'bottom': bottom,
+                    'left': left
+                });
+            }, 10);
+        }
     })
+    var availableTags = []
+    getAvailiableTags();
+    function getAvailiableTags() {
+        return firebase.database().ref('/autocomplete').once('value').then(function (snapshot) {
+            snapshot.forEach(function (snapshot) {
+                availableTags[availableTags.length] = snapshot.key
+            })
+        })
+    }
+
+    $(function () {
+        $("#food-name").autocomplete({
+            source: availableTags
+        })
+    });
     function addItemValidate() {
         var check = true;
-        if ($("#expiry-date").datepicker("getDate") != null ) {
-            alert($("#expiry-date").datepicker("getDate").getTime())
+        if ($("#expiry-date").datepicker("getDate") != null) {
             $("#custom-item-popup").popup("close");
             $("#food-expiry-date-label .invalid-input-star").css("display", "none");
-
         }
         else {
             $("#food-expiry-date-label .invalid-input-star").css("display", "inline");
@@ -2005,7 +2037,6 @@
         }
         if ($("#food-group").val() !== "----------") {
             $("#food-group-label .invalid-input-star").css("display", "none");
-
         }
         else {
             $("#food-group-label .invalid-input-star").css("display", "inline");
@@ -2013,7 +2044,6 @@
         }
         if ($("#food-name").val() !== "") {
             $("#food-name-label .invalid-input-star").css("display", "none");
-
         }
         else {
             $("#food-name-label .invalid-input-star").css("display", "inline");
@@ -2021,7 +2051,6 @@
         }
         if ($("#item-price").val() == "" || !isNaN(parseInt($("#item-price").val()))) {
             $("#item-price-label .invalid-input-star").css("display", "none");
-
         }
         else {
             $("#item-price-label .invalid-input-star").css("display", "inline");
@@ -2029,7 +2058,6 @@
         }
         if ($("#item-quantity").val() == "" || !isNaN(parseFloat($("#item-quantity").val()))) {
             $("#item-quantity-label .invalid-input-star").css("display", "none");
-
         }
         else {
             $("#item-quantity-label .invalid-input-star").css("display", "inline");
@@ -2038,6 +2066,138 @@
         return check;
     }
 </script>
+<script>
+    $("#food-name").on("focusout", function () {
+        return firebase.database().ref('/autofill/' + $("#food-name").val().toLowerCase()).once('value').then(function (snapshot) {
+            if (snapshot.hasChild("foodGroup")) {
+                var expireDay = snapshot.val().expire + Date.now()
+                $("#food-group").val(snapshot.val().foodGroup).selectmenu("refresh")
+                $("#expiry-date").val(new Date(expireDay).toISOString().substr(0, 10))
 
+            }
+        })
+    })
+    $("*").on("autocompleteclose", function () {
+        return firebase.database().ref('/autofill/' + $("#food-name").val().toLowerCase()).once('value').then(function (snapshot) {
+            if (snapshot.hasChild("foodGroup")) {
+                var expireDay = snapshot.val().expire + Date.now()
+                $("#food-group").val(snapshot.val().foodGroup).selectmenu("refresh")
+                $("#expiry-date").val(new Date(expireDay).toISOString().substr(0, 10))
+
+            }
+        })
+    })
+
+    $("#produce-number").click(function () {
+        if ($("#p").hasClass("ui-collapsible-collapsed")) {
+            $("#p").collapsible("expand")
+        } else {
+            $("#p").collapsible("collapse")
+        }
+    })
+    $("#meat-number").click(function () {
+        if ($("#m").hasClass("ui-collapsible-collapsed")) {
+            $("#m").collapsible("expand")
+        } else {
+            $("#m").collapsible("collapse")
+        }
+    })
+    $("#dairy-number").click(function () {
+        if ($("#d").hasClass("ui-collapsible-collapsed")) {
+            $("#d").collapsible("expand")
+        } else {
+            $("#d").collapsible("collapse")
+        }
+    })
+    $("#grain-number").click(function () {
+        if ($("#g").hasClass("ui-collapsible-collapsed")) {
+            $("#g").collapsible("expand")
+        } else {
+            $("#g").collapsible("collapse")
+        }
+    })
+    $("#other-number").click(function () {
+        if ($("#o").hasClass("ui-collapsible-collapsed")) {
+            $("#o").collapsible("expand")
+        } else {
+            $("#o").collapsible("collapse")
+        }
+    })
+
+    function openItemPopup(event) {
+        $("#item-popup").popup("open")
+        return firebase.database().ref('/users/' + uid + "/fridge/").once('child_added').then(function (snapshot) {
+            var fridgeId = snapshot.key;
+            return firebase.database().ref('/fridge/' + fridgeId + "/" + event.target.attr("data-key")).once('value').then(function (snapshot) {
+                console.log(snapshot.key)
+                $("#item-popup .item-popup-expires").html("")
+            })
+        })
+    }
+    $(document).on("click", ".list-item", function () {
+        var item = $(this)
+
+        return firebase.database().ref('/users/' + uid + "/fridge/").once('child_added').then(function (snapshot) {
+            var fridgeId = snapshot.key;
+            return firebase.database().ref('/fridge/' + fridgeId + "/" + item.attr("data-key")).once('value').then(function (snapshot) {
+                var name = snapshot.val().name
+                var date = snapshot.val().date
+                var quantity = snapshot.val().quantity
+                var price = snapshot.val().price
+                $(".item-popup-name").html(name)
+                $("#item-popup .item-popup-expires").html("Purchased: " + new Date(date).toDateString())
+                $("#item-popup-purchase-fridge").html(new Date(date).toDateString())
+                if (snapshot.hasChild("quantity")) {
+                    $("#item-popup-quantity-fridge").html(quantity)
+                }
+                if (snapshot.hasChild("price")) {
+                    $("#item-popup-price-fridge").html("$" + price)
+                }
+                $("#storage").html("")
+                $("#expired").html("")
+                return firebase.database().ref('/info/' + name).once('value').then(function (snapshot) {
+                    if (snapshot.val() != null) {
+                        fillExpiredInfo(name);
+                        fillStorageInfo(name);
+                        $("#item-popup").popup("open")
+
+                    } else {
+                        $("#item-popup").popup("open")
+
+                    }
+                })
+
+            })
+        })
+    });
+    function fillExpiredInfo(name){
+        return firebase.database().ref('/info/' + name + '/expire/').orderByValue().once('value').then(function (snapshot) {
+            snapshot.forEach(function(snapshot)
+            {
+                getExpiredInfo(snapshot.key)
+            })
+        })
+
+    }
+    function fillStorageInfo(name){
+        return firebase.database().ref('/info/' + name + '/storage/').orderByValue().once('value').then(function (snapshot) {
+            snapshot.forEach(function(snapshot)
+            {
+                getStorageInfo(snapshot.key)
+            })
+        })
+
+    }
+    function getExpiredInfo(expireKey){
+        return firebase.database().ref('/expireInfo/' + expireKey).orderByValue().once('value').then(function (snapshot) {
+            $("#expired").html($("#expired").html() + "<p>" + snapshot.val() + "</p>")
+        })
+    }
+    function getStorageInfo(storageKey){
+        return firebase.database().ref('/storageInfo/' + storageKey).orderByValue().once('value').then(function (snapshot) {
+            $("#storage").html($("#storage").html() + "<p>" + snapshot.val() + "</p>")
+        })
+    }
+</script>
 </body>
 </html>
