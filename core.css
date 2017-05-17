@@ -691,9 +691,9 @@ h3 {
     text-transform: capitalize;
 }
 .ui-datepicker {
-    left: calc(50% - 180px) !important;
-    font-size:1.3em !important;
-    top: calc(50% - 140px) !important;
+    left: calc(50% - 154px) !important;
+    font-size:1.1em !important;
+    top: calc(50% - 121px) !important;
 }
 #food-group-button{
     text-transform: capitalize;
