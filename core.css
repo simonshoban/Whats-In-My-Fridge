@@ -526,6 +526,9 @@ h3 {
     text-align: center;
     font-size: 2.2em;
     color: #495655;
+    text-transform: capitalize;
+
+
 }
 
 .item-popup-expires {
