@@ -685,6 +685,15 @@ h3 {
     font-size:1.3em !important;
     top: calc(50% - 140px) !important;
 }
+#food-group-button{
+    text-transform: capitalize;
+}
+#food-group{
+    text-transform: capitalize;
+}
+.ui-menu-item-wrapper{
+
+}
 /* ------------------------ Shared Fridge and List End ------------------------ */
 
 /* ------------------------ Settings Page ------------------------ */
