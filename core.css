@@ -315,14 +315,16 @@ h3 {
 .invalid-input-star{
     display: none;
     color: red;
+    font-size:x-large;
 }
 
-#produce-number, #meat-number, #grain-number, #dairy-number, #misc-number {
+#produce-number, #meat-number, #grain-number, #dairy-number, #other-number {
     position: absolute;
     top: 30px;
     right: 35px;
     margin: 0;
     color: grey;
+    cursor:pointer ;
 }
 
 #override .ui-collapsible-content {
@@ -346,13 +348,19 @@ h3 {
 }
 
 .small-circle {
-    background-color: #dd4146;
     border-radius: 50%;
     height: 12px;
     width: 12px;
     position: absolute;
     right: 8px;
     top: 8px;
+}
+.red-circle{
+    background-color: #dd4146;
+}
+.yellow-circle{
+    background-color: #fff552;
+
 }
 
 .item-list .item-expires {
@@ -518,6 +526,9 @@ h3 {
     text-align: center;
     font-size: 2.2em;
     color: #495655;
+    text-transform: capitalize;
+
+
 }
 
 .item-popup-expires {
@@ -675,7 +686,24 @@ h3 {
     position: fixed;
     margin: 0;
 }
+.ui-autocomplete{
+    z-index: 9999 !important;
+    text-transform: capitalize;
+}
+.ui-datepicker {
+    left: calc(50% - 180px) !important;
+    font-size:1.3em !important;
+    top: calc(50% - 140px) !important;
+}
+#food-group-button{
+    text-transform: capitalize;
+}
+#food-group{
+    text-transform: capitalize;
+}
+.ui-menu-item-wrapper{
 
+}
 /* ------------------------ Shared Fridge and List End ------------------------ */
 
 /* ------------------------ Settings Page ------------------------ */
