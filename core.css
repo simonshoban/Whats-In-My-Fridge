@@ -427,6 +427,14 @@ h3 {
     left: calc(100% - 5% - 300px);
     justify-content: space-around;
 }
+.back-container {
+    position: absolute;
+    display: flex;
+    flex-flow: row;
+    bottom: 8px;
+    width: 300px;
+    justify-content: space-around;
+}
 
 #override .ate-button {
     margin: 0;
@@ -480,6 +488,7 @@ h3 {
     left: -100vw;
     width: 100vw;
     height: 60px;
+    background-color: #eaeaea;
 }
 
 .item-list {
