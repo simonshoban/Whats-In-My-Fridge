@@ -318,12 +318,13 @@ h3 {
     font-size:x-large;
 }
 
-#produce-number, #meat-number, #grain-number, #dairy-number, #misc-number {
+#produce-number, #meat-number, #grain-number, #dairy-number, #other-number {
     position: absolute;
     top: 30px;
     right: 35px;
     margin: 0;
     color: grey;
+    cursor:pointer ;
 }
 
 #override .ui-collapsible-content {
