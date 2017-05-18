@@ -2446,11 +2446,14 @@
                     itemContainer.remove()
                     setCollapsibleNumbers()
                 })
-                return firebase.database().ref('/list/' + listId).orderByChild("expire").once('value').then(function (snapshot) {
-                    if (snapshot.numChildren() === 0) {
-                        ($(".shopping-empty").show())
-                    }
-                })
+
+                setTimeout(function () {
+                    return firebase.database().ref('/list/' + listId).orderByChild("expire").once('value').then(function (snapshot) {
+                        if (snapshot.numChildren() === 0) {
+                            ($(".shopping-empty").show())
+                        }
+                    })
+                }, 500)
             })
         })
     }
