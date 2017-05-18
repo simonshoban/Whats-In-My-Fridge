@@ -25,12 +25,18 @@ body {
     margin-top: 58px;
 
 }
-
+.dollar{
+    position:relative;
+    left:33px;
+}
 #override a, #override input {
     font-family: 'Nunito', sans-serif;
 
 }
-
+.save-button{
+    width: 120px;
+    margin:auto;
+}
 [data-role="popup"] h3 {
     padding-top: 0;
 }
@@ -158,6 +164,11 @@ h3 {
     margin: auto;
 
 }
+.ui-table table tr td:first-child{
+width:40%;
+    padding-top:20px;
+    text-align: center;
+}
 
 #override .nav-btn {
     margin: 0;
@@ -246,7 +257,11 @@ h3 {
 .collapsible-container {
     position: relative;
 }
-
+#item-popup-name-fridge{
+    font-size:2em;
+    text-align: center;
+    text-transform: capitalize;
+}
 #m h3 + div, #p h3 + div, #g h3 + div, #d h3 + div, #o h3 + div {
     border: none;
     border-right-color: inherit;
@@ -401,6 +416,7 @@ h3 {
     padding-bottom: 22px;
 }
 
+
 /* ------------------------ Fridge Page End ------------------------ */
 
 /* ------------------------ List Page ------------------------ */
@@ -520,6 +536,7 @@ h3 {
 .item-list .item-name {
     padding-left: 62px;
     font-size: large;
+    text-transform:capitalize;
 }
 
 #override .large-circle {
@@ -740,9 +757,12 @@ h3 {
 .quantity-field .ui-select > div{
     width:38px;
 }
-#item-quantity{
-    width:102.8px;
+#item-quantity, item-popup-quantity-fridge{
+    width:60.8px;
     height:44.8px;
+}
+#food-name, #food-name2{
+    text-transform: capitalize;
 }
 /* ------------------------ Shared Fridge and List End ------------------------ */
 
