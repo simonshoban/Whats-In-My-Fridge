@@ -236,56 +236,61 @@
                                  data-theme="a">
                                 <a href="#" data-rel="back"
                                    class="close-button ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ">Close</a>
-                                <div class="item-popup-name-container">
-                                    <input data-mini="true" id="item-popup-name-fridge" data-wrapper-class="ui-custom" class="item-popup-name" type="text">
-                                    <label for="item-popup-name-fridge" id="item-popup-name-label"><span class="ui-btn ui-corner-all ui-icon-edit ui-btn-icon-notext">Edit Icon</span></label>
-                                </div>
-                                <p class="item-popup-expires">Expires on April 29th, 2017</p>
-                                <div id="tabs" data-role="tabs">
-                                    <div id="navbar" data-role="navbar">
-                                        <a href="#" id="overviewTab">Overview</a>
-                                        <a href="#" id="storageTab">Storage</a>
-                                        <a href="#" id="expiredTab">Expired?</a>
-                                    </div>
-                                    <div class="ui-body-d ui-content" id="overview">
-                                        <div class="ui-table">
-                                            <form id="item-popup-form">
-                                            <table>
-                                                <tr>
-                                                    <td>Expiry Date:</td>
-                                                    <td><input id="item-popup-expire-fridge" type="text"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Quantity:</td>
-                                                    <td class="quantity-field"><input id="item-popup-quantity-fridge"
-                                                                                      type="text"><select
-                                                            id="quantity-options-item-fridge" class="quantity-options">
-                                                        <option>--</option>
-                                                        <option>g</option>
-                                                        <option>kg</option>
-                                                        <option>L</option>
-                                                        <option>ml</option>
+                                <form id="item-popup-form">
 
-                                                    </select></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Price: <span class="dollar">$</span></td>
-                                                    <td><input id="item-popup-price-fridge" type="text"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2">
-                                                        <a href="#" class=" save-button ui-btn">Save Changes</a>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                            </form>
+                                    <div class="item-popup-name-container">
+                                        <input data-mini="true" id="item-popup-name-fridge"
+                                               data-wrapper-class="ui-custom" class="item-popup-name" type="text">
+                                        <label for="item-popup-name-fridge" id="item-popup-name-label"><span
+                                                class="ui-btn ui-corner-all ui-icon-edit ui-btn-icon-notext">Edit Icon</span></label>
+                                    </div>
+                                    <p class="item-popup-expires">Expires on April 29th, 2017</p>
+                                    <div id="tabs" data-role="tabs">
+                                        <div id="navbar" data-role="navbar">
+                                            <a href="#" id="overviewTab">Overview</a>
+                                            <a href="#" id="storageTab">Storage</a>
+                                            <a href="#" id="expiredTab">Expired?</a>
+                                        </div>
+                                        <div class="ui-body-d ui-content" id="overview">
+                                            <div class="ui-table">
+                                                <table>
+                                                    <tr>
+                                                        <td>Expiry Date:</td>
+                                                        <td><input id="item-popup-expire-fridge" type="text"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Quantity:</td>
+                                                        <td class="quantity-field"><input
+                                                                id="item-popup-quantity-fridge"
+                                                                type="text"><select
+                                                                id="quantity-options-item-fridge"
+                                                                class="quantity-options">
+                                                            <option>--</option>
+                                                            <option>g</option>
+                                                            <option>kg</option>
+                                                            <option>L</option>
+                                                            <option>ml</option>
+
+                                                        </select></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Price: <span class="dollar">$</span></td>
+                                                        <td><input id="item-popup-price-fridge" type="text"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <a href="#" class=" save-button ui-btn">Save Changes</a>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="ui-body-d ui-content" id="storage">
+                                        </div>
+                                        <div class="ui-body-d ui-content" id="expired">
                                         </div>
                                     </div>
-                                    <div class="ui-body-d ui-content" id="storage">
-                                    </div>
-                                    <div class="ui-body-d ui-content" id="expired">
-                                    </div>
-                                </div>
+                                </form>
                                 <div class="item-button-container">
                                     <a href="#" class="ate-button ui-btn ui-shadow ui-btn-inline"
                                     >I ate it</a>
@@ -531,520 +536,528 @@
                     <div class="main">
                         <div class="item-list">
                             <div data-role="popup" data-transition="fade" id="item-popup2" data-overlay-theme="b"
-                            data-theme="a">
+                                 data-theme="a">
+                                <a href="#" data-rel="back"
+                                   class="close-button ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ">Close</a>
+                                <form id="item-popup2-form">
+                                    <div class="item-popup-name-container">
+                                        <input data-mini="true" id="item-popup-name-list" data-wrapper-class="ui-custom"
+                                               class="item-popup-name" type="text">
+                                        <label for="item-popup-name-list" id="item-popup-name-label-list"><span
+                                                class="ui-btn ui-corner-all ui-icon-edit ui-btn-icon-notext">Edit Icon</span></label>
+                                    </div>
+                                    <p class="item-popup-expires-list">Expires on April 29th, 2017</p>
+                                    <div id="tabs2" data-role="tabs">
+                                        <div id="navbar2" data-role="navbar">
+                                            <a href="#" id="overviewTab2">Overview</a>
+                                            <a href="#" id="storageTab2">Storage</a>
+                                            <a href="#" id="expiredTab2">Expired?</a>
+                                        </div>
+                                        <div class="ui-body-d ui-content" id="overview2">
+                                            <div class="ui-table">
+
+                                                <table>
+
+                                                    <tr>
+                                                        <td>Quantity:</td>
+                                                        <td class="quantity-field"><input id="item-popup-quantity-list"
+                                                                                          type="text"><select
+                                                                id="quantity-options-item-list"
+                                                                class="quantity-options">
+                                                            <option>--</option>
+                                                            <option>g</option>
+                                                            <option>kg</option>
+                                                            <option>L</option>
+                                                            <option>ml</option>
+
+                                                        </select></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Price: <span class="dollar">$</span></td>
+                                                        <td><input id="item-popup-price-list" type="text"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <a href="#" class=" save-button ui-btn">Save Changes</a>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                        <div class="ui-body-d ui-content" id="storage2">
+                                        </div>
+                                        <div class="ui-body-d ui-content" id="expired2">
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="item-button-container">
+                                    <a href="#" class="ate-button ui-btn ui-shadow ui-btn-inline"
+                                    >I ate it</a>
+                                    <a href="#" class="expired-button ui-btn ui-shadow ui-btn-inline"
+                                    >I threw it out</a>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#add-popup2" data-rel="popup"
+                           class="large-circle ui-alt-icon ui-nodisc-icon  ui-btn ui-icon-plus ui-btn-icon-notext">No
+                            text</a>
+
+                        <div data-role="popup" data-transition="none" data-overlay-theme="b" id="add-popup2">
                             <a href="#" data-rel="back"
                                class="close-button ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ">Close</a>
-                            <p><input data-mini="true" id="item-popup-name-list" type="text"></p>
-                            <p class="item-popup-expires-list">Expires on April 29th, 2017</p>
-                            <div id="tabs2" data-role="tabs">
-                                <div id="navbar2" data-role="navbar">
-                                    <a href="#" id="overviewTab2">Overview</a>
-                                    <a href="#" id="storageTab2">Storage</a>
-                                    <a href="#" id="expiredTab2">Expired?</a>
+                            <p id="add-header2">Add Item</p>
+                            <h3>Common Items</h3>
+                            <div id="common-items2">
+                                <div class="item-panel">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
+                                    <p>Milk</p>
                                 </div>
-                                <div class="ui-body-d ui-content" id="overview2">
-                                    <div class="ui-table">
-                                        <form id="item-popup2-form">
-                                        <table>
+                                <div class="item-panel">
+                                    <img height="50" width="50" src="icons/g.svg" class="add-icons">
+                                    <p>Bread</p>
+                                </div>
+                                <div class="item-panel">
+                                    <img height="50" width="50" src="icons/m.svg" class="add-icons">
+                                    <p>Egg</p>
+                                </div>
+                                <div class="item-panel">
+                                    <img height="50" width="50" src="icons/p.svg" class="add-icons">
+                                    <p>Apple</p>
+                                </div>
+                                <div class="item-panel">
+                                    <img height="50" width="50" src="icons/p.svg" class="add-icons">
+                                    <p>Banana</p>
+                                </div>
+                                <div class="item-panel">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
+                                    <p>Milk</p>
+                                </div>
+                                <div class="item-panel">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
+                                    <p>Milk</p>
+                                </div>
+                                <div class="item-panel">
+                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
+                                    <p>Milk</p>
+                                </div>
+                            </div>
+                            <h3>Frequently Purchased Items</h3>
+                            <div id="bought-items2"></div>
+                            <div id="button-div2" align="right">
+                                <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline"
+                                   id="custom-item-list">Custom
+                                    Item</a>
+                            </div>
+                        </div>
+                        <div data-role="popup" data-transition="none" data-overlay-theme="b" id="custom-item-popup2">
+                            <a href="#" data-rel="back"
+                               class="close-button ui-btn ui-corner-all ui-shadow ui-btn  ui-icon-delete ui-btn-icon-notext ">Close</a>
+                            <a href="#" data-rel="back"
+                               class=" ui-btn ui-corner-all ui-shadow ui-btn ui-btn-inherit ui-icon-back ui-btn-icon-notext"
+                               id="custom-add-back2">Back</a>
+                            <p class="item-popup-name">Add item</p>
+                            <h3 class="required-header">Required</h3>
+                            <hr>
+                            <br>
+                            <form id="list-add-form">
+                                <div class="add-item-table">
+                                    <table>
 
-                                            <tr>
-                                                <td>Quantity:</td>
-                                                <td class="quantity-field"><input id="item-popup-quantity-list"
-                                                                                  type="text"><select
-                                                        id="quantity-options-item-list" class="quantity-options">
+                                        <tr>
+                                            <td>
+                                                <label id="food-name-label-list" for="food-name-list">Name of food<span
+                                                        class="invalid-input-star">*</span></label>
+                                            </td>
+                                            <td>
+                                                <input id="food-name-list" name="food-name-list" type="text"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <label id="food-group-label-list" for="food-group-list">Food group<span
+                                                        class="invalid-input-star">*</span></label>
+                                            </td>
+                                            <td>
+                                                <select id="food-group-list" name="food-group-list">
+                                                    <option>----------</option>
+                                                    <option>produce</option>
+                                                    <option>dairy</option>
+                                                    <option>grain</option>
+                                                    <option>meat</option>
+                                                    <option>other</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <h3 class="optional-header-list">Optional</h3>
+                                <hr>
+                                <br>
+                                <div class="add-item-table">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <label id="item-quantity-label-list" for="item-quantity">Quantity<span
+                                                        class="invalid-input-star">*</span></label>
+                                            </td>
+                                            <td class="quantity-field">
+                                                <input id="item-quantity-list" name="item-quantity" type="text"/>
+                                                <select id="quantity-options-add-list" class="quantity-options">
                                                     <option>--</option>
                                                     <option>g</option>
                                                     <option>kg</option>
                                                     <option>L</option>
                                                     <option>ml</option>
 
-                                                </select></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Price: <span class="dollar">$</span></td>
-                                                <td><input id="item-popup-price-list" type="text"></td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <a href="#" class=" save-button ui-btn">Save Changes</a>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </form>
-                                    </div>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label id="item-price-label-list" for="item-price">Price ($)<span
+                                                        class="invalid-input-star">*</span></label>
+                                            </td>
+                                            <td>
+                                                <input id="item-price-list" name="item-price" type="text"/>
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </div>
-                                <div class="ui-body-d ui-content" id="storage2">
+                                <div>
+                                    <a href="#" class="ui-btn ui-shadow ui-btn-inline"
+                                       id="add-button-list">Add
+                                        Item</a>
                                 </div>
-                                <div class="ui-body-d ui-content" id="expired2">
-                                </div>
-                            </div>
-                            <div class="item-button-container">
-                                <a href="#" class="ate-button ui-btn ui-shadow ui-btn-inline"
-                                >I ate it</a>
-                                <a href="#" class="expired-button ui-btn ui-shadow ui-btn-inline"
-                                >I threw it out</a>
-                            </div>
+                            </form>
+                        </div>
+
+
+                    </div>
+                    <div class="footer">
+                    </div>
+                </div>
+                <div class="fakepanel">
+                    <div class="panel-container">
+                        <p class="logo2">WhatsinmyFridge.ca</p>
+                        <ul class="nav-list">
+                            <li>
+                                <a href="#fridge" data-transition="none" class="fridge-btn nav-btn ui-btn">Fridge</a>
+                            </li>
+                            <li>
+                                <a href="#list" data-transition="none" class="shopping-list-btn nav-btn ui-btn">Shopping
+                                    List</a>
+                            </li>
+                            <li>
+                                <a href="#settings" data-transition="none"
+                                   class="settings-btn nav-btn ui-btn">Settings</a>
+                            </li>
+                            <li>
+                                <a href="#about" data-transition="none" class="about-btn nav-btn ui-btn">About</a>
+                            </li>
+                            <li>
+                                <a href="#aff-apps" data-transition="none" class="aff-btn nav-btn ui-btn">Affiliated
+                                    Apps</a>
+                            </li>
+                            <li>
+                                <a data-transition="none" href="#login" class="login-btn nav-btn ui-btn">Login</a>
+                            </li>
+                            <li>
+                                <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-role="footer">
+        </div>
+    </div><!-- list page end -->
+
+    <div data-role="page" id="settings"><!-- the settings page-->
+        <div data-role="header">
+        </div>
+        <div role="main" class="ui-content">
+            <div class="big-container">
+                <div class="container">
+                    <div class="header">
+                        <div class="nav">
+                            <a href="#defaultpanel"
+                               class="nav-button ui-large-icon ui-btn  ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default
+                                panel</a>
+                            <h1>Settings</h1>
                         </div>
                     </div>
-                    <a href="#add-popup2" data-rel="popup"
-                       class="large-circle ui-alt-icon ui-nodisc-icon  ui-btn ui-icon-plus ui-btn-icon-notext">No
-                        text</a>
-
-                    <div data-role="popup" data-transition="none" data-overlay-theme="b" id="add-popup2">
-                        <a href="#" data-rel="back"
-                           class="close-button ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ">Close</a>
-                        <p id="add-header2">Add Item</p>
-                        <h3>Common Items</h3>
-                        <div id="common-items2">
-                            <div class="item-panel">
-                                <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                <p>Milk</p>
-                            </div>
-                            <div class="item-panel">
-                                <img height="50" width="50" src="icons/g.svg" class="add-icons">
-                                <p>Bread</p>
-                            </div>
-                            <div class="item-panel">
-                                <img height="50" width="50" src="icons/m.svg" class="add-icons">
-                                <p>Egg</p>
-                            </div>
-                            <div class="item-panel">
-                                <img height="50" width="50" src="icons/p.svg" class="add-icons">
-                                <p>Apple</p>
-                            </div>
-                            <div class="item-panel">
-                                <img height="50" width="50" src="icons/p.svg" class="add-icons">
-                                <p>Banana</p>
-                            </div>
-                            <div class="item-panel">
-                                <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                <p>Milk</p>
-                            </div>
-                            <div class="item-panel">
-                                <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                <p>Milk</p>
-                            </div>
-                            <div class="item-panel">
-                                <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                <p>Milk</p>
-                            </div>
-                        </div>
-                        <h3>Frequently Purchased Items</h3>
-                        <div id="bought-items2"></div>
-                        <div id="button-div2" align="right">
-                            <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline"
-                               id="custom-item-list">Custom
-                                Item</a>
-                        </div>
-                    </div>
-                    <div data-role="popup" data-transition="none" data-overlay-theme="b" id="custom-item-popup2">
-                        <a href="#" data-rel="back"
-                           class="close-button ui-btn ui-corner-all ui-shadow ui-btn  ui-icon-delete ui-btn-icon-notext ">Close</a>
-                        <a href="#" data-rel="back"
-                           class=" ui-btn ui-corner-all ui-shadow ui-btn ui-btn-inherit ui-icon-back ui-btn-icon-notext"
-                           id="custom-add-back2">Back</a>
-                        <p class="item-popup-name">Add item</p>
-                        <h3 class="required-header">Required</h3>
-                        <hr>
-                        <br>
-                        <form id="list-add-form">
-                            <div class="add-item-table">
-                                <table>
-
-                                    <tr>
-                                        <td>
-                                            <label id="food-name-label-list" for="food-name-list">Name of food<span
-                                                    class="invalid-input-star">*</span></label>
-                                        </td>
-                                        <td>
-                                            <input id="food-name-list" name="food-name-list" type="text"/>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <label id="food-group-label-list" for="food-group-list">Food group<span
-                                                    class="invalid-input-star">*</span></label>
-                                        </td>
-                                        <td>
-                                            <select id="food-group-list" name="food-group-list">
-                                                <option>----------</option>
-                                                <option>produce</option>
-                                                <option>dairy</option>
-                                                <option>grain</option>
-                                                <option>meat</option>
-                                                <option>other</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <h3 class="optional-header-list">Optional</h3>
-                            <hr>
-                            <br>
-                            <div class="add-item-table">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <label id="item-quantity-label-list" for="item-quantity">Quantity<span
-                                                    class="invalid-input-star">*</span></label>
-                                        </td>
-                                        <td class="quantity-field">
-                                            <input id="item-quantity-list" name="item-quantity" type="text"/>
-                                            <select id="quantity-options-add-list" class="quantity-options">
-                                                <option>--</option>
-                                                <option>g</option>
-                                                <option>kg</option>
-                                                <option>L</option>
-                                                <option>ml</option>
-
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label id="item-price-label-list" for="item-price">Price ($)<span
-                                                    class="invalid-input-star">*</span></label>
-                                        </td>
-                                        <td>
-                                            <input id="item-price-list" name="item-price" type="text"/>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div>
-                                <a href="#" class="ui-btn ui-shadow ui-btn-inline"
-                                   id="add-button-list">Add
-                                    Item</a>
-                            </div>
+                    <div class="main">
+                        <form id="settings-form">
+                            <table id="settings-form-table">
+                                <tr>
+                                    <td>
+                                        <label id="measurement-label" class="text-input-label"
+                                               for="flip-metric-imperial">Measurement type:</label>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" data-role="flipswitch" name="measurement-type"
+                                               id="flip-metric-imperial" data-on-text="Imperial" data-off-text="Metric"
+                                               data-wrapper-class="custom-size-flipswitch">
+                                    </td>
+                                </tr>
+                                <tr id="ronic-slider-container">
+                                    <td>
+                                        <label for="ronic-slider" class="text-input-label">Go fast?</label>
+                                    </td>
+                                    <td id="ronic-slider-td">
+                                        <input type="checkbox" data-role="flipswitch" name="ronic-slider"
+                                               id="ronic-slider" data-on-text="AAAAAA" data-off-text="YES!"
+                                               onchange="ronicImageSwap()" data-wrapper-class="custom-size-flipswitch">
+                                    </td>
+                                </tr>
+                            </table>
                         </form>
+                        <div id="easter-egg-box">
+                            <input type="text" name="easter-egg" id="easter-egg" maxlength="5"
+                                   data-wrapper-class="ui-custom" onchange="easterEgg()"/>
+                        </div>
                     </div>
-
-
                 </div>
-                <div class="footer">
-                </div>
-            </div>
-            <div class="fakepanel">
-                <div class="panel-container">
-                    <p class="logo2">WhatsinmyFridge.ca</p>
-                    <ul class="nav-list">
-                        <li>
-                            <a href="#fridge" data-transition="none" class="fridge-btn nav-btn ui-btn">Fridge</a>
-                        </li>
-                        <li>
-                            <a href="#list" data-transition="none" class="shopping-list-btn nav-btn ui-btn">Shopping
-                                List</a>
-                        </li>
-                        <li>
-                            <a href="#settings" data-transition="none"
-                               class="settings-btn nav-btn ui-btn">Settings</a>
-                        </li>
-                        <li>
-                            <a href="#about" data-transition="none" class="about-btn nav-btn ui-btn">About</a>
-                        </li>
-                        <li>
-                            <a href="#aff-apps" data-transition="none" class="aff-btn nav-btn ui-btn">Affiliated
-                                Apps</a>
-                        </li>
-                        <li>
-                            <a data-transition="none" href="#login" class="login-btn nav-btn ui-btn">Login</a>
-                        </li>
-                        <li>
-                            <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
-                        </li>
-                    </ul>
+                <div class="fakepanel">
+                    <div class="panel-container">
+                        <p class="logo2">WhatsinmyFridge.ca</p>
+                        <ul class="nav-list">
+                            <li>
+                                <a href="#fridge" data-transition="none" class="fridge-btn nav-btn ui-btn">Fridge</a>
+                            </li>
+                            <li>
+                                <a href="#list" data-transition="none" class="shopping-list-btn nav-btn ui-btn">Shopping
+                                    List</a>
+                            </li>
+                            <li>
+                                <a href="#settings" data-transition="none"
+                                   class="settings-btn nav-btn ui-btn">Settings</a>
+                            </li>
+                            <li>
+                                <a href="#about" data-transition="none" class="about-btn nav-btn ui-btn">About</a>
+                            </li>
+                            <li>
+                                <a href="#aff-apps" data-transition="none" class="aff-btn nav-btn ui-btn">Affiliated
+                                    Apps</a>
+                            </li>
+                            <li>
+                                <a data-transition="none" href="#login" class="login-btn nav-btn ui-btn">Login</a>
+                            </li>
+                            <li>
+                                <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div data-role="footer">
-    </div>
-</div><!-- list page end -->
+        <div data-role="footer">
+        </div>
+    </div><!-- settings page end -->
 
-<div data-role="page" id="settings"><!-- the settings page-->
-    <div data-role="header">
-    </div>
-    <div role="main" class="ui-content">
-        <div class="big-container">
-            <div class="container">
-                <div class="header">
-                    <div class="nav">
-                        <a href="#defaultpanel"
-                           class="nav-button ui-large-icon ui-btn  ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default
-                            panel</a>
-                        <h1>Settings</h1>
+    <div data-role="page" id="about"><!-- the about page -->
+        <div data-role="header">
+        </div>
+        <div role="main" class="ui-content">
+            <div class="big-container">
+                <div class="container">
+                    <div class="header">
+                        <div class="nav">
+                            <a href="#defaultpanel"
+                               class="nav-button ui-large-icon ui-btn  ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default
+                                panel</a>
+                            <h1>About</h1>
+                        </div>
+                    </div>
+                    <div class="main">
+                        <h2 id="dev-header">The Developers</h2>
+                        <img height="50" width="50" src="icons/d.svg" class="develop-img">
+                        <h3>Phat Le</h3>
+                        <p class="develop-text">Our fearless leader, co-ordinator, and dank memer, loves
+                            league of legends and stuff.</p>
+                        <img height="50" width="50" src="icons/m.svg" class="develop-img">
+                        <h3>Simon Shoban</h3>
+                        <p class="develop-text">Dankest pokemon master, gotta catchem all~1</p>
+                        <img height="50" width="50" src="icons/o.svg" class="develop-img">
+                        <h3>Akemi Haraguchi</h3>
+                        <p class="develop-text">The sikkest grafix designer in existence desu</p>
+                        <img height="50" width="50" src="icons/g.svg" class="develop-img">
+                        <h3>Ben Zhang</h3>
+                        <p class="develop-text">Master procrastinator, loves to play yugeeohh a
+                            nd stuff lmao hello lol xdasd asdasd</p>
+                        <img height="50" width="50" src="icons/p.svg" class="develop-img">
+                        <h3>Cameron Roberts</h3>
+                        <p class="develop-text">The D00d dat does it all</p>
+                        <br>
+                        <div id="mission-header-top"></div>
+                        <h2 id="mission-header">Mission Statement</h2>
+                        <ul id="mission-body">
+                            <li><h5>To improve the environment and stuf</h5></li>
+                            <li><h5>And other stuf</h5></li>
+                            <li><h5>U kno??</h5></li>
+                            <li><h5>Saem</h5></li>
+                        </ul>
+                        <br>
+                        <h2 id="goal-header">Goal</h2>
+                        <p class="develop-text">Our goal is to promote food waste awareness through this app,
+                            we want more people to conserve food through shopping planning and expiry date tracking.</p>
                     </div>
                 </div>
-                <div class="main">
-                    <form id="settings-form">
-                        <table id="settings-form-table">
-                            <tr>
-                                <td>
-                                    <label id="measurement-label" class="text-input-label"
-                                           for="flip-metric-imperial">Measurement type:</label>
-                                </td>
-                                <td>
-                                    <input type="checkbox" data-role="flipswitch" name="measurement-type"
-                                           id="flip-metric-imperial" data-on-text="Imperial" data-off-text="Metric"
-                                           data-wrapper-class="custom-size-flipswitch">
-                                </td>
-                            </tr>
-                            <tr id="ronic-slider-container">
-                                <td>
-                                    <label for="ronic-slider" class="text-input-label">Go fast?</label>
-                                </td>
-                                <td id="ronic-slider-td">
-                                    <input type="checkbox" data-role="flipswitch" name="ronic-slider"
-                                           id="ronic-slider" data-on-text="AAAAAA" data-off-text="YES!"
-                                           onchange="ronicImageSwap()" data-wrapper-class="custom-size-flipswitch">
-                                </td>
-                            </tr>
-                        </table>
-                    </form>
-                    <div id="easter-egg-box">
-                        <input type="text" name="easter-egg" id="easter-egg" maxlength="5"
-                               data-wrapper-class="ui-custom" onchange="easterEgg()"/>
+                <div class="fakepanel">
+                    <div class="panel-container">
+                        <p class="logo2">WhatsinmyFridge.ca</p>
+                        <ul class="nav-list">
+                            <li>
+                                <a href="#fridge" data-transition="none" class="fridge-btn nav-btn ui-btn">Fridge</a>
+                            </li>
+                            <li>
+                                <a href="#list" data-transition="none" class="shopping-list-btn nav-btn ui-btn">Shopping
+                                    List</a>
+                            </li>
+                            <li>
+                                <a href="#settings" data-transition="none"
+                                   class="settings-btn nav-btn ui-btn">Settings</a>
+                            </li>
+                            <li>
+                                <a href="#about" data-transition="none" class="about-btn nav-btn ui-btn">About</a>
+                            </li>
+                            <li>
+                                <a href="#aff-apps" data-transition="none" class="aff-btn nav-btn ui-btn">Affiliated
+                                    Apps</a>
+                            </li>
+                            <li>
+                                <a data-transition="none" href="#login" class="login-btn nav-btn ui-btn">Login</a>
+                            </li>
+                            <li>
+                                <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
+
             </div>
-            <div class="fakepanel">
-                <div class="panel-container">
-                    <p class="logo2">WhatsinmyFridge.ca</p>
-                    <ul class="nav-list">
-                        <li>
-                            <a href="#fridge" data-transition="none" class="fridge-btn nav-btn ui-btn">Fridge</a>
-                        </li>
-                        <li>
-                            <a href="#list" data-transition="none" class="shopping-list-btn nav-btn ui-btn">Shopping
-                                List</a>
-                        </li>
-                        <li>
-                            <a href="#settings" data-transition="none"
-                               class="settings-btn nav-btn ui-btn">Settings</a>
-                        </li>
-                        <li>
-                            <a href="#about" data-transition="none" class="about-btn nav-btn ui-btn">About</a>
-                        </li>
-                        <li>
-                            <a href="#aff-apps" data-transition="none" class="aff-btn nav-btn ui-btn">Affiliated
-                                Apps</a>
-                        </li>
-                        <li>
-                            <a data-transition="none" href="#login" class="login-btn nav-btn ui-btn">Login</a>
-                        </li>
-                        <li>
-                            <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
-                        </li>
-                    </ul>
+        </div>
+        <div data-role="footer">
+        </div>
+    </div><!-- about page end -->
+
+    <div data-role="page" id="aff-apps"><!-- the affiliated apps page-->
+        <div data-role="header">
+        </div>
+        <div role="main" class="ui-content">
+            <div class="big-container">
+                <div class="container">
+                    <div class="header">
+                        <div class="nav">
+                            <a href="#defaultpanel"
+                               class="nav-button ui-large-icon ui-btn  ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default
+                                panel</a>
+                            <h1>Affiliated Apps</h1>
+                        </div>
+                    </div>
+                    <div class="main">
+                        <a id="forkpotato" href="http://students.bcitdev.com/A00863917/G37/index.html">
+                            <div class="aff-header">
+                                <img height="70" width="70" src="images/fork&potato.png" class="aff-icon">
+                                <h2>Fork & Potato</h2>
+                            </div>
+                        </a>
+                        <p>An educational RPG for elementary children. Battle bad food and save the world, and
+                            money.</p>
+                        <a id="foodfall" href="http://foodfall.ca">
+                            <div class="aff-header">
+                                <img height="70" width="70" src="images/food-fall-artwork-1.jpg" class="aff-icon">
+                                <h2>FoodFall.ca</h2>
+                            </div>
+                        </a>
+                        <p>A JavaScript based game where you catch falling food in a basket and learn about how to
+                            prevent food waste!</p>
+                        <a id="overcooked" href="http://overcooked.ca">
+                            <div class="aff-header">
+                                <img height="70" width="70" src="images/overcooked-logo.svg" class="aff-icon">
+                                <h2>Overcooked.ca</h2>
+                            </div>
+                        </a>
+                        <p>An app for businesses, farmers, grocery stores, or anyone to post their surplus foods to help
+                            connect charities and hungry mouths.</p>
+                        <a id="useitup" href="http://use-it-up.azurewebsites.net/index.php">
+                            <div class="aff-header">
+                                <img height="70" width="70" src="images/UseItUpBannerv2.0.png" class="aff-icon">
+                                <h2>UseItUp</h2>
+                            </div>
+                        </a>
+                        <p>A website where you can find recipies for food thats has gone bad or is about to as well as
+                            tips on how you can revive dying food.</p>
+                    </div>
+                </div>
+                <div class="fakepanel">
+                    <div class="panel-container">
+                        <p class="logo2">WhatsinmyFridge.ca</p>
+                        <ul class="nav-list">
+                            <li>
+                                <a href="#fridge" data-transition="none" class="fridge-btn nav-btn ui-btn">Fridge</a>
+                            </li>
+                            <li>
+                                <a href="#list" data-transition="none" class="shopping-list-btn nav-btn ui-btn">Shopping
+                                    List</a>
+                            </li>
+                            <li>
+                                <a href="#settings" data-transition="none"
+                                   class="settings-btn nav-btn ui-btn">Settings</a>
+                            </li>
+                            <li>
+                                <a href="#about" data-transition="none" class="about-btn nav-btn ui-btn">About</a>
+                            </li>
+                            <li>
+                                <a href="#aff-apps" data-transition="none" class="aff-btn nav-btn ui-btn">Affiliated
+                                    Apps</a>
+                            </li>
+                            <li>
+                                <a data-transition="none" href="#login" class="login-btn nav-btn ui-btn">Login</a>
+                            </li>
+                            <li>
+                                <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div data-role="footer">
-    </div>
-</div><!-- settings page end -->
-
-<div data-role="page" id="about"><!-- the about page -->
-    <div data-role="header">
-    </div>
-    <div role="main" class="ui-content">
-        <div class="big-container">
-            <div class="container">
-                <div class="header">
-                    <div class="nav">
-                        <a href="#defaultpanel"
-                           class="nav-button ui-large-icon ui-btn  ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default
-                            panel</a>
-                        <h1>About</h1>
-                    </div>
-                </div>
-                <div class="main">
-                    <h2 id="dev-header">The Developers</h2>
-                    <img height="50" width="50" src="icons/d.svg" class="develop-img">
-                    <h3>Phat Le</h3>
-                    <p class="develop-text">Our fearless leader, co-ordinator, and dank memer, loves
-                        league of legends and stuff.</p>
-                    <img height="50" width="50" src="icons/m.svg" class="develop-img">
-                    <h3>Simon Shoban</h3>
-                    <p class="develop-text">Dankest pokemon master, gotta catchem all~1</p>
-                    <img height="50" width="50" src="icons/o.svg" class="develop-img">
-                    <h3>Akemi Haraguchi</h3>
-                    <p class="develop-text">The sikkest grafix designer in existence desu</p>
-                    <img height="50" width="50" src="icons/g.svg" class="develop-img">
-                    <h3>Ben Zhang</h3>
-                    <p class="develop-text">Master procrastinator, loves to play yugeeohh a
-                        nd stuff lmao hello lol xdasd asdasd</p>
-                    <img height="50" width="50" src="icons/p.svg" class="develop-img">
-                    <h3>Cameron Roberts</h3>
-                    <p class="develop-text">The D00d dat does it all</p>
-                    <br>
-                    <div id="mission-header-top"></div>
-                    <h2 id="mission-header">Mission Statement</h2>
-                    <ul id="mission-body">
-                        <li><h5>To improve the environment and stuf</h5></li>
-                        <li><h5>And other stuf</h5></li>
-                        <li><h5>U kno??</h5></li>
-                        <li><h5>Saem</h5></li>
-                    </ul>
-                    <br>
-                    <h2 id="goal-header">Goal</h2>
-                    <p class="develop-text">Our goal is to promote food waste awareness through this app,
-                        we want more people to conserve food through shopping planning and expiry date tracking.</p>
-                </div>
-            </div>
-            <div class="fakepanel">
-                <div class="panel-container">
-                    <p class="logo2">WhatsinmyFridge.ca</p>
-                    <ul class="nav-list">
-                        <li>
-                            <a href="#fridge" data-transition="none" class="fridge-btn nav-btn ui-btn">Fridge</a>
-                        </li>
-                        <li>
-                            <a href="#list" data-transition="none" class="shopping-list-btn nav-btn ui-btn">Shopping
-                                List</a>
-                        </li>
-                        <li>
-                            <a href="#settings" data-transition="none"
-                               class="settings-btn nav-btn ui-btn">Settings</a>
-                        </li>
-                        <li>
-                            <a href="#about" data-transition="none" class="about-btn nav-btn ui-btn">About</a>
-                        </li>
-                        <li>
-                            <a href="#aff-apps" data-transition="none" class="aff-btn nav-btn ui-btn">Affiliated
-                                Apps</a>
-                        </li>
-                        <li>
-                            <a data-transition="none" href="#login" class="login-btn nav-btn ui-btn">Login</a>
-                        </li>
-                        <li>
-                            <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
+        <div data-role="footer">
         </div>
-    </div>
-    <div data-role="footer">
-    </div>
-</div><!-- about page end -->
+    </div><!-- affiliated apps end -->
 
-<div data-role="page" id="aff-apps"><!-- the affiliated apps page-->
-    <div data-role="header">
+    <!-- the panel thehamburger menu opens -->
+    <div data-role="panel" id="defaultpanel" data-overlay-theme="b" data-theme="a" data-display="overlay"
+         class="ui-panel ui-responsive-panel ui-panel-position-left ui-body-inherit ui-panel-animate ui-panel-closed">
+        <p class="logo2">WhatsinmyFridge.ca</p>
+        <ul class="nav-list">
+            <li>
+                <a href="#fridge" data-transition="slide" class="fridge-btn nav-btn ui-btn">Fridge</a>
+            </li>
+            <li>
+                <a href="#list" data-transition="slide" class="shopping-list-btn nav-btn ui-btn">Shopping List</a>
+            </li>
+            <li>
+                <a href="#settings" data-transition="slide" class="settings-btn nav-btn ui-btn">Settings</a>
+            </li>
+            <li>
+                <a href="#about" data-transition="slide" class="about-btn nav-btn ui-btn">About</a>
+            </li>
+            <li>
+                <a href="#aff-apps" data-transition="slide" class="aff-btn nav-btn ui-btn">Affiliated Apps</a>
+            </li>
+            <li>
+                <a data-transition="slide" href="#login" class="login-btn nav-btn ui-btn">Login</a>
+            </li>
+            <li>
+                <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
+            </li>
+        </ul>
     </div>
-    <div role="main" class="ui-content">
-        <div class="big-container">
-            <div class="container">
-                <div class="header">
-                    <div class="nav">
-                        <a href="#defaultpanel"
-                           class="nav-button ui-large-icon ui-btn  ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default
-                            panel</a>
-                        <h1>Affiliated Apps</h1>
-                    </div>
-                </div>
-                <div class="main">
-                    <a id="forkpotato" href="http://students.bcitdev.com/A00863917/G37/index.html">
-                        <div class="aff-header">
-                            <img height="70" width="70" src="images/fork&potato.png" class="aff-icon">
-                            <h2>Fork & Potato</h2>
-                        </div>
-                    </a>
-                    <p>An educational RPG for elementary children. Battle bad food and save the world, and
-                        money.</p>
-                    <a id="foodfall" href="http://foodfall.ca">
-                        <div class="aff-header">
-                            <img height="70" width="70" src="images/food-fall-artwork-1.jpg" class="aff-icon">
-                            <h2>FoodFall.ca</h2>
-                        </div>
-                    </a>
-                    <p>A JavaScript based game where you catch falling food in a basket and learn about how to
-                        prevent food waste!</p>
-                    <a id="overcooked" href="http://overcooked.ca">
-                        <div class="aff-header">
-                            <img height="70" width="70" src="images/overcooked-logo.svg" class="aff-icon">
-                            <h2>Overcooked.ca</h2>
-                        </div>
-                    </a>
-                    <p>An app for businesses, farmers, grocery stores, or anyone to post their surplus foods to help
-                        connect charities and hungry mouths.</p>
-                    <a id="useitup" href="http://use-it-up.azurewebsites.net/index.php">
-                        <div class="aff-header">
-                            <img height="70" width="70" src="images/UseItUpBannerv2.0.png" class="aff-icon">
-                            <h2>UseItUp</h2>
-                        </div>
-                    </a>
-                    <p>A website where you can find recipies for food thats has gone bad or is about to as well as
-                        tips on how you can revive dying food.</p>
-                </div>
-            </div>
-            <div class="fakepanel">
-                <div class="panel-container">
-                    <p class="logo2">WhatsinmyFridge.ca</p>
-                    <ul class="nav-list">
-                        <li>
-                            <a href="#fridge" data-transition="none" class="fridge-btn nav-btn ui-btn">Fridge</a>
-                        </li>
-                        <li>
-                            <a href="#list" data-transition="none" class="shopping-list-btn nav-btn ui-btn">Shopping
-                                List</a>
-                        </li>
-                        <li>
-                            <a href="#settings" data-transition="none"
-                               class="settings-btn nav-btn ui-btn">Settings</a>
-                        </li>
-                        <li>
-                            <a href="#about" data-transition="none" class="about-btn nav-btn ui-btn">About</a>
-                        </li>
-                        <li>
-                            <a href="#aff-apps" data-transition="none" class="aff-btn nav-btn ui-btn">Affiliated
-                                Apps</a>
-                        </li>
-                        <li>
-                            <a data-transition="none" href="#login" class="login-btn nav-btn ui-btn">Login</a>
-                        </li>
-                        <li>
-                            <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div data-role="footer">
-    </div>
-</div><!-- affiliated apps end -->
-
-<!-- the panel thehamburger menu opens -->
-<div data-role="panel" id="defaultpanel" data-overlay-theme="b" data-theme="a" data-display="overlay"
-     class="ui-panel ui-responsive-panel ui-panel-position-left ui-body-inherit ui-panel-animate ui-panel-closed">
-    <p class="logo2">WhatsinmyFridge.ca</p>
-    <ul class="nav-list">
-        <li>
-            <a href="#fridge" data-transition="slide" class="fridge-btn nav-btn ui-btn">Fridge</a>
-        </li>
-        <li>
-            <a href="#list" data-transition="slide" class="shopping-list-btn nav-btn ui-btn">Shopping List</a>
-        </li>
-        <li>
-            <a href="#settings" data-transition="slide" class="settings-btn nav-btn ui-btn">Settings</a>
-        </li>
-        <li>
-            <a href="#about" data-transition="slide" class="about-btn nav-btn ui-btn">About</a>
-        </li>
-        <li>
-            <a href="#aff-apps" data-transition="slide" class="aff-btn nav-btn ui-btn">Affiliated Apps</a>
-        </li>
-        <li>
-            <a data-transition="slide" href="#login" class="login-btn nav-btn ui-btn">Login</a>
-        </li>
-        <li>
-            <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
-        </li>
-    </ul>
-</div>
 </div>
 
 <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
@@ -1703,7 +1716,7 @@
                                 quantityText = "Quantity: " + quantity + " " + units
                             }
                         }
-                        var element = '<div class="list-item-container"> <a data-key="' + key + '" href="#item-popup2" data-rel="popup" class="list-item ui-btn shopping-item"><img height="50" width="50" src="icons/' + category + '.svg"> <p class="item-name">' + name + '</p> <p class="item-quantity">' + quantityText + '</p> <label class="checkbox-label "> <input type="checkbox" class="checkbox"> </label> </a> ' + "<div class='list-item-back'> <div class='back-container'> <a href='#' class='ate-button ui-btn ui-shadow ui-btn-inline'>I ate it</a><a href='#' class='expired-button ui-btn ui-shadow ui-btn-inline'>I threw it out</a> </div> </div> </div> </div>"
+                        var element = '<div class="list-item-container"> <a data-key="' + key + '" href="#" data-rel="popup" class="list-item ui-btn shopping-item"><img height="50" width="50" src="icons/' + category + '.svg"> <p class="item-name">' + name + '</p> <p class="item-quantity">' + quantityText + '</p> <label class="checkbox-label "> <input type="checkbox" class="checkbox"> </label> </a> ' + "<div class='list-item-back'> <div class='back-container'> <a href='#' class='ate-button ui-btn ui-shadow ui-btn-inline'>I ate it</a><a href='#' class='expired-button ui-btn ui-shadow ui-btn-inline'>I threw it out</a> </div> </div> </div> </div>"
                         $("#list .item-list").append(element).enhanceWithin()
 
                     });
@@ -2490,11 +2503,14 @@
         });
     }
 
-     $("#item-popup").on("popupafterclose", function (event, ui) {
+    $("#item-popup").on("popupafterclose", function (event, ui) {
         $("#item-popup-form").trigger("reset")
+
     });
     $("#item-popup2").on("popupafterclose", function (event, ui) {
-        $("#item-popup-form2").trigger("reset")
+
+        $("#item-popup2-form").trigger("reset")
+
     });
     $("#custom-item-popup").on("popupafterclose", function (event, ui) {
         $("#fridge-add-form").trigger("reset")

@@ -29,7 +29,7 @@ body {
     position:relative;
     left:33px;
 }
-#override a, #override input, #item-popup2 a, #item-popup2 input {
+#override a, #override input {
     font-family: 'Nunito', sans-serif;
 
 }
@@ -268,11 +268,7 @@ width:40%;
     text-transform: capitalize;
 }
 
-    font-size:2.2em;
-    text-align: center;
-    text-transform: capitalize;
-}
-#item-popup-name-label {
+#item-popup-name-label, #item-popup-name-label-list{
     position:absolute;
     top:10px;
     left:-35px;
@@ -492,13 +488,13 @@ width:40%;
     justify-content: space-around;
 }
 
-#override .ate-button, #item-popup2 .ate-button {
+#override .ate-button {
     margin: 0;
     color: #235f23;
 
 }
 
-#override .expired-button, #item-popup2 .expired-button {
+#override .expired-button {
     margin: 0;
     color: #5f1309;
 }
@@ -639,7 +635,7 @@ width:40%;
     color: #495655;
 }
 
-#override .close-button, #item-popup2 .close-button {
+#override .close-button {
     background-color: #ddd;
     position: fixed;
     right: 5%;
