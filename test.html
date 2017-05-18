@@ -1216,13 +1216,15 @@
     function easterEgg() {
         var input = $("#easter-egg").val().toUpperCase();
         if (input == "RONIC") {
-            $("#easter-egg").hide();
-            $("#ronic-slider-container").show();
+            var uid = firebase.auth().currentUser.uid;
+            setRonic(uid);
         }
     }
 
     var clickCounter = 0;
 
+    /* Replaces all static images with images from the best-selling adventure
+    platformer Ronic The PineconeTM and disabled easter egg flipswitch */
     function ronicImageSwap() {
         var ronicImageArray = [
             "icons/3A9CEA45.png",
@@ -1237,14 +1239,17 @@
             "icons/EA407848.png"
         ];
 
-        for (var index = 0; index < $("img").length; index++) {
-            var random = Math.floor(Math.random() * (9 - 0));
-            document.getElementsByTagName("img")[index].src = ronicImageArray[random];
-        }
+        $(document).ready (function() {
+            for (var index = 0; index < $("img").length; index++) {
+                var random = Math.floor(Math.random() * (9 - 0));
+                document.getElementsByTagName("img")[index].src = ronicImageArray[random];
+            }
+        });
 
         $("#ronic-slider").flipswitch("disable");
     }
 
+    //Gives the user helpful messages after attempting to deactivate the disabled flipswitch
     $("#ronic-slider-td").click(function() {
         clickCounter++;
         if (clickCounter > 7) {
@@ -1380,6 +1385,7 @@
 
                 $(checkFridge)
                 $(checkList)
+                $(checkRonic);
                 $(redrawList())
 
                 // hide and show buttons based on login state
@@ -1479,6 +1485,14 @@
         return firebase.database().ref().update(updates);
     }
 
+    //Sets ronic variable in database to true, creates ronic variable and Easter Egg node if doesn't already exist
+    function setRonic(uid) {
+        firebase.database().ref('users/' + uid + '/Easter Egg/').set({
+            ronic: true
+        });
+
+        checkRonic();
+    }
 
     function addFridgeItem(uid, name, expire, category, quantity, price) {
         var itemData = {
@@ -1787,6 +1801,15 @@
                 createList(uid);
             }
         })
+    }
+    //Checks database to see if ronic variable is set to true, displays easter egg slider if it is true
+    function checkRonic() {
+        return firebase.database().ref('/users/' + uid + '/Easter Egg/').once('value').then(function(snapshot) {
+            if (snapshot.val().ronic) {
+                $("#easter-egg").hide();
+                $("#ronic-slider-container").show();
+            }
+        });
     }
 
     function clearFridgeList() {
