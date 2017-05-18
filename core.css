@@ -726,8 +726,21 @@ h3 {
 #food-group{
     text-transform: capitalize;
 }
-.ui-menu-item-wrapper{
-
+.quantity-field{
+    display:flex;
+}
+.quantity-field .ui-input-text{
+    width:90px;
+}
+.quantity-field .ui-select{
+    width:77px;
+}
+.quantity-field .ui-select > div{
+    width:19px;
+}
+#item-quantity{
+    width:102.8px;
+    height:44.8px;
 }
 /* ------------------------ Shared Fridge and List End ------------------------ */
 

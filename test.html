@@ -452,8 +452,16 @@
                                                 <label id="item-quantity-label" for="item-quantity">Quantity<span
                                                         class="invalid-input-star">*</span></label>
                                             </td>
-                                            <td>
+                                            <td class="quantity-field">
                                                 <input id="item-quantity" name="item-quantity" type="text"/>
+                                                <select id="quantity-options">
+                                                    <option>--</option>
+                                                    <option>g</option>
+                                                    <option>kg</option>
+                                                    <option>L</option>
+                                                    <option>ml</option>
+
+                                                </select>
                                             </td>
                                         </tr>
                                         <tr>
@@ -1480,12 +1488,13 @@
     }
 
 
-    function addFridgeItem(uid, name, expire, category, quantity, price) {
+    function addFridgeItem(uid, name, expire, category, quantity, units, price) {
         var itemData = {
             name: name,
             expire: expire,
             category: category,
             quantity: quantity,
+            units:units,
             price: price,
             date: Date.now()
 
@@ -1716,8 +1725,12 @@
             var name = $("#food-name").val().toLowerCase()
             var type = $("#food-group").val().substr(0, 1).toLowerCase();
             var expires = ($("#expiry-date").datepicker("getDate").getTime())
+            var units = $("#quantity-options").val()
             var quantity = null
             var price = null
+            if(units === "--"){
+                units = ""
+            }
             if (!isNaN(parseInt($("#item-quantity").val()))) {
                 quantity = parseInt($("#item-quantity").val())
             }
@@ -1727,7 +1740,7 @@
             }
             $("#fridge-add-form").trigger("reset");
             incrementItem(name)
-            addFridgeItem(uid, name, expires, type, quantity, price)
+            addFridgeItem(uid, name, expires, type, quantity, units, price)
             redrawList()
         }
     })
@@ -2106,7 +2119,7 @@
             return firebase.database().ref('/fridge/' + fridgeId + "/" + item.attr("data-key")).once('value').then(function (snapshot) {
                 var name = snapshot.val().name
                 var date = snapshot.val().date
-                var quantity = snapshot.val().quantity
+                var quantity = snapshot.val().quantity + " " + snapshot.val().units
                 var price = snapshot.val().price
                 $(".item-popup-name").html(name)
                 $("#item-popup .item-popup-expires").html("Purchased: " + new Date(date).toDateString())
