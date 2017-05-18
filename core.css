@@ -292,21 +292,41 @@ h3 {
 }
 
 #p {
-    border-color: #008000;
+    border-color-right: #008000;
 }
 
 #g {
-    border-color: #de9f49;
+    border-color-right: #de9f49;
 }
 
 #d {
-    border-color: #5daede;
+    border-color-right: #5daede;
 }
 
 #o {
-    border-color: #959392;
+    border-color-right: #959392;
 }
 
+#p .list-item {
+    border-right: solid 8px;
+    border-right-color: #008000;
+}
+#m .list-item {
+    border-right: solid 8px;
+    border-right-color: #9f2828;
+}
+#d .list-item {
+    border-right: solid 8px;
+    border-right-color: #5daede;
+}
+#g .list-item {
+    border-right: solid 8px;
+    border-right-color: #de9f49;
+}
+#o .list-item {
+    border-right: solid 8px;
+    border-right-color: #959392;
+}
 .invalid-input{
     display: none;
     color: red;
@@ -461,7 +481,7 @@ h3 {
 
 .list-item-container {
     position: relative;
-    border-right: inherit;
+    border-right-color: inherit;
 
 }
 
@@ -475,10 +495,6 @@ h3 {
 
 }
 
-.collapsible .list-item {
-    border-right: solid 8px;
-    border-right-color: inherit;
-}
 
 .list-item-back {
     position: absolute;
@@ -486,7 +502,7 @@ h3 {
     justify-content: space-around;
     top: 0;
     left: -100vw;
-    width: 100vw;
+    width: 100%;
     height: 60px;
     background-color: #eaeaea;
 }
