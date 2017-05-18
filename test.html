@@ -742,8 +742,15 @@
                                 </div>
                                 <form id="checkout-container">
                                 </form>
-                                <div class="checkout-input-container">
-                                    <button id="to-fridge" class="ui-btn">Move to Fridge</button>
+                                <div class="input-container-container">
+                                    <div class="checkout-input-container">
+                                        <button id="not-to-fridge" class="ui-btn">Cancel</button>
+                                    </div>
+
+                                    <div class="checkout-input-container">
+
+                                        <button id="to-fridge" class="ui-btn">Move to Fridge</button>
+                                    </div>
                                 </div>
                             </div>
 
@@ -2554,11 +2561,20 @@
         var elements = $(".shopping-item input:checked")
         var array = jQuery.makeArray(elements)
         $("#checkout-container").html("")
-        array.forEach(function (item) {
 
-            var key = $(item).parent().parent().attr("data-key")
-            buildCheckoutElement(key)
-        })
+        var disable = false
+        if (array.length > 0) {
+            $("#to-fridge").prop("disabled", false);
+
+            array.forEach(function (item) {
+
+                var key = $(item).parent().parent().attr("data-key")
+                buildCheckoutElement(key)
+            })
+        } else {
+            $("#checkout-container").html("<h4>Items you have checked off will appear here.</h4>")
+            $("#to-fridge").prop("disabled", true);
+        }
         $("#checkout-popup").popup("open")
 
     })
@@ -2609,7 +2625,7 @@
 
         console.log(filteredArray.length)
         for (i = 0; i < filteredArray.length; i++) {
-            console.log( $(filteredArray[i]).parent().parent().children(".invalid-input-star"))
+            console.log($(filteredArray[i]).parent().parent().children(".invalid-input-star"))
 
             $(filteredArray[i]).parent().parent().find(".invalid-input-star").css("display", "inline")
         }
@@ -2625,7 +2641,6 @@
 
             }, 500)
         }
-
 
 
     })

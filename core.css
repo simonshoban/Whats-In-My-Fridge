@@ -579,8 +579,28 @@ h3 {
     align-items: baseline;
 }
 .checkout-input-container{
-    width:150px;
+    width:175px;
     margin:auto;
+}
+.checkout-input-container:first-child{
+    padding-right:25px;
+
+}
+#to-fridge{
+    color:#235f23;
+}
+#not-to-fridge{
+    color:#5f1309;
+}
+.checkout h4{
+
+}
+.input-container-container{
+    display:flex;
+    justify-content:space-around;
+    position:absolute;
+    bottom:20px;
+    left:calc(50% - 187.5px)
 }
 
 /* ------------------------ List Page End ------------------------ */
