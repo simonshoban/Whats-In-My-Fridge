@@ -269,9 +269,9 @@
                                     </div>
                                 </div>
                                 <div class="item-button-container">
-                                    <a href="#" data-rel="back" class="ate-button ui-btn ui-shadow ui-btn-inline"
+                                    <a href="#" class="ate-button ui-btn ui-shadow ui-btn-inline"
                                     >I ate it</a>
-                                    <a href="#" data-rel="back" class="expired-button ui-btn ui-shadow ui-btn-inline"
+                                    <a href="#" class="expired-button ui-btn ui-shadow ui-btn-inline"
                                     >I threw it out</a>
                                 </div>
                             </div>
@@ -1538,7 +1538,6 @@
                         }
 
 
-
                         var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#' onclick='openItemPopup(this)' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> " +
                             "<div class='list-item-back'> <div class='back-container'> <a href='#' class='ate-button ui-btn ui-shadow ui-btn-inline'>I ate it</a><a href='#' class='expired-button ui-btn ui-shadow ui-btn-inline'>I threw it out</a> </div> </div> </div> </div>"
                         if (!$("#category-flip").prop("checked")) {
@@ -1693,7 +1692,6 @@
                         } else {
                             circle = "no-circle"
                         }
-
 
 
                         var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#' onclick='openItemPopup(this)' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> " +
@@ -2099,9 +2097,10 @@
             })
         })
     }
+    var currentPopupItemContainer
     $(document).on("click", ".list-item", function () {
         var item = $(this)
-
+        currentPopupItemContainer = item.parent();
         return firebase.database().ref('/users/' + uid + "/fridge/").once('child_added').then(function (snapshot) {
             var fridgeId = snapshot.key;
             return firebase.database().ref('/fridge/' + fridgeId + "/" + item.attr("data-key")).once('value').then(function (snapshot) {
@@ -2162,15 +2161,33 @@
         })
     }
 
-    $(document).on("click", ".ate-button", function () {
-        var itemBack = $(this).parent().parent()
-        var itemContainer = itemBack.parent()
+    $(document).on("click", ".list-item-back .ate-button", function () {
+        var itemContainer = $(this).parent().parent().parent()
+        removeItem(itemContainer)
+    })
+    $(document).on("click", ".list-item-back .expired-button", function () {
+        var itemContainer = $(this).parent().parent().parent()
+        removeItem(itemContainer)
+
+    })
+    $(document).on("click", "#item-popup .ate-button", function () {
+        removeItem(currentPopupItemContainer)
+        $("#item-popup").popup("close")
+    })
+    $(document).on("click", "#item-popup .expired-button", function () {
+        removeItem(currentPopupItemContainer)
+        $("#item-popup").popup("close")
+
+
+    })
+    function removeItem(itemContainer) {
+        var itemBack = itemContainer.children(".list-item-back")
         var item = itemContainer.children(".list-item")
         var itemKey = item.attr("data-key")
         var name = item.children(".item-name").text()
         return firebase.database().ref('/users/' + uid + "/fridge/").once('child_added').then(function (snapshot) {
             var fridgeId = snapshot.key;
-            firebase.database().ref('/fridge/' + fridgeId + "/" + itemKey).remove().then(function(){
+            firebase.database().ref('/fridge/' + fridgeId + "/" + itemKey).remove().then(function () {
                 itemBack.animate({
                     left: "-=100%"
                 }, function () {
@@ -2179,25 +2196,7 @@
                 })
             })
         })
-    })
-    $(document).on("click", ".expired-button", function () {
-        var itemBack = $(this).parent().parent()
-        var itemContainer = itemBack.parent()
-        var item = itemContainer.children(".list-item")
-        var itemKey = item.attr("data-key")
-        var name = item.children(".item-name").text()
-        return firebase.database().ref('/users/' + uid + "/fridge/").once('child_added').then(function (snapshot) {
-            var fridgeId = snapshot.key;
-            firebase.database().ref('/fridge/' + fridgeId + "/" + itemKey).remove().then(function(){
-                itemBack.animate({
-                    left: "-=100%"
-                }, function () {
-                    itemContainer.remove()
-                    setCollapsibleNumbers()
-                })
-            })
-        })
-    })
+    }
 
     function incrementItem(name) {
         return firebase.database().ref('/users/' + uid + "/frequentItems/" + name).once('value').then(function (snapshot) {
