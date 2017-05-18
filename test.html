@@ -2625,7 +2625,6 @@
         var filteredArray = jQuery.grep(array, function (n, i) {
             if ($(n).datepicker("getDate") != null) {
                 return false;
-
             }
             return true;
         })
@@ -2637,7 +2636,7 @@
 
             $(filteredArray[i]).parent().parent().find(".invalid-input-star").css("display", "inline")
         }
-        if (filteredArray.length = 0) {
+        if (filteredArray.length === 0) {
             console.log("kill me")
 
             transferToFridge()
@@ -2651,6 +2650,9 @@
         }
 
 
+    })
+    $(document).on("click", "#not-to-fridge", function () {
+        $("#checkout-popup").popup("close")
     })
     function transferToFridge() {
         var elements = $("#checkout-container .checkout-date")
