@@ -429,9 +429,27 @@ h3 {
     text-align:center;
 }
 
-#override #popup-sort legend {
+#popup-sort legend {
     margin:auto;
+    color:#3D7CB3;
 }
+
+#popup-sort label {
+    text-align:center;
+    width:40%;
+    margin:auto;
+    background:transparent;
+    border:none;
+}
+
+#popup-sort #category-flip-label {
+    width:50%;
+    padding:10px 0;
+}
+#popup-sort input {
+    display:none;
+}
+
 .small-circle {
     border-radius: 50%;
     height: 12px;

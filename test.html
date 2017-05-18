@@ -202,13 +202,11 @@
                                class="sort-button ui-nodisc-icon sort-icon-btn ui-btn ui-corner-all ui-btn-icon-notext ui-btn-inline">Sort</a>
                             <div data-role="popup" data-transition="fade" id="popup-sort">
                                 <form>
-                                    <label for="category-flip">Categories:</label>
+                                    <label for="category-flip" id="category-flip-label">Category view:</label>
                                         <input type="checkbox" data-role="flipswitch" checked name="category-flip"
                                                id="category-flip">
                                     <fieldset data-role="controlgroup">
-                                        <legend>Change sorting method:</legend>
-                                            
-
+                                        <legend>Change direction:</legend>
                                         <input type="radio" name="asc-desc" id="order-asc" checked value="off">
                                         <label for="order-asc">Ascending</label>
                                         <input type="radio" name="asc-desc" id="order-desc"
@@ -217,8 +215,6 @@
                                     </fieldset>
                                     <fieldset data-role="controlgroup">
                                         <legend>Change sorting method:</legend>
-                                            
-
                                         <input type="radio" name="sort-type" checked id="order-name" value="off">
                                         <label for="order-name">Alphabetical</label>
                                         <input type="radio" name="sort-type" id="order-date"
