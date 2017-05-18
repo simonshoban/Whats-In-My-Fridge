@@ -416,11 +416,22 @@ h3 {
     background-color: inherit;
 }
 
-#override #popup-sort {
-    width: 250px;
-
+.sort-icon-btn {
+    background-image: url("icons/sorGrpAsc.svg");
+    background-size: 22px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
+#override #popup-sort {
+    padding-top:10px;
+    width: 250px;
+    text-align:center;
+}
+
+#override #popup-sort legend {
+    margin:auto;
+}
 .small-circle {
     border-radius: 50%;
     height: 12px;
@@ -433,10 +444,11 @@ h3 {
 .red-circle {
     background-color: #dd4146;
 }
-
-.yellow-circle {
-    background-color: #fff552;
-
+.orange-circle{
+    background-color: orange;
+}
+.green-circle{
+    background-color: green;
 }
 
 .item-list .item-expires {
