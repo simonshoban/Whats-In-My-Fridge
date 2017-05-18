@@ -25,18 +25,29 @@ body {
     margin-top: 58px;
 
 }
-.dollar{
-    position:relative;
-    left:33px;
+#override .hidden{
+    height:1px;
+    width: 1px;
+    margin:0;
+    padding:0;
+    position:absolute;
+    top:-1px;
 }
-#override a, #override input {
+.dollar {
+    position: relative;
+    left: 33px;
+}
+
+#override a, #override input, #item-popup2 a, #item-popup2 input {
     font-family: 'Nunito', sans-serif;
 
 }
-.save-button{
+
+.save-button {
     width: 120px;
-    margin:auto;
+    margin: auto;
 }
+
 [data-role="popup"] h3 {
     padding-top: 0;
 }
@@ -164,9 +175,10 @@ h3 {
     margin: auto;
 
 }
-.ui-table table tr td:first-child{
-width:40%;
-    padding-top:20px;
+
+.ui-table table tr td:first-child {
+    width: 40%;
+    padding-top: 20px;
     text-align: center;
 }
 
@@ -257,25 +269,32 @@ width:40%;
 .collapsible-container {
     position: relative;
 }
+
 #tabs {
-    border:none;
+    border: none;
 }
-#item-popup-name-fridge{
-    font-size:2.2em;
+
+#item-popup-name-fridge, #item-popup-name-list{
+    font-size: 2em;
     text-align: center;
     text-transform: capitalize;
 }
-#item-popup-name-label {
-    position:absolute;
-    top:10px;
-    left:-35px;
+.item-popup-name{
+    font-size:2.2em;
+}
+
+#item-popup-name-label, #item-popup-name-label-list {
+    position: absolute;
+    top: 10px;
+    left: -35px;
 }
 
 .item-popup-name-container {
-    position:relative;
-    width:40%;
-    margin:auto;
+    position: relative;
+    width: 40%;
+    margin: auto;
 }
+
 #m h3 + div, #p h3 + div, #g h3 + div, #d h3 + div, #o h3 + div {
     border: none;
     border-right-color: inherit;
@@ -340,31 +359,37 @@ width:40%;
     border-right: solid 8px;
     border-right-color: #008000;
 }
+
 #m .list-item {
     border-right: solid 8px;
     border-right-color: #9f2828;
 }
+
 #d .list-item {
     border-right: solid 8px;
     border-right-color: #5daede;
 }
+
 #g .list-item {
     border-right: solid 8px;
     border-right-color: #de9f49;
 }
+
 #o .list-item {
     border-right: solid 8px;
     border-right-color: #959392;
 }
-.invalid-input{
+
+.invalid-input {
     display: none;
     color: red;
     margin-left: 5px;
 }
-.invalid-input-star{
+
+.invalid-input-star {
     display: none;
     color: red;
-    font-size:x-large;
+    font-size: x-large;
 }
 
 #produce-number, #meat-number, #grain-number, #dairy-number, #other-number {
@@ -373,7 +398,7 @@ width:40%;
     right: 35px;
     margin: 0;
     color: grey;
-    cursor:pointer ;
+    cursor: pointer;
 }
 
 #override .ui-collapsible-content {
@@ -404,10 +429,12 @@ width:40%;
     right: 8px;
     top: 8px;
 }
-.red-circle{
+
+.red-circle {
     background-color: #dd4146;
 }
-.yellow-circle{
+
+.yellow-circle {
     background-color: #fff552;
 
 }
@@ -429,7 +456,6 @@ width:40%;
     padding-top: 22px;
     padding-bottom: 22px;
 }
-
 
 /* ------------------------ Fridge Page End ------------------------ */
 
@@ -469,14 +495,14 @@ width:40%;
 }
 
 .item-button-container {
-    position: absolute;
     display: flex;
     flex-flow: row;
-    bottom: 20px;
-    width: 300px;
-    left: calc(100% - 5% - 300px);
+    width: 280px;
     justify-content: space-around;
+    margin: 10px auto 0
+
 }
+
 .back-container {
     position: absolute;
     display: flex;
@@ -486,13 +512,18 @@ width:40%;
     justify-content: space-around;
 }
 
-#override .ate-button {
+#override .ate-button, #item-popup2 .ate-button {
     margin: 0;
     color: #235f23;
 
 }
 
-#override .expired-button {
+#override .expired-button, #item-popup2 .expired-button {
+    margin: 0;
+    color: #5f1309;
+}
+
+#list .expired-button {
     margin: 0;
     color: #5f1309;
 }
@@ -503,6 +534,73 @@ width:40%;
 
 .ui-large-icon {
     background-size: 30px 30px;
+}
+
+.checkout-item {
+    border-top: 1px solid #676767;
+    width: 280px;
+    margin: auto;
+    position: relative;
+}
+
+.checkout-item:last-child {
+    border-bottom: 1px solid #676767;
+
+}
+
+.checkout-item .checkout-name {
+    margin-top: 18px;
+    margin-bottom: 18px;
+    display: block;
+    padding-left: 60px;
+    text-transform: capitalize;
+}
+
+.checkout-item .checkout-quantity {
+    position: absolute;
+    top: 24px;
+    right: 10px;
+    font-size: small;
+}
+
+.checkout-item img {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+.checkout-item .date-label {
+    padding: 10px;
+    width: 110px;
+}
+
+.checkout-item div {
+    display: flex;
+    align-items: baseline;
+}
+.checkout-input-container{
+    width:175px;
+    margin:auto;
+}
+.checkout-input-container:first-child{
+    padding-right:25px;
+
+}
+#to-fridge{
+    color:#235f23;
+}
+#not-to-fridge{
+    color:#5f1309;
+}
+.checkout h4{
+
+}
+.input-container-container{
+    display:flex;
+    justify-content:space-around;
+    position:absolute;
+    bottom:20px;
+    left:calc(50% - 187.5px)
 }
 
 /* ------------------------ List Page End ------------------------ */
@@ -524,7 +622,6 @@ width:40%;
     z-index: 2;
 
 }
-
 
 .list-item-back {
     position: absolute;
@@ -550,7 +647,7 @@ width:40%;
 .item-list .item-name {
     padding-left: 62px;
     font-size: large;
-    text-transform:capitalize;
+    text-transform: capitalize;
 }
 
 #override .large-circle {
@@ -567,7 +664,7 @@ width:40%;
 
 }
 
-#item-popup, #item-popup2 {
+#item-popup, #item-popup2, #checkout-popup {
     background-color: white;
     color: black;
     width: 90%;
@@ -578,7 +675,7 @@ width:40%;
     top: 5%;
 }
 
-.item-popup-expires {
+.item-popup-expires, .item-popup-expires-list {
     text-align: center;
 }
 
@@ -629,7 +726,7 @@ width:40%;
     color: #495655;
 }
 
-#override .close-button {
+#override .close-button, #item-popup2 .close-button {
     background-color: #ddd;
     position: fixed;
     right: 5%;
@@ -710,6 +807,12 @@ width:40%;
     top: 286px;
 }
 
+.optional-header-list {
+    width: 110px;
+    left: calc(50% - 55px);
+    top: 228px;
+}
+
 .add-item-table {
     max-width: 400px;
     margin: auto;
@@ -735,71 +838,89 @@ width:40%;
     position: fixed;
     margin: 0;
 }
-.ui-autocomplete{
+
+.ui-autocomplete {
     z-index: 9999 !important;
     text-transform: capitalize;
 }
+
 .ui-datepicker {
     left: calc(50% - 154px) !important;
-    font-size:1.1em !important;
+    font-size: 1.1em !important;
     top: calc(50% - 121px) !important;
 }
-#food-group-button{
+
+#food-group-button, #food-group-list-button {
     text-transform: capitalize;
 }
-#food-group{
+
+#food-group, #food-group-list {
     text-transform: capitalize;
 }
-.quantity-field{
-    display:flex;
+
+.quantity-field {
+    display: flex;
 }
-.quantity-field .ui-input-text{
-    width:75px;
+
+.quantity-field .ui-input-text {
+    width: 63px;
 }
-.quantity-field .ui-select{
-    width:77px;
+
+.quantity-field .ui-select {
+    width: 77px;
 }
-.quantity-field .ui-select > div{
-    width:38px;
+
+.quantity-field .ui-select > div {
+    width: 38px;
 }
-#item-quantity, item-popup-quantity-fridge{
-    width:60.8px;
-    height:44.8px;
+
+#item-quantity, item-popup-quantity-fridge, #item-quantity-list {
+    width: 60.8px;
+    height: 44.8px;
 }
-#food-name, #food-name2{
+
+#food-name, #food-name-list {
     text-transform: capitalize;
 }
+
 /* ------------------------ Shared Fridge and List End ------------------------ */
 
 /* ------------------------ Settings Page ------------------------ */
 #override #easter-egg {
-    background-color:#f9f9f9;
-    border:none;
-    box-shadow:none;
-    color:#f9f9f9;
+    background-color: #f9f9f9;
+    border: none;
+    box-shadow: none;
+    color: #f9f9f9;
 }
+
 #ronic-slider {
-    cursor:pointer!important;
+    cursor: pointer !important;
 }
+
 #ronic-slider-container {
-    display:none;
+    display: none;
 }
-#ronic-slider-container>td:last-child {
-    cursor:pointer !important;
+
+#ronic-slider-container > td:last-child {
+    cursor: pointer !important;
 }
-#ronic-slider-container>td>div {
-    opacity:1;
-    cursor:pointer!important;
+
+#ronic-slider-container > td > div {
+    opacity: 1;
+    cursor: pointer !important;
 }
+
 #settings p {
     word-wrap: break-word;
-    max-width:500px;
-    margin:auto;
+    max-width: 500px;
+    margin: auto;
 }
+
 .ui-input-text.ui-custom {
     border: none;
     box-shadow: none;
 }
+
 #settings-form-table {
     margin: auto;
 }
