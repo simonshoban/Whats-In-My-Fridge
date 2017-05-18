@@ -199,7 +199,7 @@
                                 panel</a>
                             <h1>Fridge</h1>
                             <a href="#popup-sort" data-rel="popup" data-transition="slide"
-                               class="sort-button ui-nodisc-icon  ui-btn ui-corner-all ui-icon-bullets ui-btn-icon-notext ui-btn-inline">bullets</a>
+                               class="sort-button ui-nodisc-icon sort-icon-btn ui-btn ui-corner-all ui-btn-icon-notext ui-btn-inline">Sort</a>
                             <div data-role="popup" data-transition="fade" id="popup-sort">
                                 <form>
                                     <label for="category-flip">Categories:</label>
@@ -1528,7 +1528,7 @@
                         if (expire > 1) {
                             expireText = "Expires in " + expire + " days";
                         } else if (expire < -1) {
-                            expireText = "Expired " + expire + " days ago"
+                            expireText = "Expired " + Math.abs(expire) + " days ago"
                         } else if (expire = 0) {
                             expireText = "Expires today"
                         } else if (expire = 1) {
@@ -1540,9 +1540,9 @@
                         if (expire <= 3) {
                             circle = "red-circle"
                         } else if (expire <= 5) {
-                            circle = "yellow-circle"
+                            circle = "orange-circle"
                         } else {
-                            circle = "no-circle"
+                            circle = "green-circle"
                         }
 
 
@@ -1582,7 +1582,7 @@
                         if (expire > 1) {
                             expireText = "Expires in " + expire + " days";
                         } else if (expire < -1) {
-                            expireText = "Expired " + expire + " days ago"
+                            expireText = "Expired " + Math.abs(expire) + " days ago"
                         } else if (expire = 0) {
                             expireText = "Expires today"
                         } else if (expire = 1) {
@@ -1594,9 +1594,9 @@
                         if (expire <= 3) {
                             circle = "red-circle"
                         } else if (expire <= 5) {
-                            circle = "yellow-circle"
+                            circle = "orange-circle"
                         } else {
-                            circle = "no-circle"
+                            circle = "green-circle"
                         }
 
 
@@ -1633,7 +1633,7 @@
                         if (expire > 1) {
                             expireText = "Expires in " + expire + " days";
                         } else if (expire < -1) {
-                            expireText = "Expired " + expire + " days ago"
+                            expireText = "Expired " + Math.abs(expire) + " days ago"
                         } else if (expire = 0) {
                             expireText = "Expires today"
                         } else if (expire = 1) {
@@ -1645,9 +1645,9 @@
                         if (expire <= 3) {
                             circle = "red-circle"
                         } else if (expire <= 5) {
-                            circle = "yellow-circle"
+                            circle = "orange-circle"
                         } else {
-                            circle = "no-circle"
+                            circle = "green-circle"
                         }
 
 
@@ -1684,7 +1684,7 @@
                         if (expire > 1) {
                             expireText = "Expires in " + expire + " days";
                         } else if (expire < -1) {
-                            expireText = "Expired " + expire + " days ago"
+                            expireText = "Expired " + Math.abs(expire) + " days ago"
                         } else if (expire = 0) {
                             expireText = "Expires today"
                         } else if (expire = 1) {
@@ -1696,9 +1696,9 @@
                         if (expire <= 3) {
                             circle = "red-circle"
                         } else if (expire <= 5) {
-                            circle = "yellow-circle"
+                            circle = "orange-circle"
                         } else {
-                            circle = "no-circle"
+                            circle = "green-circle"
                         }
 
 
@@ -1880,8 +1880,20 @@
     }
 
     $("input:radio").change(function () {
-            redrawList()
+
+        if($(this).prop("checked")) {
+            if(!($("#order-asc").prop("checked"))) {
+                $(".sort-icon-btn").css('background-image','url("icons/sorGrpDesc.svg")');
+                redrawList();
+                }
+            if(!($("#order-desc").prop("checked"))) {
+                $(".sort-icon-btn").css('background-image','url("icons/sorGrpAsc.svg")');
+                redrawList();
+            }
+
+            }
         }
+
     )
     $("input:checkbox").change(function () {
             redrawList()
