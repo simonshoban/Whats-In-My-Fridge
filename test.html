@@ -246,7 +246,7 @@
                                     </div>
                                     <div class="ui-body-d ui-content" id="overview">
                                         <div class="ui-table">
-                                            <br/>
+                                            <form id="item-popup-form">
                                             <table>
                                                 <tr>
                                                     <td>Expiry Date:</td>
@@ -254,7 +254,9 @@
                                                 </tr>
                                                 <tr>
                                                     <td>Quantity:</td>
-                                                    <td class="quantity-field"><input id="item-popup-quantity-fridge" type="text"><select id="quantity-options-item-fridge" class="quantity-options">
+                                                    <td class="quantity-field"><input id="item-popup-quantity-fridge"
+                                                                                      type="text"><select
+                                                            id="quantity-options-item-fridge" class="quantity-options">
                                                         <option>--</option>
                                                         <option>g</option>
                                                         <option>kg</option>
@@ -273,6 +275,7 @@
                                                     </td>
                                                 </tr>
                                             </table>
+                                            </form>
                                         </div>
                                     </div>
                                     <div class="ui-body-d ui-content" id="storage">
@@ -524,546 +527,521 @@
                     </div>
                     <div class="main">
                         <div class="item-list">
-                            <div class="list-item-container">
-                                <a href="#item-popup2" data-rel="popup" class="list-item ui-btn shopping-item"><img
-                                        height="50" width="50" src="icons/p.svg">
-                                    <p class="item-name">Apple Apr-26</p>
-                                    <p class="item-quantity">Quantity: 3</p>
-                                    <label class="checkbox-label ">
-                                        <input type="checkbox" class="checkbox" name="apple">
-                                    </label>
-                                </a>
-                                <div class="list-item-back">
-                                    behind
-                                </div>
-                            </div>
-                            <div class="list-item-container">
-                                <a href="#item-popup2" data-rel="popup" class="list-item ui-btn shopping-item"><img
-                                        height="50" width="50" src="icons/p.svg">
-                                    <p class="item-name">Apple Apr-26</p>
-                                    <p class="item-quantity">Quantity: 3</p>
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" class="checkbox" name="apple">
-                                    </label>
-                                </a>
-                                <div class="list-item-back">
-                                    behind
-                                </div>
-                            </div>
-                            <div class="list-item-container">
-                                <a href="#item-popup2" data-rel="popup" class="list-item ui-btn shopping-item"><img
-                                        height="50" width="50" src="icons/p.svg">
-                                    <p class="item-name">Apple Apr-26</p>
-                                    <p class="item-quantity">Quantity: 3</p>
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" class="checkbox" name="apple">
-                                    </label>
-                                </a>
-                                <div class="list-item-back">
-                                    behind
-                                </div>
-                            </div>
-                            <div class="list-item-container">
-                                <a href="#item-popup2" data-rel="popup" class="list-item ui-btn shopping-item"><img
-                                        height="50" width="50" src="icons/p.svg">
-                                    <p class="item-name">Apple Apr-26</p>
-                                    <p class="item-quantity">Quantity: 3</p>
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" class="checkbox" name="apple">
-                                    </label>
-                                </a>
-                                <div class="list-item-back">
-                                    behind
-                                </div>
-                            </div>
                             <div data-role="popup" data-transition="fade" id="item-popup2" data-overlay-theme="b"
-                                 data-theme="a">
-                                <a href="#" data-rel="back"
-                                   class="close-button ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ">Close</a>
-                                <p class="item-popup-name">Apple Apr-26</p>
-                                <p class="item-popup-expires">Expires on April 29th, 2017 if bought today</p>
-                                <div id="tabs2" data-role="tabs">
-                                    <div id="navbar2" data-role="navbar">
-                                        <a href="#" id="overviewTab2">Overview</a>
-                                        <a href="#" id="storageTab2">Storage</a>
-                                        <a href="#" id="expiredTab2">Expired?</a>
-                                    </div>
-                                    <div class="ui-body-d ui-content" id="overview2">
-                                        <div class="ui-table">
-                                            <br/>
-                                            <table>
-                                                <tr>
-                                                    <td>Quantity</td>
-                                                    <td>1</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Value of items</td>
-                                                    <td>$0.93</td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <div class="ui-body-d ui-content" id="storage2">
-                                        <br/>
-                                        best stored in stomach
-                                    </div>
-                                    <div class="ui-body-d ui-content" id="expired2">
-                                        <br/>
-                                        if its red then its dead, if its brown scarf it down
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#add-popup2" data-rel="popup"
-                           class="large-circle ui-alt-icon ui-nodisc-icon  ui-btn ui-icon-plus ui-btn-icon-notext">No
-                            text</a>
-                        <div data-role="popup" data-transition="none" data-overlay-theme="b" id="add-popup2">
+                            data-theme="a">
                             <a href="#" data-rel="back"
                                class="close-button ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ">Close</a>
-                            <p id="add-header2">Add Item</p>
-                            <h3>Common Items</h3>
-                            <div id="common-items2">
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
+                            <p><input data-mini="true" id="item-popup-name-list" type="text"></p>
+                            <p class="item-popup-expires-list">Expires on April 29th, 2017</p>
+                            <div id="tabs2" data-role="tabs">
+                                <div id="navbar2" data-role="navbar">
+                                    <a href="#" id="overviewTab2">Overview</a>
+                                    <a href="#" id="storageTab2">Storage</a>
+                                    <a href="#" id="expiredTab2">Expired?</a>
                                 </div>
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
+                                <div class="ui-body-d ui-content" id="overview2">
+                                    <div class="ui-table">
+                                        <form id="item-popup2-form">
+                                        <table>
+
+                                            <tr>
+                                                <td>Quantity:</td>
+                                                <td class="quantity-field"><input id="item-popup-quantity-list"
+                                                                                  type="text"><select
+                                                        id="quantity-options-item-list" class="quantity-options">
+                                                    <option>--</option>
+                                                    <option>g</option>
+                                                    <option>kg</option>
+                                                    <option>L</option>
+                                                    <option>ml</option>
+
+                                                </select></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Price: <span class="dollar">$</span></td>
+                                                <td><input id="item-popup-price-list" type="text"></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <a href="#" class=" save-button ui-btn">Save Changes</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </form>
+                                    </div>
                                 </div>
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
+                                <div class="ui-body-d ui-content" id="storage2">
                                 </div>
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
-                                </div>
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
-                                </div>
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
-                                </div>
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
-                                </div>
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
+                                <div class="ui-body-d ui-content" id="expired2">
                                 </div>
                             </div>
-                            <h3>Frequently Purchased Items</h3>
-                            <div id="bought-items2"></div>
-                            <div id="button-div2" align="right">
-                                <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline"
-                                   id="custom-item-list">Custom
-                                    Item</a>
+                            <div class="item-button-container">
+                                <a href="#" class="ate-button ui-btn ui-shadow ui-btn-inline"
+                                >I ate it</a>
+                                <a href="#" class="expired-button ui-btn ui-shadow ui-btn-inline"
+                                >I threw it out</a>
                             </div>
                         </div>
-                        <div data-role="popup" data-transition="none" data-overlay-theme="b" id="custom-item-popup2">
-                            <a href="#" data-rel="back"
-                               class="close-button ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ">Close</a>
-                            <a href="#" data-rel="back"
-                               class="ui-btn ui-corner-all ui-shadow ui-btn ui-btn-inherit ui-icon-back ui-btn-icon-notext "
-                               id="custom-add-back2">Back</a>
-                            <p class="item-popup-name">Add item</p>
-                            <h3 class="required-header">Required</h3>
+                    </div>
+                    <a href="#add-popup2" data-rel="popup"
+                       class="large-circle ui-alt-icon ui-nodisc-icon  ui-btn ui-icon-plus ui-btn-icon-notext">No
+                        text</a>
+
+                    <div data-role="popup" data-transition="none" data-overlay-theme="b" id="add-popup2">
+                        <a href="#" data-rel="back"
+                           class="close-button ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ">Close</a>
+                        <p id="add-header2">Add Item</p>
+                        <h3>Common Items</h3>
+                        <div id="common-items2">
+                            <div class="item-panel">
+                                <img height="50" width="50" src="icons/d.svg" class="add-icons">
+                                <p>Milk</p>
+                            </div>
+                            <div class="item-panel">
+                                <img height="50" width="50" src="icons/g.svg" class="add-icons">
+                                <p>Bread</p>
+                            </div>
+                            <div class="item-panel">
+                                <img height="50" width="50" src="icons/m.svg" class="add-icons">
+                                <p>Egg</p>
+                            </div>
+                            <div class="item-panel">
+                                <img height="50" width="50" src="icons/p.svg" class="add-icons">
+                                <p>Apple</p>
+                            </div>
+                            <div class="item-panel">
+                                <img height="50" width="50" src="icons/p.svg" class="add-icons">
+                                <p>Banana</p>
+                            </div>
+                            <div class="item-panel">
+                                <img height="50" width="50" src="icons/d.svg" class="add-icons">
+                                <p>Milk</p>
+                            </div>
+                            <div class="item-panel">
+                                <img height="50" width="50" src="icons/d.svg" class="add-icons">
+                                <p>Milk</p>
+                            </div>
+                            <div class="item-panel">
+                                <img height="50" width="50" src="icons/d.svg" class="add-icons">
+                                <p>Milk</p>
+                            </div>
+                        </div>
+                        <h3>Frequently Purchased Items</h3>
+                        <div id="bought-items2"></div>
+                        <div id="button-div2" align="right">
+                            <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline"
+                               id="custom-item-list">Custom
+                                Item</a>
+                        </div>
+                    </div>
+                    <div data-role="popup" data-transition="none" data-overlay-theme="b" id="custom-item-popup2">
+                        <a href="#" data-rel="back"
+                           class="close-button ui-btn ui-corner-all ui-shadow ui-btn  ui-icon-delete ui-btn-icon-notext ">Close</a>
+                        <a href="#" data-rel="back"
+                           class=" ui-btn ui-corner-all ui-shadow ui-btn ui-btn-inherit ui-icon-back ui-btn-icon-notext"
+                           id="custom-add-back2">Back</a>
+                        <p class="item-popup-name">Add item</p>
+                        <h3 class="required-header">Required</h3>
+                        <hr>
+                        <br>
+                        <form id="list-add-form">
+                            <div class="add-item-table">
+                                <table>
+
+                                    <tr>
+                                        <td>
+                                            <label id="food-name-label-list" for="food-name-list">Name of food<span
+                                                    class="invalid-input-star">*</span></label>
+                                        </td>
+                                        <td>
+                                            <input id="food-name-list" name="food-name-list" type="text"/>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <label id="food-group-label-list" for="food-group-list">Food group<span
+                                                    class="invalid-input-star">*</span></label>
+                                        </td>
+                                        <td>
+                                            <select id="food-group-list" name="food-group-list">
+                                                <option>----------</option>
+                                                <option>produce</option>
+                                                <option>dairy</option>
+                                                <option>grain</option>
+                                                <option>meat</option>
+                                                <option>other</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <h3 class="optional-header-list">Optional</h3>
                             <hr>
                             <br>
-                            <form id="list-add-form">
-                                <div class="add-item-table">
-                                    <table>
-                                        <tr>
-                                            <td>
-                                                <label for="food-name2">Name of food</label>
-                                            </td>
-                                            <td>
-                                                <input id="food-name2" name="food-name" type="text"/>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <label for="food-group2">Food group</label>
-                                            </td>
-                                            <td>
-                                                <select id="food-group2" name="food-group">
-                                                    <option>----------</option>
-                                                    <option>Produce</option>
-                                                    <option>Dairy</option>
-                                                    <option>Grain</option>
-                                                    <option>Meat</option>
-                                                    <option>Other</option>
-                                                </select>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <label for="expiry-date2">Expiry Date</label>
-                                            </td>
-                                            <td>
-                                                <input id="expiry-date2" name="expiry-date" type="date"/>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <h3 class="optional-header">Optional</h3>
-                                <hr>
-                                <br>
-                                <div class="add-item-table">
-                                    <table>
-                                        <tr>
-                                            <td>
-                                                <label for="item-quantity2">Quantity</label>
-                                            </td>
-                                            <td>
-                                                <input id="item-quantity2" name="item-quantity" type="text"/>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <label for="item-price2">Price ($)</label>
-                                            </td>
-                                            <td>
-                                                <input id="item-price2" name="item-price" type="text"/>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div>
-                                    <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline"
-                                       id="add-button-list">Add
-                                        Item</a>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="footer">
-                    </div>
-                </div>
-                <div class="fakepanel">
-                    <div class="panel-container">
-                        <p class="logo2">WhatsinmyFridge.ca</p>
-                        <ul class="nav-list">
-                            <li>
-                                <a href="#fridge" data-transition="none" class="fridge-btn nav-btn ui-btn">Fridge</a>
-                            </li>
-                            <li>
-                                <a href="#list" data-transition="none" class="shopping-list-btn nav-btn ui-btn">Shopping
-                                    List</a>
-                            </li>
-                            <li>
-                                <a href="#settings" data-transition="none"
-                                   class="settings-btn nav-btn ui-btn">Settings</a>
-                            </li>
-                            <li>
-                                <a href="#about" data-transition="none" class="about-btn nav-btn ui-btn">About</a>
-                            </li>
-                            <li>
-                                <a href="#aff-apps" data-transition="none" class="aff-btn nav-btn ui-btn">Affiliated
-                                    Apps</a>
-                            </li>
-                            <li>
-                                <a data-transition="none" href="#login" class="login-btn nav-btn ui-btn">Login</a>
-                            </li>
-                            <li>
-                                <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div data-role="footer">
-        </div>
-    </div><!-- list page end -->
+                            <div class="add-item-table">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <label id="item-quantity-label-list" for="item-quantity">Quantity<span
+                                                    class="invalid-input-star">*</span></label>
+                                        </td>
+                                        <td class="quantity-field">
+                                            <input id="item-quantity-list" name="item-quantity" type="text"/>
+                                            <select id="quantity-options-add-list" class="quantity-options">
+                                                <option>--</option>
+                                                <option>g</option>
+                                                <option>kg</option>
+                                                <option>L</option>
+                                                <option>ml</option>
 
-    <div data-role="page" id="settings"><!-- the settings page-->
-        <div data-role="header">
-        </div>
-        <div role="main" class="ui-content">
-            <div class="big-container">
-                <div class="container">
-                    <div class="header">
-                        <div class="nav">
-                            <a href="#defaultpanel"
-                               class="nav-button ui-large-icon ui-btn  ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default
-                                panel</a>
-                            <h1>Settings</h1>
-                        </div>
-                    </div>
-                    <div class="main">
-                        <form id="settings-form">
-                            <table id="settings-form-table">
-                                <tr>
-                                    <td>
-                                        <label id="measurement-label" class="text-input-label"
-                                               for="flip-metric-imperial">Measurement type:</label>
-                                    </td>
-                                    <td>
-                                        <input type="checkbox" data-role="flipswitch" name="measurement-type"
-                                               id="flip-metric-imperial" data-on-text="Imperial" data-off-text="Metric"
-                                               data-wrapper-class="custom-size-flipswitch">
-                                    </td>
-                                </tr>
-                                <tr id="ronic-slider-container">
-                                    <td>
-                                        <label for="ronic-slider" class="text-input-label">Go fast?</label>
-                                    </td>
-                                    <td id="ronic-slider-td">
-                                        <input type="checkbox" data-role="flipswitch" name="ronic-slider"
-                                               id="ronic-slider" data-on-text="AAAAAA" data-off-text="YES!"
-                                               onchange="ronicImageSwap()" data-wrapper-class="custom-size-flipswitch">
-                                    </td>
-                                </tr>
-                            </table>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label id="item-price-label-list" for="item-price">Price ($)<span
+                                                    class="invalid-input-star">*</span></label>
+                                        </td>
+                                        <td>
+                                            <input id="item-price-list" name="item-price" type="text"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div>
+                                <a href="#" class="ui-btn ui-shadow ui-btn-inline"
+                                   id="add-button-list">Add
+                                    Item</a>
+                            </div>
                         </form>
-                        <div id="easter-egg-box">
-                            <input type="text" name="easter-egg" id="easter-egg" maxlength="5"
-                                   data-wrapper-class="ui-custom" onchange="easterEgg()"/>
-                        </div>
                     </div>
+
+
                 </div>
-                <div class="fakepanel">
-                    <div class="panel-container">
-                        <p class="logo2">WhatsinmyFridge.ca</p>
-                        <ul class="nav-list">
-                            <li>
-                                <a href="#fridge" data-transition="none" class="fridge-btn nav-btn ui-btn">Fridge</a>
-                            </li>
-                            <li>
-                                <a href="#list" data-transition="none" class="shopping-list-btn nav-btn ui-btn">Shopping
-                                    List</a>
-                            </li>
-                            <li>
-                                <a href="#settings" data-transition="none"
-                                   class="settings-btn nav-btn ui-btn">Settings</a>
-                            </li>
-                            <li>
-                                <a href="#about" data-transition="none" class="about-btn nav-btn ui-btn">About</a>
-                            </li>
-                            <li>
-                                <a href="#aff-apps" data-transition="none" class="aff-btn nav-btn ui-btn">Affiliated
-                                    Apps</a>
-                            </li>
-                            <li>
-                                <a data-transition="none" href="#login" class="login-btn nav-btn ui-btn">Login</a>
-                            </li>
-                            <li>
-                                <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
-                            </li>
-                        </ul>
-                    </div>
+                <div class="footer">
+                </div>
+            </div>
+            <div class="fakepanel">
+                <div class="panel-container">
+                    <p class="logo2">WhatsinmyFridge.ca</p>
+                    <ul class="nav-list">
+                        <li>
+                            <a href="#fridge" data-transition="none" class="fridge-btn nav-btn ui-btn">Fridge</a>
+                        </li>
+                        <li>
+                            <a href="#list" data-transition="none" class="shopping-list-btn nav-btn ui-btn">Shopping
+                                List</a>
+                        </li>
+                        <li>
+                            <a href="#settings" data-transition="none"
+                               class="settings-btn nav-btn ui-btn">Settings</a>
+                        </li>
+                        <li>
+                            <a href="#about" data-transition="none" class="about-btn nav-btn ui-btn">About</a>
+                        </li>
+                        <li>
+                            <a href="#aff-apps" data-transition="none" class="aff-btn nav-btn ui-btn">Affiliated
+                                Apps</a>
+                        </li>
+                        <li>
+                            <a data-transition="none" href="#login" class="login-btn nav-btn ui-btn">Login</a>
+                        </li>
+                        <li>
+                            <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-        <div data-role="footer">
-        </div>
-    </div><!-- settings page end -->
-
-    <div data-role="page" id="about"><!-- the about page -->
-        <div data-role="header">
-        </div>
-        <div role="main" class="ui-content">
-            <div class="big-container">
-                <div class="container">
-                    <div class="header">
-                        <div class="nav">
-                            <a href="#defaultpanel"
-                               class="nav-button ui-large-icon ui-btn  ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default
-                                panel</a>
-                            <h1>About</h1>
-                        </div>
-                    </div>
-                    <div class="main">
-                        <h2 id="dev-header">The Developers</h2>
-                        <img height="50" width="50" src="icons/d.svg" class="develop-img">
-                        <h3>Phat Le</h3>
-                        <p class="develop-text">Our fearless leader, co-ordinator, and dank memer, loves
-                            league of legends and stuff.</p>
-                        <img height="50" width="50" src="icons/m.svg" class="develop-img">
-                        <h3>Simon Shoban</h3>
-                        <p class="develop-text">Dankest pokemon master, gotta catchem all~1</p>
-                        <img height="50" width="50" src="icons/o.svg" class="develop-img">
-                        <h3>Akemi Haraguchi</h3>
-                        <p class="develop-text">The sikkest grafix designer in existence desu</p>
-                        <img height="50" width="50" src="icons/g.svg" class="develop-img">
-                        <h3>Ben Zhang</h3>
-                        <p class="develop-text">Master procrastinator, loves to play yugeeohh a
-                            nd stuff lmao hello lol xdasd asdasd</p>
-                        <img height="50" width="50" src="icons/p.svg" class="develop-img">
-                        <h3>Cameron Roberts</h3>
-                        <p class="develop-text">The D00d dat does it all</p>
-                        <br>
-                        <div id="mission-header-top"></div>
-                        <h2 id="mission-header">Mission Statement</h2>
-                        <ul id="mission-body">
-                            <li><h5>To improve the environment and stuf</h5></li>
-                            <li><h5>And other stuf</h5></li>
-                            <li><h5>U kno??</h5></li>
-                            <li><h5>Saem</h5></li>
-                        </ul>
-                        <br>
-                        <h2 id="goal-header">Goal</h2>
-                        <p class="develop-text">Our goal is to promote food waste awareness through this app,
-                            we want more people to conserve food through shopping planning and expiry date tracking.</p>
-                    </div>
-                </div>
-                <div class="fakepanel">
-                    <div class="panel-container">
-                        <p class="logo2">WhatsinmyFridge.ca</p>
-                        <ul class="nav-list">
-                            <li>
-                                <a href="#fridge" data-transition="none" class="fridge-btn nav-btn ui-btn">Fridge</a>
-                            </li>
-                            <li>
-                                <a href="#list" data-transition="none" class="shopping-list-btn nav-btn ui-btn">Shopping
-                                    List</a>
-                            </li>
-                            <li>
-                                <a href="#settings" data-transition="none"
-                                   class="settings-btn nav-btn ui-btn">Settings</a>
-                            </li>
-                            <li>
-                                <a href="#about" data-transition="none" class="about-btn nav-btn ui-btn">About</a>
-                            </li>
-                            <li>
-                                <a href="#aff-apps" data-transition="none" class="aff-btn nav-btn ui-btn">Affiliated
-                                    Apps</a>
-                            </li>
-                            <li>
-                                <a data-transition="none" href="#login" class="login-btn nav-btn ui-btn">Login</a>
-                            </li>
-                            <li>
-                                <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <div data-role="footer">
-        </div>
-    </div><!-- about page end -->
-
-    <div data-role="page" id="aff-apps"><!-- the affiliated apps page-->
-        <div data-role="header">
-        </div>
-        <div role="main" class="ui-content">
-            <div class="big-container">
-                <div class="container">
-                    <div class="header">
-                        <div class="nav">
-                            <a href="#defaultpanel"
-                               class="nav-button ui-large-icon ui-btn  ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default
-                                panel</a>
-                            <h1>Affiliated Apps</h1>
-                        </div>
-                    </div>
-                    <div class="main">
-                        <a id="forkpotato" href="http://students.bcitdev.com/A00863917/G37/index.html">
-                            <div class="aff-header">
-                                <img height="70" width="70" src="images/fork&potato.png" class="aff-icon">
-                                <h2>Fork & Potato</h2>
-                            </div>
-                        </a>
-                        <p>An educational RPG for elementary children. Battle bad food and save the world, and
-                            money.</p>
-                        <a id="foodfall" href="http://foodfall.ca">
-                            <div class="aff-header">
-                                <img height="70" width="70" src="images/food-fall-artwork-1.jpg" class="aff-icon">
-                                <h2>FoodFall.ca</h2>
-                            </div>
-                        </a>
-                        <p>A JavaScript based game where you catch falling food in a basket and learn about how to
-                            prevent food waste!</p>
-                        <a id="overcooked" href="http://overcooked.ca">
-                            <div class="aff-header">
-                                <img height="70" width="70" src="images/overcooked-logo.svg" class="aff-icon">
-                                <h2>Overcooked.ca</h2>
-                            </div>
-                        </a>
-                        <p>An app for businesses, farmers, grocery stores, or anyone to post their surplus foods to help
-                            connect charities and hungry mouths.</p>
-                        <a id="useitup" href="http://use-it-up.azurewebsites.net/index.php">
-                            <div class="aff-header">
-                                <img height="70" width="70" src="images/UseItUpBannerv2.0.png" class="aff-icon">
-                                <h2>UseItUp</h2>
-                            </div>
-                        </a>
-                        <p>A website where you can find recipies for food thats has gone bad or is about to as well as
-                            tips on how you can revive dying food.</p>
-                    </div>
-                </div>
-                <div class="fakepanel">
-                    <div class="panel-container">
-                        <p class="logo2">WhatsinmyFridge.ca</p>
-                        <ul class="nav-list">
-                            <li>
-                                <a href="#fridge" data-transition="none" class="fridge-btn nav-btn ui-btn">Fridge</a>
-                            </li>
-                            <li>
-                                <a href="#list" data-transition="none" class="shopping-list-btn nav-btn ui-btn">Shopping
-                                    List</a>
-                            </li>
-                            <li>
-                                <a href="#settings" data-transition="none"
-                                   class="settings-btn nav-btn ui-btn">Settings</a>
-                            </li>
-                            <li>
-                                <a href="#about" data-transition="none" class="about-btn nav-btn ui-btn">About</a>
-                            </li>
-                            <li>
-                                <a href="#aff-apps" data-transition="none" class="aff-btn nav-btn ui-btn">Affiliated
-                                    Apps</a>
-                            </li>
-                            <li>
-                                <a data-transition="none" href="#login" class="login-btn nav-btn ui-btn">Login</a>
-                            </li>
-                            <li>
-                                <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div data-role="footer">
-        </div>
-    </div><!-- affiliated apps end -->
-
-    <!-- the panel thehamburger menu opens -->
-    <div data-role="panel" id="defaultpanel" data-overlay-theme="b" data-theme="a" data-display="overlay"
-         class="ui-panel ui-responsive-panel ui-panel-position-left ui-body-inherit ui-panel-animate ui-panel-closed">
-        <p class="logo2">WhatsinmyFridge.ca</p>
-        <ul class="nav-list">
-            <li>
-                <a href="#fridge" data-transition="slide" class="fridge-btn nav-btn ui-btn">Fridge</a>
-            </li>
-            <li>
-                <a href="#list" data-transition="slide" class="shopping-list-btn nav-btn ui-btn">Shopping List</a>
-            </li>
-            <li>
-                <a href="#settings" data-transition="slide" class="settings-btn nav-btn ui-btn">Settings</a>
-            </li>
-            <li>
-                <a href="#about" data-transition="slide" class="about-btn nav-btn ui-btn">About</a>
-            </li>
-            <li>
-                <a href="#aff-apps" data-transition="slide" class="aff-btn nav-btn ui-btn">Affiliated Apps</a>
-            </li>
-            <li>
-                <a data-transition="slide" href="#login" class="login-btn nav-btn ui-btn">Login</a>
-            </li>
-            <li>
-                <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
-            </li>
-        </ul>
     </div>
+    <div data-role="footer">
+    </div>
+</div><!-- list page end -->
+
+<div data-role="page" id="settings"><!-- the settings page-->
+    <div data-role="header">
+    </div>
+    <div role="main" class="ui-content">
+        <div class="big-container">
+            <div class="container">
+                <div class="header">
+                    <div class="nav">
+                        <a href="#defaultpanel"
+                           class="nav-button ui-large-icon ui-btn  ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default
+                            panel</a>
+                        <h1>Settings</h1>
+                    </div>
+                </div>
+                <div class="main">
+                    <form id="settings-form">
+                        <table id="settings-form-table">
+                            <tr>
+                                <td>
+                                    <label id="measurement-label" class="text-input-label"
+                                           for="flip-metric-imperial">Measurement type:</label>
+                                </td>
+                                <td>
+                                    <input type="checkbox" data-role="flipswitch" name="measurement-type"
+                                           id="flip-metric-imperial" data-on-text="Imperial" data-off-text="Metric"
+                                           data-wrapper-class="custom-size-flipswitch">
+                                </td>
+                            </tr>
+                            <tr id="ronic-slider-container">
+                                <td>
+                                    <label for="ronic-slider" class="text-input-label">Go fast?</label>
+                                </td>
+                                <td id="ronic-slider-td">
+                                    <input type="checkbox" data-role="flipswitch" name="ronic-slider"
+                                           id="ronic-slider" data-on-text="AAAAAA" data-off-text="YES!"
+                                           onchange="ronicImageSwap()" data-wrapper-class="custom-size-flipswitch">
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                    <div id="easter-egg-box">
+                        <input type="text" name="easter-egg" id="easter-egg" maxlength="5"
+                               data-wrapper-class="ui-custom" onchange="easterEgg()"/>
+                    </div>
+                </div>
+            </div>
+            <div class="fakepanel">
+                <div class="panel-container">
+                    <p class="logo2">WhatsinmyFridge.ca</p>
+                    <ul class="nav-list">
+                        <li>
+                            <a href="#fridge" data-transition="none" class="fridge-btn nav-btn ui-btn">Fridge</a>
+                        </li>
+                        <li>
+                            <a href="#list" data-transition="none" class="shopping-list-btn nav-btn ui-btn">Shopping
+                                List</a>
+                        </li>
+                        <li>
+                            <a href="#settings" data-transition="none"
+                               class="settings-btn nav-btn ui-btn">Settings</a>
+                        </li>
+                        <li>
+                            <a href="#about" data-transition="none" class="about-btn nav-btn ui-btn">About</a>
+                        </li>
+                        <li>
+                            <a href="#aff-apps" data-transition="none" class="aff-btn nav-btn ui-btn">Affiliated
+                                Apps</a>
+                        </li>
+                        <li>
+                            <a data-transition="none" href="#login" class="login-btn nav-btn ui-btn">Login</a>
+                        </li>
+                        <li>
+                            <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-role="footer">
+    </div>
+</div><!-- settings page end -->
+
+<div data-role="page" id="about"><!-- the about page -->
+    <div data-role="header">
+    </div>
+    <div role="main" class="ui-content">
+        <div class="big-container">
+            <div class="container">
+                <div class="header">
+                    <div class="nav">
+                        <a href="#defaultpanel"
+                           class="nav-button ui-large-icon ui-btn  ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default
+                            panel</a>
+                        <h1>About</h1>
+                    </div>
+                </div>
+                <div class="main">
+                    <h2 id="dev-header">The Developers</h2>
+                    <img height="50" width="50" src="icons/d.svg" class="develop-img">
+                    <h3>Phat Le</h3>
+                    <p class="develop-text">Our fearless leader, co-ordinator, and dank memer, loves
+                        league of legends and stuff.</p>
+                    <img height="50" width="50" src="icons/m.svg" class="develop-img">
+                    <h3>Simon Shoban</h3>
+                    <p class="develop-text">Dankest pokemon master, gotta catchem all~1</p>
+                    <img height="50" width="50" src="icons/o.svg" class="develop-img">
+                    <h3>Akemi Haraguchi</h3>
+                    <p class="develop-text">The sikkest grafix designer in existence desu</p>
+                    <img height="50" width="50" src="icons/g.svg" class="develop-img">
+                    <h3>Ben Zhang</h3>
+                    <p class="develop-text">Master procrastinator, loves to play yugeeohh a
+                        nd stuff lmao hello lol xdasd asdasd</p>
+                    <img height="50" width="50" src="icons/p.svg" class="develop-img">
+                    <h3>Cameron Roberts</h3>
+                    <p class="develop-text">The D00d dat does it all</p>
+                    <br>
+                    <div id="mission-header-top"></div>
+                    <h2 id="mission-header">Mission Statement</h2>
+                    <ul id="mission-body">
+                        <li><h5>To improve the environment and stuf</h5></li>
+                        <li><h5>And other stuf</h5></li>
+                        <li><h5>U kno??</h5></li>
+                        <li><h5>Saem</h5></li>
+                    </ul>
+                    <br>
+                    <h2 id="goal-header">Goal</h2>
+                    <p class="develop-text">Our goal is to promote food waste awareness through this app,
+                        we want more people to conserve food through shopping planning and expiry date tracking.</p>
+                </div>
+            </div>
+            <div class="fakepanel">
+                <div class="panel-container">
+                    <p class="logo2">WhatsinmyFridge.ca</p>
+                    <ul class="nav-list">
+                        <li>
+                            <a href="#fridge" data-transition="none" class="fridge-btn nav-btn ui-btn">Fridge</a>
+                        </li>
+                        <li>
+                            <a href="#list" data-transition="none" class="shopping-list-btn nav-btn ui-btn">Shopping
+                                List</a>
+                        </li>
+                        <li>
+                            <a href="#settings" data-transition="none"
+                               class="settings-btn nav-btn ui-btn">Settings</a>
+                        </li>
+                        <li>
+                            <a href="#about" data-transition="none" class="about-btn nav-btn ui-btn">About</a>
+                        </li>
+                        <li>
+                            <a href="#aff-apps" data-transition="none" class="aff-btn nav-btn ui-btn">Affiliated
+                                Apps</a>
+                        </li>
+                        <li>
+                            <a data-transition="none" href="#login" class="login-btn nav-btn ui-btn">Login</a>
+                        </li>
+                        <li>
+                            <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div data-role="footer">
+    </div>
+</div><!-- about page end -->
+
+<div data-role="page" id="aff-apps"><!-- the affiliated apps page-->
+    <div data-role="header">
+    </div>
+    <div role="main" class="ui-content">
+        <div class="big-container">
+            <div class="container">
+                <div class="header">
+                    <div class="nav">
+                        <a href="#defaultpanel"
+                           class="nav-button ui-large-icon ui-btn  ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default
+                            panel</a>
+                        <h1>Affiliated Apps</h1>
+                    </div>
+                </div>
+                <div class="main">
+                    <a id="forkpotato" href="http://students.bcitdev.com/A00863917/G37/index.html">
+                        <div class="aff-header">
+                            <img height="70" width="70" src="images/fork&potato.png" class="aff-icon">
+                            <h2>Fork & Potato</h2>
+                        </div>
+                    </a>
+                    <p>An educational RPG for elementary children. Battle bad food and save the world, and
+                        money.</p>
+                    <a id="foodfall" href="http://foodfall.ca">
+                        <div class="aff-header">
+                            <img height="70" width="70" src="images/food-fall-artwork-1.jpg" class="aff-icon">
+                            <h2>FoodFall.ca</h2>
+                        </div>
+                    </a>
+                    <p>A JavaScript based game where you catch falling food in a basket and learn about how to
+                        prevent food waste!</p>
+                    <a id="overcooked" href="http://overcooked.ca">
+                        <div class="aff-header">
+                            <img height="70" width="70" src="images/overcooked-logo.svg" class="aff-icon">
+                            <h2>Overcooked.ca</h2>
+                        </div>
+                    </a>
+                    <p>An app for businesses, farmers, grocery stores, or anyone to post their surplus foods to help
+                        connect charities and hungry mouths.</p>
+                    <a id="useitup" href="http://use-it-up.azurewebsites.net/index.php">
+                        <div class="aff-header">
+                            <img height="70" width="70" src="images/UseItUpBannerv2.0.png" class="aff-icon">
+                            <h2>UseItUp</h2>
+                        </div>
+                    </a>
+                    <p>A website where you can find recipies for food thats has gone bad or is about to as well as
+                        tips on how you can revive dying food.</p>
+                </div>
+            </div>
+            <div class="fakepanel">
+                <div class="panel-container">
+                    <p class="logo2">WhatsinmyFridge.ca</p>
+                    <ul class="nav-list">
+                        <li>
+                            <a href="#fridge" data-transition="none" class="fridge-btn nav-btn ui-btn">Fridge</a>
+                        </li>
+                        <li>
+                            <a href="#list" data-transition="none" class="shopping-list-btn nav-btn ui-btn">Shopping
+                                List</a>
+                        </li>
+                        <li>
+                            <a href="#settings" data-transition="none"
+                               class="settings-btn nav-btn ui-btn">Settings</a>
+                        </li>
+                        <li>
+                            <a href="#about" data-transition="none" class="about-btn nav-btn ui-btn">About</a>
+                        </li>
+                        <li>
+                            <a href="#aff-apps" data-transition="none" class="aff-btn nav-btn ui-btn">Affiliated
+                                Apps</a>
+                        </li>
+                        <li>
+                            <a data-transition="none" href="#login" class="login-btn nav-btn ui-btn">Login</a>
+                        </li>
+                        <li>
+                            <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-role="footer">
+    </div>
+</div><!-- affiliated apps end -->
+
+<!-- the panel thehamburger menu opens -->
+<div data-role="panel" id="defaultpanel" data-overlay-theme="b" data-theme="a" data-display="overlay"
+     class="ui-panel ui-responsive-panel ui-panel-position-left ui-body-inherit ui-panel-animate ui-panel-closed">
+    <p class="logo2">WhatsinmyFridge.ca</p>
+    <ul class="nav-list">
+        <li>
+            <a href="#fridge" data-transition="slide" class="fridge-btn nav-btn ui-btn">Fridge</a>
+        </li>
+        <li>
+            <a href="#list" data-transition="slide" class="shopping-list-btn nav-btn ui-btn">Shopping List</a>
+        </li>
+        <li>
+            <a href="#settings" data-transition="slide" class="settings-btn nav-btn ui-btn">Settings</a>
+        </li>
+        <li>
+            <a href="#about" data-transition="slide" class="about-btn nav-btn ui-btn">About</a>
+        </li>
+        <li>
+            <a href="#aff-apps" data-transition="slide" class="aff-btn nav-btn ui-btn">Affiliated Apps</a>
+        </li>
+        <li>
+            <a data-transition="slide" href="#login" class="login-btn nav-btn ui-btn">Login</a>
+        </li>
+        <li>
+            <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
+        </li>
+    </ul>
+</div>
 </div>
 
 <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
@@ -1179,7 +1157,7 @@
     var clickCounter = 0;
 
     /* Replaces all static images with images from the best-selling adventure
-    platformer Ronic The PineconeTM and disabled easter egg flipswitch */
+     platformer Ronic The PineconeTM and disabled easter egg flipswitch */
     function ronicImageSwap() {
         var ronicImageArray = [
             "icons/3A9CEA45.png",
@@ -1194,7 +1172,7 @@
             "icons/EA407848.png"
         ];
 
-        $(document).ready (function() {
+        $(document).ready(function () {
             for (var index = 0; index < $("img").length; index++) {
                 var random = Math.floor(Math.random() * (9 - 0));
                 document.getElementsByTagName("img")[index].src = ronicImageArray[random];
@@ -1250,7 +1228,7 @@
     /**********Shopping List**********/
 
     //Sets overview tab as default tab and highlights tab
-    $(".shopping-item").click(function () {
+    $(document).on("click", ".shopping-item", function () {
         $("#overview2").show();
         $("#overviewTab2").click();
     });
@@ -1341,8 +1319,10 @@
                 $(checkFridge)
                 $(checkList)
                 $(checkRonic);
-                $(redrawList())
-                $(fillRecentlyPurchasedItems())
+                $(redrawList)
+                $(redrawShoppingList)
+                $(fillFrequentlyPurchasedItemsFridge)
+                $(fillFrequentlyPurchasedItemsList)
 
                 // hide and show buttons based on login state
                 $(".login-btn").hide();
@@ -1470,6 +1450,25 @@
         });
 
     }
+    function addListItem(uid, name, category, quantity, units, price) {
+        var itemData = {
+            name: name,
+            category: category,
+            quantity: quantity,
+            units: units,
+            price: price,
+            date: Date.now()
+
+        }
+        return firebase.database().ref('/users/' + uid + "/list/").once('child_added').then(function (snapshot) {
+            var listId = snapshot.key;
+            var newItemKey = firebase.database().ref().child('list/' + listId).push().key;
+            var updates = {};
+            updates['/list/' + listId + "/" + newItemKey] = itemData;
+            return firebase.database().ref().update(updates);
+        });
+
+    }
 
     var msPerDay = 86400000
 
@@ -1509,7 +1508,7 @@
                         }
 
 
-                        var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#' onclick='openItemPopup(this)' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> " +
+                        var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#'  data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> " +
                             "<div class='list-item-back'> <div class='back-container'> <a href='#' class='ate-button ui-btn ui-shadow ui-btn-inline'>I ate it</a><a href='#' class='expired-button ui-btn ui-shadow ui-btn-inline'>I threw it out</a> </div> </div> </div> </div>"
                         if (!$("#category-flip").prop("checked")) {
                             $("#fridge .item-list").append(element)
@@ -1563,7 +1562,7 @@
                         }
 
 
-                        var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#' onclick='openItemPopup(this)' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> " +
+                        var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#'  data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> " +
                             "<div class='list-item-back'><div class='back-container'> <a href='#' class='ate-button ui-btn ui-shadow ui-btn-inline'>I ate it</a><a href='#' class='expired-button ui-btn ui-shadow ui-btn-inline'>I threw it out</a> </div> </div> </div> </div>"
                         if (!$("#category-flip").prop("checked")) {
                             $("#fridge .item-list").prepend(element)
@@ -1665,7 +1664,7 @@
                         }
 
 
-                        var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#' onclick='openItemPopup(this)' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> " +
+                        var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#'  data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> " +
                             "<div class='list-item-back'>  <div class='back-container'> <a href='#' class='ate-button ui-btn ui-shadow ui-btn-inline'>I ate it</a><a href='#' class='expired-button ui-btn ui-shadow ui-btn-inline'>I threw it out</a> </div> </div> </div>"
                         if (!$("#category-flip").prop("checked")) {
                             $("#fridge .item-list").prepend(element)
@@ -1677,6 +1676,34 @@
                     });
                     setCollapsibleNumbers()
 
+                });
+            });
+        })
+    }
+
+    function getShoppingList() {
+        return firebase.database().ref('/users/' + uid + "/list/").once('value').then(function (snapshot) {
+            snapshot.forEach(function (snapshot) {
+                var listId = snapshot.key;
+                return firebase.database().ref('/list/' + listId).orderByChild("expire").once('value').then(function (snapshot) {
+                    snapshot.forEach(function (snapshot) {
+                        var key = snapshot.key;
+                        var name = snapshot.val().name
+                        var category = snapshot.val().category
+                        var quantity = snapshot.val().quantity
+                        var units = snapshot.val().units
+                        var price = snapshot.val().price
+                        var quantityText = ""
+                        if (quantity != null) {
+                            quantityText = "Quantity: " + quantity + " "
+                            if (units != null) {
+                                quantityText = "Quantity: " + quantity + " " + units
+                            }
+                        }
+                        var element = '<div class="list-item-container"> <a data-key="' + key + '" href="#item-popup2" data-rel="popup" class="list-item ui-btn shopping-item"><img height="50" width="50" src="icons/' + category + '.svg"> <p class="item-name">' + name + '</p> <p class="item-quantity">' + quantityText + '</p> <label class="checkbox-label "> <input type="checkbox" class="checkbox"> </label> </a> ' + "<div class='list-item-back'> <div class='back-container'> <a href='#' class='ate-button ui-btn ui-shadow ui-btn-inline'>I ate it</a><a href='#' class='expired-button ui-btn ui-shadow ui-btn-inline'>I threw it out</a> </div> </div> </div> </div>"
+                        $("#list .item-list").append(element).enhanceWithin()
+
+                    });
                 });
             });
         })
@@ -1706,6 +1733,26 @@
             redrawList()
         }
     })
+    $("#add-button-list").click(function () {
+        if (addListValidate()) {
+            var uid = firebase.auth().currentUser.uid;
+            var name = $("#food-name-list").val().toLowerCase()
+            var type = $("#food-group-list").val().substr(0, 1).toLowerCase();
+            var units = $("#quantity-options-add-list").val()
+            var quantity = null
+            var price = null
+            if (!isNaN(parseInt($("#item-quantity-list").val()))) {
+                quantity = parseInt($("#item-quantity-list").val())
+            }
+            if (!isNaN(parseFloat($("#item-price-list").val()))) {
+                price = parseFloat($("#item-price-list").val())
+
+            }
+            $("#list-add-form").trigger("reset");
+            addListItem(uid, name, type, quantity, units, price)
+            redrawShoppingList()
+        }
+    })
 
 
 </script>
@@ -1726,8 +1773,8 @@
     }
     //Checks database to see if ronic variable is set to true, displays easter egg slider if it is true
     function checkRonic() {
-        return firebase.database().ref('/users/' + uid + '/Easter Egg/').once('value').then(function(snapshot) {
-            if (snapshot.val().ronic) {
+        return firebase.database().ref('/users/' + uid + '/Easter Egg/').once('value').then(function (snapshot) {
+            if (snapshot.val().ronic != null) {
                 $("#easter-egg").hide();
                 $("#ronic-slider-container").show();
             }
@@ -1735,8 +1782,10 @@
     }
 
     function clearFridgeList() {
-        //fridgeRef.off("child_added");
         $("#fridge .list-item-container").remove()
+    }
+    function clearShoppingList() {
+        $("#list .list-item-container").remove()
     }
     var pNumber;
     var mNumber;
@@ -1773,6 +1822,12 @@
         setCollapsibleNumbers();
 
     }
+    function redrawShoppingList() {
+
+        clearShoppingList();
+        getShoppingList()
+    }
+
     function setCollapsibleNumbers() {
         pNumber = $("#p > div > div").length;
         mNumber = $("#m > div > div").length;
@@ -1989,10 +2044,14 @@
             source: availableTags
         })
     });
+    $(function () {
+        $("#food-name-list").autocomplete({
+            source: availableTags
+        })
+    });
     function addItemValidate() {
         var check = true;
         if ($("#expiry-date").datepicker("getDate") != null) {
-            $("#custom-item-popup").popup("close");
             $("#food-expiry-date-label .invalid-input-star").css("display", "none");
         }
         else {
@@ -2027,6 +2086,48 @@
             $("#item-quantity-label .invalid-input-star").css("display", "inline");
             check = false;
         }
+        if (check) {
+            $("#custom-item-popup").popup("close");
+
+        }
+
+        return check;
+    }
+    function addListValidate() {
+        var check = true;
+        if ($("#food-group-list").val() !== "----------") {
+            $("#food-group-label-list .invalid-input-star").css("display", "none");
+        }
+        else {
+            $("#food-group-label-list .invalid-input-star").css("display", "inline");
+            check = false;
+        }
+        if ($("#food-name-list").val() !== "") {
+            $("#food-name-label-list .invalid-input-star").css("display", "none");
+        }
+        else {
+            $("#food-name-label-list .invalid-input-star").css("display", "inline");
+            check = false;
+        }
+        if ($("#item-price-list").val() == "" || !isNaN(parseInt($("#item-price-list").val()))) {
+            $("#item-price-label-list .invalid-input-star").css("display", "none");
+        }
+        else {
+            $("#item-price-label-list .invalid-input-star").css("display", "inline");
+            check = false;
+        }
+        if ($("#item-quantity-list").val() == "" || !isNaN(parseFloat($("#item-quantity-list").val()))) {
+            $("#item-quantity-label-list .invalid-input-star").css("display", "none");
+        }
+        else {
+            $("#item-quantity-label-list .invalid-input-star").css("display", "inline");
+            check = false;
+        }
+        if (check) {
+            $("#custom-item-popup2").popup("close");
+
+        }
+
         return check;
     }
 </script>
@@ -2044,8 +2145,24 @@
     $("#food-name").on("focusout", function () {
         autoFillFridgeAdd()
     })
-    $("*").on("autocompleteclose", function () {
+    $("#food-name").on("autocompleteclose", function () {
         autoFillFridgeAdd()
+    })
+
+    function autoFillListAdd() {
+        return firebase.database().ref('/autofill/' + $("#food-name-list").val().toLowerCase()).once('value').then(function (snapshot) {
+            if (snapshot.hasChild("foodGroup")) {
+                var expireDay = snapshot.val().expire + Date.now()
+                $("#food-group-list").val(snapshot.val().foodGroup).selectmenu("refresh")
+
+            }
+        })
+    }
+    $("#food-name-list").on("focusout", function () {
+        autoFillListAdd()
+    })
+    $("#food-name-list").on("autocompleteclose", function () {
+        autoFillListAdd()
     })
 
     $("#produce-number").click(function () {
@@ -2084,16 +2201,6 @@
         }
     })
 
-    function openItemPopup(event) {
-        $("#item-popup").popup("open")
-        return firebase.database().ref('/users/' + uid + "/fridge/").once('child_added').then(function (snapshot) {
-            var fridgeId = snapshot.key;
-            return firebase.database().ref('/fridge/' + fridgeId + "/" + event.target.attr("data-key")).once('value').then(function (snapshot) {
-                console.log(snapshot.key)
-                $("#item-popup .item-popup-expires").html("")
-            })
-        })
-    }
     var currentPopupItemContainer
     $(document).on("click", "#fridge .list-item", function () {
         var item = $(this)
@@ -2135,6 +2242,44 @@
             })
         })
     });
+    $(document).on("click", "#list .list-item", function () {
+        var item = $(this)
+        currentPopupItemContainer = item.parent();
+        return firebase.database().ref('/users/' + uid + "/list/").once('child_added').then(function (snapshot) {
+            var listId = snapshot.key;
+            return firebase.database().ref('/list/' + listId + "/" + item.attr("data-key")).once('value').then(function (snapshot) {
+                var name = snapshot.val().name
+                var date = snapshot.val().date
+                var quantity = snapshot.val().quantity
+                var units = snapshot.val().units
+                var price = snapshot.val().price
+                $("#item-popup-name-list").val(name)
+                $("#item-popup .item-popup-expires-list").html("Purchased: " + new Date(date).toDateString())
+                if (snapshot.hasChild("quantity")) {
+                    $("#item-popup-quantity-list").val(quantity)
+                    $("#quantity-options-item-list").val(units).selectmenu("refresh")
+
+                }
+                if (snapshot.hasChild("price")) {
+                    $("#item-popup-price-list").val(price)
+                }
+                $("#storage").html("")
+                $("#expired").html("")
+                return firebase.database().ref('/info/' + name).once('value').then(function (snapshot) {
+                    if (snapshot.val() != null) {
+                        fillExpiredInfoList(name);
+                        fillStorageInfoList(name);
+                        $("#item-popup2").popup("open")
+
+                    } else {
+                        $("#item-popup2").popup("open")
+
+                    }
+                })
+
+            })
+        })
+    });
     function fillExpiredInfo(name) {
         return firebase.database().ref('/info/' + name + '/expire/').orderByValue().once('value').then(function (snapshot) {
             snapshot.forEach(function (snapshot) {
@@ -2151,6 +2296,22 @@
         })
 
     }
+    function fillExpiredInfoList(name) {
+        return firebase.database().ref('/info/' + name + '/expire/').orderByValue().once('value').then(function (snapshot) {
+            snapshot.forEach(function (snapshot) {
+                getExpiredInfoList(snapshot.key)
+            })
+        })
+
+    }
+    function fillStorageInfoList(name) {
+        return firebase.database().ref('/info/' + name + '/storage/').orderByValue().once('value').then(function (snapshot) {
+            snapshot.forEach(function (snapshot) {
+                getStorageInfoList(snapshot.key)
+            })
+        })
+
+    }
     function getExpiredInfo(expireKey) {
         return firebase.database().ref('/expireInfo/' + expireKey).orderByValue().once('value').then(function (snapshot) {
             $("#expired").html($("#expired").html() + "<p>" + snapshot.val() + "</p>")
@@ -2159,6 +2320,16 @@
     function getStorageInfo(storageKey) {
         return firebase.database().ref('/storageInfo/' + storageKey).orderByValue().once('value').then(function (snapshot) {
             $("#storage").html($("#storage").html() + "<p>" + snapshot.val() + "</p>")
+        })
+    }
+    function getExpiredInfoList(expireKey) {
+        return firebase.database().ref('/expireInfo/' + expireKey).orderByValue().once('value').then(function (snapshot) {
+            $("#expired2").html($("#expired2").html() + "<p>" + snapshot.val() + "</p>")
+        })
+    }
+    function getStorageInfoList(storageKey) {
+        return firebase.database().ref('/storageInfo/' + storageKey).orderByValue().once('value').then(function (snapshot) {
+            $("#storage2").html($("#storage2").html() + "<p>" + snapshot.val() + "</p>")
         })
     }
 
@@ -2212,7 +2383,7 @@
         })
 
     }
-    $(document).on("click", ".item-panel", function () {
+    $(document).on("click", "#add-popup .item-panel", function () {
         var name = $(this).children("p").text().toLowerCase()
         $("#add-popup").popup("close")
         setTimeout(function () {
@@ -2221,22 +2392,50 @@
         $("#food-name").val(name)
         autoFillFridgeAdd()
     })
+    $(document).on("click", "#add-popup2 .item-panel", function () {
+        var name = $(this).children("p").text().toLowerCase()
+        $("#add-popup2").popup("close")
+        setTimeout(function () {
+            $("#custom-item-popup2").popup("open")
+        }, 100)
+        $("#food-name-list").val(name)
+        autoFillListAdd()
+    })
 
-    function fillRecentlyPurchasedItems() {
+    function fillFrequentlyPurchasedItemsFridge() {
         return firebase.database().ref('/users/' + uid + "/frequentItems/").orderByValue().limitToLast(8).once('value').then(function (snapshot) {
             snapshot.forEach(function (snapshot) {
-                createItemPanel(snapshot.key);
+                createItemPanelFridge(snapshot.key);
             })
 
         })
     }
-    function createItemPanel(name) {
+    function fillFrequentlyPurchasedItemsList() {
+        return firebase.database().ref('/users/' + uid + "/frequentItems/").orderByValue().limitToLast(8).once('value').then(function (snapshot) {
+            snapshot.forEach(function (snapshot) {
+                createItemPanelList(snapshot.key);
+            })
+
+        })
+    }
+    function createItemPanelFridge(name) {
         return firebase.database().ref('/autofill/' + name + "/foodGroup").orderByValue().once('value').then(function (snapshot) {
             if (snapshot.val() != null) {
                 var category = snapshot.val().substr(0, 1)
                 $("#bought-items").prepend('<div class="item-panel"> <img height="50" width="50" src="icons/' + category + '.svg" class="add-icons"> <p>' + name + '</p> </div>')
             } else {
                 $("#bought-items").prepend('<div class="item-panel"> <img height="50" width="50" src="icons/o.svg" class="add-icons"> <p>' + name + '</p> </div>')
+
+            }
+        })
+    }
+    function createItemPanelList(name) {
+        return firebase.database().ref('/autofill/' + name + "/foodGroup").orderByValue().once('value').then(function (snapshot) {
+            if (snapshot.val() != null) {
+                var category = snapshot.val().substr(0, 1)
+                $("#bought-items2").prepend('<div class="item-panel"> <img height="50" width="50" src="icons/' + category + '.svg" class="add-icons"> <p>' + name + '</p> </div>')
+            } else {
+                $("#bought-items2").prepend('<div class="item-panel"> <img height="50" width="50" src="icons/o.svg" class="add-icons"> <p>' + name + '</p> </div>')
 
             }
         })
@@ -2261,10 +2460,47 @@
                 expire: expire,
                 quantity: quantity,
                 price: price,
-                units:units
+                units: units
             });
         });
     }
+
+    $(document).on("click", "#item-popup2 .save-button", function () {
+        var key = currentPopupItemContainer.children(".list-item").attr("data-key")
+        var name = $("#item-popup-name-list").val()
+        var quantity = $("#item-popup-quantity-list").val()
+        var price = $("#item-popup-price-list").val()
+        var units = $("#quantity-options-item-list").val()
+        updateListItem(key, name, quantity, units, price)
+        $("#item-popup2").popup("close")
+        redrawShoppingList()
+    })
+    function updateListItem(itemKey, name, quantity, units, price) {
+        return firebase.database().ref('/users/' + uid + "/list/").once('child_added').then(function (snapshot) {
+            var listId = snapshot.key;
+            firebase.database().ref('list/' + listId + "/" + itemKey).update({
+                name: name,
+                quantity: quantity,
+                price: price,
+                units: units
+            });
+        });
+    }
+
+     $("#item-popup").on("popupafterclose", function (event, ui) {
+        $("#item-popup-form").trigger("reset")
+    });
+    $("#item-popup2").on("popupafterclose", function (event, ui) {
+        $("#item-popup-form2").trigger("reset")
+    });
+    $("#custom-item-popup").on("popupafterclose", function (event, ui) {
+        $("#fridge-add-form").trigger("reset")
+    });
+    $("#custom-item-popup2").on("popupafterclose", function (event, ui) {
+        $("#list-add-form").trigger("reset")
+
+    });
+
 </script>
 </body>
 </html>
