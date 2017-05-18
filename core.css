@@ -257,10 +257,24 @@ width:40%;
 .collapsible-container {
     position: relative;
 }
+#tabs {
+    border:none;
+}
 #item-popup-name-fridge{
-    font-size:2em;
+    font-size:2.2em;
     text-align: center;
     text-transform: capitalize;
+}
+#item-popup-name-label {
+    position:absolute;
+    top:10px;
+    left:-35px;
+}
+
+.item-popup-name-container {
+    position:relative;
+    width:40%;
+    margin:auto;
 }
 #m h3 + div, #p h3 + div, #g h3 + div, #d h3 + div, #o h3 + div {
     border: none;
@@ -562,15 +576,6 @@ width:40%;
     overflow-y: auto;
     height: 90%;
     top: 5%;
-}
-
-.item-popup-name {
-    text-align: center;
-    font-size: 2.2em;
-    color: #495655;
-    text-transform: capitalize;
-
-
 }
 
 .item-popup-expires {
