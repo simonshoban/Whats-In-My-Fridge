@@ -29,7 +29,7 @@ body {
     position:relative;
     left:33px;
 }
-#override a, #override input {
+#override a, #override input, #item-popup2 a, #item-popup2 input {
     font-family: 'Nunito', sans-serif;
 
 }
@@ -257,10 +257,17 @@ width:40%;
 .collapsible-container {
     position: relative;
 }
+
 #tabs {
     border:none;
 }
-#item-popup-name-fridge{
+
+#item-popup-name-fridge, #item-popup-name-list{
+    font-size:2em;
+    text-align: center;
+    text-transform: capitalize;
+}
+
     font-size:2.2em;
     text-align: center;
     text-transform: capitalize;
@@ -469,13 +476,12 @@ width:40%;
 }
 
 .item-button-container {
-    position: absolute;
     display: flex;
     flex-flow: row;
-    bottom: 20px;
-    width: 300px;
-    left: calc(100% - 5% - 300px);
+    width: 280px;
     justify-content: space-around;
+    margin: 10px auto 0
+
 }
 .back-container {
     position: absolute;
@@ -486,13 +492,17 @@ width:40%;
     justify-content: space-around;
 }
 
-#override .ate-button {
+#override .ate-button, #item-popup2 .ate-button {
     margin: 0;
     color: #235f23;
 
 }
 
-#override .expired-button {
+#override .expired-button, #item-popup2 .expired-button {
+    margin: 0;
+    color: #5f1309;
+}
+#list .expired-button {
     margin: 0;
     color: #5f1309;
 }
@@ -578,7 +588,7 @@ width:40%;
     top: 5%;
 }
 
-.item-popup-expires {
+.item-popup-expires, .item-popup-expires-list {
     text-align: center;
 }
 
@@ -629,7 +639,7 @@ width:40%;
     color: #495655;
 }
 
-#override .close-button {
+#override .close-button, #item-popup2 .close-button {
     background-color: #ddd;
     position: fixed;
     right: 5%;
@@ -709,6 +719,11 @@ width:40%;
     left: calc(50% - 55px);
     top: 286px;
 }
+.optional-header-list{
+    width: 110px;
+    left: calc(50% - 55px);
+    top: 228px;
+}
 
 .add-item-table {
     max-width: 400px;
@@ -744,17 +759,17 @@ width:40%;
     font-size:1.1em !important;
     top: calc(50% - 121px) !important;
 }
-#food-group-button{
+#food-group-button, #food-group-list-button{
     text-transform: capitalize;
 }
-#food-group{
+#food-group, #food-group-list{
     text-transform: capitalize;
 }
 .quantity-field{
     display:flex;
 }
 .quantity-field .ui-input-text{
-    width:75px;
+    width:63px;
 }
 .quantity-field .ui-select{
     width:77px;
@@ -762,11 +777,11 @@ width:40%;
 .quantity-field .ui-select > div{
     width:38px;
 }
-#item-quantity, item-popup-quantity-fridge{
+#item-quantity, item-popup-quantity-fridge, #item-quantity-list{
     width:60.8px;
     height:44.8px;
 }
-#food-name, #food-name2{
+#food-name, #food-name-list{
     text-transform: capitalize;
 }
 /* ------------------------ Shared Fridge and List End ------------------------ */
