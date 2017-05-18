@@ -269,9 +269,9 @@
                                     </div>
                                 </div>
                                 <div class="item-button-container">
-                                    <a href="#" data-rel="back" class="ate-button ui-btn ui-shadow ui-btn-inline"
+                                    <a href="#" class="ate-button ui-btn ui-shadow ui-btn-inline"
                                     >I ate it</a>
-                                    <a href="#" data-rel="back" class="expired-button ui-btn ui-shadow ui-btn-inline"
+                                    <a href="#" class="expired-button ui-btn ui-shadow ui-btn-inline"
                                     >I threw it out</a>
                                 </div>
                             </div>
@@ -321,55 +321,20 @@
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
+                                    <img height="50" width="50" src="icons/g.svg" class="add-icons">
+                                    <p>Bread</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
+                                    <img height="50" width="50" src="icons/m.svg" class="add-icons">
+                                    <p>Egg</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
+                                    <img height="50" width="50" src="icons/p.svg" class="add-icons">
+                                    <p>Apple</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
-                                </div>
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
-                                </div>
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
-                                </div>
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
-                                </div>
-                            </div>
-                            <h3>Recently Purchased Items</h3>
-                            <div id="bought-items">
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
-                                </div>
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
-                                </div>
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
-                                </div>
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
-                                </div>
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
+                                    <img height="50" width="50" src="icons/p.svg" class="add-icons">
+                                    <p>Banana</p>
                                 </div>
                                 <div class="item-panel">
                                     <img height="50" width="50" src="icons/d.svg" class="add-icons">
@@ -384,6 +349,8 @@
                                     <p>Milk</p>
                                 </div>
                             </div>
+                            <h3>Your Frequently Purchased Items</h3>
+                            <div id="bought-items"></div>
                             <div id="button-div" align="right">
                                 <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline"
                                    id="custom-item-fridge">Custom
@@ -452,8 +419,16 @@
                                                 <label id="item-quantity-label" for="item-quantity">Quantity<span
                                                         class="invalid-input-star">*</span></label>
                                             </td>
-                                            <td>
+                                            <td class="quantity-field">
                                                 <input id="item-quantity" name="item-quantity" type="text"/>
+                                                <select id="quantity-options">
+                                                    <option>each</option>
+                                                    <option>g</option>
+                                                    <option>kg</option>
+                                                    <option>L</option>
+                                                    <option>ml</option>
+
+                                                </select>
                                             </td>
                                         </tr>
                                         <tr>
@@ -705,7 +680,7 @@
                                 </div>
                             </div>
                             <div id="button-div2" align="right">
-                                <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="add-button3">Custom
+                                <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="add-button-list">Custom
                                     Item</a>
                             </div>
                         </div>
@@ -1212,7 +1187,7 @@
 </script>
 <script>
     /* If hidden text box submits "RONIC", text box disappears
-    and Ronic image swap slider appears in settings page */
+     and Ronic image swap slider appears in settings page */
     function easterEgg() {
         var input = $("#easter-egg").val().toUpperCase();
         if (input == "RONIC") {
@@ -1250,7 +1225,7 @@
     }
 
     //Gives the user helpful messages after attempting to deactivate the disabled flipswitch
-    $("#ronic-slider-td").click(function() {
+    $("#ronic-slider-td").click(function () {
         clickCounter++;
         if (clickCounter > 7) {
             alert("Try refreshing");
@@ -1387,6 +1362,7 @@
                 $(checkList)
                 $(checkRonic);
                 $(redrawList())
+                $(fillRecentlyPurchasedItems())
 
                 // hide and show buttons based on login state
                 $(".login-btn").hide();
@@ -1494,12 +1470,13 @@
         checkRonic();
     }
 
-    function addFridgeItem(uid, name, expire, category, quantity, price) {
+    function addFridgeItem(uid, name, expire, category, quantity, units, price) {
         var itemData = {
             name: name,
             expire: expire,
             category: category,
             quantity: quantity,
+            units: units,
             price: price,
             date: Date.now()
 
@@ -1551,19 +1528,9 @@
                             circle = "no-circle"
                         }
 
-                        if (category === "p") {
-                            pNumber++;
-                        } else if (category === "m") {
-                            mNumber++;
-                        } else if (category === "d") {
-                            dNumber++;
-                        } else if (category === "g") {
-                            gNumber++
-                        } else if (category === "o") {
-                            oNumber++;
-                        }
 
-                        var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#' onclick='openItemPopup(this)' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
+                        var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#' onclick='openItemPopup(this)' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> " +
+                            "<div class='list-item-back'> <div class='back-container'> <a href='#' class='ate-button ui-btn ui-shadow ui-btn-inline'>I ate it</a><a href='#' class='expired-button ui-btn ui-shadow ui-btn-inline'>I threw it out</a> </div> </div> </div> </div>"
                         if (!$("#category-flip").prop("checked")) {
                             $("#fridge .item-list").append(element)
                         }
@@ -1615,19 +1582,9 @@
                             circle = "no-circle"
                         }
 
-                        if (category === "p") {
-                            pNumber++;
-                        } else if (category === "m") {
-                            mNumber++;
-                        } else if (category === "d") {
-                            dNumber++;
-                        } else if (category === "g") {
-                            gNumber++
-                        } else if (category === "o") {
-                            oNumber++;
-                        }
 
-                        var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#' onclick='openItemPopup(this)' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
+                        var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#' onclick='openItemPopup(this)' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> " +
+                            "<div class='list-item-back'><div class='back-container'> <a href='#' class='ate-button ui-btn ui-shadow ui-btn-inline'>I ate it</a><a href='#' class='expired-button ui-btn ui-shadow ui-btn-inline'>I threw it out</a> </div> </div> </div> </div>"
                         if (!$("#category-flip").prop("checked")) {
                             $("#fridge .item-list").prepend(element)
                         }
@@ -1676,19 +1633,9 @@
                             circle = "no-circle"
                         }
 
-                        if (category === "p") {
-                            pNumber++;
-                        } else if (category === "m") {
-                            mNumber++;
-                        } else if (category === "d") {
-                            dNumber++;
-                        } else if (category === "g") {
-                            gNumber++
-                        } else if (category === "o") {
-                            oNumber++;
-                        }
 
-                        var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
+                        var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> " +
+                            "<div class='list-item-back'> <div class='back-container'> <a href='#' class='ate-button ui-btn ui-shadow ui-btn-inline'>I ate it</a><a href='#' class='expired-button ui-btn ui-shadow ui-btn-inline'>I threw it out</a> </div> </div> </div> </div>"
                         if (!$("#category-flip").prop("checked")) {
                             $("#fridge .item-list").append(element)
                         }
@@ -1737,19 +1684,9 @@
                             circle = "no-circle"
                         }
 
-                        if (category === "p") {
-                            pNumber++;
-                        } else if (category === "m") {
-                            mNumber++;
-                        } else if (category === "d") {
-                            dNumber++;
-                        } else if (category === "g") {
-                            gNumber++
-                        } else if (category === "o") {
-                            oNumber++;
-                        }
 
-                        var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#' onclick='openItemPopup(this)' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> <div class='list-item-back'>behind </div> </div>"
+                        var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#' onclick='openItemPopup(this)' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> " +
+                            "<div class='list-item-back'>  <div class='back-container'> <a href='#' class='ate-button ui-btn ui-shadow ui-btn-inline'>I ate it</a><a href='#' class='expired-button ui-btn ui-shadow ui-btn-inline'>I threw it out</a> </div> </div> </div>"
                         if (!$("#category-flip").prop("checked")) {
                             $("#fridge .item-list").prepend(element)
                         }
@@ -1770,8 +1707,12 @@
             var name = $("#food-name").val().toLowerCase()
             var type = $("#food-group").val().substr(0, 1).toLowerCase();
             var expires = ($("#expiry-date").datepicker("getDate").getTime())
+            var units = $("#quantity-options").val()
             var quantity = null
             var price = null
+            if (units === "--") {
+                units = ""
+            }
             if (!isNaN(parseInt($("#item-quantity").val()))) {
                 quantity = parseInt($("#item-quantity").val())
             }
@@ -1780,7 +1721,8 @@
 
             }
             $("#fridge-add-form").trigger("reset");
-            addFridgeItem(uid, name, expires, type, quantity, price)
+            incrementItem(name)
+            addFridgeItem(uid, name, expires, type, quantity, units, price)
             redrawList()
         }
     })
@@ -1823,11 +1765,7 @@
     var oNumber;
 
     function redrawList() {
-        pNumber = 0;
-        mNumber = 0;
-        gNumber = 0;
-        dNumber = 0;
-        oNumber = 0;
+
         clearFridgeList();
         if (!$("#category-flip").prop("checked")) {
             $(".collapsible-container").hide()
@@ -1852,9 +1790,15 @@
                 getFridgeListByDateDesc()
             }
         }
+        setCollapsibleNumbers();
 
     }
     function setCollapsibleNumbers() {
+        pNumber = $("#p > div > div").length;
+        mNumber = $("#m > div > div").length;
+        gNumber = $("#g > div > div").length;
+        dNumber = $("#d > div > div").length;
+        oNumber = $("#o > div > div").length;
         $("#produce-number").html(pNumber + " items")
         $("#meat-number").html(mNumber + " items")
         $("#grain-number").html(gNumber + " items")
@@ -2090,7 +2034,7 @@
     }
 </script>
 <script>
-    $("#food-name").on("focusout", function () {
+    function autoFillFridgeAdd() {
         return firebase.database().ref('/autofill/' + $("#food-name").val().toLowerCase()).once('value').then(function (snapshot) {
             if (snapshot.hasChild("foodGroup")) {
                 var expireDay = snapshot.val().expire + Date.now()
@@ -2099,16 +2043,12 @@
 
             }
         })
+    }
+    $("#food-name").on("focusout", function () {
+        autoFillFridgeAdd()
     })
     $("*").on("autocompleteclose", function () {
-        return firebase.database().ref('/autofill/' + $("#food-name").val().toLowerCase()).once('value').then(function (snapshot) {
-            if (snapshot.hasChild("foodGroup")) {
-                var expireDay = snapshot.val().expire + Date.now()
-                $("#food-group").val(snapshot.val().foodGroup).selectmenu("refresh")
-                $("#expiry-date").val(new Date(expireDay).toISOString().substr(0, 10))
-
-            }
-        })
+        autoFillFridgeAdd()
     })
 
     $("#produce-number").click(function () {
@@ -2157,15 +2097,16 @@
             })
         })
     }
-    $(document).on("click", ".list-item", function () {
+    var currentPopupItemContainer
+    $(document).on("click", "#fridge .list-item", function () {
         var item = $(this)
-
+        currentPopupItemContainer = item.parent();
         return firebase.database().ref('/users/' + uid + "/fridge/").once('child_added').then(function (snapshot) {
             var fridgeId = snapshot.key;
             return firebase.database().ref('/fridge/' + fridgeId + "/" + item.attr("data-key")).once('value').then(function (snapshot) {
                 var name = snapshot.val().name
                 var date = snapshot.val().date
-                var quantity = snapshot.val().quantity
+                var quantity = snapshot.val().quantity + " " + snapshot.val().units
                 var price = snapshot.val().price
                 $(".item-popup-name").html(name)
                 $("#item-popup .item-popup-expires").html("Purchased: " + new Date(date).toDateString())
@@ -2193,33 +2134,112 @@
             })
         })
     });
-    function fillExpiredInfo(name){
+    function fillExpiredInfo(name) {
         return firebase.database().ref('/info/' + name + '/expire/').orderByValue().once('value').then(function (snapshot) {
-            snapshot.forEach(function(snapshot)
-            {
+            snapshot.forEach(function (snapshot) {
                 getExpiredInfo(snapshot.key)
             })
         })
 
     }
-    function fillStorageInfo(name){
+    function fillStorageInfo(name) {
         return firebase.database().ref('/info/' + name + '/storage/').orderByValue().once('value').then(function (snapshot) {
-            snapshot.forEach(function(snapshot)
-            {
+            snapshot.forEach(function (snapshot) {
                 getStorageInfo(snapshot.key)
             })
         })
 
     }
-    function getExpiredInfo(expireKey){
+    function getExpiredInfo(expireKey) {
         return firebase.database().ref('/expireInfo/' + expireKey).orderByValue().once('value').then(function (snapshot) {
             $("#expired").html($("#expired").html() + "<p>" + snapshot.val() + "</p>")
         })
     }
-    function getStorageInfo(storageKey){
+    function getStorageInfo(storageKey) {
         return firebase.database().ref('/storageInfo/' + storageKey).orderByValue().once('value').then(function (snapshot) {
             $("#storage").html($("#storage").html() + "<p>" + snapshot.val() + "</p>")
         })
+    }
+
+    $(document).on("click", ".list-item-back .ate-button", function () {
+        var itemContainer = $(this).parent().parent().parent()
+        removeItem(itemContainer)
+    })
+    $(document).on("click", ".list-item-back .expired-button", function () {
+        var itemContainer = $(this).parent().parent().parent()
+        removeItem(itemContainer)
+
+    })
+    $(document).on("click", "#item-popup .ate-button", function () {
+        removeItem(currentPopupItemContainer)
+        $("#item-popup").popup("close")
+    })
+    $(document).on("click", "#item-popup .expired-button", function () {
+        removeItem(currentPopupItemContainer)
+        $("#item-popup").popup("close")
+
+
+    })
+    function removeItem(itemContainer) {
+        var itemBack = itemContainer.children(".list-item-back")
+        var item = itemContainer.children(".list-item")
+        var itemKey = item.attr("data-key")
+        var name = item.children(".item-name").text()
+        return firebase.database().ref('/users/' + uid + "/fridge/").once('child_added').then(function (snapshot) {
+            var fridgeId = snapshot.key;
+            firebase.database().ref('/fridge/' + fridgeId + "/" + itemKey).remove().then(function () {
+                itemBack.animate({
+                    left: "-=100%"
+                }, function () {
+                    itemContainer.remove()
+                    setCollapsibleNumbers()
+                })
+            })
+        })
+    }
+
+    function incrementItem(name) {
+        return firebase.database().ref('/users/' + uid + "/frequentItems/" + name).once('value').then(function (snapshot) {
+            var ref = firebase.database().ref('/users/' + uid + "/frequentItems/" + name)
+            number = snapshot.val()
+            if (number != null) {
+                number++
+                ref.set(number)
+            } else {
+                ref.set(1)
+            }
+        })
+
+    }
+    $(document).on("click", ".item-panel", function () {
+        var name = $(this).children("p").text().toLowerCase()
+        $("#add-popup").popup("close")
+        setTimeout(function () {
+            $("#custom-item-popup").popup("open")
+        }, 100)
+        $("#food-name").val(name)
+        autoFillFridgeAdd()
+    })
+
+    function fillRecentlyPurchasedItems() {
+        return firebase.database().ref('/users/' + uid + "/frequentItems/").orderByValue().limitToLast(8).once('value').then(function (snapshot) {
+            snapshot.forEach(function (snapshot) {
+                createItemPanel(snapshot.key);
+            })
+
+        })
+    }
+    function createItemPanel(name) {
+        return firebase.database().ref('/autofill/' + name + "/foodGroup").orderByValue().once('value').then(function (snapshot) {
+            if (snapshot.val() != null) {
+                var category = snapshot.val().substr(0, 1)
+                $("#bought-items").prepend('<div class="item-panel"> <img height="50" width="50" src="icons/' + category + '.svg" class="add-icons"> <p>' + name + '</p> </div>')
+            }else{
+                $("#bought-items").prepend('<div class="item-panel"> <img height="50" width="50" src="icons/o.svg" class="add-icons"> <p>' + name + '</p> </div>')
+
+            }
+        })
+
     }
 </script>
 </body>
