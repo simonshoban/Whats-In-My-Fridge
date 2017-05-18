@@ -236,7 +236,7 @@
                                  data-theme="a">
                                 <a href="#" data-rel="back"
                                    class="close-button ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ">Close</a>
-                                <p class="item-popup-name">Apple Apr-26</p>
+                                <p><input data-mini="true" id="item-popup-name-fridge" type="text"></p>
                                 <p class="item-popup-expires">Expires on April 29th, 2017</p>
                                 <div id="tabs" data-role="tabs">
                                     <div id="navbar" data-role="navbar">
@@ -249,16 +249,28 @@
                                             <br/>
                                             <table>
                                                 <tr>
-                                                    <td>Purchase Date:</td>
-                                                    <td id="item-popup-purchase-fridge">April 26, 2017</td>
+                                                    <td>Expiry Date:</td>
+                                                    <td><input id="item-popup-expire-fridge" type="text"></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Quantity:</td>
-                                                    <td id="item-popup-quantity-fridge"></td>
+                                                    <td class="quantity-field"><input id="item-popup-quantity-fridge" type="text"><select id="quantity-options-item-fridge" class="quantity-options">
+                                                        <option>--</option>
+                                                        <option>g</option>
+                                                        <option>kg</option>
+                                                        <option>L</option>
+                                                        <option>ml</option>
+
+                                                    </select></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Price:</td>
-                                                    <td id="item-popup-price-fridge"></td>
+                                                    <td>Price: <span class="dollar">$</span></td>
+                                                    <td><input id="item-popup-price-fridge" type="text"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <a href="#" class=" save-button ui-btn">Save Changes</a>
+                                                    </td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -421,8 +433,8 @@
                                             </td>
                                             <td class="quantity-field">
                                                 <input id="item-quantity" name="item-quantity" type="text"/>
-                                                <select id="quantity-options">
-                                                    <option>each</option>
+                                                <select id="quantity-options-add-fridge" class="quantity-options">
+                                                    <option>--</option>
                                                     <option>g</option>
                                                     <option>kg</option>
                                                     <option>L</option>
@@ -644,43 +656,11 @@
                                     <p>Milk</p>
                                 </div>
                             </div>
-                            <h3>Recently Purchased Items</h3>
-                            <div id="bought-items2">
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
-                                </div>
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
-                                </div>
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
-                                </div>
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
-                                </div>
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
-                                </div>
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
-                                </div>
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
-                                </div>
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
-                                </div>
-                            </div>
+                            <h3>Frequently Purchased Items</h3>
+                            <div id="bought-items2"></div>
                             <div id="button-div2" align="right">
-                                <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="add-button-list">Custom
+                                <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline"
+                                   id="custom-item-list">Custom
                                     Item</a>
                             </div>
                         </div>
@@ -1693,7 +1673,7 @@
             var name = $("#food-name").val().toLowerCase()
             var type = $("#food-group").val().substr(0, 1).toLowerCase();
             var expires = ($("#expiry-date").datepicker("getDate").getTime())
-            var units = $("#quantity-options").val()
+            var units = $("#quantity-options-add-fridge").val()
             var quantity = null
             var price = null
             if (units === "--") {
@@ -1938,7 +1918,24 @@
 
 </script>
 <script>
+
     $("#expiry-date").datepicker({
+        firstDay: 1,
+        minDate: 0,
+        dateFormat: "yy-mm-dd",
+        beforeShow: function (input, inst) {
+            var cal = inst.dpDiv;
+            var bottom = $("#expiry-date").offset().bottom + $("#expiry-date").outerHeight();
+            var left = $(this).offset().left;
+            setTimeout(function () {
+                cal.css({
+                    'bottom': bottom,
+                    'left': left
+                });
+            }, 10);
+        }
+    })
+    $("#item-popup-expire-fridge").datepicker({
         firstDay: 1,
         minDate: 0,
         dateFormat: "yy-mm-dd",
@@ -2083,16 +2080,20 @@
             return firebase.database().ref('/fridge/' + fridgeId + "/" + item.attr("data-key")).once('value').then(function (snapshot) {
                 var name = snapshot.val().name
                 var date = snapshot.val().date
-                var quantity = snapshot.val().quantity + " " + snapshot.val().units
+                var expire = snapshot.val().expire
+                var quantity = snapshot.val().quantity
+                var units = snapshot.val().units
                 var price = snapshot.val().price
-                $(".item-popup-name").html(name)
+                $("#item-popup-name-fridge").val(name)
                 $("#item-popup .item-popup-expires").html("Purchased: " + new Date(date).toDateString())
-                $("#item-popup-purchase-fridge").html(new Date(date).toDateString())
+                $("#item-popup-expire-fridge").val(new Date(expire).toISOString().substr(0, 10))
                 if (snapshot.hasChild("quantity")) {
-                    $("#item-popup-quantity-fridge").html(quantity)
+                    $("#item-popup-quantity-fridge").val(quantity)
+                    $("#quantity-options-item-fridge").val(units).selectmenu("refresh")
+
                 }
                 if (snapshot.hasChild("price")) {
-                    $("#item-popup-price-fridge").html("$" + price)
+                    $("#item-popup-price-fridge").val(price)
                 }
                 $("#storage").html("")
                 $("#expired").html("")
@@ -2211,12 +2212,35 @@
             if (snapshot.val() != null) {
                 var category = snapshot.val().substr(0, 1)
                 $("#bought-items").prepend('<div class="item-panel"> <img height="50" width="50" src="icons/' + category + '.svg" class="add-icons"> <p>' + name + '</p> </div>')
-            }else{
+            } else {
                 $("#bought-items").prepend('<div class="item-panel"> <img height="50" width="50" src="icons/o.svg" class="add-icons"> <p>' + name + '</p> </div>')
 
             }
         })
+    }
+    $(document).on("click", "#item-popup .save-button", function () {
+        var key = currentPopupItemContainer.children(".list-item").attr("data-key")
+        var name = $("#item-popup-name-fridge").val()
+        var expire = $("#item-popup-expire-fridge").datepicker("getDate").getTime()
+        var quantity = $("#item-popup-quantity-fridge").val()
+        var price = $("#item-popup-price-fridge").val()
+        var units = $("#quantity-options-item-fridge").val()
+        updateFridgeItem(key, name, expire, quantity, units, price)
+        $("#item-popup").popup("close")
+        redrawList()
+    })
 
+    function updateFridgeItem(itemKey, name, expire, quantity, units, price) {
+        return firebase.database().ref('/users/' + uid + "/fridge/").once('child_added').then(function (snapshot) {
+            var fridgeId = snapshot.key;
+            firebase.database().ref('fridge/' + fridgeId + "/" + itemKey).update({
+                name: name,
+                expire: expire,
+                quantity: quantity,
+                price: price,
+                units:units
+            });
+        });
     }
 </script>
 </body>
