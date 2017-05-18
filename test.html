@@ -529,8 +529,8 @@
                                 panel</a>
                             <h1>Shopping List</h1>
 
-                            <a href="#" data-rel="popup" data-transition="slide"
-                               class="sort-button ui-nodisc-icon  ui-btn ui-corner-all ui-icon-shop ui-btn-icon-notext ui-btn-inline">bullets</a>
+                            <a href="#" data-rel="popup" id="checkout-button" data-transition="slide"
+                               class=" sort-button ui-nodisc-icon  ui-btn ui-corner-all ui-icon-shop ui-btn-icon-notext ui-btn-inline">bullets</a>
                         </div>
                     </div>
                     <div class="main">
@@ -733,7 +733,21 @@
                             </form>
                         </div>
 
+                        <div data-role="popup" data-transition="fade" id="checkout-popup" data-overlay-theme="b"
+                             data-theme="a">
+                            <h2 id="checkout-top">Checkout</h2>
+                            <div>
+                                <div class="hidden">
+                                    <input readonly class="hidden">
+                                </div>
+                                <form id="checkout-container">
+                                </form>
+                                <div class="checkout-input-container">
+                                    <button id="to-fridge" class="ui-btn">Move to Fridge</button>
+                                </div>
+                            </div>
 
+                        </div>
                     </div>
                     <div class="footer">
                     </div>
@@ -2017,33 +2031,13 @@
         firstDay: 1,
         minDate: 0,
         dateFormat: "yy-mm-dd",
-        beforeShow: function (input, inst) {
-            var cal = inst.dpDiv;
-            var bottom = $("#expiry-date").offset().bottom + $("#expiry-date").outerHeight();
-            var left = $(this).offset().left;
-            setTimeout(function () {
-                cal.css({
-                    'bottom': bottom,
-                    'left': left
-                });
-            }, 10);
-        }
+
     })
     $("#item-popup-expire-fridge").datepicker({
         firstDay: 1,
         minDate: 0,
         dateFormat: "yy-mm-dd",
-        beforeShow: function (input, inst) {
-            var cal = inst.dpDiv;
-            var bottom = $("#expiry-date").offset().bottom + $("#expiry-date").outerHeight();
-            var left = $(this).offset().left;
-            setTimeout(function () {
-                cal.css({
-                    'bottom': bottom,
-                    'left': left
-                });
-            }, 10);
-        }
+
     })
     var availableTags = []
     getAvailiableTags();
@@ -2349,11 +2343,11 @@
         })
     }
 
-    $(document).on("click", ".list-item-back .ate-button", function () {
+    $(document).on("click", "#fridge .ate-button", function () {
         var itemContainer = $(this).parent().parent().parent()
         removeItem(itemContainer)
     })
-    $(document).on("click", ".list-item-back .expired-button", function () {
+    $(document).on("click", "#fridge .expired-button", function () {
         var itemContainer = $(this).parent().parent().parent()
         removeItem(itemContainer)
 
@@ -2368,6 +2362,25 @@
 
 
     })
+    $(document).on("click", "#list .ate-button", function () {
+        var itemContainer = $(this).parent().parent().parent()
+        removeListItem(itemContainer)
+    })
+    $(document).on("click", "#list .expired-button", function () {
+        var itemContainer = $(this).parent().parent().parent()
+        removeListItem(itemContainer)
+
+    })
+    $(document).on("click", "#item-popup2 .ate-button", function () {
+        removeListItem(currentPopupItemContainer)
+        $("#item-popup2").popup("close")
+    })
+    $(document).on("click", "#item-popup2 .expired-button", function () {
+        removeListItem(currentPopupItemContainer)
+        $("#item-popup2").popup("close")
+
+
+    })
     function removeItem(itemContainer) {
         var itemBack = itemContainer.children(".list-item-back")
         var item = itemContainer.children(".list-item")
@@ -2376,6 +2389,23 @@
         return firebase.database().ref('/users/' + uid + "/fridge/").once('child_added').then(function (snapshot) {
             var fridgeId = snapshot.key;
             firebase.database().ref('/fridge/' + fridgeId + "/" + itemKey).remove().then(function () {
+                itemBack.animate({
+                    left: "-=100%"
+                }, function () {
+                    itemContainer.remove()
+                    setCollapsibleNumbers()
+                })
+            })
+        })
+    }
+    function removeListItem(itemContainer) {
+        var itemBack = itemContainer.children(".list-item-back")
+        var item = itemContainer.children(".list-item")
+        var itemKey = item.attr("data-key")
+        var name = item.children(".item-name").text()
+        return firebase.database().ref('/users/' + uid + "/list/").once('child_added').then(function (snapshot) {
+            var listId = snapshot.key;
+            firebase.database().ref('/list/' + listId + "/" + itemKey).remove().then(function () {
                 itemBack.animate({
                     left: "-=100%"
                 }, function () {
@@ -2520,6 +2550,133 @@
 
     });
 
+    $(document).on("click", "#checkout-button", function () {
+        var elements = $(".shopping-item input:checked")
+        var array = jQuery.makeArray(elements)
+        $("#checkout-container").html("")
+        array.forEach(function (item) {
+
+            var key = $(item).parent().parent().attr("data-key")
+            buildCheckoutElement(key)
+        })
+        $("#checkout-popup").popup("open")
+
+    })
+    function buildCheckoutElement(key) {
+        return firebase.database().ref('/users/' + uid + "/list/").once('child_added').then(function (snapshot) {
+            var listId = snapshot.key;
+            return firebase.database().ref('/list/' + listId + "/" + key).once('value').then(function (snapshot) {
+                var name = snapshot.val().name
+                var quantity = snapshot.val().quantity
+                var units = snapshot.val().units
+                var category = snapshot.val().category
+                if (units === "--") {
+                    units = ""
+                }
+                var element = '<div class="checkout-item"> <img height="50" width="50" src="icons/' + category + '.svg"> <p class="checkout-name">' + name + '</p> <p class="checkout-quantity">Quantity: ' + quantity + ' ' + units +
+                    '</p> <div> <p class="date-label">Expiry Date:<span class="invalid-input-star">*</span></p><input data-key="' + key + '" class="checkout-date" name="expiry-date"  type="text"/> </div> </div>'
+                $(element).appendTo("#checkout-container").enhanceWithin()
+                $(".checkout-date").datepicker({
+                    firstDay: 1,
+                    minDate: 0,
+                    dateFormat: "yy-mm-dd",
+                })
+                fillCheckoutExpire(name, key)
+            })
+        })
+    }
+    function fillCheckoutExpire(name, key) {
+        return firebase.database().ref('/autofill/' + name.toLowerCase()).once('value').then(function (snapshot) {
+            if (snapshot.hasChild("foodGroup")) {
+
+                var expireDay = snapshot.val().expire + Date.now()
+                $("#checkout-container [data-key='" + key + "']").val(new Date(expireDay).toISOString().substr(0, 10))
+
+            }
+        })
+    }
+    $(document).on("click", "#to-fridge", function () {
+        var elements = $(".checkout-date")
+        var array = jQuery.makeArray(elements)
+        var filteredArray = jQuery.grep(array, function (n, i) {
+            if ($(n).datepicker("getDate") != null) {
+                return false;
+
+            }
+            return true;
+        })
+        console.log(array.length)
+
+        console.log(filteredArray.length)
+        for (i = 0; i < filteredArray.length; i++) {
+            console.log( $(filteredArray[i]).parent().parent().children(".invalid-input-star"))
+
+            $(filteredArray[i]).parent().parent().find(".invalid-input-star").css("display", "inline")
+        }
+        if (filteredArray.length = 0) {
+            console.log("kill me")
+
+            transferToFridge()
+            setTimeout(function () {
+                $("#checkout-popup").popup("close")
+
+                redrawList()
+                redrawShoppingList()
+
+            }, 500)
+        }
+
+
+
+    })
+    function transferToFridge() {
+        var elements = $("#checkout-container .checkout-date")
+        var array = jQuery.makeArray(elements)
+        array.forEach(function (item) {
+            var key = $(item).attr("data-key")
+            var expire = $(item).datepicker("getDate").getTime()
+            return firebase.database().ref('/users/' + uid + "/list/").once('child_added').then(function (snapshot) {
+                var listId = snapshot.key;
+                return firebase.database().ref('/users/' + uid + "/fridge/").once('child_added').then(function (snapshot) {
+                    var fridgeId = snapshot.key
+                    var oldRef = firebase.database().ref('/list/' + listId + "/" + key)
+                    return oldRef.once('value').then(function (snapshot) {
+                        var name = snapshot.val().name
+                        var date = Date.now()
+                        var quantity = snapshot.val().quantity
+                        if (quantity == undefined) {
+                            quantity = null
+                        }
+                        var units = snapshot.val().quantity
+                        if (units == undefined) {
+                            units = null
+                        }
+                        var price = snapshot.val().quantity
+                        if (price == undefined) {
+                            price = null
+                        }
+                        var category = snapshot.val().category
+                        var newRef = firebase.database().ref('/fridge/' + fridgeId + "/" + key)
+                        newRef.set({
+                            name: name,
+                            date: date,
+                            units: units,
+                            quantity: quantity,
+                            price: price,
+                            category: category,
+                            expire: expire
+                        }).then(function () {
+                            oldRef.remove()
+
+                        })
+
+                    })
+                })
+            })
+
+        })
+
+    }
 </script>
 </body>
 </html>
