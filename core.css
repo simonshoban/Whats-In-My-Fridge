@@ -273,6 +273,9 @@ h3 {
 #tabs {
     border: none;
 }
+#tabs2 {
+    border:none;
+}
 
 #item-popup-name-fridge, #item-popup-name-list{
     font-size: 2em;
