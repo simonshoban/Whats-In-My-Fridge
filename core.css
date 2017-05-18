@@ -25,10 +25,27 @@ body {
     margin-top: 58px;
 
 }
+#override .hidden{
+    height:1px;
+    width: 1px;
+    margin:0;
+    padding:0;
+    position:absolute;
+    top:-1px;
+}
+.dollar {
+    position: relative;
+    left: 33px;
+}
 
-#override a, #override input {
+#override a, #override input, #item-popup2 a, #item-popup2 input {
     font-family: 'Nunito', sans-serif;
 
+}
+
+.save-button {
+    width: 120px;
+    margin: auto;
 }
 
 [data-role="popup"] h3 {
@@ -159,6 +176,12 @@ h3 {
 
 }
 
+.ui-table table tr td:first-child {
+    width: 40%;
+    padding-top: 20px;
+    text-align: center;
+}
+
 #override .nav-btn {
     margin: 0;
     background-color: #fcfcfc;
@@ -247,6 +270,31 @@ h3 {
     position: relative;
 }
 
+#tabs {
+    border: none;
+}
+
+#item-popup-name-fridge, #item-popup-name-list{
+    font-size: 2em;
+    text-align: center;
+    text-transform: capitalize;
+}
+.item-popup-name{
+    font-size:2.2em;
+}
+
+#item-popup-name-label, #item-popup-name-label-list {
+    position: absolute;
+    top: 10px;
+    left: -35px;
+}
+
+.item-popup-name-container {
+    position: relative;
+    width: 40%;
+    margin: auto;
+}
+
 #m h3 + div, #p h3 + div, #g h3 + div, #d h3 + div, #o h3 + div {
     border: none;
     border-right-color: inherit;
@@ -292,30 +340,56 @@ h3 {
 }
 
 #p {
-    border-color: #008000;
+    border-color-right: #008000;
 }
 
 #g {
-    border-color: #de9f49;
+    border-color-right: #de9f49;
 }
 
 #d {
-    border-color: #5daede;
+    border-color-right: #5daede;
 }
 
 #o {
-    border-color: #959392;
+    border-color-right: #959392;
 }
 
-.invalid-input{
+#p .list-item {
+    border-right: solid 8px;
+    border-right-color: #008000;
+}
+
+#m .list-item {
+    border-right: solid 8px;
+    border-right-color: #9f2828;
+}
+
+#d .list-item {
+    border-right: solid 8px;
+    border-right-color: #5daede;
+}
+
+#g .list-item {
+    border-right: solid 8px;
+    border-right-color: #de9f49;
+}
+
+#o .list-item {
+    border-right: solid 8px;
+    border-right-color: #959392;
+}
+
+.invalid-input {
     display: none;
     color: red;
     margin-left: 5px;
 }
-.invalid-input-star{
+
+.invalid-input-star {
     display: none;
     color: red;
-    font-size:x-large;
+    font-size: x-large;
 }
 
 #produce-number, #meat-number, #grain-number, #dairy-number, #other-number {
@@ -324,7 +398,7 @@ h3 {
     right: 35px;
     margin: 0;
     color: grey;
-    cursor:pointer ;
+    cursor: pointer;
 }
 
 #override .ui-collapsible-content {
@@ -355,10 +429,12 @@ h3 {
     right: 8px;
     top: 8px;
 }
-.red-circle{
+
+.red-circle {
     background-color: #dd4146;
 }
-.yellow-circle{
+
+.yellow-circle {
     background-color: #fff552;
 
 }
@@ -419,22 +495,35 @@ h3 {
 }
 
 .item-button-container {
+    display: flex;
+    flex-flow: row;
+    width: 280px;
+    justify-content: space-around;
+    margin: 10px auto 0
+
+}
+
+.back-container {
     position: absolute;
     display: flex;
     flex-flow: row;
-    bottom: 20px;
+    bottom: 8px;
     width: 300px;
-    left: calc(100% - 5% - 300px);
     justify-content: space-around;
 }
 
-#override .ate-button {
+#override .ate-button, #item-popup2 .ate-button {
     margin: 0;
     color: #235f23;
 
 }
 
-#override .expired-button {
+#override .expired-button, #item-popup2 .expired-button {
+    margin: 0;
+    color: #5f1309;
+}
+
+#list .expired-button {
     margin: 0;
     color: #5f1309;
 }
@@ -447,13 +536,96 @@ h3 {
     background-size: 30px 30px;
 }
 
+.checkout-item {
+    border-bottom: 1px solid #676767;
+
+    width: 280px;
+    margin: auto;
+    position: relative;
+}
+
+.checkout-item:last-child {
+    border-bottom: none;
+
+}
+
+.checkout-item .checkout-name {
+    font-size:1.3em;
+    padding-left: 60px;
+    text-transform: capitalize;
+position:relative;
+    top:15px;
+    left: 5px;
+}
+
+.checkout-item .checkout-quantity {
+    position: absolute;
+    top: 24px;
+    right: 10px;
+    font-size: small;
+}
+
+.checkout-item img {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+.checkout-item .date-label {
+    padding: 10px;
+    width: 110px;
+}
+
+.checkout-item div {
+    display: flex;
+    align-items: baseline;
+}
+#checkout-popup > div{
+    height:74%;
+}
+#checkout-container{
+    height:100%;
+    overflow-y:auto;
+    border-bottom:1px solid #676767;
+    border-top:1px solid #676767;
+
+
+}
+.checkout-input-container{
+    width:175px;
+    margin:auto;
+
+}
+.checkout-input-container:first-child{
+    padding-right:25px;
+
+}
+#to-fridge{
+    color:#235f23;
+}
+#not-to-fridge{
+    color:#5f1309;
+}
+.checkout h4{
+
+}
+#checkout-top{
+}
+.input-container-container{
+    width:100%;
+    display:flex;
+    justify-content:space-around;
+    position:absolute;
+    bottom:20px;
+}
+
 /* ------------------------ List Page End ------------------------ */
 
 /* ------------------------ Shared Fridge and List ------------------------ */
 
 .list-item-container {
     position: relative;
-    border-right: inherit;
+    border-right-color: inherit;
 
 }
 
@@ -467,19 +639,15 @@ h3 {
 
 }
 
-.collapsible .list-item {
-    border-right: solid 8px;
-    border-right-color: inherit;
-}
-
 .list-item-back {
     position: absolute;
     display: flex;
     justify-content: space-around;
     top: 0;
     left: -100vw;
-    width: 100vw;
+    width: 100%;
     height: 60px;
+    background-color: #eaeaea;
 }
 
 .item-list {
@@ -495,6 +663,7 @@ h3 {
 .item-list .item-name {
     padding-left: 62px;
     font-size: large;
+    text-transform: capitalize;
 }
 
 #override .large-circle {
@@ -511,7 +680,7 @@ h3 {
 
 }
 
-#item-popup, #item-popup2 {
+#item-popup, #item-popup2, #checkout-popup {
     background-color: white;
     color: black;
     width: 90%;
@@ -522,16 +691,7 @@ h3 {
     top: 5%;
 }
 
-.item-popup-name {
-    text-align: center;
-    font-size: 2.2em;
-    color: #495655;
-    text-transform: capitalize;
-
-
-}
-
-.item-popup-expires {
+.item-popup-expires, .item-popup-expires-list {
     text-align: center;
 }
 
@@ -558,10 +718,12 @@ h3 {
 .item-panel {
     width: 60px;
     display: inline-block;
+    cursor: pointer;
 }
 
 .item-panel p {
     text-align: center;
+    text-transform: capitalize;
 }
 
 #button-div, #button-div2 {
@@ -580,7 +742,7 @@ h3 {
     color: #495655;
 }
 
-#override .close-button {
+#override .close-button, #item-popup2 .close-button {
     background-color: #ddd;
     position: fixed;
     right: 5%;
@@ -661,6 +823,12 @@ h3 {
     top: 286px;
 }
 
+.optional-header-list {
+    width: 110px;
+    left: calc(50% - 55px);
+    top: 228px;
+}
+
 .add-item-table {
     max-width: 400px;
     margin: auto;
@@ -686,40 +854,89 @@ h3 {
     position: fixed;
     margin: 0;
 }
-.ui-autocomplete{
+
+.ui-autocomplete {
     z-index: 9999 !important;
     text-transform: capitalize;
 }
-.ui-datepicker {
-    left: calc(50% - 180px) !important;
-    font-size:1.3em !important;
-    top: calc(50% - 140px) !important;
-}
-#food-group-button{
-    text-transform: capitalize;
-}
-#food-group{
-    text-transform: capitalize;
-}
-.ui-menu-item-wrapper{
 
+.ui-datepicker {
+    left: calc(50% - 154px) !important;
+    font-size: 1.1em !important;
+    top: calc(50% - 121px) !important;
 }
+
+#food-group-button, #food-group-list-button {
+    text-transform: capitalize;
+}
+
+#food-group, #food-group-list {
+    text-transform: capitalize;
+}
+
+.quantity-field {
+    display: flex;
+}
+
+.quantity-field .ui-input-text {
+    width: 63px;
+}
+
+.quantity-field .ui-select {
+    width: 77px;
+}
+
+.quantity-field .ui-select > div {
+    width: 38px;
+}
+
+#item-quantity, item-popup-quantity-fridge, #item-quantity-list {
+    width: 60.8px;
+    height: 44.8px;
+}
+
+#food-name, #food-name-list {
+    text-transform: capitalize;
+}
+
 /* ------------------------ Shared Fridge and List End ------------------------ */
 
 /* ------------------------ Settings Page ------------------------ */
 #override #easter-egg {
-    background-color:#f9f9f9;
-    border:none;
-    box-shadow:none;
-    color:#f9f9f9;
+    background-color: #f9f9f9;
+    border: none;
+    box-shadow: none;
+    color: #f9f9f9;
 }
+
+#ronic-slider {
+    cursor: pointer !important;
+}
+
 #ronic-slider-container {
-    display:none;
+    display: none;
 }
+
+#ronic-slider-container > td:last-child {
+    cursor: pointer !important;
+}
+
+#ronic-slider-container > td > div {
+    opacity: 1;
+    cursor: pointer !important;
+}
+
+#settings p {
+    word-wrap: break-word;
+    max-width: 500px;
+    margin: auto;
+}
+
 .ui-input-text.ui-custom {
     border: none;
     box-shadow: none;
 }
+
 #settings-form-table {
     margin: auto;
 }
