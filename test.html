@@ -321,55 +321,20 @@
                                     <p>Milk</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
+                                    <img height="50" width="50" src="icons/g.svg" class="add-icons">
+                                    <p>Bread</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
+                                    <img height="50" width="50" src="icons/m.svg" class="add-icons">
+                                    <p>Egg</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
+                                    <img height="50" width="50" src="icons/p.svg" class="add-icons">
+                                    <p>Apple</p>
                                 </div>
                                 <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
-                                </div>
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
-                                </div>
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
-                                </div>
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
-                                </div>
-                            </div>
-                            <h3>Recently Purchased Items</h3>
-                            <div id="bought-items">
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
-                                </div>
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
-                                </div>
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
-                                </div>
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
-                                </div>
-                                <div class="item-panel">
-                                    <img height="50" width="50" src="icons/d.svg" class="add-icons">
-                                    <p>Milk</p>
+                                    <img height="50" width="50" src="icons/p.svg" class="add-icons">
+                                    <p>Banana</p>
                                 </div>
                                 <div class="item-panel">
                                     <img height="50" width="50" src="icons/d.svg" class="add-icons">
@@ -384,6 +349,8 @@
                                     <p>Milk</p>
                                 </div>
                             </div>
+                            <h3>Your Frequently Purchased Items</h3>
+                            <div id="bought-items"></div>
                             <div id="button-div" align="right">
                                 <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline"
                                    id="custom-item-fridge">Custom
@@ -455,7 +422,7 @@
                                             <td class="quantity-field">
                                                 <input id="item-quantity" name="item-quantity" type="text"/>
                                                 <select id="quantity-options">
-                                                    <option>--</option>
+                                                    <option>each</option>
                                                     <option>g</option>
                                                     <option>kg</option>
                                                     <option>L</option>
@@ -713,7 +680,7 @@
                                 </div>
                             </div>
                             <div id="button-div2" align="right">
-                                <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="add-button3">Custom
+                                <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline" id="add-button-list">Custom
                                     Item</a>
                             </div>
                         </div>
@@ -1389,6 +1356,7 @@
                 $(checkFridge)
                 $(checkList)
                 $(redrawList())
+                $(fillRecentlyPurchasedItems())
 
                 // hide and show buttons based on login state
                 $(".login-btn").hide();
@@ -1494,7 +1462,7 @@
             expire: expire,
             category: category,
             quantity: quantity,
-            units:units,
+            units: units,
             price: price,
             date: Date.now()
 
@@ -1728,7 +1696,7 @@
             var units = $("#quantity-options").val()
             var quantity = null
             var price = null
-            if(units === "--"){
+            if (units === "--") {
                 units = ""
             }
             if (!isNaN(parseInt($("#item-quantity").val()))) {
@@ -2043,7 +2011,7 @@
     }
 </script>
 <script>
-    $("#food-name").on("focusout", function () {
+    function autoFillFridgeAdd() {
         return firebase.database().ref('/autofill/' + $("#food-name").val().toLowerCase()).once('value').then(function (snapshot) {
             if (snapshot.hasChild("foodGroup")) {
                 var expireDay = snapshot.val().expire + Date.now()
@@ -2052,16 +2020,12 @@
 
             }
         })
+    }
+    $("#food-name").on("focusout", function () {
+        autoFillFridgeAdd()
     })
     $("*").on("autocompleteclose", function () {
-        return firebase.database().ref('/autofill/' + $("#food-name").val().toLowerCase()).once('value').then(function (snapshot) {
-            if (snapshot.hasChild("foodGroup")) {
-                var expireDay = snapshot.val().expire + Date.now()
-                $("#food-group").val(snapshot.val().foodGroup).selectmenu("refresh")
-                $("#expiry-date").val(new Date(expireDay).toISOString().substr(0, 10))
-
-            }
-        })
+        autoFillFridgeAdd()
     })
 
     $("#produce-number").click(function () {
@@ -2111,7 +2075,7 @@
         })
     }
     var currentPopupItemContainer
-    $(document).on("click", ".list-item", function () {
+    $(document).on("click", "#fridge .list-item", function () {
         var item = $(this)
         currentPopupItemContainer = item.parent();
         return firebase.database().ref('/users/' + uid + "/fridge/").once('child_added').then(function (snapshot) {
@@ -2220,6 +2184,36 @@
                 ref.set(number)
             } else {
                 ref.set(1)
+            }
+        })
+
+    }
+    $(document).on("click", ".item-panel", function () {
+        var name = $(this).children("p").text().toLowerCase()
+        $("#add-popup").popup("close")
+        setTimeout(function () {
+            $("#custom-item-popup").popup("open")
+        }, 100)
+        $("#food-name").val(name)
+        autoFillFridgeAdd()
+    })
+
+    function fillRecentlyPurchasedItems() {
+        return firebase.database().ref('/users/' + uid + "/frequentItems/").orderByValue().limitToLast(8).once('value').then(function (snapshot) {
+            snapshot.forEach(function (snapshot) {
+                createItemPanel(snapshot.key);
+            })
+
+        })
+    }
+    function createItemPanel(name) {
+        return firebase.database().ref('/autofill/' + name + "/foodGroup").orderByValue().once('value').then(function (snapshot) {
+            if (snapshot.val() != null) {
+                var category = snapshot.val().substr(0, 1)
+                $("#bought-items").prepend('<div class="item-panel"> <img height="50" width="50" src="icons/' + category + '.svg" class="add-icons"> <p>' + name + '</p> </div>')
+            }else{
+                $("#bought-items").prepend('<div class="item-panel"> <img height="50" width="50" src="icons/o.svg" class="add-icons"> <p>' + name + '</p> </div>')
+
             }
         })
 
