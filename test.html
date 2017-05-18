@@ -815,17 +815,6 @@
                     <div class="main">
                         <form id="settings-form">
                             <table id="settings-form-table">
-                                <tr>
-                                    <td>
-                                        <label id="measurement-label" class="text-input-label"
-                                               for="flip-metric-imperial">Measurement type:</label>
-                                    </td>
-                                    <td>
-                                        <input type="checkbox" data-role="flipswitch" name="measurement-type"
-                                               id="flip-metric-imperial" data-on-text="Imperial" data-off-text="Metric"
-                                               data-wrapper-class="custom-size-flipswitch">
-                                    </td>
-                                </tr>
                                 <tr id="ronic-slider-container">
                                     <td>
                                         <label for="ronic-slider" class="text-input-label">Go fast?</label>
@@ -1188,7 +1177,8 @@
     var clickCounter = 0;
 
     /* Replaces all static images with images from the best-selling adventure
-     platformer Ronic The PineconeTM and disabled easter egg flipswitch */
+     platformer Ronic The PineconeTM and plays music from it and disables easter
+     egg flipswitch */
     function ronicImageSwap() {
         var ronicMusic = new Audio('sounds/RonicOP.wav');
         ronicMusic.play();
@@ -1205,6 +1195,7 @@
             "icons/EA407848.png"
         ];
 
+        //Goes through every image tag and changes it's source to a random ROnic image
         $(document).ready(function () {
             for (var index = 0; index < $("img").length; index++) {
                 var random = Math.floor(Math.random() * (9 - 0));
@@ -1221,7 +1212,23 @@
         if (clickCounter > 7) {
             alert("Try refreshing");
         } else if (clickCounter === 2) {
-            $("#settings-form-table").after("<p>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</p>");
+            $("#settings-form-table").after("<p>AAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+                "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+                "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+                "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+                "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+                "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+                "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+                "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+                "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+                "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+                "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+                "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+                "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+                "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+                "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+                "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+                "</p>");
         }
     });
 </script>
@@ -1260,10 +1267,16 @@
 
     /**********Shopping List**********/
 
-    //Sets overview tab as default tab and highlights tab
+    /* Sets overview tab as default tab and highlights tab, opens popup if list item
+    is clicked, but not if the checkbox is clicked */
     $(document).on("click", ".shopping-item", function () {
-        $("#overview2").show();
-        $("#overviewTab2").click();
+        setTimeout(function () {
+            if (!($(".checkbox").is(':checked'))) {
+                $("#item-popup2").popup("open");
+                $("#overview2").show();
+                $("#overviewTab2").click();
+            }
+        }, 10)
     });
 
     //Shows overview when overview tab is clicked and hides other sections
@@ -1733,7 +1746,7 @@
                         if (quantity != null) {
                             quantityText = "Quantity: " + quantity + " " + units
                         }
-                        var element = '<div class="list-item-container"> <a data-key="' + key + '" href="#" data-rel="popup" class="list-item ui-btn shopping-item"><img height="50" width="50" src="icons/' + category + '.svg"> <p class="item-name">' + name + '</p> <p class="item-quantity">' + quantityText + '</p> <label class="checkbox-label "> <input type="checkbox" class="checkbox"> </label> </a> ' + "<div class='list-item-back'> <div class='back-container'> <a href='#' class='ate-button ui-btn ui-shadow ui-btn-inline'>I ate it</a><a href='#' class='expired-button ui-btn ui-shadow ui-btn-inline'>I threw it out</a> </div> </div> </div> </div>"
+                        var element = '<div class="list-item-container"> <a data-key="' + key + '" href="#" class="list-item ui-btn shopping-item"><img height="50" width="50" src="icons/' + category + '.svg"> <p class="item-name">' + name + '</p> <p class="item-quantity">' + quantityText + '</p> <label class="checkbox-label "> <input type="checkbox" class="checkbox"> </label> </a> ' + "<div class='list-item-back'> <div class='back-container'> <a href='#' class='ate-button ui-btn ui-shadow ui-btn-inline'>I ate it</a><a href='#' class='expired-button ui-btn ui-shadow ui-btn-inline'>I threw it out</a> </div> </div> </div> </div>"
                         $("#list .item-list").append(element).enhanceWithin()
 
                     });
@@ -2296,10 +2309,10 @@
                     if (snapshot.val() != null) {
                         fillExpiredInfoList(name);
                         fillStorageInfoList(name);
-                        $("#item-popup2").popup("open")
+                        //$("#item-popup2").popup("open")
 
                     } else {
-                        $("#item-popup2").popup("open")
+                        //$("#item-popup2").popup("open")
 
                     }
                 })
