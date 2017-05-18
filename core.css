@@ -537,23 +537,25 @@ h3 {
 }
 
 .checkout-item {
-    border-top: 1px solid #676767;
+    border-bottom: 1px solid #676767;
+
     width: 280px;
     margin: auto;
     position: relative;
 }
 
 .checkout-item:last-child {
-    border-bottom: 1px solid #676767;
+    border-bottom: none;
 
 }
 
 .checkout-item .checkout-name {
-    margin-top: 18px;
-    margin-bottom: 18px;
-    display: block;
+    font-size:1.3em;
     padding-left: 60px;
     text-transform: capitalize;
+position:relative;
+    top:15px;
+    left: 5px;
 }
 
 .checkout-item .checkout-quantity {
@@ -578,9 +580,21 @@ h3 {
     display: flex;
     align-items: baseline;
 }
+#checkout-popup > div{
+    height:74%;
+}
+#checkout-container{
+    height:100%;
+    overflow-y:auto;
+    border-bottom:1px solid #676767;
+    border-top:1px solid #676767;
+
+
+}
 .checkout-input-container{
     width:175px;
     margin:auto;
+
 }
 .checkout-input-container:first-child{
     padding-right:25px;
@@ -595,12 +609,14 @@ h3 {
 .checkout h4{
 
 }
+#checkout-top{
+}
 .input-container-container{
+    width:100%;
     display:flex;
     justify-content:space-around;
     position:absolute;
     bottom:20px;
-    left:calc(50% - 187.5px)
 }
 
 /* ------------------------ List Page End ------------------------ */

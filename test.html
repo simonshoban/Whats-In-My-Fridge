@@ -737,6 +737,7 @@
                              data-theme="a">
                             <h2 id="checkout-top">Checkout</h2>
                             <div>
+
                                 <div class="hidden">
                                     <input readonly class="hidden">
                                 </div>
@@ -1731,11 +1732,11 @@
                         var units = snapshot.val().units
                         var price = snapshot.val().price
                         var quantityText = ""
+                        if(units === "--"){
+                            units =""
+                        }
                         if (quantity != null) {
-                            quantityText = "Quantity: " + quantity + " "
-                            if (units != null) {
-                                quantityText = "Quantity: " + quantity + " " + units
-                            }
+                            quantityText = "Quantity: " + quantity + " " + units
                         }
                         var element = '<div class="list-item-container"> <a data-key="' + key + '" href="#" data-rel="popup" class="list-item ui-btn shopping-item"><img height="50" width="50" src="icons/' + category + '.svg"> <p class="item-name">' + name + '</p> <p class="item-quantity">' + quantityText + '</p> <label class="checkbox-label "> <input type="checkbox" class="checkbox"> </label> </a> ' + "<div class='list-item-back'> <div class='back-container'> <a href='#' class='ate-button ui-btn ui-shadow ui-btn-inline'>I ate it</a><a href='#' class='expired-button ui-btn ui-shadow ui-btn-inline'>I threw it out</a> </div> </div> </div> </div>"
                         $("#list .item-list").append(element).enhanceWithin()
@@ -2586,10 +2587,17 @@
                 var quantity = snapshot.val().quantity
                 var units = snapshot.val().units
                 var category = snapshot.val().category
+                var quantityText = ""
+                if(quantity == undefined){
+                    quantity = ""
+                }else{
+                    quantityText = "Quantity:"
+                }
                 if (units === "--") {
                     units = ""
                 }
-                var element = '<div class="checkout-item"> <img height="50" width="50" src="icons/' + category + '.svg"> <p class="checkout-name">' + name + '</p> <p class="checkout-quantity">Quantity: ' + quantity + ' ' + units +
+                var quantityString =  quantityText + " " +  quantity + ' ' + units
+                var element = '<div class="checkout-item"> <img height="50" width="50" src="icons/' + category + '.svg"> <p class="checkout-name">' + name + '</p> <p class="checkout-quantity">' +quantityString +
                     '</p> <div> <p class="date-label">Expiry Date:<span class="invalid-input-star">*</span></p><input data-key="' + key + '" class="checkout-date" name="expiry-date"  type="text"/> </div> </div>'
                 $(element).appendTo("#checkout-container").enhanceWithin()
                 $(".checkout-date").datepicker({
