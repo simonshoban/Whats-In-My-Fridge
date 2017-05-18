@@ -95,7 +95,7 @@
                                     Apps</a>
                             </li>
                             <li>
-                                <a data-transition="none" href="#login" class="login-btn nav-btn ui-btn">Login</a>
+                                <a data-transition="none" href="#login" class="login-btn nav-btn ui-btn" id="login-link">Login</a>
                             </li>
                             <li>
                                 <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
@@ -485,7 +485,7 @@
                         <p class="logo2">WhatsinmyFridge.ca</p>
                         <ul class="nav-list">
                             <li>
-                                <a href="#fridge" data-transition="none" class="fridge-btn nav-btn ui-btn">Fridge</a>
+                                <a href="#fridge" data-transition="none" class="fridge-btn nav-btn ui-btn" id="fridge-link">Fridge</a>
                             </li>
                             <li>
                                 <a href="#list" data-transition="none" class="shopping-list-btn nav-btn ui-btn">Shopping
@@ -529,7 +529,8 @@
                                class="nav-button ui-large-icon ui-btn  ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default
                                 panel</a>
                             <h1>Shopping List</h1>
-
+                            <p class="shopping-empty">The Shopping List is currently empty.</p>
+                            <p class="shopping-empty">Please add an item to that cart.</p>
                             <a href="#" data-rel="popup" id="checkout-button" data-transition="slide"
                                class=" sort-button ui-nodisc-icon  ui-btn ui-corner-all ui-icon-shop ui-btn-icon-notext ui-btn-inline">bullets</a>
                         </div>
@@ -769,7 +770,7 @@
                                 <a href="#fridge" data-transition="none" class="fridge-btn nav-btn ui-btn">Fridge</a>
                             </li>
                             <li>
-                                <a href="#list" data-transition="none" class="shopping-list-btn nav-btn ui-btn">Shopping
+                                <a href="#list" data-transition="none" class="shopping-list-btn nav-btn ui-btn" id="list-link">Shopping
                                     List</a>
                             </li>
                             <li>
@@ -846,7 +847,7 @@
                             </li>
                             <li>
                                 <a href="#settings" data-transition="none"
-                                   class="settings-btn nav-btn ui-btn">Settings</a>
+                                   class="settings-btn nav-btn ui-btn" id="settings-link">Settings</a>
                             </li>
                             <li>
                                 <a href="#about" data-transition="none" class="about-btn nav-btn ui-btn">About</a>
@@ -934,7 +935,7 @@
                                    class="settings-btn nav-btn ui-btn">Settings</a>
                             </li>
                             <li>
-                                <a href="#about" data-transition="none" class="about-btn nav-btn ui-btn">About</a>
+                                <a href="#about" data-transition="none" class="about-btn nav-btn ui-btn" id="about-link">About</a>
                             </li>
                             <li>
                                 <a href="#aff-apps" data-transition="none" class="aff-btn nav-btn ui-btn">Affiliated
@@ -1016,7 +1017,7 @@
                                 <a href="#about" data-transition="none" class="about-btn nav-btn ui-btn">About</a>
                             </li>
                             <li>
-                                <a href="#aff-apps" data-transition="none" class="aff-btn nav-btn ui-btn">Affiliated
+                                <a href="#aff-apps" data-transition="none" class="aff-btn nav-btn ui-btn" id="aff-apps-link">Affiliated
                                     Apps</a>
                             </li>
                             <li>
@@ -1040,22 +1041,22 @@
         <p class="logo2">WhatsinmyFridge.ca</p>
         <ul class="nav-list">
             <li>
-                <a href="#fridge" data-transition="slide" class="fridge-btn nav-btn ui-btn">Fridge</a>
+                <a href="#fridge" data-transition="slide" class="fridge-btn nav-btn ui-btn" id="fridge-mlink">Fridge</a>
             </li>
             <li>
-                <a href="#list" data-transition="slide" class="shopping-list-btn nav-btn ui-btn">Shopping List</a>
+                <a href="#list" data-transition="slide" class="shopping-list-btn nav-btn ui-btn" id="list-mlink">Shopping List</a>
             </li>
             <li>
-                <a href="#settings" data-transition="slide" class="settings-btn nav-btn ui-btn">Settings</a>
+                <a href="#settings" data-transition="slide" class="settings-btn nav-btn ui-btn" id="settings-mlink">Settings</a>
             </li>
             <li>
-                <a href="#about" data-transition="slide" class="about-btn nav-btn ui-btn">About</a>
+                <a href="#about" data-transition="slide" class="about-btn nav-btn ui-btn" id="about-mlink">About</a>
             </li>
             <li>
-                <a href="#aff-apps" data-transition="slide" class="aff-btn nav-btn ui-btn">Affiliated Apps</a>
+                <a href="#aff-apps" data-transition="slide" class="aff-btn nav-btn ui-btn" id="aff-apps-mlink">Affiliated Apps</a>
             </li>
             <li>
-                <a data-transition="slide" href="#login" class="login-btn nav-btn ui-btn">Login</a>
+                <a data-transition="slide" href="#login" class="login-btn nav-btn ui-btn" id="login-mlink">Login</a>
             </li>
             <li>
                 <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
@@ -1523,6 +1524,8 @@
             snapshot.forEach(function (snapshot) {
                 var fridgeId = snapshot.key;
                 return firebase.database().ref('/fridge/' + fridgeId).orderByChild("expire").once('value').then(function (snapshot) {
+
+
                     snapshot.forEach(function (snapshot) {
                         var key = snapshot.key;
                         var name = snapshot.val().name
@@ -1732,6 +1735,9 @@
             snapshot.forEach(function (snapshot) {
                 var listId = snapshot.key;
                 return firebase.database().ref('/list/' + listId).orderByChild("expire").once('value').then(function (snapshot) {
+                    if (snapshot.numChildren() === 0) {
+                        ($(".shopping-empty").show())
+                    }
                     snapshot.forEach(function (snapshot) {
                         var key = snapshot.key;
                         var name = snapshot.val().name
@@ -1743,7 +1749,7 @@
                         if (units === "--") {
                             units = ""
                         }
-                        if (quantity != null) {
+                        if (quantity != null && quantity !=undefined && quantity != "") {
                             quantityText = "Quantity: " + quantity + " " + units
                         }
                         var element = '<div class="list-item-container"> <a data-key="' + key + '" href="#" class="list-item ui-btn shopping-item"><img height="50" width="50" src="icons/' + category + '.svg"> <p class="item-name">' + name + '</p> <p class="item-quantity">' + quantityText + '</p> <label class="checkbox-label "> <input type="checkbox" class="checkbox"> </label> </a> ' + "<div class='list-item-back'> <div class='back-container'> <a href='#' class='ate-button ui-btn ui-shadow ui-btn-inline'>I ate it</a><a href='#' class='expired-button ui-btn ui-shadow ui-btn-inline'>I threw it out</a> </div> </div> </div> </div>"
@@ -1869,11 +1875,23 @@
         }
         setCollapsibleNumbers();
 
+        /*
+         setTimeout(function() {
+         if ($(".shopping-item").length === 0) {
+         ($(".shopping-empty").show())
+         alert("show")
+         } else {
+         ($(".shopping-empty").hide())
+         alert("hidden")
+         }
+         }, 600)
+         */
+
     }
     function redrawShoppingList() {
-
+        ($(".shopping-empty").hide())
         clearShoppingList();
-        getShoppingList()
+        getShoppingList();
     }
 
     function setCollapsibleNumbers() {
@@ -1891,19 +1909,18 @@
 
     $("input:radio").change(function () {
 
-        if($(this).prop("checked")) {
-            if(!($("#order-asc").prop("checked"))) {
-                $(".sort-icon-btn").css('background-image','url("icons/sorGrpDesc.svg")');
-                redrawList();
+            if ($(this).prop("checked")) {
+                if (!($("#order-asc").prop("checked"))) {
+                    $(".sort-icon-btn").css('background-image', 'url("icons/sorGrpDesc.svg")');
+                    redrawList();
                 }
-            if(!($("#order-desc").prop("checked"))) {
-                $(".sort-icon-btn").css('background-image','url("icons/sorGrpAsc.svg")');
-                redrawList();
-            }
+                if (!($("#order-desc").prop("checked"))) {
+                    $(".sort-icon-btn").css('background-image', 'url("icons/sorGrpAsc.svg")');
+                    redrawList();
+                }
 
             }
         }
-
     )
     $("input:checkbox").change(function () {
             redrawList()
@@ -2442,6 +2459,14 @@
                     itemContainer.remove()
                     setCollapsibleNumbers()
                 })
+
+                setTimeout(function () {
+                    return firebase.database().ref('/list/' + listId).orderByChild("expire").once('value').then(function (snapshot) {
+                        if (snapshot.numChildren() === 0) {
+                            ($(".shopping-empty").show())
+                        }
+                    })
+                }, 500)
             })
         })
     }
@@ -2724,6 +2749,26 @@
         })
 
     }
+</script>
+<script>
+    // to make current tab on the side bar to highlight properly for desktop mode.
+    $(document).on("pageshow", function(e, data){
+        var page = $.mobile.activePage.attr("id");
+        var pagelink = "#" + page + "-link";
+        $(pagelink).css({"background-color":"#3d7cb3","color":"white"});
+    })
+    // to make current tab on the side bar to highlight properly for mobile mode.
+    $(document).on("pageshow", function(e, data){
+        $("#fridge-mlink").css({"background-color":"white","color":"black"});
+        $("#list-mlink").css({"background-color":"white","color":"black"});
+        $("#settings-mlink").css({"background-color":"white","color":"black"});
+        $("#about-mlink").css({"background-color":"white","color":"black"});
+        $("#aff-apps-mlink").css({"background-color":"white","color":"black"});
+        $("#login-mlink").css({"background-color":"white","color":"black"});
+        var page = $.mobile.activePage.attr("id");
+        var pagelink = "#" + page + "-mlink";
+        $(pagelink).css({"background-color":"#3d7cb3","color":"white"});
+    })
 </script>
 </body>
 </html>
