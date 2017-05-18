@@ -583,10 +583,12 @@ h3 {
 .item-panel {
     width: 60px;
     display: inline-block;
+    cursor: pointer;
 }
 
 .item-panel p {
     text-align: center;
+    text-transform: capitalize;
 }
 
 #button-div, #button-div2 {
@@ -730,13 +732,13 @@ h3 {
     display:flex;
 }
 .quantity-field .ui-input-text{
-    width:90px;
+    width:75px;
 }
 .quantity-field .ui-select{
     width:77px;
 }
 .quantity-field .ui-select > div{
-    width:19px;
+    width:38px;
 }
 #item-quantity{
     width:102.8px;
