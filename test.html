@@ -981,7 +981,7 @@
                         </div>
                     </div>
                     <div class="main">
-                        <a id="forkpotato" href="http://students.bcitdev.com/A00863917/G37/index.html">
+                        <a id="forkpotato" target="_blank" href="http://students.bcitdev.com/A00863917/G37/index.html">
                             <div class="aff-header">
                                 <img height="70" width="70" src="images/fork&potato.png" class="aff-icon">
                                 <h2>Fork & Potato</h2>
@@ -989,15 +989,7 @@
                         </a>
                         <p>An educational RPG for elementary children. Battle bad food and save the world, and
                             money.</p>
-                        <a id="foodfall" href="http://foodfall.ca">
-                            <div class="aff-header">
-                                <img height="70" width="70" src="images/food-fall-artwork-1.jpg" class="aff-icon">
-                                <h2>FoodFall.ca</h2>
-                            </div>
-                        </a>
-                        <p>A JavaScript based game where you catch falling food in a basket and learn about how to
-                            prevent food waste!</p>
-                        <a id="overcooked" href="http://overcooked.ca">
+                        <a id="overcooked" target="_blank" href="http://overcooked.ca">
                             <div class="aff-header">
                                 <img height="70" width="70" src="images/overcooked-logo.svg" class="aff-icon">
                                 <h2>Overcooked.ca</h2>
@@ -1005,7 +997,7 @@
                         </a>
                         <p>An app for businesses, farmers, grocery stores, or anyone to post their surplus foods to help
                             connect charities and hungry mouths.</p>
-                        <a id="useitup" href="http://use-it-up.azurewebsites.net/index.php">
+                        <a id="useitup" target="_blank" href="http://use-it-up.azurewebsites.net/index.php">
                             <div class="aff-header">
                                 <img height="70" width="70" src="images/UseItUpBannerv2.0.png" class="aff-icon">
                                 <h2>UseItUp</h2>
@@ -1197,6 +1189,8 @@
     /* Replaces all static images with images from the best-selling adventure
      platformer Ronic The PineconeTM and disabled easter egg flipswitch */
     function ronicImageSwap() {
+        var ronicMusic = new Audio('sounds/RonicOP.wav');
+        ronicMusic.play();
         var ronicImageArray = [
             "icons/3A9CEA45.png",
             "icons/54BFCAC8.png",
