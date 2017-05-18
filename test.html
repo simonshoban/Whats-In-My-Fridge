@@ -529,7 +529,8 @@
                                class="nav-button ui-large-icon ui-btn  ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default
                                 panel</a>
                             <h1>Shopping List</h1>
-
+                            <p class="shopping-empty">The Shopping List is currently empty.</p>
+                            <p class="shopping-empty">Please add an item to that cart.</p>
                             <a href="#" data-rel="popup" id="checkout-button" data-transition="slide"
                                class=" sort-button ui-nodisc-icon  ui-btn ui-corner-all ui-icon-shop ui-btn-icon-notext ui-btn-inline">bullets</a>
                         </div>
@@ -1510,6 +1511,8 @@
             snapshot.forEach(function (snapshot) {
                 var fridgeId = snapshot.key;
                 return firebase.database().ref('/fridge/' + fridgeId).orderByChild("expire").once('value').then(function (snapshot) {
+
+
                     snapshot.forEach(function (snapshot) {
                         var key = snapshot.key;
                         var name = snapshot.val().name
@@ -1719,6 +1722,9 @@
             snapshot.forEach(function (snapshot) {
                 var listId = snapshot.key;
                 return firebase.database().ref('/list/' + listId).orderByChild("expire").once('value').then(function (snapshot) {
+                    if (snapshot.numChildren() === 0) {
+                        ($(".shopping-empty").show())
+                    }
                     snapshot.forEach(function (snapshot) {
                         var key = snapshot.key;
                         var name = snapshot.val().name
@@ -1856,11 +1862,23 @@
         }
         setCollapsibleNumbers();
 
+        /*
+         setTimeout(function() {
+         if ($(".shopping-item").length === 0) {
+         ($(".shopping-empty").show())
+         alert("show")
+         } else {
+         ($(".shopping-empty").hide())
+         alert("hidden")
+         }
+         }, 600)
+         */
+
     }
     function redrawShoppingList() {
-
+        ($(".shopping-empty").hide())
         clearShoppingList();
-        getShoppingList()
+        getShoppingList();
     }
 
     function setCollapsibleNumbers() {
@@ -1878,19 +1896,18 @@
 
     $("input:radio").change(function () {
 
-        if($(this).prop("checked")) {
-            if(!($("#order-asc").prop("checked"))) {
-                $(".sort-icon-btn").css('background-image','url("icons/sorGrpDesc.svg")');
-                redrawList();
+            if ($(this).prop("checked")) {
+                if (!($("#order-asc").prop("checked"))) {
+                    $(".sort-icon-btn").css('background-image', 'url("icons/sorGrpDesc.svg")');
+                    redrawList();
                 }
-            if(!($("#order-desc").prop("checked"))) {
-                $(".sort-icon-btn").css('background-image','url("icons/sorGrpAsc.svg")');
-                redrawList();
-            }
+                if (!($("#order-desc").prop("checked"))) {
+                    $(".sort-icon-btn").css('background-image', 'url("icons/sorGrpAsc.svg")');
+                    redrawList();
+                }
 
             }
         }
-
     )
     $("input:checkbox").change(function () {
             redrawList()
