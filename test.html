@@ -1806,9 +1806,11 @@
     //Checks database to see if ronic variable is set to true, displays easter egg slider if it is true
     function checkRonic() {
         return firebase.database().ref('/users/' + uid + '/Easter Egg/').once('value').then(function (snapshot) {
-            if (snapshot.val().ronic != null) {
-                $("#easter-egg").hide();
-                $("#ronic-slider-container").show();
+            if (snapshot.val() != null) {
+                if (snapshot.val().ronic) {
+                    $("#easter-egg").hide();
+                    $("#ronic-slider-container").show();
+                }
             }
         });
     }

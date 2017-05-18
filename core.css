@@ -424,10 +424,14 @@ h3 {
 }
 
 #override #popup-sort {
+    padding-top:10px;
     width: 250px;
-
+    text-align:center;
 }
 
+#override #popup-sort legend {
+    margin:auto;
+}
 .small-circle {
     border-radius: 50%;
     height: 12px;
