@@ -273,6 +273,9 @@ h3 {
 #tabs {
     border: none;
 }
+#tabs2 {
+    border:none;
+}
 
 #item-popup-name-fridge, #item-popup-name-list{
     font-size: 2em;
@@ -611,7 +614,7 @@ position:relative;
     align-items: baseline;
 }
 #checkout-popup > div{
-    height:74%;
+    height:calc(100% - 130px);
 }
 #checkout-container{
     height:100%;
@@ -646,7 +649,7 @@ position:relative;
     display:flex;
     justify-content:space-around;
     position:absolute;
-    bottom:20px;
+    bottom:10px;
 }
 
 /* ------------------------ List Page End ------------------------ */
@@ -709,7 +712,9 @@ position:relative;
     z-index: 5;
 
 }
-
+.item-popup-container{
+    overflow-x:hidden;
+}
 #item-popup, #item-popup2, #checkout-popup {
     background-color: white;
     color: black;

@@ -247,51 +247,56 @@
                                             <a href="#" id="storageTab">Storage</a>
                                             <a href="#" id="expiredTab">Expired?</a>
                                         </div>
-                                        <div class="ui-body-d ui-content" id="overview">
-                                            <div class="ui-table">
-                                                <table>
-                                                    <tr>
-                                                        <td>Expiry Date:</td>
-                                                        <td><input id="item-popup-expire-fridge" type="text"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Quantity:</td>
-                                                        <td class="quantity-field"><input
-                                                                id="item-popup-quantity-fridge"
-                                                                type="text"><select
-                                                                id="quantity-options-item-fridge"
-                                                                class="quantity-options">
-                                                            <option>--</option>
-                                                            <option>g</option>
-                                                            <option>kg</option>
-                                                            <option>L</option>
-                                                            <option>ml</option>
+                                        <div class="item-popup-container">
 
-                                                        </select></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Price: <span class="dollar">$</span></td>
-                                                        <td><input id="item-popup-price-fridge" type="text"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td colspan="2">
-                                                            <a href="#" class=" save-button ui-btn">Save Changes</a>
-                                                        </td>
-                                                    </tr>
-                                                </table>
+                                            <div class="ui-body-d ui-content" id="overview">
+                                                <div class="ui-table">
+                                                    <table>
+                                                        <tr>
+                                                            <td>Expiry Date:</td>
+                                                            <td><input id="item-popup-expire-fridge" type="text"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Quantity:</td>
+                                                            <td class="quantity-field"><input
+                                                                    id="item-popup-quantity-fridge"
+                                                                    type="text"><select
+                                                                    id="quantity-options-item-fridge"
+                                                                    class="quantity-options">
+                                                                <option>--</option>
+                                                                <option>g</option>
+                                                                <option>kg</option>
+                                                                <option>L</option>
+                                                                <option>ml</option>
+
+                                                            </select></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Price: <span class="dollar">$</span></td>
+                                                            <td><input id="item-popup-price-fridge" type="text"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="2">
+                                                                <a href="#" class=" save-button ui-btn">Save Changes</a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="ui-body-d ui-content" id="storage">
-                                        </div>
-                                        <div class="ui-body-d ui-content" id="expired">
+                                            <div class="ui-body-d ui-content" id="storage">
+                                            </div>
+                                            <div class="ui-body-d ui-content" id="expired">
+                                            </div>
                                         </div>
                                     </div>
                                 </form>
-                                <div class="item-button-container">
-                                    <a href="#" class="ate-button ui-btn ui-shadow ui-btn-inline"
-                                    >I ate it</a>
-                                    <a href="#" class="expired-button ui-btn ui-shadow ui-btn-inline"
-                                    >I threw it out</a>
+                                <div>
+                                    <div class="item-button-container">
+                                        <a href="#" class="ate-button ui-btn ui-shadow ui-btn-inline"
+                                        >I ate it</a>
+                                        <a href="#" class="expired-button ui-btn ui-shadow ui-btn-inline"
+                                        >I threw it out</a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="collapsible-container">
@@ -731,8 +736,8 @@
 
                         <div data-role="popup" data-transition="fade" id="checkout-popup" data-overlay-theme="b"
                              data-theme="a">
-                            <h2 id="checkout-top">Checkout</h2>
                             <div>
+                                <h2 id="checkout-top">Checkout</h2>
 
                                 <div class="hidden">
                                     <input readonly class="hidden">
@@ -1722,8 +1727,8 @@
                         var units = snapshot.val().units
                         var price = snapshot.val().price
                         var quantityText = ""
-                        if(units === "--"){
-                            units =""
+                        if (units === "--") {
+                            units = ""
                         }
                         if (quantity != null) {
                             quantityText = "Quantity: " + quantity + " " + units
@@ -2592,16 +2597,16 @@
                 var units = snapshot.val().units
                 var category = snapshot.val().category
                 var quantityText = ""
-                if(quantity == undefined){
+                if (quantity == undefined) {
                     quantity = ""
-                }else{
+                } else {
                     quantityText = "Quantity:"
                 }
                 if (units === "--") {
                     units = ""
                 }
-                var quantityString =  quantityText + " " +  quantity + ' ' + units
-                var element = '<div class="checkout-item"> <img height="50" width="50" src="icons/' + category + '.svg"> <p class="checkout-name">' + name + '</p> <p class="checkout-quantity">' +quantityString +
+                var quantityString = quantityText + " " + quantity + ' ' + units
+                var element = '<div class="checkout-item"> <img height="50" width="50" src="icons/' + category + '.svg"> <p class="checkout-name">' + name + '</p> <p class="checkout-quantity">' + quantityString +
                     '</p> <div> <p class="date-label">Expiry Date:<span class="invalid-input-star">*</span></p><input data-key="' + key + '" class="checkout-date" name="expiry-date"  type="text"/> </div> </div>'
                 $(element).appendTo("#checkout-container").enhanceWithin()
                 $(".checkout-date").datepicker({
