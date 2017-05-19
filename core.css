@@ -2,6 +2,8 @@
     2 = list-item
     5 = large-circle
     4 = nav
+    9999 = autocomplete
+    10000 = .close-button
  */
 
 /* ------------------------ Things used by multiple pages ------------------------ */
@@ -235,12 +237,16 @@ h3 {
     padding-left: 10px;
     min-width: 80px;
 }
-
+.ui-autocomplete{
+   // position:fixed;
+}
 /*panel hidden untill enabled by media query*/
 .fakepanel {
     display: none;
 }
-
+.ui-front{
+    text-align:left;
+}
 /* ------------------------ Login Page ------------------------ */
 
 #logo img {
@@ -783,6 +789,7 @@ position:relative;
     right: 5%;
     top: 5%;
     margin: 0;
+    z-index:10000
 }
 
 #add-popup, #add-popup2, #custom-item-popup, #custom-item-popup2 {
@@ -938,7 +945,6 @@ position:relative;
     color: black;
     text-align: center;
     font-size: 25px;
-    font-weight:10px;
 }
 
 /* ------------------------ Shared Fridge and List End ------------------------ */
