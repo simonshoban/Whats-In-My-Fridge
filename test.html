@@ -9,16 +9,14 @@
 
     <link rel="stylesheet" href="jquery.mobile-1.4.5.css">
     <link rel="stylesheet" href="core.css">
-    <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.min.css">
-    <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.structure.min.css">
-    <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.theme.css">
+    <link type="text/css" rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.min.css">
+    <link type="text/css" rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.structure.min.css">
+    <link type="text/css" rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.theme.css">
 
 
     <link href="https://fonts.googleapis.com/css?family=Nunito|Raleway" rel="stylesheet">
 
-    <script src="jquery-1.11.1.min.js"></script>
-    <script src="jquery.mobile-1.4.5.js"></script>
-    <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+
 
 </head>
 <body>
@@ -1077,6 +1075,9 @@
     </div>
 </div>
 
+<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="jquery.mobile-1.4.5.js"></script>
+<script type="text/javascript" src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
 <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 <script src="js/firebaseInitialization.js"></script>
 <script src="js/authentication.js"></script>
@@ -1099,5 +1100,49 @@
 <script src="js/checkout.js"></script>
 <script src="js/itemValidation.js"></script>
 <script src="js/jqueryUiInitialization.js"></script>
+<script>
+    /*
+     initializes jquery ui components
+     */
+
+    //initializes fridge item popup datepicker
+    $("#expiry-date").datepicker({
+        firstDay: 1,
+        minDate: 0,
+        dateFormat: "yy-mm-dd"
+
+    });
+    //initializes fridge add item date picker
+    $("#item-popup-expire-fridge").datepicker({
+        firstDay: 1,
+        minDate: 0,
+        dateFormat: "yy-mm-dd"
+
+    });
+    //stores availiable tags for autocomplete
+    var availableTags = [];
+    getAvailiableTags();
+    //gets the availiable tags for autofill from the database
+    function getAvailiableTags() {
+        return firebase.database().ref('/autocomplete').once('value').then(function (snapshot) {
+            snapshot.forEach(function (snapshot) {
+                availableTags[availableTags.length] = snapshot.key
+            })
+        })
+    }
+
+    //initializes fridge add item autocomplete
+    $(function () {
+        $("#food-name").autocomplete({
+            source: availableTags
+        })
+    });
+    //initializes list add item autocomplete
+    $(function () {
+        $("#food-name-list").autocomplete({
+            source: availableTags
+        })
+    });
+</script>
 </body>
 </html>
