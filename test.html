@@ -17,7 +17,6 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito|Raleway" rel="stylesheet">
 
 
-
 </head>
 <body>
 <div id="override"><!-- an id for overriding jquery mobile defaults-->
@@ -93,7 +92,8 @@
                                     Apps</a>
                             </li>
                             <li>
-                                <a data-transition="none" href="#login" class="login-btn nav-btn ui-btn" id="login-link">Login</a>
+                                <a data-transition="none" href="#login" class="login-btn nav-btn ui-btn"
+                                   id="login-link">Login</a>
                             </li>
                             <li>
                                 <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
@@ -402,8 +402,8 @@
                                                 <label id="food-name-label" for="food-name">Name of food<span
                                                         class="invalid-input-star">*</span></label>
                                             </td>
-                                            <td>
-                                                <input id="food-name" name="food-name" type="text"/>
+                                            <td class="ui-front">
+                                                <input  id="food-name" name="food-name" type="text"/>
                                             </td>
                                         </tr>
 
@@ -490,7 +490,8 @@
                         <p class="logo2">WhatsinmyFridge.ca</p>
                         <ul class="nav-list">
                             <li>
-                                <a href="#fridge" data-transition="none" class="fridge-btn nav-btn ui-btn" id="fridge-link">Fridge</a>
+                                <a href="#fridge" data-transition="none" class="fridge-btn nav-btn ui-btn"
+                                   id="fridge-link">Fridge</a>
                             </li>
                             <li>
                                 <a href="#list" data-transition="none" class="shopping-list-btn nav-btn ui-btn">Shopping
@@ -679,7 +680,7 @@
                                                 <label id="food-name-label-list" for="food-name-list">Name of food<span
                                                         class="invalid-input-star">*</span></label>
                                             </td>
-                                            <td>
+                                            <td class="ui-front">
                                                 <input id="food-name-list" name="food-name-list" type="text"/>
                                             </td>
                                         </tr>
@@ -780,7 +781,8 @@
                                 <a href="#fridge" data-transition="none" class="fridge-btn nav-btn ui-btn">Fridge</a>
                             </li>
                             <li>
-                                <a href="#list" data-transition="none" class="shopping-list-btn nav-btn ui-btn" id="list-link">Shopping
+                                <a href="#list" data-transition="none" class="shopping-list-btn nav-btn ui-btn"
+                                   id="list-link">Shopping
                                     List</a>
                             </li>
                             <li>
@@ -945,7 +947,8 @@
                                    class="settings-btn nav-btn ui-btn">Settings</a>
                             </li>
                             <li>
-                                <a href="#about" data-transition="none" class="about-btn nav-btn ui-btn" id="about-link">About</a>
+                                <a href="#about" data-transition="none" class="about-btn nav-btn ui-btn"
+                                   id="about-link">About</a>
                             </li>
                             <li>
                                 <a href="#aff-apps" data-transition="none" class="aff-btn nav-btn ui-btn">Affiliated
@@ -1027,7 +1030,8 @@
                                 <a href="#about" data-transition="none" class="about-btn nav-btn ui-btn">About</a>
                             </li>
                             <li>
-                                <a href="#aff-apps" data-transition="none" class="aff-btn nav-btn ui-btn" id="aff-apps-link">Affiliated
+                                <a href="#aff-apps" data-transition="none" class="aff-btn nav-btn ui-btn"
+                                   id="aff-apps-link">Affiliated
                                     Apps</a>
                             </li>
                             <li>
@@ -1054,7 +1058,8 @@
                 <a href="#fridge" data-transition="slide" class="fridge-btn nav-btn ui-btn" id="fridge-mlink">Fridge</a>
             </li>
             <li>
-                <a href="#list" data-transition="slide" class="shopping-list-btn nav-btn ui-btn" id="list-mlink">Shopping List</a>
+                <a href="#list" data-transition="slide" class="shopping-list-btn nav-btn ui-btn" id="list-mlink">Shopping
+                    List</a>
             </li>
             <li>
                 <a href="#settings" data-transition="slide" class="settings-btn nav-btn ui-btn" id="settings-mlink">Settings</a>
@@ -1063,7 +1068,8 @@
                 <a href="#about" data-transition="slide" class="about-btn nav-btn ui-btn" id="about-mlink">About</a>
             </li>
             <li>
-                <a href="#aff-apps" data-transition="slide" class="aff-btn nav-btn ui-btn" id="aff-apps-mlink">Affiliated Apps</a>
+                <a href="#aff-apps" data-transition="slide" class="aff-btn nav-btn ui-btn" id="aff-apps-mlink">Affiliated
+                    Apps</a>
             </li>
             <li>
                 <a data-transition="slide" href="#login" class="login-btn nav-btn ui-btn" id="login-mlink">Login</a>
@@ -1099,7 +1105,6 @@
 <script src="js/databaseUpdate.js"></script>
 <script src="js/checkout.js"></script>
 <script src="js/itemValidation.js"></script>
-<script src="js/jqueryUiInitialization.js"></script>
 <script>
     /*
      initializes jquery ui components
@@ -1134,7 +1139,7 @@
     //initializes fridge add item autocomplete
     $(function () {
         $("#food-name").autocomplete({
-            source: function(request, response) {
+            source: function (request, response) {
                 var results = $.ui.autocomplete.filter(availableTags, request.term);
 
                 response(results.slice(0, 10));
@@ -1144,7 +1149,7 @@
     //initializes list add item autocomplete
     $(function () {
         $("#food-name-list").autocomplete({
-            source: function(request, response) {
+            source: function (request, response) {
                 var results = $.ui.autocomplete.filter(availableTags, request.term);
 
                 response(results.slice(0, 10));
