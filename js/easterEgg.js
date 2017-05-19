@@ -1,51 +1,70 @@
 /* If hidden text box submits "RONIC", text box disappears
  and Ronic image swap slider appears in settings page */
 function easterEgg() {
-    var input = $("#easter-egg").val().toUpperCase();
-    if (input == "RONIC") {
-        var uid = firebase.auth().currentUser.uid;
-        setRonic(uid);
-    }
+	var input = $("#easter-egg").val().toUpperCase();
+	if (input == "RONIC") {
+		var uid = firebase.auth().currentUser.uid;
+		setRonic(uid);
+	}
 }
 
 var clickCounter = 0;
 
 /* Replaces all static images with images from the best-selling adventure
- platformer Ronic The PineconeTM and disabled easter egg flipswitch */
+ platformer Ronic The PineconeTM and plays music from it and disables easter
+ egg flipswitch */
 function ronicImageSwap() {
-    var ronicMusic = new Audio('sounds/RonicOP.wav');
-    ronicMusic.play();
-    var ronicImageArray = [
-        "icons/3A9CEA45.png",
-        "icons/54BFCAC8.png",
-        "icons/96D5E809.png",
-        "icons/7332E7F6.png",
-        "icons/85558730.png",
-        "icons/A99C66B4.png",
-        "icons/B40CCF7C.png",
-        "icons/CD07E8E3.png",
-        "icons/E6F30EF6.png",
-        "icons/EA407848.png"
-    ];
+	var ronicMusic = new Audio('sounds/RonicOP.wav');
+	ronicMusic.play();
+	
+	var ronicImageArray = [
+		"icons/3A9CEA45.png",
+		"icons/54BFCAC8.png",
+		"icons/96D5E809.png",
+		"icons/7332E7F6.png",
+		"icons/85558730.png",
+		"icons/A99C66B4.png",
+		"icons/B40CCF7C.png",
+		"icons/CD07E8E3.png",
+		"icons/E6F30EF6.png",
+		"icons/EA407848.png"
+	];
 
-    $(document).ready(function () {
-        for (var index = 0; index < $("img").length; index++) {
-            var random = Math.floor(Math.random() * (9 - 0));
-            document.getElementsByTagName("img")[index].src = ronicImageArray[random];
-        }
-    });
+	//Goes through every image tag and changes it's source to a random Ronic image
+	$(document).ready(function () {
+		for (var index = 0; index < $("img").length; index++) {
+			var random = Math.floor(Math.random() * (9 - 0));
+			document.getElementsByTagName("img")[index].src = ronicImageArray[random];
+		}
+	});
 
-    $("#ronic-slider").flipswitch("disable");
+	$("#ronic-slider").flipswitch("disable");
 }
 
 //Gives the user helpful messages after attempting to deactivate the disabled flipswitch
 $("#ronic-slider-td").click(function () {
-    clickCounter++;
-    if (clickCounter > 7) {
-        alert("Try refreshing");
-    } else if (clickCounter === 2) {
-        $("#settings-form-table").after("<p>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</p>");
-    }
+	clickCounter++;
+	if (clickCounter > 7) {
+		alert("Try refreshing");
+	} else if (clickCounter === 2) {
+		$("#settings-form-table").after("<p>AAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+			"</p>");
+	}
 });
 
 

@@ -1,6 +1,18 @@
 /*
  contains functions and event listeners for shopping list checkout
  */
+ 
+/* Sets overview tab as default tab and highlights tab, opens popup if list item
+is clicked, but not if the checkbox is clicked */
+$(document).on("click", ".shopping-item", function () {
+	setTimeout(function () {
+		if (!($(".checkbox").is(':checked'))) {
+			$("#item-popup2").popup("open");
+			$("#overview2").show();
+			$("#overviewTab2").click();
+		}
+	}, 10)
+});
 
 //event listener for clicking checkout button
 $(document).on("click", "#checkout-button", function () {
