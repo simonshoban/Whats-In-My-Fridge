@@ -6,11 +6,18 @@
 is clicked, but not if the checkbox is clicked */
 $(document).on("click", ".shopping-item", function () {
 	setTimeout(function () {
-		if (!($(".checkbox").is(':checked'))) {
-			$("#item-popup2").popup("open");
+		
+		$(".checkbox").on("click change", function() {
+			$(this).data("clicked", true);
+		});
+		
+		if (!$(".checkbox").data("clicked")) {
+		   $("#item-popup2").popup("open");
 			$("#overview2").show();
 			$("#overviewTab2").click();
 		}
+		
+		$(".checkbox").data("clicked", false);
 	}, 10)
 });
 

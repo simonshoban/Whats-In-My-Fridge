@@ -74,11 +74,6 @@ $(document).on("click", "#list .list-item", function () {
                 if (snapshot.val() != null) {
                     fillExpiredInfoList(name);
                     fillStorageInfoList(name);
-                    $("#item-popup2").popup("open")
-
-                } else {
-                    $("#item-popup2").popup("open")
-
                 }
             })
 
