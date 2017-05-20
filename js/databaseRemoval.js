@@ -21,6 +21,9 @@ $(document).on("click", "#fridge .list-item-back .expired-button", function () {
 $(document).on("click", "#item-popup .ate-button", function () {
     prepRemoveFridgeItem(currentPopupItemContainer);
     $("#item-popup").popup("close")
+    setTimeout(function () {
+        $("#confirm-popup").popup("open")
+    }, 300)
 });
 //event listener for item popup "i threw it away" button
 $(document).on("click", "#item-popup .expired-button", function () {
@@ -29,7 +32,7 @@ $(document).on("click", "#item-popup .expired-button", function () {
     setTimeout(function () {
         $("#garbage-popup").popup("open")
 
-    }, 200)
+    }, 300)
 
 });
 
