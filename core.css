@@ -502,6 +502,13 @@ h3 {
     top:calc(50% - 100px);
     position:fixed;
 }
+#confirm-popup{
+    width: 90%;
+    left: 5%;
+    height: 150px;
+    top:calc(50% - 100px);
+    position:fixed;
+}
 .amount-input-container{
     width:150px;
     margin:auto;
