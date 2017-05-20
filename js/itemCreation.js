@@ -41,6 +41,9 @@ function redrawList() {
             }
         }
         setCollapsibleNumbers();
+
+        // remove the loading class from html to show page
+        $("html").removeClass("loading")
     }
 }
 //fills the shopping list page with items
@@ -88,6 +91,7 @@ $("input:radio").change(function () {
         }
     }
 );
+var cooldown
 //redraws the list after category setting is changed
 $("input:checkbox").change(function () {
         redrawList()

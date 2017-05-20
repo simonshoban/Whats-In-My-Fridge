@@ -201,11 +201,11 @@
                             <div data-role="popup" data-transition="fade" id="popup-sort">
                                 <form>
                                     <label for="category-flip" id="category-flip-label">Category view:</label>
-                                        <input type="checkbox" data-role="flipswitch" checked name="category-flip"
+                                        <input type="checkbox" data-role="flipswitch"  name="category-flip"
                                                id="category-flip">
                                     <fieldset data-role="controlgroup">
                                         <legend>Change direction:</legend>
-                                        <input type="radio" name="asc-desc" id="order-asc" checked value="off">
+                                        <input type="radio" name="asc-desc" id="order-asc"  value="off">
                                         <label for="order-asc">Ascending</label>
                                         <input type="radio" name="asc-desc" id="order-desc"
                                                value="other">
@@ -213,7 +213,7 @@
                                     </fieldset>
                                     <fieldset data-role="controlgroup">
                                         <legend>Change sorting method:</legend>
-                                        <input type="radio" name="sort-type" checked id="order-name" value="off">
+                                        <input type="radio" name="sort-type" id="order-name"  value="off">
                                         <label for="order-name">Alphabetical</label>
                                         <input type="radio" name="sort-type" id="order-date"
                                                value="other">
@@ -403,7 +403,7 @@
                                                         class="invalid-input-star">*</span></label>
                                             </td>
                                             <td class="ui-front">
-                                                <input  id="food-name" name="food-name" type="text"/>
+                                                <input id="food-name" name="food-name" type="text"/>
                                             </td>
                                         </tr>
 
@@ -1106,10 +1106,10 @@
 <script src="js/checkout.js"></script>
 <script src="js/itemValidation.js"></script>
 <script>
-    $("#popup-sort").on("popupafteropen", function(){
+    $("#popup-sort").on("popupafteropen", function () {
         $("html").css("overflow-y", "hidden").on("touchmove", stopScroll);
     })
-    $("#popup-sort").on("popupafterclose", function(){
+    $("#popup-sort").on("popupafterclose", function () {
         $("html").css("overflow-y", "auto").off("touchmove");
     })
     function stopScroll() {
@@ -1167,6 +1167,44 @@
             }
         })
     });
+</script>
+<script>
+    window.onbeforeunload = function() {
+        var category = $("#category-flip").prop("checked")
+        var order;
+        var type;
+        if ($("#order-asc").prop("checked")) {
+            order = "asc"
+        } else if ($("#order-desc").prop("checked")) {
+            order = "desc"
+        }
+        if ($("#order-name").prop("checked")) {
+            type = "name"
+        } else if ($("#order-date").prop("checked")) {
+            type = "date"
+        }
+        firebase.database().ref('users/' + uid + '/sorting/').set({
+            category: category,
+            order: order,
+            type: type
+        });
+    }
+
+    function setSorting(){
+        return firebase.database().ref('/users/' + uid + "/sorting/").once('value').then(function (snapshot) {
+            if (snapshot.val().category){
+                $("#category-flip").prop("checked", true).flipswitch("refresh")
+            }
+
+            $("#order-"+snapshot.val().order).prop("checked", true).checkboxradio("refresh")
+            $("#order-"+snapshot.val().type).prop("checked", true).checkboxradio("refresh")
+
+            setTimeout(function(){
+                redrawList()
+            }, 100)
+
+        })
+    }
 </script>
 </body>
 </html>

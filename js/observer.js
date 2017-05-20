@@ -19,7 +19,8 @@ firebase.auth().onAuthStateChanged(
 
             //functions to load various page elements
             $(checkRonic);
-            $(redrawList);
+            $(setSorting);
+           // $(redrawList);
             $(redrawShoppingList);
             $(fillFrequentlyPurchasedItemsFridge);
             $(fillFrequentlyPurchasedItemsList);
@@ -35,8 +36,7 @@ firebase.auth().onAuthStateChanged(
             // go to the fridge page
             $.mobile.navigate("#fridge");
 
-            // remove the loading class from html to show page
-            $("html").removeClass("loading")
+
 
 
         } else {
