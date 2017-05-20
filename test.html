@@ -1106,6 +1106,17 @@
 <script src="js/checkout.js"></script>
 <script src="js/itemValidation.js"></script>
 <script>
+    $("#popup-sort").on("popupafteropen", function(){
+        $("html").css("overflow-y", "hidden").on("touchmove", stopScroll);
+    })
+    $("#popup-sort").on("popupafterclose", function(){
+        $("html").css("overflow-y", "auto").off("touchmove");
+    })
+    function stopScroll() {
+        return false;
+    }
+</script>
+<script>
     /*
      initializes jquery ui components
      */
