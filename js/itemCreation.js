@@ -1,5 +1,5 @@
 /*
-functions and event listeners for creating list item elements
+ functions and event listeners for creating list item elements
  */
 
 //clears all items from the fridge
@@ -11,39 +11,46 @@ function clearShoppingList() {
     $("#list .list-item-container").remove()
 }
 
+var drawing = false;
 //fills the fridge page with items. how it does it depends on sorting settings
 function redrawList() {
-    clearFridgeList();
-    if (!$("#category-flip").prop("checked")) {
-        $(".collapsible-container").hide()
-    }
-    else {
-        $(".collapsible-container").show()
-    }
-
-    if ($("#order-name").prop("checked")) {
-        if ($("#order-asc").prop("checked")) {
-            getFridgeListByNameAsc()
+    if (!drawing) {
+        drawing = true;
+        clearFridgeList();
+        if (!$("#category-flip").prop("checked")) {
+            $(".collapsible-container").hide()
         }
         else {
-            getFridgeListByNameDesc()
+            $(".collapsible-container").show()
         }
 
-    } else if ($("#order-date").prop("checked")) {
-        if ($("#order-asc").prop("checked")) {
-            getFridgeListByDateAsc()
+        if ($("#order-name").prop("checked")) {
+            if ($("#order-asc").prop("checked")) {
+                getFridgeListByNameAsc()
+            }
+            else {
+                getFridgeListByNameDesc()
+            }
+
+        } else if ($("#order-date").prop("checked")) {
+            if ($("#order-asc").prop("checked")) {
+                getFridgeListByDateAsc()
+            }
+            else {
+                getFridgeListByDateDesc()
+            }
         }
-        else {
-            getFridgeListByDateDesc()
-        }
+        setCollapsibleNumbers();
     }
-    setCollapsibleNumbers();
 }
 //fills the shopping list page with items
 function redrawShoppingList() {
-    ($(".shopping-empty").hide());
-    clearShoppingList();
-    getShoppingList();
+    if (!drawing) {
+        drawing = true;
+        ($(".shopping-empty").hide());
+        clearShoppingList();
+        getShoppingList();
+    }
 }
 
 //sets the numbers for the collapsibles

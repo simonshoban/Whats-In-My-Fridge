@@ -54,6 +54,7 @@ function getFridgeListByDateAsc() {
 
                 });
                 setCollapsibleNumbers()
+                drawing = false;
             });
         });
     })
@@ -107,6 +108,7 @@ function getFridgeListByDateDesc() {
                     }
                 });
                 setCollapsibleNumbers()
+                drawing = false;
             });
         });
     })
@@ -159,6 +161,7 @@ function getFridgeListByNameAsc() {
                     }
                 });
                 setCollapsibleNumbers()
+                drawing = false;
             });
         });
     })
@@ -211,7 +214,7 @@ function getFridgeListByNameDesc() {
                     }
                 });
                 setCollapsibleNumbers()
-
+                drawing = false;
             });
         });
     })
@@ -244,6 +247,7 @@ function getShoppingList() {
                     $("#list .item-list").append(element).enhanceWithin()
 
                 });
+                drawing = false;
             });
         });
     })
