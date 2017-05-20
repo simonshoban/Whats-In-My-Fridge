@@ -300,7 +300,7 @@ h3 {
 
 .item-popup-name-container {
     position: relative;
-    width: 40%;
+    width: 50%;
     margin: auto;
 }
 
@@ -948,7 +948,6 @@ position:relative;
     color: black;
     text-align: center;
     font-size: 25px;
-    font-weight:10px;
 }
 
 /* ------------------------ Shared Fridge and List End ------------------------ */
