@@ -343,12 +343,25 @@
                             </form>
                             <div class="amount-input-container-container">
                                 <div class="amount-input-container">
-                                    <button id="unknown-amount" class="ui-btn">I don't know</button>
+                                    <button id="cancel-amount" class="ui-btn">Cancel</button>
                                 </div>
 
                                 <div class="amount-input-container">
 
                                     <button id="confirm-amount" class="ui-btn">Confirm</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-role="popup" data-transition="none" data-dismissible="false" data-overlay-theme="b" id="confirm-popup">
+                            <h3>Are sure you want to remove this item from your fridge?</h3>
+                            <div class="amount-input-container-container">
+                                <div class="amount-input-container">
+                                    <button id="cancel-button" class="ui-btn">Cancel</button>
+                                </div>
+
+                                <div class="amount-input-container">
+
+                                    <button id="confirm-button" class="ui-btn">Confirm</button>
                                 </div>
                             </div>
                         </div>
@@ -1209,16 +1222,26 @@
 
     function setSorting(){
         return firebase.database().ref('/users/' + uid + "/sorting/").once('value').then(function (snapshot) {
-            if (snapshot.val().category){
+            if(snapshot.hasChild("order")){
+                if (snapshot.val().category){
+                    $("#category-flip").prop("checked", true).flipswitch("refresh")
+                }
+
+                $("#order-"+snapshot.val().order).prop("checked", true).checkboxradio("refresh")
+                $("#order-"+snapshot.val().type).prop("checked", true).checkboxradio("refresh")
+
+                setTimeout(function(){
+                    redrawList()
+                }, 100)
+            }else{
                 $("#category-flip").prop("checked", true).flipswitch("refresh")
+                $("#order-asc").prop("checked", true).checkboxradio("refresh")
+                $("#order-date").prop("checked", true).checkboxradio("refresh")
+                setTimeout(function(){
+                    redrawList()
+                }, 100)
             }
 
-            $("#order-"+snapshot.val().order).prop("checked", true).checkboxradio("refresh")
-            $("#order-"+snapshot.val().type).prop("checked", true).checkboxradio("refresh")
-
-            setTimeout(function(){
-                redrawList()
-            }, 100)
 
         })
     }
