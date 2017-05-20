@@ -495,6 +495,25 @@ h3 {
     padding-top: 22px;
     padding-bottom: 22px;
 }
+#garbage-popup{
+    width: 90%;
+    left: 5%;
+    height: 230px;
+    top:calc(50% - 100px);
+    position:fixed;
+}
+.amount-input-container{
+    width:150px;
+    margin:auto;
+
+}
+.amount-input-container-container{
+    width:100%;
+    display:flex;
+    justify-content:space-around;
+    position:absolute;
+    bottom:10px;
+}
 
 /* ------------------------ Fridge Page End ------------------------ */
 

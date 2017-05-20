@@ -336,7 +336,24 @@
                                 <p id="other-number"></p>
                             </div>
                         </div>
+                        <div data-role="popup" data-transition="none" data-dismissible="false" data-overlay-theme="b" id="garbage-popup">
+                            <form id="slider-form">
+                                    <label for="amount-slider"> <h3>What percentage did you throw away?</h3></label>
+                                    <input type="range" name="amount" id="amount-slider" data-highlight="true" min="0" max="100" value="50">
+                            </form>
+                            <div class="amount-input-container-container">
+                                <div class="amount-input-container">
+                                    <button id="unknown-amount" class="ui-btn">I don't know</button>
+                                </div>
+
+                                <div class="amount-input-container">
+
+                                    <button id="confirm-amount" class="ui-btn">Confirm</button>
+                                </div>
+                            </div>
+                        </div>
                         <div data-role="popup" data-transition="none" data-overlay-theme="b" id="add-popup">
+
                             <a href="#" data-rel="back"
                                class="close-button ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ">Close</a>
                             <p id="add-header">Add Item</p>
