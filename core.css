@@ -547,9 +547,12 @@ h3 {
     display: flex;
     flex-flow: row;
     bottom: 8px;
+    left:calc(50% - 150px);
     width: 300px;
     justify-content: space-around;
 }
+
+
 
 #override .ate-button, #item-popup2 .ate-button {
     margin: 0;
