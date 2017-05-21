@@ -505,13 +505,13 @@ h3 {
 #confirm-popup{
     width: 90%;
     left: 5%;
-    height: 150px;
+    height: 275px;
     top:calc(50% - 100px);
     position:fixed;
 }
 .amount-input-container{
     width:150px;
-    margin:auto;
+    margin:5px auto;
 
 }
 .amount-input-container-container{
@@ -937,7 +937,7 @@ position:relative;
     top: calc(50% - 121px) !important;
 }
 
-#food-group-button, #food-group-list-button {
+#food-group-button, #food-group-list-button{
     text-transform: capitalize;
 }
 
@@ -1040,7 +1040,34 @@ position:relative;
         width: 1.875em;
     }
 }
+#custom-database{
+    background-color: white;
+    color: black;
+    width: 90%;
+    position: fixed;
+    left: 5%;
+    overflow-y: auto;
+    height: 90%;
+    top: 5%;
+}
+#custom-food-group-button, #custom-food-group{
+    text-transform: capitalize;
+}
+.custom-input-container{
+    width:150px;
+    margin:5px auto;
 
+}
+.custom-input-container-container{
+    width:100%;
+    display:flex;
+    justify-content:space-around;
+    position:absolute;
+    bottom:10px;
+}
+#custom-database .form-container{
+    height:calc(100% - 130px);
+}
 /* ------------------------ Settings Page End ------------------------ */
 
 /* ------------------------ About page  ------------------------ */
