@@ -15,23 +15,25 @@ function getFridgeListByDateAsc() {
                     var key = snapshot.key;
                     var name = snapshot.val().name;
                     var category = snapshot.val().category;
-                    var expire = Math.floor((snapshot.val().expire - Date.now()) / msPerDay);
+                    var expire = Math.floor(((snapshot.val().expire - Date.now()) +msPerDay) / msPerDay);
                     var quantity = snapshot.val().quantity;
                     var price = snapshot.val().price;
                     var expireText;
                     var circle;
 
+
                     if (expire > 1) {
                         expireText = "Expires in " + expire + " days";
                     } else if (expire < -1) {
                         expireText = "Expired " + Math.abs(expire) + " days ago"
-                    } else if (expire = 0) {
+                    } else if (expire === 0) {
                         expireText = "Expires today"
-                    } else if (expire = 1) {
+                    } else if (expire === 1) {
                         expireText = "Expires in " + expire + " day";
-                    } else if (expire = -1) {
-                        expireText = "Expired " + expire + " day ago"
+                    } else if (expire === -1) {
+                        expireText = "Expired " + Math.abs(expire) + " day ago"
                     }
+
 
                     if (expire <= 3) {
                         circle = "red-circle"
@@ -70,23 +72,25 @@ function getFridgeListByDateDesc() {
                     var key = snapshot.key;
                     var name = snapshot.val().name;
                     var category = snapshot.val().category;
-                    var expire = Math.floor((snapshot.val().expire - Date.now()) / msPerDay);
+                    var expire = Math.floor(((snapshot.val().expire - Date.now()) +msPerDay) / msPerDay);
                     var quantity = snapshot.val().quantity;
                     var price = snapshot.val().price;
                     var expireText;
                     var circle;
 
+
                     if (expire > 1) {
                         expireText = "Expires in " + expire + " days";
                     } else if (expire < -1) {
                         expireText = "Expired " + Math.abs(expire) + " days ago"
-                    } else if (expire = 0) {
+                    } else if (expire === 0) {
                         expireText = "Expires today"
-                    } else if (expire = 1) {
+                    } else if (expire === 1) {
                         expireText = "Expires in " + expire + " day";
-                    } else if (expire = -1) {
-                        expireText = "Expired " + expire + " day ago"
+                    } else if (expire === -1) {
+                        expireText = "Expired " + Math.abs(expire) + " day ago"
                     }
+
 
                     if (expire <= 3) {
                         circle = "red-circle"
@@ -124,23 +128,25 @@ function getFridgeListByNameAsc() {
                     var key = snapshot.key;
                     var name = snapshot.val().name;
                     var category = snapshot.val().category;
-                    var expire = Math.floor((snapshot.val().expire - Date.now()) / msPerDay);
+                    var expire = Math.floor(((snapshot.val().expire - Date.now()) +msPerDay) / msPerDay);
                     var quantity = snapshot.val().quantity;
                     var price = snapshot.val().price;
                     var expireText;
                     var circle;
 
+
                     if (expire > 1) {
                         expireText = "Expires in " + expire + " days";
                     } else if (expire < -1) {
                         expireText = "Expired " + Math.abs(expire) + " days ago"
-                    } else if (expire = 0) {
+                    } else if (expire === 0) {
                         expireText = "Expires today"
-                    } else if (expire = 1) {
+                    } else if (expire === 1) {
                         expireText = "Expires in " + expire + " day";
-                    } else if (expire = -1) {
-                        expireText = "Expired " + expire + " day ago"
+                    } else if (expire === -1) {
+                        expireText = "Expired " + Math.abs(expire) + " day ago"
                     }
+
 
                     if (expire <= 3) {
                         circle = "red-circle"
@@ -177,7 +183,7 @@ function getFridgeListByNameDesc() {
                     var key = snapshot.key;
                     var name = snapshot.val().name;
                     var category = snapshot.val().category;
-                    var expire = Math.floor((snapshot.val().expire - Date.now()) / msPerDay);
+                    var expire = Math.floor(((snapshot.val().expire - Date.now()) +msPerDay) / msPerDay);
                     var quantity = snapshot.val().quantity;
                     var price = snapshot.val().price;
                     var expireText;
@@ -187,12 +193,12 @@ function getFridgeListByNameDesc() {
                         expireText = "Expires in " + expire + " days";
                     } else if (expire < -1) {
                         expireText = "Expired " + Math.abs(expire) + " days ago"
-                    } else if (expire = 0) {
+                    } else if (expire === 0) {
                         expireText = "Expires today"
-                    } else if (expire = 1) {
+                    } else if (expire === 1) {
                         expireText = "Expires in " + expire + " day";
-                    } else if (expire = -1) {
-                        expireText = "Expired " + expire + " day ago"
+                    } else if (expire === -1) {
+                        expireText = "Expired " + Math.abs(expire) + " day ago"
                     }
 
                     if (expire <= 3) {
