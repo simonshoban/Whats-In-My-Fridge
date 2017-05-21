@@ -1266,7 +1266,8 @@
                     availableTags[availableTags.length] = snapshot.key
                 });
                availableTags = unique(availableTags);
-
+                $( "#food-name" ).autocomplete( "option", "source", availableTags );
+                $( "#food-name-list" ).autocomplete( "option", "source", availableTags );
             })
         })
     }

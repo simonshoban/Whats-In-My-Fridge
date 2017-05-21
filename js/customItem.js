@@ -4,7 +4,9 @@ $(document).on("click", "#custom-cancel-button", function () {
 
 });
 $(document).on("click", "#custom-confirm-button", function () {
-    addCustomItem();
+    if(addCustomItemValidate()){
+        addCustomItem();
+    }
 });
 $(document).on("click", "#added-confirm-button", function () {
     $("#added-item").popup("close")
@@ -20,6 +22,7 @@ function addCustomItem(){
             foodGroup:foodGroup,
             expire:expire
         }).then(function(){
+            getAvailiableTags()
             $("#custom-database").popup("close")
             setTimeout(function(){
                 $("#added-item").popup("open")
