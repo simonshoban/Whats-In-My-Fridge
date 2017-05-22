@@ -89,7 +89,6 @@ function addListValidate() {
 //validate custom item fields
 function addCustomItemValidate() {
     var check = true;
-    console.log($("#custom-expiry-date").val() !== "")
     if ($("#custom-expiry-date").val() !== "" && !isNaN(parseInt($("#custom-expiry-date").val()))) {
         $("#custom-food-expiry-date-label .invalid-input-star").css("display", "none")
     }
