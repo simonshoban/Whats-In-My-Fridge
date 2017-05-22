@@ -459,8 +459,13 @@ h3 {
 }
 
 #popup-sort legend {
-    margin:auto;
+    margin:10px auto 0;
     color:#3D7CB3;
+}
+
+.ui-controlgroup, fieldset.ui-controlgroup{
+    margin:6px;
+    border-top: 1px solid black;
 }
 
 #popup-sort label {
