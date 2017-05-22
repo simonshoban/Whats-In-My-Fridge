@@ -39,6 +39,9 @@ firebase.auth().onAuthStateChanged(
             $.mobile.navigate("#fridge");
 
 
+            setTimeout(function(){
+                $("html").removeClass("loading")
+            }, 5000)
 
 
         } else {
