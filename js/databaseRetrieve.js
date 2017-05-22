@@ -15,23 +15,25 @@ function getFridgeListByDateAsc() {
                     var key = snapshot.key;
                     var name = snapshot.val().name;
                     var category = snapshot.val().category;
-                    var expire = Math.floor((snapshot.val().expire - Date.now()) / msPerDay);
+                    var expire = Math.floor(((snapshot.val().expire - Date.now()) ) / msPerDay);
                     var quantity = snapshot.val().quantity;
                     var price = snapshot.val().price;
                     var expireText;
                     var circle;
 
+
                     if (expire > 1) {
                         expireText = "Expires in " + expire + " days";
                     } else if (expire < -1) {
                         expireText = "Expired " + Math.abs(expire) + " days ago"
-                    } else if (expire = 0) {
+                    } else if (expire === 0) {
                         expireText = "Expires today"
-                    } else if (expire = 1) {
+                    } else if (expire === 1) {
                         expireText = "Expires in " + expire + " day";
-                    } else if (expire = -1) {
-                        expireText = "Expired " + expire + " day ago"
+                    } else if (expire === -1) {
+                        expireText = "Expired " + Math.abs(expire) + " day ago"
                     }
+
 
                     if (expire <= 3) {
                         circle = "red-circle"
@@ -54,6 +56,7 @@ function getFridgeListByDateAsc() {
 
                 });
                 setCollapsibleNumbers()
+                drawing = false;
             });
         });
     })
@@ -69,23 +72,25 @@ function getFridgeListByDateDesc() {
                     var key = snapshot.key;
                     var name = snapshot.val().name;
                     var category = snapshot.val().category;
-                    var expire = Math.floor((snapshot.val().expire - Date.now()) / msPerDay);
+                    var expire = Math.floor(((snapshot.val().expire - Date.now()) ) / msPerDay);
                     var quantity = snapshot.val().quantity;
                     var price = snapshot.val().price;
                     var expireText;
                     var circle;
 
+
                     if (expire > 1) {
                         expireText = "Expires in " + expire + " days";
                     } else if (expire < -1) {
                         expireText = "Expired " + Math.abs(expire) + " days ago"
-                    } else if (expire = 0) {
+                    } else if (expire === 0) {
                         expireText = "Expires today"
-                    } else if (expire = 1) {
+                    } else if (expire === 1) {
                         expireText = "Expires in " + expire + " day";
-                    } else if (expire = -1) {
-                        expireText = "Expired " + expire + " day ago"
+                    } else if (expire === -1) {
+                        expireText = "Expired " + Math.abs(expire) + " day ago"
                     }
+
 
                     if (expire <= 3) {
                         circle = "red-circle"
@@ -107,6 +112,7 @@ function getFridgeListByDateDesc() {
                     }
                 });
                 setCollapsibleNumbers()
+                drawing = false;
             });
         });
     })
@@ -122,23 +128,25 @@ function getFridgeListByNameAsc() {
                     var key = snapshot.key;
                     var name = snapshot.val().name;
                     var category = snapshot.val().category;
-                    var expire = Math.floor((snapshot.val().expire - Date.now()) / msPerDay);
+                    var expire = Math.floor(((snapshot.val().expire - Date.now()) ) / msPerDay);
                     var quantity = snapshot.val().quantity;
                     var price = snapshot.val().price;
                     var expireText;
                     var circle;
 
+
                     if (expire > 1) {
                         expireText = "Expires in " + expire + " days";
                     } else if (expire < -1) {
                         expireText = "Expired " + Math.abs(expire) + " days ago"
-                    } else if (expire = 0) {
+                    } else if (expire === 0) {
                         expireText = "Expires today"
-                    } else if (expire = 1) {
+                    } else if (expire === 1) {
                         expireText = "Expires in " + expire + " day";
-                    } else if (expire = -1) {
-                        expireText = "Expired " + expire + " day ago"
+                    } else if (expire === -1) {
+                        expireText = "Expired " + Math.abs(expire) + " day ago"
                     }
+
 
                     if (expire <= 3) {
                         circle = "red-circle"
@@ -159,6 +167,7 @@ function getFridgeListByNameAsc() {
                     }
                 });
                 setCollapsibleNumbers()
+                drawing = false;
             });
         });
     })
@@ -174,7 +183,7 @@ function getFridgeListByNameDesc() {
                     var key = snapshot.key;
                     var name = snapshot.val().name;
                     var category = snapshot.val().category;
-                    var expire = Math.floor((snapshot.val().expire - Date.now()) / msPerDay);
+                    var expire = Math.floor(((snapshot.val().expire - Date.now()) ) / msPerDay);
                     var quantity = snapshot.val().quantity;
                     var price = snapshot.val().price;
                     var expireText;
@@ -184,12 +193,12 @@ function getFridgeListByNameDesc() {
                         expireText = "Expires in " + expire + " days";
                     } else if (expire < -1) {
                         expireText = "Expired " + Math.abs(expire) + " days ago"
-                    } else if (expire = 0) {
+                    } else if (expire === 0) {
                         expireText = "Expires today"
-                    } else if (expire = 1) {
+                    } else if (expire === 1) {
                         expireText = "Expires in " + expire + " day";
-                    } else if (expire = -1) {
-                        expireText = "Expired " + expire + " day ago"
+                    } else if (expire === -1) {
+                        expireText = "Expired " + Math.abs(expire) + " day ago"
                     }
 
                     if (expire <= 3) {
@@ -211,7 +220,7 @@ function getFridgeListByNameDesc() {
                     }
                 });
                 setCollapsibleNumbers()
-
+                drawing = false;
             });
         });
     })
@@ -240,10 +249,11 @@ function getShoppingList() {
                     if (quantity != null && quantity !=undefined && quantity != "") {
                         quantityText = "Quantity: " + quantity + " " + units
                     }
-                    var element = '<div class="list-item-container"> <a data-key="' + key + '" href="#" data-rel="popup" class="list-item ui-btn shopping-item"><img height="50" width="50" src="icons/' + category + '.svg"> <p class="item-name">' + name + '</p> <p class="item-quantity">' + quantityText + '</p> <label class="checkbox-label "> <input type="checkbox" class="checkbox"> </label> </a> ' + "<div class='list-item-back'> <div class='back-container'> <a href='#' class='ate-button ui-btn ui-shadow ui-btn-inline'>I ate it</a><a href='#' class='expired-button ui-btn ui-shadow ui-btn-inline'>I threw it out</a> </div> </div> </div> </div>";
+                    var element = '<div class="list-item-container"> <a data-key="' + key + '" href="#" data-rel="popup" class="list-item ui-btn shopping-item"><img height="50" width="50" src="icons/' + category + '.svg"> <p class="item-name">' + name + '</p> <p class="item-quantity">' + quantityText + '</p> <label class="checkbox-label "> <input type="checkbox" class="checkbox"> </label> </a> ' + "<div class='list-item-back'> <div class='back-container'> <a href='#' class='expired-button ui-btn ui-shadow ui-btn-inline'>Delete Item</a> </div> </div> </div> </div>";
                     $("#list .item-list").append(element).enhanceWithin()
 
                 });
+                drawing = false;
             });
         });
     })

@@ -14,8 +14,7 @@
     <link type="text/css" rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.theme.css">
 
 
-    <link href="https://fonts.googleapis.com/css?family=Nunito|Raleway" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css?family=Nunito|Raleway|Roboto:500" rel="stylesheet">
 
 </head>
 <body>
@@ -65,7 +64,6 @@
                         <div class="signup-link">
                             <a class="ui-btn ui-corner-all" id="google-btn">Sign in with Google</a>
                         </div>
-                        <br>
                         <div class="input-container"><a class="ui-btn ui-corner-all" href="#signup">Sign-up</a></div>
                     </div>
                 </div>
@@ -201,11 +199,11 @@
                             <div data-role="popup" data-transition="fade" id="popup-sort">
                                 <form>
                                     <label for="category-flip" id="category-flip-label">Category view:</label>
-                                        <input type="checkbox" data-role="flipswitch" checked name="category-flip"
+                                        <input type="checkbox" data-role="flipswitch" name="category-flip"
                                                id="category-flip">
                                     <fieldset data-role="controlgroup">
                                         <legend>Change direction:</legend>
-                                        <input type="radio" name="asc-desc" id="order-asc" checked value="off">
+                                        <input type="radio" name="asc-desc" id="order-asc" value="off">
                                         <label for="order-asc">Ascending</label>
                                         <input type="radio" name="asc-desc" id="order-desc"
                                                value="other">
@@ -213,7 +211,7 @@
                                     </fieldset>
                                     <fieldset data-role="controlgroup">
                                         <legend>Change sorting method:</legend>
-                                        <input type="radio" name="sort-type" checked id="order-name" value="off">
+                                        <input type="radio" name="sort-type" id="order-name" value="off">
                                         <label for="order-name">Alphabetical</label>
                                         <input type="radio" name="sort-type" id="order-date"
                                                value="other">
@@ -336,7 +334,40 @@
                                 <p id="other-number"></p>
                             </div>
                         </div>
+                        <div data-role="popup" data-transition="none" data-dismissible="false" data-overlay-theme="b"
+                             id="garbage-popup">
+                            <form id="slider-form">
+                                    <label for="amount-slider"><h3>What percentage did you throw away?</h3></label>
+                                    <input type="range" name="amount" id="amount-slider" data-highlight="true" min="0"
+                                           max="100" value="50">
+                            </form>
+                            <div class="amount-input-container-container">
+                                <div class="amount-input-container">
+                                    <button id="cancel-amount" class="ui-btn">Cancel</button>
+                                </div>
+
+                                <div class="amount-input-container">
+
+                                    <button id="confirm-amount" class="ui-btn">Confirm</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-role="popup" data-transition="none" data-dismissible="false" data-overlay-theme="b"
+                             id="confirm-popup">
+                            <h3>Are sure you want to remove this item from your fridge?</h3>
+                            <div class="amount-input-container-container">
+                                <div class="amount-input-container">
+                                    <button id="cancel-button" class="ui-btn">Cancel</button>
+                                </div>
+
+                                <div class="amount-input-container">
+
+                                    <button id="confirm-button" class="ui-btn">Confirm</button>
+                                </div>
+                            </div>
+                        </div>
                         <div data-role="popup" data-transition="none" data-overlay-theme="b" id="add-popup">
+
                             <a href="#" data-rel="back"
                                class="close-button ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ">Close</a>
                             <p id="add-header">Add Item</p>
@@ -379,8 +410,7 @@
                             <div id="bought-items"></div>
                             <div id="button-div" align="right">
                                 <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline"
-                                   id="custom-item-fridge">Custom
-                                    Item</a>
+                                   id="custom-item-fridge">Other Item</a>
                             </div>
                         </div>
                         <div data-role="popup" data-transition="none" data-overlay-theme="b" id="custom-item-popup">
@@ -403,7 +433,7 @@
                                                         class="invalid-input-star">*</span></label>
                                             </td>
                                             <td class="ui-front">
-                                                <input  id="food-name" name="food-name" type="text"/>
+                                                <input id="food-name" name="food-name" type="text"/>
                                             </td>
                                         </tr>
 
@@ -657,8 +687,7 @@
                             <div id="bought-items2"></div>
                             <div id="button-div2" align="right">
                                 <a href="#" data-rel="back" class="ui-btn ui-shadow ui-btn-inline"
-                                   id="custom-item-list">Custom
-                                    Item</a>
+                                   id="custom-item-list">Other Item</a>
                             </div>
                         </div>
                         <div data-role="popup" data-transition="none" data-overlay-theme="b" id="custom-item-popup2">
@@ -828,6 +857,20 @@
                     <div class="main">
                         <form id="settings-form">
                             <table id="settings-form-table">
+                                <tr id="custom-item-button-label">
+                                    <td>
+                                        <label for="ronic-slider" class="text-input-label">Add a new item to the
+                                            database</label>
+                                    </td>
+                                    <td id="custom-item-button">
+                                        <a data-rel="popup" href="#custom-database" class="ui-btn">New Custom Item</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" id="custom-item-view-button">
+                                        <a data-rel="popup" href="#custom-view" class="ui-btn">View Custom Items</a>
+                                    </td>
+                                </tr>
                                 <tr id="ronic-slider-container">
                                     <td>
                                         <label for="ronic-slider" class="text-input-label">Go fast?</label>
@@ -843,6 +886,85 @@
                         <div id="easter-egg-box">
                             <input type="text" name="easter-egg" id="easter-egg" maxlength="5"
                                    data-wrapper-class="ui-custom" onchange="easterEgg()"/>
+                        </div>
+                        <div data-role="popup" data-transition="none" data-dismissible="false" data-overlay-theme="b"
+                             id="custom-database">
+                            <div class="form-container">
+                                <h2>Add a custom item</h2>
+                                <br>
+                                <form>
+                                    <table>
+
+                                        <tr>
+                                            <td>
+                                                <label id="custom-food-name-label" for="food-name">Name of food<span
+                                                        class="invalid-input-star">*</span></label>
+                                            </td>
+                                            <td class="ui-front">
+                                                <input id="custom-food-name" name="food-name" type="text"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <label id="custom-food-group-label" for="food-group">Food group<span
+                                                        class="invalid-input-star">*</span></label>
+                                            </td>
+                                            <td>
+                                                <select id="custom-food-group" name="food-group">
+                                                    <option>----------</option>
+                                                    <option>produce</option>
+                                                    <option>dairy</option>
+                                                    <option>grain</option>
+                                                    <option>meat</option>
+                                                    <option>other</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label id="custom-food-expiry-date-label" for="expiry-date">Expected
+                                                    lifespan (in days)<span
+                                                            class="invalid-input-star">*</span></label>
+                                            </td>
+                                            <td>
+                                                <input id="custom-expiry-date" name="expiry-date" type="text"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </div>
+                            <div class="custom-input-container-container">
+                                <div class="custom-input-container">
+                                    <button id="custom-cancel-button" class="ui-btn">Cancel</button>
+                                </div>
+                                <div class="custom-input-container">
+                                    <button id="custom-confirm-button" class="ui-btn">Add Item</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-role="popup" data-transition="fade" id="custom-view" data-overlay-theme="b"
+                             data-theme="a">
+                            <div id="custom-view-container">
+                                <h2>Custom Items</h2>
+                                <div id="custom-items-container">
+                                </div>
+                                </div>
+                                <div class="custom-view-input-container-container">
+                                    <div>
+                                        <button id="close-custom-view" class="ui-btn">Close</button>
+                                    </div>
+                                </div>
+
+                        </div>
+                        <div data-role="popup" data-transition="none" data-dismissible="true" data-overlay-theme="b"
+                             id="added-popup">
+                            <h3>Are sure you want to remove this item from your fridge?</h3>
+                            <div class="amount-input-container-container">
+                                <div class="amount-input-container">
+                                    <button id="added-confirm-button" class="ui-btn">OK</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1062,7 +1184,8 @@
                     List</a>
             </li>
             <li>
-                <a href="#settings" data-transition="slide" class="settings-btn nav-btn ui-btn" id="settings-mlink">Settings</a>
+                <a href="#settings" data-transition="slide" class="settings-btn nav-btn ui-btn"
+                   id="settings-mlink">Settings</a>
             </li>
             <li>
                 <a href="#about" data-transition="slide" class="about-btn nav-btn ui-btn" id="about-mlink">About</a>
@@ -1105,6 +1228,20 @@
 <script src="js/databaseUpdate.js"></script>
 <script src="js/checkout.js"></script>
 <script src="js/itemValidation.js"></script>
+<script src="js/customItem.js"></script>
+<script src="js/customView.js"></script>
+
+<script>
+    $("#popup-sort").on("popupafteropen", function () {
+        $("html").css("overflow-y", "hidden").on("touchmove", stopScroll);
+    })
+    $("#popup-sort").on("popupafterclose", function () {
+        $("html").css("overflow-y", "auto").off("touchmove");
+    })
+    function stopScroll() {
+        return false;
+    }
+</script>
 <script>
     /*
      initializes jquery ui components
@@ -1126,12 +1263,29 @@
     });
     //stores availiable tags for autocomplete
     var availableTags = [];
-    getAvailiableTags();
     //gets the availiable tags for autofill from the database
+
+    //removed duplicate strings from an array and returns the new array
+    function unique(list) {
+        var result = [];
+        $.each(list, function (i, e) {
+            if ($.inArray(e, result) == -1) result.push(e);
+        });
+        return result;
+    }
+
     function getAvailiableTags() {
         return firebase.database().ref('/autocomplete').once('value').then(function (snapshot) {
             snapshot.forEach(function (snapshot) {
                 availableTags[availableTags.length] = snapshot.key
+            });
+            return firebase.database().ref('/customAutoComplete/' + uid).once('value').then(function (snapshot) {
+                snapshot.forEach(function (snapshot) {
+                    availableTags[availableTags.length] = snapshot.key
+                });
+                availableTags = unique(availableTags);
+                $("#food-name").autocomplete("option", "source", availableTags);
+                $("#food-name-list").autocomplete("option", "source", availableTags);
             })
         })
     }
@@ -1156,6 +1310,54 @@
             }
         })
     });
+</script>
+<script>
+    window.onbeforeunload = function () {
+        var category = $("#category-flip").prop("checked")
+        var order;
+        var type;
+        if ($("#order-asc").prop("checked")) {
+            order = "asc"
+        } else if ($("#order-desc").prop("checked")) {
+            order = "desc"
+        }
+        if ($("#order-name").prop("checked")) {
+            type = "name"
+        } else if ($("#order-date").prop("checked")) {
+            type = "date"
+        }
+        firebase.database().ref('users/' + uid + '/sorting/').set({
+            category: category,
+            order: order,
+            type: type
+        });
+    }
+
+    function setSorting() {
+        return firebase.database().ref('/users/' + uid + "/sorting/").once('value').then(function (snapshot) {
+            if (snapshot.hasChild("order")) {
+                if (snapshot.val().category) {
+                    $("#category-flip").prop("checked", true).flipswitch("refresh")
+                }
+
+                $("#order-" + snapshot.val().order).prop("checked", true).checkboxradio("refresh")
+                $("#order-" + snapshot.val().type).prop("checked", true).checkboxradio("refresh")
+
+                setTimeout(function () {
+                    redrawList()
+                }, 100)
+            } else {
+                $("#category-flip").prop("checked", true).flipswitch("refresh")
+                $("#order-asc").prop("checked", true).checkboxradio("refresh")
+                $("#order-date").prop("checked", true).checkboxradio("refresh")
+                setTimeout(function () {
+                    redrawList()
+                }, 100)
+            }
+
+
+        })
+    }
 </script>
 </body>
 </html>

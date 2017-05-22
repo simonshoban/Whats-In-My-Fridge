@@ -226,7 +226,6 @@ h3 {
 #override .input-container {
     max-width: 100px;
     margin: auto;
-    padding-bottom: 10px;
     display: block;
 
 }
@@ -263,10 +262,31 @@ h3 {
     margin-right: auto;
 }
 
-#google-btn {
-    width: 175px;
+#override #google-btn {
+    width: 150px;
     margin: auto;
+    height:20px;
+    padding:0;
+    padding-left:45px;
+    padding-top:10px;
+    padding-bottom:10px;
+    background-image: url("images/google/g-logo.png");
+    background-repeat:no-repeat;
+    background-position:8px 10px;
+    background-color:#ffffff;
+    background-size: 20px 20px;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    color: rgba(0,0,0,0.54);
+    text-shadow:none;
+    font-weight:normal;
+
 }
+#override #google-btn:hover {
+    background-color: #eeeeee;
+    background-image: url("images/google/g-logo-hover.png")
+}
+
 
 /* ------------------------ End Login Page ------------------------ */
 
@@ -495,6 +515,32 @@ h3 {
     padding-top: 22px;
     padding-bottom: 22px;
 }
+#garbage-popup{
+    width: 90%;
+    left: 5%;
+    height: 230px;
+    top:calc(50% - 100px);
+    position:fixed;
+}
+#confirm-popup{
+    width: 90%;
+    left: 5%;
+    height: 275px;
+    top:calc(50% - 100px);
+    position:fixed;
+}
+.amount-input-container{
+    width:150px;
+    margin:5px auto;
+
+}
+.amount-input-container-container{
+    width:100%;
+    display:flex;
+    justify-content:space-around;
+    position:absolute;
+    bottom:10px;
+}
 
 /* ------------------------ Fridge Page End ------------------------ */
 
@@ -547,9 +593,12 @@ h3 {
     display: flex;
     flex-flow: row;
     bottom: 8px;
+    left:calc(50% - 150px);
     width: 300px;
     justify-content: space-around;
 }
+
+
 
 #override .ate-button, #item-popup2 .ate-button {
     margin: 0;
@@ -625,8 +674,8 @@ position:relative;
 #checkout-container{
     height:100%;
     overflow-y:auto;
-    border-bottom:1px solid #676767;
-    border-top:1px solid #676767;
+    border-bottom:1px solid #bcbcbc;
+    border-top:1px solid #bcbcbc;
 
 
 }
@@ -908,7 +957,7 @@ position:relative;
     top: calc(50% - 121px) !important;
 }
 
-#food-group-button, #food-group-list-button {
+#food-group-button, #food-group-list-button{
     text-transform: capitalize;
 }
 
@@ -1011,7 +1060,102 @@ position:relative;
         width: 1.875em;
     }
 }
+#custom-database, #custom-view{
+    background-color: white;
+    color: black;
+    width: 90%;
+    position: fixed;
+    left: 5%;
+    overflow-y: auto;
+    height: 90%;
+    top: 5%;
+}
+#custom-food-group-button, #custom-food-group{
+    text-transform: capitalize;
+}
+.custom-input-container{
+    width:150px;
+    margin:5px auto;
 
+}
+.custom-input-container-container{
+    width:100%;
+    display:flex;
+    justify-content:space-around;
+    position:absolute;
+    bottom:0;
+}
+#custom-database .form-container{
+    height:calc(100% - 130px);
+    max-width:320px;
+    margin-left:auto;
+    margin-right:auto;
+}
+#custom-view-container{
+    height:calc(100% - 60px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.custom-item{
+    border-bottom: 1px solid #676767;
+    height:120px;
+    width: 280px;
+    margin: auto;
+    position: relative;
+}
+
+.custom-item:last-child {
+    border-bottom: none;
+
+}
+
+.custom-item .custom-name {
+    font-size:1.3em;
+    padding-left: 60px;
+    text-transform: capitalize;
+    position:relative;
+    top:15px;
+    left: 5px;
+}
+
+
+.custom-item img {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+
+.custom-item div {
+    display: flex;
+    align-items: baseline;
+}
+.custom-item .ui-btn{
+    position:absolute;
+    right:15px;
+    top:20px;
+}
+.custom-foodGroup{
+    position:absolute;
+    left:10px;
+    bottom:40px;
+    font-size:0.9em
+
+}
+.custom-expire{
+    position:absolute;
+    left:10px;
+    bottom:10px;
+    font-size:0.9em;
+}
+.custom-view-input-container-container{
+    border-top:solid 1px #bcbcbc;
+    width:100%;
+    display:flex;
+    justify-content:space-around;
+    position:absolute;
+    bottom:0;
+}
 /* ------------------------ Settings Page End ------------------------ */
 
 /* ------------------------ About page  ------------------------ */

@@ -19,10 +19,12 @@ firebase.auth().onAuthStateChanged(
 
             //functions to load various page elements
             $(checkRonic);
-            $(redrawList);
+            $(setSorting);
+           // $(redrawList);
             $(redrawShoppingList);
             $(fillFrequentlyPurchasedItemsFridge);
             $(fillFrequentlyPurchasedItemsList);
+            $(getAvailiableTags());
 
             // hide and show buttons based on login state
             $(".login-btn").hide();
@@ -31,12 +33,12 @@ firebase.auth().onAuthStateChanged(
             $(".fridge-btn").show();
             $(".settings-btn").show();
             $(".shopping-list-btn").show();
+            getAvailiableTags();
 
             // go to the fridge page
             $.mobile.navigate("#fridge");
 
-            // remove the loading class from html to show page
-            $("html").removeClass("loading")
+
 
 
         } else {
