@@ -3,6 +3,8 @@ $(document).on("click", "#close-custom-view", function () {
 });
 
 $(document).on("popupbeforeposition", "#custom-view", function () {
+    $(".custom-item").remove()
+
     fillCustomView()
 });
 
@@ -29,6 +31,6 @@ function fillCustomView() {
 $(document).on("click", ".delete-custom", function () {
     var key = $(this).attr("data-key")
     deleteCustomItem(key)
-    $("#custom-items-container").html("")
+    $(".custom-item").remove()
     fillCustomView()
 });
