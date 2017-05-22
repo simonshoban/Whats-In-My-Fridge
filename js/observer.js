@@ -24,6 +24,7 @@ firebase.auth().onAuthStateChanged(
             $(redrawShoppingList);
             $(fillFrequentlyPurchasedItemsFridge);
             $(fillFrequentlyPurchasedItemsList);
+            $(getAvailiableTags());
 
             // hide and show buttons based on login state
             $(".login-btn").hide();
@@ -32,6 +33,7 @@ firebase.auth().onAuthStateChanged(
             $(".fridge-btn").show();
             $(".settings-btn").show();
             $(".shopping-list-btn").show();
+            getAvailiableTags();
 
             // go to the fridge page
             $.mobile.navigate("#fridge");

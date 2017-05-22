@@ -226,7 +226,6 @@ h3 {
 #override .input-container {
     max-width: 100px;
     margin: auto;
-    padding-bottom: 10px;
     display: block;
 
 }
@@ -263,10 +262,31 @@ h3 {
     margin-right: auto;
 }
 
-#google-btn {
-    width: 175px;
+#override #google-btn {
+    width: 150px;
     margin: auto;
+    height:20px;
+    padding:0;
+    padding-left:45px;
+    padding-top:10px;
+    padding-bottom:10px;
+    background-image: url("images/google/g-logo.png");
+    background-repeat:no-repeat;
+    background-position:8px 10px;
+    background-color:#ffffff;
+    background-size: 20px 20px;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    color: rgba(0,0,0,0.54);
+    text-shadow:none;
+    font-weight:normal;
+
 }
+#override #google-btn:hover {
+    background-color: #eeeeee;
+    background-image: url("images/google/g-logo-hover.png")
+}
+
 
 /* ------------------------ End Login Page ------------------------ */
 
