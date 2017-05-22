@@ -2,6 +2,7 @@
 containes functions and event listeners to add items to the database
  */
 
+var almostMsPerDay = 86399999
 //event listener for the fridge add item button
 $("#add-button-fridge").click(function () {
     if (addItemValidate()) {
@@ -23,7 +24,7 @@ function readFridgeInput(){
     var uid = firebase.auth().currentUser.uid;
     var name = $("#food-name").val().toLowerCase()
     var type = $("#food-group").val().substr(0, 1).toLowerCase();
-    var expires = ($("#expiry-date").datepicker("getDate").getTime())
+    var expires = ($("#expiry-date").datepicker("getDate").getTime() + almostMsPerDay)
     var units = $("#quantity-options-add-fridge").val()
     var quantity = null
     var price = null

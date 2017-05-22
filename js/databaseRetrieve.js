@@ -183,6 +183,8 @@ function getFridgeListByNameDesc() {
                     var key = snapshot.key;
                     var name = snapshot.val().name;
                     var category = snapshot.val().category;
+
+                    console.log((snapshot.val().expire - Date.now())/msPerDay)
                     var expire = Math.floor(((snapshot.val().expire - Date.now()) ) / msPerDay);
                     var quantity = snapshot.val().quantity;
                     var price = snapshot.val().price;
