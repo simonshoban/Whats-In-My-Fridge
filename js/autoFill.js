@@ -14,6 +14,7 @@ function autoFillFridgeAdd() {
                 $("#expiry-date").val(new Date(expireDay).toISOString().substr(0, 10));
 
             }
+            return true;
         }
         return firebase.database().ref('/autofill/' + name).once('value').then(function (snapshot) {
             if (snapshot.hasChild("foodGroup")) {
@@ -39,6 +40,7 @@ function autoFillListAdd() {
                 var expireDay = snapshot.val().expire + Date.now();
                 $("#food-group-list").val(snapshot.val().foodGroup).selectmenu("refresh");
             }
+            return true;
         }
         return firebase.database().ref('/autofill/' + $("#food-name-list").val().toLowerCase()).once('value').then(function (snapshot) {
             if (snapshot.hasChild("foodGroup")) {

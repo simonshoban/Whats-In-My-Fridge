@@ -32,3 +32,9 @@ function addCustomItem(){
 
 
 }
+
+
+function deleteCustomItem(key){
+    firebase.database().ref('customAutoFill/' + uid + "/" + key).remove()
+    firebase.database().ref('customAutoComplete/' + uid + "/" + key).remove()
+}

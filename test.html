@@ -868,6 +868,11 @@
                                         <a data-rel="popup" href="#custom-database" class="ui-btn">New Custom Item</a>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td colspan="2" id="custom-item-view-button">
+                                        <a data-rel="popup" href="#custom-view" class="ui-btn">View Custom Items</a>
+                                    </td>
+                                </tr>
                                 <tr id="ronic-slider-container">
                                     <td>
                                         <label for="ronic-slider" class="text-input-label">Go fast?</label>
@@ -939,6 +944,20 @@
                                     <button id="custom-confirm-button" class="ui-btn">Add Item</button>
                                 </div>
                             </div>
+                        </div>
+                        <div data-role="popup" data-transition="fade" id="custom-view" data-overlay-theme="b"
+                             data-theme="a">
+                            <div id="custom-view-container">
+                                <h2>Custom Items</h2>
+                                <div id="custom-items-container">
+                                </div>
+                                </div>
+                                <div class="custom-view-input-container-container">
+                                    <div>
+                                        <button id="close-custom-view" class="ui-btn">Close</button>
+                                    </div>
+                                </div>
+
                         </div>
                         <div data-role="popup" data-transition="none" data-dismissible="true" data-overlay-theme="b"
                              id="added-popup">
@@ -1212,6 +1231,8 @@
 <script src="js/checkout.js"></script>
 <script src="js/itemValidation.js"></script>
 <script src="js/customItem.js"></script>
+<script src="js/customView.js"></script>
+
 <script>
     $("#popup-sort").on("popupafteropen", function () {
         $("html").css("overflow-y", "hidden").on("touchmove", stopScroll);
@@ -1250,7 +1271,7 @@
     //removed duplicate strings from an array and returns the new array
     function unique(list) {
         var result = [];
-        $.each(list, function(i, e) {
+        $.each(list, function (i, e) {
             if ($.inArray(e, result) == -1) result.push(e);
         });
         return result;
@@ -1265,9 +1286,9 @@
                 snapshot.forEach(function (snapshot) {
                     availableTags[availableTags.length] = snapshot.key
                 });
-               availableTags = unique(availableTags);
-                $( "#food-name" ).autocomplete( "option", "source", availableTags );
-                $( "#food-name-list" ).autocomplete( "option", "source", availableTags );
+                availableTags = unique(availableTags);
+                $("#food-name").autocomplete("option", "source", availableTags);
+                $("#food-name-list").autocomplete("option", "source", availableTags);
             })
         })
     }

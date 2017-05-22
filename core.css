@@ -654,8 +654,8 @@ position:relative;
 #checkout-container{
     height:100%;
     overflow-y:auto;
-    border-bottom:1px solid #676767;
-    border-top:1px solid #676767;
+    border-bottom:1px solid #bcbcbc;
+    border-top:1px solid #bcbcbc;
 
 
 }
@@ -1040,7 +1040,7 @@ position:relative;
         width: 1.875em;
     }
 }
-#custom-database{
+#custom-database, #custom-view{
     background-color: white;
     color: black;
     width: 90%;
@@ -1063,13 +1063,78 @@ position:relative;
     display:flex;
     justify-content:space-around;
     position:absolute;
-    bottom:10px;
+    bottom:0;
 }
 #custom-database .form-container{
     height:calc(100% - 130px);
     max-width:320px;
     margin-left:auto;
     margin-right:auto;
+}
+#custom-view-container{
+    height:calc(100% - 60px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.custom-item{
+    border-bottom: 1px solid #676767;
+    height:120px;
+    width: 280px;
+    margin: auto;
+    position: relative;
+}
+
+.custom-item:last-child {
+    border-bottom: none;
+
+}
+
+.custom-item .custom-name {
+    font-size:1.3em;
+    padding-left: 60px;
+    text-transform: capitalize;
+    position:relative;
+    top:15px;
+    left: 5px;
+}
+
+
+.custom-item img {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+
+.custom-item div {
+    display: flex;
+    align-items: baseline;
+}
+.custom-item .ui-btn{
+    position:absolute;
+    right:15px;
+    top:20px;
+}
+.custom-foodGroup{
+    position:absolute;
+    left:10px;
+    bottom:40px;
+    font-size:0.9em
+
+}
+.custom-expire{
+    position:absolute;
+    left:10px;
+    bottom:10px;
+    font-size:0.9em;
+}
+.custom-view-input-container-container{
+    border-top:solid 1px #bcbcbc;
+    width:100%;
+    display:flex;
+    justify-content:space-around;
+    position:absolute;
+    bottom:0;
 }
 /* ------------------------ Settings Page End ------------------------ */
 
