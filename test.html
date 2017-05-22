@@ -1171,6 +1171,70 @@
         </div>
     </div><!-- affiliated apps end -->
 
+    <div data-role="page" id="stats"><!-- the stats page-->
+        <div data-role="header">
+        </div>
+        <div role="main" class="ui-content">
+            <div class="big-container">
+                <div class="container">
+                    <div class="header">
+                        <div class="nav">
+                            <a href="#defaultpanel"
+                               class="nav-button ui-large-icon ui-btn  ui-nodisc-icon ui-btn-inline ui-btn-icon-notext ui-icon-bars">Default
+                                panel</a>
+                            <h1>Stats</h1>
+                        </div>
+                    </div>
+                    <div class="main">
+                        <h2 id="stats-overall">Overall</h2>
+                        <h2 id="stats-produce">Produce</h2>
+                        <h2 id="stats-meat">Meat</h2>
+                        <h2 id="stats-dairy">Dairy</h2>
+                        <h2 id="stats-grain">Grain</h2>
+                        <h2 id="stats-other">Other</h2>
+
+                    </div>
+                </div>
+                <div class="fakepanel">
+                    <div class="panel-container">
+                        <p class="logo2">WhatsinmyFridge.ca</p>
+                        <ul class="nav-list">
+                            <li>
+                                <a href="#fridge" data-transition="none" class="fridge-btn nav-btn ui-btn">Fridge</a>
+                            </li>
+                            <li>
+                                <a href="#list" data-transition="none" class="shopping-list-btn nav-btn ui-btn">Shopping
+                                    List</a>
+                            </li>
+                            <li>
+                                <a href="#settings" data-transition="none"
+                                   class="settings-btn nav-btn ui-btn">Settings</a>
+                            </li>
+                            <li>
+                                <a href="#about" data-transition="none" class="about-btn nav-btn ui-btn">About</a>
+                            </li>
+                            <li>
+                                <a href="#aff-apps" data-transition="none" class="aff-btn nav-btn ui-btn">Affiliated
+                                    Apps</a>
+                            </li>
+                            <li>
+                                <a data-transition="none" href="#login" class="login-btn nav-btn ui-btn">Login</a>
+                            </li>
+                            <li>
+                                <a data-transition="none" href="#stats" class="nav-btn ui-btn">Stats</a>
+                            </li>
+                            <li>
+                                <a href="#" class="logout-btn nav-btn ui-btn">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-role="footer">
+        </div>
+    </div><!-- stats page end -->
+
     <!-- the panel thehamburger menu opens -->
     <div data-role="panel" id="defaultpanel" data-overlay-theme="b" data-theme="a" data-display="overlay"
          class="ui-panel ui-responsive-panel ui-panel-position-left ui-body-inherit ui-panel-animate ui-panel-closed">
@@ -1193,6 +1257,9 @@
             <li>
                 <a href="#aff-apps" data-transition="slide" class="aff-btn nav-btn ui-btn" id="aff-apps-mlink">Affiliated
                     Apps</a>
+            </li>
+            <li>
+                <a href="#stats" data-transition="slide" class="stats-btn nav-btn ui-btn" id="stats-mlink">Stats</a>
             </li>
             <li>
                 <a data-transition="slide" href="#login" class="login-btn nav-btn ui-btn" id="login-mlink">Login</a>
@@ -1230,6 +1297,8 @@
 <script src="js/itemValidation.js"></script>
 <script src="js/customItem.js"></script>
 <script src="js/customView.js"></script>
+<script src="js/stats.js"></script>
+
 
 <script>
     $("#popup-sort").on("popupafteropen", function () {
