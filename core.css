@@ -146,6 +146,10 @@ h3 {
     background-image: url("icons/affiliates.svg");
 }
 
+.stats-btn {
+    background-image: url("icons/stats.svg");
+}
+
 .logout-btn {
     background-image: url("icons/logout.svg");
 }
@@ -1021,6 +1025,13 @@ position:relative;
     color: black;
     text-align: center;
     font-size: 25px;
+}
+
+#checkout-button {
+    background-image: url("icons/checkout.svg");
+    background-repeat: no-repeat;
+    background-size: 35px;
+    background-position: center;
 }
 
 /* ------------------------ Shared Fridge and List End ------------------------ */
