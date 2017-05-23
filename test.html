@@ -53,7 +53,12 @@
                                             <div class="text-input-container">
                                                 <input id="login-password" name="password" type="password" value="">
                                             </div>
+
                                         </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td><a id="forgot-link" href="#forgot-password-popup" data-rel="popup">forgot password?</a></td>
                                     </tr>
                                 </table>
                                 <div class="input-container"><input data-enhanced="true" data-role="none"
@@ -65,6 +70,42 @@
                             <a class="ui-btn ui-corner-all" id="google-btn">Sign in with Google</a>
                         </div>
                         <div class="input-container"><a class="ui-btn ui-corner-all" href="#signup">Sign-up</a></div>
+                        <div data-role="popup" data-transition="none" data-dismissible="true" data-overlay-theme="b"
+                             id="forgot-password-popup">
+                            <h3>Enter the email associated with your account</h3>
+                            <table id="forgot-password-table">
+                                <tr>
+                                    <td><label id="forgot-password-input-label" for="forgot-password-input">Email:<span class="invalid-input-star">*</span></label></td>
+                                    <td>
+                                        <div class="forgot-password-input-container">
+
+                                            <input id="forgot-password-input" type="email">
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </table>
+
+                            <div class="amount-input-container-container">
+                                <div class="amount-input-container">
+                                    <button id="forgot-cancel-button" class="ui-btn">Cancel</button>
+                                </div>
+
+                                <div class="amount-input-container">
+
+                                    <button id="forgot-confirm-button" class="ui-btn">Confirm</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-role="popup" data-transition="none" data-dismissible="true" data-overlay-theme="b"
+                             id="forgot-password-confirm-popup">
+                            <h3>An email has been sent</h3>
+                            <div class="amount-input-container-container">
+                                <div class="amount-input-container">
+                                    <button id="forgot-close-button" class="ui-btn">Close</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="fakepanel">
@@ -961,12 +1002,12 @@
                                 <h2>Custom Items</h2>
                                 <div id="custom-items-container">
                                 </div>
+                            </div>
+                            <div class="custom-view-input-container-container">
+                                <div>
+                                    <button id="close-custom-view" class="ui-btn">Close</button>
                                 </div>
-                                <div class="custom-view-input-container-container">
-                                    <div>
-                                        <button id="close-custom-view" class="ui-btn">Close</button>
-                                    </div>
-                                </div>
+                            </div>
 
                         </div>
                         <div data-role="popup" data-transition="none" data-dismissible="true" data-overlay-theme="b"
@@ -1208,12 +1249,12 @@
                     </div>
                     <div class="main">
                         <div class="total-container">
-                        <h2 id="stats-overall">Overall</h2>
-                        <h2 id="stats-produce">Produce</h2>
-                        <h2 id="stats-meat">Meat</h2>
-                        <h2 id="stats-grain">Grain</h2>
+                            <h2 id="stats-overall">Overall</h2>
+                            <h2 id="stats-produce">Produce</h2>
+                            <h2 id="stats-meat">Meat</h2>
+                            <h2 id="stats-grain">Grain</h2>
                         <h2 id="stats-dairy">Dairy</h2>
-                        <h2 id="stats-other">Other</h2>
+                            <h2 id="stats-other">Other</h2>
                         </div>
                     </div>
                 </div>
@@ -1320,6 +1361,7 @@
 <script src="js/customItem.js"></script>
 <script src="js/customView.js"></script>
 <script src="js/stats.js"></script>
+<script src="js/forgotPassword.js"></script>
 
 
 <script>
