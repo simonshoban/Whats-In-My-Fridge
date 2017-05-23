@@ -56,6 +56,7 @@ $(document).on("pageshow", function(e, data){
     $("#settings-mlink").css({"background-color":"white","color":"black"});
     $("#about-mlink").css({"background-color":"white","color":"black"});
     $("#aff-apps-mlink").css({"background-color":"white","color":"black"});
+    $("#stats-mlink").css({"background-color":"white","color":"black"});
     $("#login-mlink").css({"background-color":"white","color":"black"});
     var page = $.mobile.activePage.attr("id");
     var pagelink = "#" + page + "-mlink";

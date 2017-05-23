@@ -33,6 +33,7 @@ firebase.auth().onAuthStateChanged(
             $(".fridge-btn").show();
             $(".settings-btn").show();
             $(".shopping-list-btn").show();
+            $(".stats-btn").show();
             getAvailiableTags();
 
             // go to the fridge page
@@ -54,6 +55,7 @@ firebase.auth().onAuthStateChanged(
             $(".fridge-btn").hide();
             $(".settings-btn").hide();
             $(".shopping-list-btn").hide();
+            $(".stats-btn").hide();
 
             // go to login page
             $.mobile.navigate("#login");

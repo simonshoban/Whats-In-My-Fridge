@@ -94,6 +94,9 @@ function getFridgeListByDateDesc() {
                         expireText = "Expired " + Math.abs(expire) + " day ago"
                     }
 
+                    if (expire <= 0) {
+                        $(".list-item.fridge-item").css("background-color", "rgba(255, 0, 0, 0.1)");
+                    }
 
                     if (expire <= 3) {
                         circle = "red-circle"
