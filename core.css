@@ -255,7 +255,7 @@ h3 {
     display: block;
 }
 
-#login-table, #signup-table {
+#login-table, #signup-table , #forgot-password-table{
     text-align: right;
     margin-top: 5px;
     margin-left: auto;
@@ -287,7 +287,25 @@ h3 {
     background-image: url("images/google/g-logo-hover.png")
 }
 
-
+#forgot-password-popup{
+    width: 90%;
+    left: 5%;
+    height: 275px;
+    top:calc(50% - 100px);
+    position:fixed;
+}
+#forgot-password-confirm-popup{
+    width: 90%;
+    left: 5%;
+    height: 150px;
+    top:calc(50% - 100px);
+    position:fixed;
+}
+.forgot-password-input-container{
+    width:200px;
+}
+#login-password{
+}
 /* ------------------------ End Login Page ------------------------ */
 
 /* ------------------------ Fridge Page ------------------------ */
