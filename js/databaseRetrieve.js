@@ -1,5 +1,5 @@
 /*
-contains funcstions and event listeners for retrieving data from the database
+ contains funcstions and event listeners for retrieving data from the database
  */
 
 //store the number of milliseconds in a day
@@ -20,6 +20,7 @@ function getFridgeListByDateAsc() {
                     var price = snapshot.val().price;
                     var expireText;
                     var circle;
+                    var background = ""
 
 
                     if (expire > 1) {
@@ -35,7 +36,7 @@ function getFridgeListByDateAsc() {
                     }
 
                     if (expire <= 0) {
-                        $(".list-item.fridge-item").css("background-color", "rgba(255, 0, 0, 0.1)");
+                        background = "expired-list-item"
                     }
 
                     if (expire <= 3) {
@@ -47,7 +48,7 @@ function getFridgeListByDateAsc() {
                     }
 
 
-                    var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#'  data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> " +
+                    var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#'  data-rel='popup' class='" + background +" list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> " +
                         "<div class='list-item-back'> <div class='back-container'> <a href='#' class='ate-button ui-btn ui-shadow ui-btn-inline'>I ate it</a><a href='#' class='expired-button ui-btn ui-shadow ui-btn-inline'>I threw it out</a> </div> </div> </div> </div>";
                     if (!$("#category-flip").prop("checked")) {
                         $("#fridge .item-list").append(element)
@@ -80,6 +81,7 @@ function getFridgeListByDateDesc() {
                     var price = snapshot.val().price;
                     var expireText;
                     var circle;
+                    var background = ""
 
 
                     if (expire > 1) {
@@ -95,7 +97,7 @@ function getFridgeListByDateDesc() {
                     }
 
                     if (expire <= 0) {
-                        $(".list-item.fridge-item").css("background-color", "rgba(255, 0, 0, 0.1)");
+                        background = "expired-list-item"
                     }
 
                     if (expire <= 3) {
@@ -107,7 +109,7 @@ function getFridgeListByDateDesc() {
                     }
 
 
-                    var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#'  data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> " +
+                    var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#'  data-rel='popup' class='" + background +" list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> " +
                         "<div class='list-item-back'><div class='back-container'> <a href='#' class='ate-button ui-btn ui-shadow ui-btn-inline'>I ate it</a><a href='#' class='expired-button ui-btn ui-shadow ui-btn-inline'>I threw it out</a> </div> </div> </div> </div>";
                     if (!$("#category-flip").prop("checked")) {
                         $("#fridge .item-list").prepend(element)
@@ -139,6 +141,7 @@ function getFridgeListByNameAsc() {
                     var price = snapshot.val().price;
                     var expireText;
                     var circle;
+                    var background = ""
 
 
                     if (expire > 1) {
@@ -153,6 +156,10 @@ function getFridgeListByNameAsc() {
                         expireText = "Expired " + Math.abs(expire) + " day ago"
                     }
 
+                    if (expire <= 0) {
+                        background = "expired-list-item"
+                    }
+
 
                     if (expire <= 3) {
                         circle = "red-circle"
@@ -162,7 +169,7 @@ function getFridgeListByNameAsc() {
                         circle = "green-circle"
                     }
 
-                    var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#' data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> " +
+                    var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#' data-rel='popup' class='" + background +" list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> " +
                         "<div class='list-item-back'> <div class='back-container'> <a href='#' class='ate-button ui-btn ui-shadow ui-btn-inline'>I ate it</a><a href='#' class='expired-button ui-btn ui-shadow ui-btn-inline'>I threw it out</a> </div> </div> </div> </div>";
                     if (!$("#category-flip").prop("checked")) {
                         $("#fridge .item-list").append(element)
@@ -194,6 +201,8 @@ function getFridgeListByNameDesc() {
                     var price = snapshot.val().price;
                     var expireText;
                     var circle;
+                    var background = ""
+
 
                     if (expire > 1) {
                         expireText = "Expires in " + expire + " days";
@@ -207,6 +216,10 @@ function getFridgeListByNameDesc() {
                         expireText = "Expired " + Math.abs(expire) + " day ago"
                     }
 
+                    if (expire <= 0) {
+                        background = "expired-list-item"
+                    }
+
                     if (expire <= 3) {
                         circle = "red-circle"
                     } else if (expire <= 5) {
@@ -215,7 +228,7 @@ function getFridgeListByNameDesc() {
                         circle = "green-circle"
                     }
 
-                    var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#'  data-rel='popup' class='list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> " +
+                    var element = "<div class='list-item-container'> <a data-key='" + key + "' href='#'  data-rel='popup' class='" + background +" list-item ui-btn fridge-item'> <img height='50' width='50' src='icons/" + category + ".svg'> <p class='item-name'>" + name + "</p> <p class='item-expires'>" + expireText + "</p> <div class='" + circle + " small-circle'></div> </a> " +
                         "<div class='list-item-back'>  <div class='back-container'> <a href='#' class='ate-button ui-btn ui-shadow ui-btn-inline'>I ate it</a><a href='#' class='expired-button ui-btn ui-shadow ui-btn-inline'>I threw it out</a> </div> </div> </div>"
                     if (!$("#category-flip").prop("checked")) {
                         $("#fridge .item-list").prepend(element)
@@ -252,7 +265,7 @@ function getShoppingList() {
                     if (units === "--") {
                         units = ""
                     }
-                    if (quantity != null && quantity !=undefined && quantity != "") {
+                    if (quantity != null && quantity != undefined && quantity != "") {
                         quantityText = "Quantity: " + quantity + " " + units
                     }
                     var element = '<div class="list-item-container"> <a data-key="' + key + '" href="#" data-rel="popup" class="list-item ui-btn shopping-item"><img height="50" width="50" src="icons/' + category + '.svg"> <p class="item-name">' + name + '</p> <p class="item-quantity">' + quantityText + '</p> <label class="checkbox-label "> <input type="checkbox" class="checkbox"> </label> </a> ' + "<div class='list-item-back'> <div class='back-container'> <a href='#' class='expired-button ui-btn ui-shadow ui-btn-inline'>Delete Item</a> </div> </div> </div> </div>";
