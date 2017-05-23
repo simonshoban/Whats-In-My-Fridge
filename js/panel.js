@@ -47,7 +47,7 @@ $(document).on("pageinit", "#fridge", function (event) {
 $(document).on("pageshow", function(e, data){
     var page = $.mobile.activePage.attr("id");
     var pagelink = "#" + page + "-link";
-    $(pagelink).css({"background-color":"#3d7cb3","color":"white"});
+    $(pagelink).css({"background-color":"#55a3e0","color":"white"});
 });
 // to make current tab on the side bar to highlight properly for mobile mode.
 $(document).on("pageshow", function(e, data){
@@ -60,5 +60,5 @@ $(document).on("pageshow", function(e, data){
     $("#login-mlink").css({"background-color":"white","color":"black"});
     var page = $.mobile.activePage.attr("id");
     var pagelink = "#" + page + "-mlink";
-    $(pagelink).css({"background-color":"#3d7cb3","color":"white"});
+    $(pagelink).css({"background-color":"#55a3e0","color":"white"});
 });
