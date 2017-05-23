@@ -14,7 +14,7 @@ var clickCounter = 0;
  platformer Ronic The PineconeTM and plays music from it and disables easter
  egg flipswitch */
 function ronicImageSwap() {
-	var ronicMusic = new Audio('sounds/RonicOP.wav');
+	var ronicMusic = $("#ronic-sound").get(0);
 	ronicMusic.play();
 	
 	var ronicImageArray = [
