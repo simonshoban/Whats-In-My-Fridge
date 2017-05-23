@@ -1174,22 +1174,22 @@ position:relative;
 }
 
 .develop-text {
-    text-align: center;
-    padding-left: 10px;
-    padding-right: 10px;
+    width: 80%;
+    margin: 12px auto 20px;
 }
 
 #dev-header {
     padding-bottom: 10px;
     margin-bottom: 20px;
     background-color: #e8e8e8;
+    border-top:solid #e23238 5px;
 }
 
 #mission-header {
     padding-bottom: 10px;
     margin-bottom: 20px;
     background-color: #e8e8e8;
-    border-top: solid #34e23c 5px;
+    border-top: solid #34e23c 5px
 
 }
 
@@ -1200,7 +1200,7 @@ position:relative;
 #goal-header {
     padding-bottom: 10px;
     margin-bottom: 20px;
-    border-top: solid #e23238 5px;
+    border-top: solid #3d7cb3 5px;
     background-color: #e8e8e8;
 }
 
@@ -1239,31 +1239,77 @@ position:relative;
 }
 
 #forkpotato .aff-header {
-}
-
-#foodfall .aff-header {
-    border-top: solid #34e23c 5px;
-}
-
-#overcooked .aff-header {
     border-top: solid #e23238 5px;
 }
 
+#overcooked .aff-header {
+    border-top: solid #34e23c 5px;
+}
+
 #useitup .aff-header {
-    border-top: solid #ffb02a 5px;
+    border-top: solid #3d7cb3 5px;
 }
 
 /* ------------------------ Affiliated Apps End ------------------------ */
 
 
 /* ------------------------ Stats Page ------------------------ */
-.total-container{
+
+.total-container {
+    padding-bottom: 35px;
+}
+
+.stats-text{
     width: 230px;
     margin: 0 auto;
     white-space: nowrap;
 }
 
+#stats-overall {
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    background-color: #e8e8e8;
+}
 
+#stats-produce {
+    padding-bottom: 10px;
+    margin: 20px 0 12px;
+    background-color: #e8e8e8;
+    border-top: solid #008000 5px;
+    color: #008000;
+}
+
+#stats-meat {
+    padding-bottom: 10px;
+    margin: 20px 0 12px;
+    background-color: #e8e8e8;
+    border-top: solid #9f2828 5px;
+    color: #9f2828;
+}
+
+#stats-grain {
+    padding-bottom: 10px;
+    margin: 20px 0 12px;
+    background-color: #e8e8e8;
+    border-top: solid #de9f49 5px;
+    color: #de9f49;
+}
+
+#stats-dairy {
+    padding-bottom: 10px;
+    margin: 20px 0 12px;
+    background-color: #e8e8e8;
+    border-top: solid #5daede 5px;
+    color: #5daede;
+}
+
+#stats-other {
+    padding-bottom: 10px;
+    margin: 20px 0 12px;
+    background-color: #e8e8e8;
+    border-top: solid #959392 5px;
+    color: #959392;
+}
 
 /* ------------------------ Stats Page End ------------------------ */
 
