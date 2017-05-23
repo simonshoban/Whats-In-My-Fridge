@@ -85,3 +85,31 @@ function addListValidate() {
 
     return check;
 }
+
+//validate custom item fields
+function addCustomItemValidate() {
+    var check = true;
+    if ($("#custom-expiry-date").val() !== "" && !isNaN(parseInt($("#custom-expiry-date").val()))) {
+        $("#custom-food-expiry-date-label .invalid-input-star").css("display", "none")
+    }
+    else {
+        $("#custom-food-expiry-date-label .invalid-input-star").css("display", "inline");
+        check = false;
+    }
+    if ($("#custom-food-group").val() !== "----------") {
+        $("#custom-food-group-label .invalid-input-star").css("display", "none");
+    }
+    else {
+        $("#custom-food-group-label .invalid-input-star").css("display", "inline");
+        check = false;
+    }
+    if ($("#custom-food-name").val() !== "") {
+        $("#custom-food-name-label .invalid-input-star").css("display", "none");
+    }
+    else {
+        $("#custom-food-name-label .invalid-input-star").css("display", "inline");
+        check = false;
+    }
+
+    return check;
+}
