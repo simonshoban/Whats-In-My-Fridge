@@ -260,7 +260,7 @@ h3 {
 }
 
 #login-table, #signup-table , #forgot-password-table{
-    text-align: right;
+    text-align: center;
     margin-top: 5px;
     margin-left: auto;
     margin-right: auto;
