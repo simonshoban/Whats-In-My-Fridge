@@ -1063,6 +1063,8 @@ position:relative;
 
 #settings-form-table {
     margin: auto;
+    width: 90%;
+    padding-top: 20px;
 }
 
 .custom-size-flipswitch.ui-flipswitch .ui-btn.ui-flipswitch-on {
