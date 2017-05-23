@@ -1255,6 +1255,18 @@ position:relative;
 
 /* ------------------------ Affiliated Apps End ------------------------ */
 
+
+/* ------------------------ Stats Page ------------------------ */
+.total-container{
+    width: 230px;
+    margin: 0 auto;
+    white-space: nowrap;
+}
+
+
+
+/* ------------------------ Stats Page End ------------------------ */
+
 /* Loading Animation */
 
 html {

@@ -95,29 +95,43 @@ function getHistoryArray() {
         getWeightTotals()
         getPriceTotals()
         getVolumeTotals()
-        $("#stats-overall").after("<p class='stats-text'>Total Weight thrown away: " + totalWeight + " g</p>")
-        $("#stats-overall").after("<p class='stats-text'>Total Volume thrown away: " + totalVolume + " ml</p>")
-        $("#stats-overall").after("<p class='stats-text'>Total Weight thrown away: $" + totalPrice + "</p>")
 
-        $("#stats-produce").after("<p class='stats-text'>Produce Weight thrown away: " + totalProduceWeight + " g</p>")
-        $("#stats-produce").after("<p class='stats-text'>Produce Volume thrown away: " + totalProduceVolume + " ml</p>")
-        $("#stats-produce").after("<p class='stats-text'>Produce Weight thrown away: $" + totalProducePrice + "</p>")
+        $("#stats-overall").after("<p class='stats-text'>Total weight thrown away: " + (totalWeight /kgToG).toFixed(2) + " kg</p>")
+        $("#stats-overall").after("<p class='stats-text'>Total volume thrown away: " + (totalVolume / lToMl).toFixed(2) + " L</p>")
+        $("#stats-overall").after("<p class='stats-text'>Total dollars wasted: $" + totalPrice.toFixed(2) + "</p>")
 
-        $("#stats-meat").after("<p class='stats-text'>Produce Weight thrown away: " + totalMeatWeight + " g</p>")
-        $("#stats-meat").after("<p class='stats-text'>Produce Volume thrown away: " + totalMeatVolume + " ml</p>")
-        $("#stats-meat").after("<p class='stats-text'>Produce Weight thrown away: $" + totalMeatPrice + "</p>")
 
-        $("#stats-dairy").after("<p class='stats-text'>Dairy Weight thrown away: " + totalDairyWeight + " g</p>")
-        $("#stats-dairy").after("<p class='stats-text'>Dairy Volume thrown away: " + totalDairyVolume + " ml</p>")
-        $("#stats-dairy").after("<p class='stats-text'>Dairy Weight thrown away: $" + totalDairyPrice + "</p>")
 
-        $("#stats-grain").after("<p class='stats-text'>Grain Weight thrown away: " + totalGrainWeight + " g</p>")
-        $("#stats-grain").after("<p class='stats-text'>Grain Volume thrown away: " + totalGrainVolume + " ml</p>")
-        $("#stats-grain").after("<p class='stats-text'>Grain Weight thrown away: $" + totalGrainPrice + "</p>")
+        $("#stats-produce").after("<p class='stats-text'>Total weight thrown away: " +(totalProduceWeight /kgToG).toFixed(2) + " kg</p>")
+        if(totalProduceVolume !== 0){
+            $("#stats-produce").after("<p class='stats-text'>Total volume thrown away: " + (totalProduceVolume / lToMl).toFixed(2) + " L</p>")
+        }
+        $("#stats-produce").after("<p class='stats-text'>Total dollars wasted: $" + totalProducePrice.toFixed(2) + "</p>")
 
-        $("#stats-other").after("<p class='stats-text'>Grain Weight thrown away: " + totalOtherWeight + " g</p>")
-        $("#stats-other").after("<p class='stats-text'>Grain Volume thrown away: " + totalOtherVolume + " ml</p>")
-        $("#stats-other").after("<p class='stats-text'>Grain Weight thrown away: $" + totalOtherPrice + "</p>")
+
+        $("#stats-meat").after("<p class='stats-text'>Total weight thrown away: " +(totalMeatWeight /kgToG).toFixed(2) + " kg</p>")
+        if(totalMeatWeight !== 0){
+            $("#stats-meat").after("<p class='stats-text'>Total volume thrown away: " + (totalMeatVolume / lToMl).toFixed(2) + " L</p>")
+        }
+        $("#stats-meat").after("<p class='stats-text'>Total dollars wasted: $" + totalMeatPrice.toFixed(2) + "</p>")
+
+
+
+        $("#stats-dairy").after("<p class='stats-text'>Total weight thrown away: " + (totalDairyWeight /kgToG).toFixed(2) + " kg</p>")
+        $("#stats-dairy").after("<p class='stats-text'>Total volume thrown away: " + (totalDairyVolume / lToMl).toFixed(2) + " L</p>")
+        $("#stats-dairy").after("<p class='stats-text'>Total dollars wasted: $" + totalDairyPrice.toFixed(2) + "</p>")
+
+
+        $("#stats-grain").after("<p class='stats-text'>Total weight thrown away: " +(totalGrainWeight /kgToG).toFixed(2) + " kg</p>")
+        if(totalGrainWeight !== 0){
+            $("#stats-grain").after("<p class='stats-text'>Total volume thrown away: " + (totalGrainVolume / lToMl).toFixed(2) + " L</p>")
+        }
+        $("#stats-grain").after("<p class='stats-text'>Total dollars wasted: $" + totalGrainPrice.toFixed(2) + "</p>")
+
+
+        $("#stats-other").after("<p class='stats-text'>Total weight thrown away: " + (totalOtherWeight /kgToG).toFixed(2) + " kg</p>")
+        $("#stats-other").after("<p class='stats-text'>Total volume thrown away: " + (totalOtherVolume / lToMl).toFixed(2) + " L</p>")
+        $("#stats-other").after("<p class='stats-text'>Total dollars wasted: $" + totalOtherPrice.toFixed(2) + "</p>")
 
         console.log(totalWeight)
         console.log(totalPrice)
@@ -202,19 +216,19 @@ function getPriceTotals() {
         totalPrice += Math.round(item.price)
     })
     getOnlyPrice(produceArray).forEach(function (item) {
-        totalProducePrice += Math.round(item.price)
+        totalProducePrice += (item.price)
     })
     getOnlyPrice(meatArray).forEach(function (item) {
-        totalMeatPrice += Math.round(item.price)
+        totalMeatPrice +=(item.price)
     })
     getOnlyPrice(dairyArray).forEach(function (item) {
-        totalDairyPrice += Math.round(item.price)
+        totalDairyPrice += (item.price)
     })
     getOnlyPrice(grainArray).forEach(function (item) {
-        totalGrainPrice += Math.round(item.price)
+        totalGrainPrice += (item.price)
     })
     getOnlyPrice(otherArray).forEach(function (item) {
-        totalOtherPrice += Math.round(item.price)
+        totalOtherPrice += (item.price)
     })
 }
 function getVolumeTotals() {
