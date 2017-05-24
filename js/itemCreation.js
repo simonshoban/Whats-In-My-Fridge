@@ -43,7 +43,7 @@ function redrawList() {
         setCollapsibleNumbers();
 
         // remove the loading class from html to show page
-        $("html").removeClass("loading")
+
     }
 }
 //fills the shopping list page with items
