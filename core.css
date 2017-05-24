@@ -1208,6 +1208,10 @@ position:relative;
     width: 80%;
     margin: 12px auto 20px;
 }
+#mission-statement {
+    width: 80%;
+    margin: auto;
+}
 
 #dev-header {
     padding-bottom: 10px;
