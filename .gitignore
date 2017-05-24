@@ -10,3 +10,4 @@ database.rules.json
 firebase.json
 functions
 public
+node_modules
