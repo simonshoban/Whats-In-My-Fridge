@@ -9,7 +9,7 @@ var currentExpireInfo;
 var currentStorageInfoTwitter;
 var currentExpireInfoTwitter;
 var currentProperName;
-var noInfo = "We don't have any info for this item. Sorry.\nHave tips you would like to see here? <a href='http://apple.ca'>Contact us.</a>"
+var noInfo = "We don't have any info for this item. Sorry.\nHave tips you would like to see here? <a href='https://whatsinmyfridge.ca/#contact'>Contact us.</a>"
 
 var options = {
     contenturl: 'https://whatsinmyfridge.ca',
