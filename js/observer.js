@@ -20,7 +20,7 @@ firebase.auth().onAuthStateChanged(
             //functions to load various page elements
             $(checkRonic);
             $(setSorting);
-           // $(redrawList);
+            //$(redrawList);
             $(redrawShoppingList);
             $(fillFrequentlyPurchasedItemsFridge);
             $(fillFrequentlyPurchasedItemsList);
@@ -40,9 +40,6 @@ firebase.auth().onAuthStateChanged(
             $.mobile.navigate("#fridge");
 
 
-            setTimeout(function(){
-                $("html").removeClass("loading")
-            }, 5000)
 
 
         } else {
