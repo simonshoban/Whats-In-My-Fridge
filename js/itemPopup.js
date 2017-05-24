@@ -50,7 +50,7 @@ $(document).on("click", "#fridge .list-item", function () {
             return firebase.database().ref('/info/' + name).once('value').then(function (snapshot) {
                 getProperName(name)
                 setTimeout(function () {
-                    currentExpireInfoTwitter = "How to tell if " + currentProperName + " has expired:"
+                    currentExpireInfoTwitter = "How to tell if " + currentProperName + " have expired:"
                     fillExpiredInfo(name);
                     fillStorageInfo(name);
                     $("#item-popup").popup("open")
@@ -163,8 +163,9 @@ function fillExpiredInfoList(name) {
             })
             setTimeout(function () {
                 $("#expired2").append(currentExpireInfo)
-                $("#expired2").append('<span id="expire-gplus" class="gplus g-interactivepost" data-contenturl="https://whatsinmyfridge.ca" data-clientid="981344901205-o9q6bjjcc533o61ehgmr0o451nsnsdbo.apps.googleusercontent.com" data-cookiepolicy="single_host_origin" data-prefilltext="Engage your users today, create a Google+ page for your business." data-calltoactionlabel="SIGN_UP" data-calltoactionurl="https://whatsinmyfridge.ca">  <span class="icon">&nbsp;</span>  <span class="label">Share on Google+</span>  </span>')
-                gapi.interactivepost.render("expire-gplus", options)
+                options.prefilltext = currentExpireInfoTwitter
+                $("#expired2").append('<span id="expire2-gplus" class="gplus g-interactivepost" data-contenturl="https://whatsinmyfridge.ca" data-clientid="981344901205-o9q6bjjcc533o61ehgmr0o451nsnsdbo.apps.googleusercontent.com" data-cookiepolicy="single_host_origin" data-prefilltext="Engage your users today, create a Google+ page for your business." data-calltoactionlabel="SIGN_UP" data-calltoactionurl="https://whatsinmyfridge.ca">  <span class="icon">&nbsp;</span>  <span class="label">Share on Google+</span>  </span>')
+                gapi.interactivepost.render("expire2-gplus", options)
             }, 500)
         } else {
             $("#expired2").html(noInfo)
@@ -185,8 +186,9 @@ function fillStorageInfoList(name) {
             })
             setTimeout(function () {
                 $("#storage2").append(currentStorageInfo)
-                $("#storage2").append('<span id="storage-gplus" class="gplus g-interactivepost" data-contenturl="https://whatsinmyfridge.ca" data-clientid="981344901205-o9q6bjjcc533o61ehgmr0o451nsnsdbo.apps.googleusercontent.com" data-cookiepolicy="single_host_origin" data-prefilltext="Engage your users today, create a Google+ page for your business." data-calltoactionlabel="SIGN_UP" data-calltoactionurl="https://whatsinmyfridge.ca">  <span class="icon">&nbsp;</span>  <span class="label">Share on Google+</span>  </span>')
-                gapi.interactivepost.render("storage-gplus", options)
+                options.prefilltext = currentStorageInfoTwitter
+                $("#storage2").append('<span id="storage2-gplus" class="gplus g-interactivepost" data-contenturl="https://whatsinmyfridge.ca" data-clientid="981344901205-o9q6bjjcc533o61ehgmr0o451nsnsdbo.apps.googleusercontent.com" data-cookiepolicy="single_host_origin" data-prefilltext="Engage your users today, create a Google+ page for your business." data-calltoactionlabel="SIGN_UP" data-calltoactionurl="https://whatsinmyfridge.ca">  <span class="icon">&nbsp;</span>  <span class="label">Share on Google+</span>  </span>')
+                gapi.interactivepost.render("storage2-gplus", options)
             }, 500)
         } else {
             $("#storage2").html(noInfo)
