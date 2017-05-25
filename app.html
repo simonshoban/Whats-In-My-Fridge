@@ -7,6 +7,8 @@
           content="901409010191-fh44qef7jm9jniv1h13etlpg35lgqi63.apps.googleusercontent.com">
     <title>What's in My Fridge?</title>
 
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="jquery.mobile-1.4.5.css">
     <link rel="stylesheet" href="core.css">
     <link type="text/css" rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.min.css">
@@ -1489,14 +1491,14 @@
 
                 setTimeout(function () {
                     redrawList()
-                }, 200)
+                }, 500)
             } else {
                 $("#category-flip").prop("checked", true).flipswitch("refresh")
                 $("#order-asc").prop("checked", true).checkboxradio("refresh")
                 $("#order-date").prop("checked", true).checkboxradio("refresh")
                 setTimeout(function () {
                     redrawList()
-                }, 200)
+                }, 500)
             }
 
 
