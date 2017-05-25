@@ -364,13 +364,13 @@ h3 {
 
 #item-popup-name-label, #item-popup-name-label-list {
     position: absolute;
-    top: 10px;
-    left: -35px;
+    top: 5px;
+    left: -30px;
 }
 
 .item-popup-name-container {
     position: relative;
-    width: 50%;
+    width: 75%;
     margin: auto;
 }
 
