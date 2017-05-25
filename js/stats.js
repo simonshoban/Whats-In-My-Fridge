@@ -110,7 +110,7 @@ function getHistoryArray() {
 
 
         $("#stats-meat").after("<p class='stats-text'>Total weight thrown away: " +(totalMeatWeight /kgToG).toFixed(2) + " kg</p>")
-        if(totalMeatWeight !== 0){
+        if(totalMeatVolume !== 0){
             $("#stats-meat").after("<p class='stats-text'>Total volume thrown away: " + (totalMeatVolume / lToMl).toFixed(2) + " L</p>")
         }
         $("#stats-meat").after("<p class='stats-text'>Total dollars wasted: $" + totalMeatPrice.toFixed(2) + "</p>")
@@ -123,7 +123,7 @@ function getHistoryArray() {
 
 
         $("#stats-grain").after("<p class='stats-text'>Total weight thrown away: " +(totalGrainWeight /kgToG).toFixed(2) + " kg</p>")
-        if(totalGrainWeight !== 0){
+        if(totalGrainVolume !== 0){
             $("#stats-grain").after("<p class='stats-text'>Total volume thrown away: " + (totalGrainVolume / lToMl).toFixed(2) + " L</p>")
         }
         $("#stats-grain").after("<p class='stats-text'>Total dollars wasted: $" + totalGrainPrice.toFixed(2) + "</p>")
