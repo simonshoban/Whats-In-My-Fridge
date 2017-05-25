@@ -1,13 +1,16 @@
+//Closes popup when close button is clicked
 $(document).on("click", "#close-custom-view", function () {
     $("#custom-view").popup("close")
 });
 
+//Refreshes custom item view page
 $(document).on("popupbeforeposition", "#custom-view", function () {
     $(".custom-item").remove()
 
     fillCustomView()
 });
 
+//Fills custom item view page with custom items
 function fillCustomView() {
 
     return firebase.database().ref('customAutoFill/' + uid).once('value').then(function (snapshot) {
@@ -28,6 +31,7 @@ function fillCustomView() {
 
 }
 
+//Removes custom item
 $(document).on("click", ".delete-custom", function () {
     var key = $(this).attr("data-key")
     deleteCustomItem(key)

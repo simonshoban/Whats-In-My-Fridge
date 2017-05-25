@@ -122,6 +122,7 @@ function removeListItem(itemContainer) {
     })
 }
 
+//Adds item to the user's item history in database
 function addToHistory() {
     var percent = parseInt($("#amount-slider").val())
     firebase.database().ref('history/' + uid + "/" + removed.key).set({
@@ -143,6 +144,8 @@ function addToHistory() {
         })
     })
 }
+
+//Adds item to the user's eaten item history in database
 function addToHistoryEaten() {
     firebase.database().ref('history/' + uid + "/" + removed.key).set({
         name: removed.name,
@@ -164,35 +167,32 @@ function addToHistoryEaten() {
     })
 
 }
+//Closes garbage popup when confirm button is clicked and resets slider position
 $(document).on("click", "#confirm-amount", function () {
     addToHistory();
     $("#garbage-popup").popup("close")
     $("#slider-form").trigger("reset")
-
-
 });
+//Closes garbage popup when cancel button is clicked and resets slider position
 $(document).on("click", "#cancel-amount", function () {
     $("#garbage-popup").popup("close")
     $("#slider-form").trigger("reset")
     resetSlidePositions()
 });
-
+//Disables confirm popup when amount slider is opened
 $(document).on("change", "#amount-slider", function () {
     $("#confirm-amount").prop("disabled", false);
-
 })
-
+//Disables confirm popup when garbage popup is opened
 $(document).on("popupbeforeposition", "#garbage-popup", function () {
     $("#confirm-amount").prop("disabled", true);
-
 })
-
+//Closes confirm popup when confirm button is clicked
 $(document).on("click", "#confirm-button", function () {
     addToHistoryEaten();
     $("#confirm-popup").popup("close")
-
-
 });
+//Closes confirm popup when close button is clicked
 $(document).on("click", "#cancel-button", function () {
     $("#confirm-popup").popup("close")
     resetSlidePositions()

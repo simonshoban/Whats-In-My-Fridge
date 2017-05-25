@@ -6,7 +6,6 @@
 is clicked, but not if the checkbox is clicked */
 $(document).on("click", ".shopping-item", function () {
 	setTimeout(function () {
-		
 		$(".checkbox").on("click change", function() {
 			$(this).data("clicked", true);
 		});
