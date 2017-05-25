@@ -75,7 +75,12 @@ function prepRemoveFridgeItem(itemContainer) {
             removed.name = snapshot.val().name;
 
             removed.date = Date.now()
-            removed.units = snapshot.val().units
+            if(snapshot.val().units === null || snapshot.val().units === undefined || snapshot.val().units === ""){
+                removed.units = "--"
+            }else{
+                removed.units = snapshot.val().price;
+
+            }
             if(snapshot.val().quantity === null || snapshot.val().quantity === undefined){
                 removed.quantity = "no-data"
             }else{

@@ -48,12 +48,12 @@ function redrawList() {
 }
 //fills the shopping list page with items
 function redrawShoppingList() {
-    if (!drawing) {
+
         drawing = true;
         ($(".shopping-empty").hide());
         clearShoppingList();
         getShoppingList();
-    }
+
 }
 
 //sets the numbers for the collapsibles
