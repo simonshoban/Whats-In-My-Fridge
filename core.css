@@ -1236,6 +1236,7 @@ position:relative;
 .develop-text {
     width: 80%;
     margin: 12px auto 20px;
+    text-align: center;
 }
 #mission-statement {
     width: 80%;
