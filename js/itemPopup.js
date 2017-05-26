@@ -145,14 +145,16 @@ function fillStorageInfo(name) {
         }
     })
 }
+
+//Gets plural name for food item
 function getProperName(name) {
     return firebase.database().ref('/info/' + name + '/properName/').once('value').then(function (snapshot) {
         currentProperName = snapshot.val()
 
     })
 }
-//fills the expired info tab list page
 
+//fills the expired info tab list page
 function fillExpiredInfoList(name) {
     currentExpireInfo = ""
     return firebase.database().ref('/info/' + name + '/expire/').orderByValue().once('value').then(function (snapshot) {
@@ -172,6 +174,7 @@ function fillExpiredInfoList(name) {
         }
     })
 }
+
 //fills the storage info tab list page
 function fillStorageInfoList(name) {
     currentStorageInfo = ""

@@ -1,16 +1,21 @@
+//Closes popup when the cancel button is clicked
 $(document).on("click", "#custom-cancel-button", function () {
     $("#custom-database").popup("close")
-
-
 });
+
+//Adds custom item to database when the confirm button is clicked
 $(document).on("click", "#custom-confirm-button", function () {
     if(addCustomItemValidate()){
         addCustomItem();
     }
 });
+
+//Closes popup after confirm button is clicked
 $(document).on("click", "#added-confirm-button", function () {
     $("#added-item").popup("close")
 });
+
+//Adds custom item to database
 function addCustomItem(){
     var name = $("#custom-food-name").val().toLowerCase()
     var foodGroup = $("#custom-food-group").val()
@@ -29,11 +34,9 @@ function addCustomItem(){
             }, 300)
         })
     })
-
-
 }
 
-
+//Deletes custom item from database
 function deleteCustomItem(key){
     firebase.database().ref('customAutoFill/' + uid + "/" + key).remove()
     firebase.database().ref('customAutoComplete/' + uid + "/" + key).remove()

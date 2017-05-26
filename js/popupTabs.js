@@ -1,10 +1,6 @@
-
-/***********Don't change**********/
-
 /**************Fridge*************/
 
 //Sets overview tab as default tab and highlights tab
-
 $(document).on("click", ".fridge-item", function () {
     $("#overview").show();
     $("#overviewTab").click();

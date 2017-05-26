@@ -272,7 +272,7 @@ function getShoppingList() {
                     if (quantity != null && quantity != undefined && quantity != "") {
                         quantityText = "Quantity: " + quantity + " " + units
                     }
-                    var element = '<div class="list-item-container"> <a data-key="' + key + '" href="#" data-rel="popup" class="list-item ui-btn shopping-item"><img height="50" width="50" src="icons/' + category + '.svg"> <p class="item-name">' + name + '</p> <p class="item-quantity">' + quantityText + '</p> <label class="checkbox-label "> <input type="checkbox" class="checkbox"> </label> </a> ' + "<div class='list-item-back'> <div class='back-container'> <a href='#' class='expired-button ui-btn ui-shadow ui-btn-inline'>Delete Item</a> </div> </div> </div> </div>";
+                    var element = '<div class="list-item-container"> <a data-key="' + key + '" href="#" class="list-item ui-btn shopping-item"><img height="50" width="50" src="icons/' + category + '.svg"> <p class="item-name">' + name + '</p> <p class="item-quantity">' + quantityText + '</p> <label class="checkbox-label"> <input type="checkbox" class="checkbox"> </label> </a> ' + "<div class='list-item-back'> <div class='back-container'> <a href='#' class='expired-button ui-btn ui-shadow ui-btn-inline'>Delete Item</a> </div> </div> </div> </div>";
                     $("#list .item-list").append(element).enhanceWithin()
 
                 });
