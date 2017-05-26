@@ -2,9 +2,39 @@
     2 = list-item
     5 = large-circle
     4 = nav
+    9999 = autocomplete
+    10000 = .close-button
  */
 
 /* ------------------------ Things used by multiple pages ------------------------ */
+.gplus {
+    padding: 5px;
+    background: #fff;
+    cursor: pointer;
+    line-height: 20px;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+}
+.gplus .icon {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background: url('images/branding/btn_icons_sprite.png') transparent 0 -40px no-repeat;
+}
+.gplus:hover {
+    background-color: #cc3732;
+    color: #fff;
+    border: #dd4b39;
+}
+.gplus:hover .icon {
+    background: url('images/branding/btn_icons_sprite.png') transparent 0 0px no-repeat;
+}
+#shareboxPlaceholderiv [title="Browse people"]{
+    display:none
+}
+#override .fake-logo{
+    display:none;
+}
 body {
     margin: 0;
 }
@@ -144,6 +174,10 @@ h3 {
     background-image: url("icons/affiliates.svg");
 }
 
+.stats-btn {
+    background-image: url("icons/stats.svg");
+}
+
 .logout-btn {
     background-image: url("icons/logout.svg");
 }
@@ -224,7 +258,6 @@ h3 {
 #override .input-container {
     max-width: 100px;
     margin: auto;
-    padding-bottom: 10px;
     display: block;
 
 }
@@ -235,12 +268,16 @@ h3 {
     padding-left: 10px;
     min-width: 80px;
 }
-
+.ui-autocomplete{
+   // position:fixed;
+}
 /*panel hidden untill enabled by media query*/
 .fakepanel {
     display: none;
 }
-
+.ui-front{
+    text-align:left;
+}
 /* ------------------------ Login Page ------------------------ */
 
 #logo img {
@@ -250,18 +287,57 @@ h3 {
     display: block;
 }
 
-#login-table, #signup-table {
-    text-align: right;
+#login-table, #signup-table , #forgot-password-table{
+    text-align: center;
     margin-top: 5px;
     margin-left: auto;
     margin-right: auto;
 }
 
-#google-btn {
-    width: 175px;
+#override #google-btn {
+    width: 150px;
     margin: auto;
+    height:20px;
+    padding:0;
+    padding-left:45px;
+    padding-top:10px;
+    padding-bottom:10px;
+    background-image: url("images/google/g-logo.png");
+    background-repeat:no-repeat;
+    background-position:8px 10px;
+    background-color:#ffffff;
+    background-size: 20px 20px;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    color: rgba(0,0,0,0.54);
+    text-shadow:none;
+    font-weight:normal;
+
+}
+#override #google-btn:hover {
+    background-color: #eeeeee;
+    background-image: url("images/google/g-logo-hover.png")
 }
 
+#forgot-password-popup{
+    width: 90%;
+    left: 5%;
+    height: 275px;
+    top:calc(50% - 100px);
+    position:fixed;
+}
+#forgot-password-confirm-popup{
+    width: 90%;
+    left: 5%;
+    height: 150px;
+    top:calc(50% - 100px);
+    position:fixed;
+}
+.forgot-password-input-container{
+    width:200px;
+}
+#login-password{
+}
 /* ------------------------ End Login Page ------------------------ */
 
 /* ------------------------ Fridge Page ------------------------ */
@@ -288,13 +364,13 @@ h3 {
 
 #item-popup-name-label, #item-popup-name-label-list {
     position: absolute;
-    top: 10px;
-    left: -35px;
+    top: 5px;
+    left: -30px;
 }
 
 .item-popup-name-container {
     position: relative;
-    width: 40%;
+    width: 75%;
     margin: auto;
 }
 
@@ -433,8 +509,13 @@ h3 {
 }
 
 #popup-sort legend {
-    margin:auto;
+    margin:10px auto 0;
     color:#3D7CB3;
+}
+
+.ui-controlgroup, fieldset.ui-controlgroup{
+    margin:6px;
+    border-top: 1px solid black;
 }
 
 #popup-sort label {
@@ -489,6 +570,32 @@ h3 {
     padding-top: 22px;
     padding-bottom: 22px;
 }
+#garbage-popup{
+    width: 90%;
+    left: 5%;
+    height: 230px;
+    top:calc(50% - 100px);
+    position:fixed;
+}
+#confirm-popup{
+    width: 90%;
+    left: 5%;
+    height: 275px;
+    top:calc(50% - 100px);
+    position:fixed;
+}
+.amount-input-container{
+    width:150px;
+    margin:5px auto;
+
+}
+.amount-input-container-container{
+    width:100%;
+    display:flex;
+    justify-content:space-around;
+    position:absolute;
+    bottom:10px;
+}
 
 /* ------------------------ Fridge Page End ------------------------ */
 
@@ -541,9 +648,12 @@ h3 {
     display: flex;
     flex-flow: row;
     bottom: 8px;
+    left:calc(50% - 150px);
     width: 300px;
     justify-content: space-around;
 }
+
+
 
 #override .ate-button, #item-popup2 .ate-button {
     margin: 0;
@@ -619,8 +729,8 @@ position:relative;
 #checkout-container{
     height:100%;
     overflow-y:auto;
-    border-bottom:1px solid #676767;
-    border-top:1px solid #676767;
+    border-bottom:1px solid #bcbcbc;
+    border-top:1px solid #bcbcbc;
 
 
 }
@@ -650,6 +760,10 @@ position:relative;
     justify-content:space-around;
     position:absolute;
     bottom:10px;
+}
+
+#override .expired-list-item{
+    background-color:rgba(255, 0, 0, 0.1)
 }
 
 /* ------------------------ List Page End ------------------------ */
@@ -741,6 +855,7 @@ position:relative;
 
 #overview, #overview2, #storage, #storage2, #expired, #expired2 {
     text-align: center;
+    min-height:200px;
 }
 
 .add-icons {
@@ -783,6 +898,7 @@ position:relative;
     right: 5%;
     top: 5%;
     margin: 0;
+    z-index:10000
 }
 
 #add-popup, #add-popup2, #custom-item-popup, #custom-item-popup2 {
@@ -901,7 +1017,7 @@ position:relative;
     top: calc(50% - 121px) !important;
 }
 
-#food-group-button, #food-group-list-button {
+#food-group-button, #food-group-list-button{
     text-transform: capitalize;
 }
 
@@ -938,7 +1054,13 @@ position:relative;
     color: black;
     text-align: center;
     font-size: 25px;
-    font-weight:10px;
+}
+
+#checkout-button {
+    background-image: url("icons/checkout.svg");
+    background-repeat: no-repeat;
+    background-size: 35px;
+    background-position: center;
 }
 
 /* ------------------------ Shared Fridge and List End ------------------------ */
@@ -981,6 +1103,8 @@ position:relative;
 
 #settings-form-table {
     margin: auto;
+    width: 90%;
+    padding-top: 20px;
 }
 
 .custom-size-flipswitch.ui-flipswitch .ui-btn.ui-flipswitch-on {
@@ -1005,7 +1129,102 @@ position:relative;
         width: 1.875em;
     }
 }
+#custom-database, #custom-view{
+    background-color: white;
+    color: black;
+    width: 90%;
+    position: fixed;
+    left: 5%;
+    overflow-y: auto;
+    height: 90%;
+    top: 5%;
+}
+#custom-food-group-button, #custom-food-group{
+    text-transform: capitalize;
+}
+.custom-input-container{
+    width:150px;
+    margin:5px auto;
 
+}
+.custom-input-container-container{
+    width:100%;
+    display:flex;
+    justify-content:space-around;
+    position:absolute;
+    bottom:0;
+}
+#custom-database .form-container{
+    height:calc(100% - 130px);
+    max-width:320px;
+    margin-left:auto;
+    margin-right:auto;
+}
+#custom-view-container{
+    height:calc(100% - 60px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.custom-item{
+    border-bottom: 1px solid #676767;
+    height:120px;
+    width: 280px;
+    margin: auto;
+    position: relative;
+}
+
+.custom-item:last-child {
+    border-bottom: none;
+
+}
+
+.custom-item .custom-name {
+    font-size:1.3em;
+    padding-left: 60px;
+    text-transform: capitalize;
+    position:relative;
+    top:15px;
+    left: 5px;
+}
+
+
+.custom-item img {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+
+.custom-item div {
+    display: flex;
+    align-items: baseline;
+}
+.custom-item .ui-btn{
+    position:absolute;
+    right:15px;
+    top:20px;
+}
+.custom-foodGroup{
+    position:absolute;
+    left:10px;
+    bottom:40px;
+    font-size:0.9em
+
+}
+.custom-expire{
+    position:absolute;
+    left:10px;
+    bottom:10px;
+    font-size:0.9em;
+}
+.custom-view-input-container-container{
+    border-top:solid 1px #bcbcbc;
+    width:100%;
+    display:flex;
+    justify-content:space-around;
+    position:absolute;
+    bottom:0;
+}
 /* ------------------------ Settings Page End ------------------------ */
 
 /* ------------------------ About page  ------------------------ */
@@ -1015,22 +1234,27 @@ position:relative;
 }
 
 .develop-text {
+    width: 80%;
+    margin: 12px auto 20px;
     text-align: center;
-    padding-left: 10px;
-    padding-right: 10px;
+}
+#mission-statement {
+    width: 80%;
+    margin: auto;
 }
 
 #dev-header {
     padding-bottom: 10px;
     margin-bottom: 20px;
     background-color: #e8e8e8;
+    border-top:solid #e23238 5px;
 }
 
 #mission-header {
     padding-bottom: 10px;
     margin-bottom: 20px;
     background-color: #e8e8e8;
-    border-top: solid #34e23c 5px;
+    border-top: solid #34e23c 5px
 
 }
 
@@ -1041,7 +1265,7 @@ position:relative;
 #goal-header {
     padding-bottom: 10px;
     margin-bottom: 20px;
-    border-top: solid #e23238 5px;
+    border-top: solid #3d7cb3 5px;
     background-color: #e8e8e8;
 }
 
@@ -1080,21 +1304,79 @@ position:relative;
 }
 
 #forkpotato .aff-header {
-}
-
-#foodfall .aff-header {
-    border-top: solid #34e23c 5px;
-}
-
-#overcooked .aff-header {
     border-top: solid #e23238 5px;
 }
 
+#overcooked .aff-header {
+    border-top: solid #34e23c 5px;
+}
+
 #useitup .aff-header {
-    border-top: solid #ffb02a 5px;
+    border-top: solid #3d7cb3 5px;
 }
 
 /* ------------------------ Affiliated Apps End ------------------------ */
+
+
+/* ------------------------ Stats Page ------------------------ */
+
+.total-container {
+    padding-bottom: 35px;
+}
+
+.stats-text{
+    width: 230px;
+    margin: 0 auto;
+    white-space: nowrap;
+}
+
+#stats-overall {
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    background-color: #e8e8e8;
+}
+
+#stats-produce {
+    padding-bottom: 10px;
+    margin: 20px 0 12px;
+    background-color: #e8e8e8;
+    border-top: solid #008000 5px;
+    color: #008000;
+}
+
+#stats-meat {
+    padding-bottom: 10px;
+    margin: 20px 0 12px;
+    background-color: #e8e8e8;
+    border-top: solid #9f2828 5px;
+    color: #9f2828;
+}
+
+#stats-grain {
+    padding-bottom: 10px;
+    margin: 20px 0 12px;
+    background-color: #e8e8e8;
+    border-top: solid #de9f49 5px;
+    color: #de9f49;
+}
+
+#stats-dairy {
+    padding-bottom: 10px;
+    margin: 20px 0 12px;
+    background-color: #e8e8e8;
+    border-top: solid #5daede 5px;
+    color: #5daede;
+}
+
+#stats-other {
+    padding-bottom: 10px;
+    margin: 20px 0 12px;
+    background-color: #e8e8e8;
+    border-top: solid #959392 5px;
+    color: #959392;
+}
+
+/* ------------------------ Stats Page End ------------------------ */
 
 /* Loading Animation */
 

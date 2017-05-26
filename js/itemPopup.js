@@ -1,9 +1,25 @@
 /*
-contains functions and event listeners for the item popups
+ contains functions and event listeners for the item popups
  */
 
 //variable to store the item currently open in the item panel
 var currentPopupItemContainer;
+var currentStorageInfo;
+var currentExpireInfo;
+var currentStorageInfoTwitter;
+var currentExpireInfoTwitter;
+var currentProperName;
+var noInfo = "We don't have any info for this item. Sorry.\nHave tips you would like to see here? <a href='https://www.whatsinmyfridge.ca/index.html#contact'>Contact us.</a>"
+
+var options = {
+    contenturl: 'https://whatsinmyfridge.ca',
+    clientid: '981344901205-o9q6bjjcc533o61ehgmr0o451nsnsdbo.apps.googleusercontent.com',
+    cookiepolicy: 'single_host_origin',
+    prefilltext: '!!!!',
+    calltoactionlabel: 'SIGN_UP',
+    calltoactionurl: 'http://whatsinmyfridge.ca',
+    scope:"https://www.googleapis.com/auth/plus.login"
+};
 
 //event listener to fill the fridge item panel with item info when opened
 $(document).on("click", "#fridge .list-item", function () {
@@ -32,15 +48,15 @@ $(document).on("click", "#fridge .list-item", function () {
             $("#storage").html("");
             $("#expired").html("");
             return firebase.database().ref('/info/' + name).once('value').then(function (snapshot) {
-                if (snapshot.val() != null) {
+                getProperName(name)
+                setTimeout(function () {
+                    currentExpireInfoTwitter = "How to tell if " + currentProperName + " have expired:"
                     fillExpiredInfo(name);
                     fillStorageInfo(name);
                     $("#item-popup").popup("open")
+                }, 100)
 
-                } else {
-                    $("#item-popup").popup("open")
 
-                }
             })
 
         })
@@ -71,10 +87,13 @@ $(document).on("click", "#list .list-item", function () {
             $("#storage").html("");
             $("#expired").html("");
             return firebase.database().ref('/info/' + name).once('value').then(function (snapshot) {
-                if (snapshot.val() != null) {
+                getProperName(name)
+                setTimeout(function () {
+                    currentExpireInfoTwitter = "How to tell if " + currentProperName + " have expired:"
                     fillExpiredInfoList(name);
                     fillStorageInfoList(name);
-                }
+                }, 100)
+
             })
 
         })
@@ -84,66 +103,134 @@ $(document).on("click", "#list .list-item", function () {
 
 //fills the expired info tab fridge page
 function fillExpiredInfo(name) {
+    currentExpireInfo = ""
     return firebase.database().ref('/info/' + name + '/expire/').orderByValue().once('value').then(function (snapshot) {
-        snapshot.forEach(function (snapshot) {
-            getExpiredInfo(snapshot.key)
-        })
-    })
+        if (snapshot.exists()) {
+            $("#expired").html("")
+            snapshot.forEach(function (snapshot) {
+                getExpiredInfo(snapshot.key)
+            })
+            setTimeout(function () {
+                $("#expired").append(currentExpireInfo)
+                options.prefilltext = currentExpireInfoTwitter
+                $("#expired").append('<span id="expire-gplus" class="gplus g-interactivepost" data-contenturl="https://whatsinmyfridge.ca" data-clientid="981344901205-o9q6bjjcc533o61ehgmr0o451nsnsdbo.apps.googleusercontent.com" data-cookiepolicy="single_host_origin" data-prefilltext="Engage your users today, create a Google+ page for your business." data-calltoactionlabel="SIGN_UP" data-calltoactionurl="https://whatsinmyfridge.ca">  <span class="icon">&nbsp;</span>  <span class="label">Share on Google+</span>  </span>')
+                gapi.interactivepost.render("expire-gplus", options)
 
+            }, 500)
+        } else {
+            $("#expired").html(noInfo)
+        }
+    })
 }
 //fills the storage info tab fridge page
 function fillStorageInfo(name) {
+    currentStorageInfo = ""
+    setTimeout(function () {
+        currentStorageInfoTwitter = "Storage tips for " + currentProperName + ":"
+    }, 100)
     return firebase.database().ref('/info/' + name + '/storage/').orderByValue().once('value').then(function (snapshot) {
-        snapshot.forEach(function (snapshot) {
-            getStorageInfo(snapshot.key)
-        })
+        if (snapshot.exists()) {
+            $("#storage").html("")
+            snapshot.forEach(function (snapshot) {
+                getStorageInfo(snapshot.key)
+            })
+            setTimeout(function () {
+                $("#storage").append(currentStorageInfo)
+                options.prefilltext = currentStorageInfoTwitter
+                $("#storage").append('<span id="storage-gplus" class="gplus g-interactivepost" data-contenturl="https://whatsinmyfridge.ca" data-clientid="981344901205-o9q6bjjcc533o61ehgmr0o451nsnsdbo.apps.googleusercontent.com" data-cookiepolicy="single_host_origin" data-prefilltext="Engage your users today, create a Google+ page for your business." data-calltoactionlabel="SIGN_UP" data-calltoactionurl="https://whatsinmyfridge.ca">  <span class="icon">&nbsp;</span>  <span class="label">Share on Google+</span>  </span>')
+                gapi.interactivepost.render("storage-gplus", options)
+            }, 500)
+        } else {
+            $("#storage").html(noInfo)
+        }
     })
+}
+function getProperName(name) {
+    return firebase.database().ref('/info/' + name + '/properName/').once('value').then(function (snapshot) {
+        currentProperName = snapshot.val()
 
+    })
 }
 //fills the expired info tab list page
-function fillExpiredInfoList(name) {
-    return firebase.database().ref('/info/' + name + '/expire/').orderByValue().once('value').then(function (snapshot) {
-        snapshot.forEach(function (snapshot) {
-            getExpiredInfoList(snapshot.key)
-        })
-    })
 
+function fillExpiredInfoList(name) {
+    currentExpireInfo = ""
+    return firebase.database().ref('/info/' + name + '/expire/').orderByValue().once('value').then(function (snapshot) {
+        if (snapshot.exists()) {
+            $("#expired2").html("")
+            snapshot.forEach(function (snapshot) {
+                getExpiredInfoList(snapshot.key)
+            })
+            setTimeout(function () {
+                $("#expired2").append(currentExpireInfo)
+                options.prefilltext = currentExpireInfoTwitter
+                $("#expired2").append('<span id="expire2-gplus" class="gplus g-interactivepost" data-contenturl="https://whatsinmyfridge.ca" data-clientid="981344901205-o9q6bjjcc533o61ehgmr0o451nsnsdbo.apps.googleusercontent.com" data-cookiepolicy="single_host_origin" data-prefilltext="Engage your users today, create a Google+ page for your business." data-calltoactionlabel="SIGN_UP" data-calltoactionurl="https://whatsinmyfridge.ca">  <span class="icon">&nbsp;</span>  <span class="label">Share on Google+</span>  </span>')
+                gapi.interactivepost.render("expire2-gplus", options)
+            }, 500)
+        } else {
+            $("#expired2").html(noInfo)
+        }
+    })
 }
 //fills the storage info tab list page
 function fillStorageInfoList(name) {
+    currentStorageInfo = ""
+    setTimeout(function () {
+        currentStorageInfoTwitter = "Storage tips for " + currentProperName + ":"
+    }, 100)
     return firebase.database().ref('/info/' + name + '/storage/').orderByValue().once('value').then(function (snapshot) {
-        snapshot.forEach(function (snapshot) {
-            getStorageInfoList(snapshot.key)
-        })
+        if (snapshot.exists()) {
+            $("#storage2").html("")
+            snapshot.forEach(function (snapshot) {
+                getStorageInfoList(snapshot.key)
+            })
+            setTimeout(function () {
+                $("#storage2").append(currentStorageInfo)
+                options.prefilltext = currentStorageInfoTwitter
+                $("#storage2").append('<span id="storage2-gplus" class="gplus g-interactivepost" data-contenturl="https://whatsinmyfridge.ca" data-clientid="981344901205-o9q6bjjcc533o61ehgmr0o451nsnsdbo.apps.googleusercontent.com" data-cookiepolicy="single_host_origin" data-prefilltext="Engage your users today, create a Google+ page for your business." data-calltoactionlabel="SIGN_UP" data-calltoactionurl="https://whatsinmyfridge.ca">  <span class="icon">&nbsp;</span>  <span class="label">Share on Google+</span>  </span>')
+                gapi.interactivepost.render("storage2-gplus", options)
+            }, 500)
+        } else {
+            $("#storage2").html(noInfo)
+        }
     })
-
 }
-
 //gets the info for the expired info tab fridge page
 function getExpiredInfo(expireKey) {
     return firebase.database().ref('/expireInfo/' + expireKey).orderByValue().once('value').then(function (snapshot) {
-        $("#expired").html($("#expired").html() + "<p>" + snapshot.val() + "</p>")
+        currentExpireInfo += "<p>" + snapshot.val() + "</p>"
+        currentExpireInfoTwitter += "\n" + snapshot.val()
+
+
     })
 }
 //gets the info for the storage tab fridge page
 function getStorageInfo(storageKey) {
     return firebase.database().ref('/storageInfo/' + storageKey).orderByValue().once('value').then(function (snapshot) {
-        $("#storage").html($("#storage").html() + "<p>" + snapshot.val() + "</p>")
+        currentStorageInfo += "<p>" + snapshot.val() + "</p>"
+        currentStorageInfoTwitter += "\n" + snapshot.val()
+
+
     })
 }
 //gets the info for the expired info tab list page
 function getExpiredInfoList(expireKey) {
     return firebase.database().ref('/expireInfo/' + expireKey).orderByValue().once('value').then(function (snapshot) {
-        $("#expired2").html($("#expired2").html() + "<p>" + snapshot.val() + "</p>")
+        currentExpireInfo += "<p>" + snapshot.val() + "</p>"
+        currentExpireInfoTwitter += "\n" + snapshot.val()
+
+
     })
 }
 //gets the info for the storage tab list page
 function getStorageInfoList(storageKey) {
     return firebase.database().ref('/storageInfo/' + storageKey).orderByValue().once('value').then(function (snapshot) {
-        $("#storage2").html($("#storage2").html() + "<p>" + snapshot.val() + "</p>")
+        currentStorageInfo += "<p>" + snapshot.val() + "</p>"
+        currentStorageInfoTwitter += "\n" + snapshot.val()
+
+
     })
 }
-
 //resets the fridge fields when the popup closes
 $("#item-popup").on("popupafterclose", function (event, ui) {
     $("#item-popup-form").trigger("reset")

@@ -1,3 +1,9 @@
+h1, h2, h3, h4, h5, h6, p, div{
+    font-family: "Raleway"; !important;
+}
+header .intro-text .name{
+    font-family: "Raleway"; !important;
+}
 #banner-img{
     height: 75px;
     float:  left;
@@ -25,13 +31,26 @@ header{
 #sign-up-link{
     text-decoration: none;
 }
-nav#mainNav{
-    background-color: #3d7cb3;
-}
 span.skills{
+    text-shadow: black 2px 2px 8px, black -2px -2px 8px, black -2px 2px 8px;
+}
+h1.name{
+    text-shadow: black 2px 2px 8px, black -2px -2px 8px, black -2px 2px 8px;
+}
+h3{
     text-shadow: black 2px 2px 8px, black -2px -2px 8px, black -2px 2px 8px;
 }
 h3#sign-up{
     color: #18BC9C;
     text-shadow: black 2px 2px 8px, black -4px -4px 8px, black -4px 4px 8px;
+}
+button.navbar-toggle{
+    margin-top: 20px;
+}
+#portfolio img{
+    display: block;
+    max-width: 520px;
+    max-height: 300px;
+    width: auto;
+    height: auto;
 }
