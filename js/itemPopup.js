@@ -75,7 +75,7 @@ $(document).on("click", "#list .list-item", function () {
             var units = snapshot.val().units;
             var price = snapshot.val().price;
             $("#item-popup-name-list").val(name);
-            $("#item-popup .item-popup-expires-list").html("Purchased: " + new Date(date).toDateString())
+            $("#item-popup2 .item-popup-expires-list").html("Added on: " + new Date(date).toDateString())
             if (snapshot.hasChild("quantity")) {
                 $("#item-popup-quantity-list").val(quantity);
                 $("#quantity-options-item-list").val(units).selectmenu("refresh")
