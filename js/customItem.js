@@ -1,12 +1,15 @@
 //Closes popup when the cancel button is clicked
 $(document).on("click", "#custom-cancel-button", function () {
     $("#custom-database").popup("close")
+    $("#custom-database-popup form").trigger("reset");
+
 });
 
 //Adds custom item to database when the confirm button is clicked
 $(document).on("click", "#custom-confirm-button", function () {
     if(addCustomItemValidate()){
         addCustomItem();
+        $("#custom-database-popup form").trigger("reset");
     }
 });
 
@@ -31,7 +34,7 @@ function addCustomItem(){
             $("#custom-database").popup("close")
             setTimeout(function(){
                 $("#added-item").popup("open")
-            }, 300)
+            }, 500)
         })
     })
 }
